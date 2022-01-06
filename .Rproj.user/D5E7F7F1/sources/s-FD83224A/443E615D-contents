@@ -1,0 +1,24 @@
+bookdown::gitbook:
+  css: style.css
+  include:
+    after_body: webex.js
+  config:
+    toc:
+      collapse: section
+      before: |
+        <li><a href="./">Introduction to R</a></li>
+      after: "<li><a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"
+        \n    target=\"blank\"><img alt=\"Creative Commons License\" \n    style=\"border-width:0\"
+        \n    src=\"https://i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><li>\n<li><a
+        href=\"https://github.com/rstudio/bookdown\" target=\"blank\">Published with
+        bookdown</a></li>"
+bookdown::bs4_book:
+  df_print: kable
+  theme:
+    primary: '#0d6efd'
+  lib_dir: libs
+  split_bib: no
+  css: include/webex.css
+  includes:
+    after_body: include/webex.js
+  md_extensions: -smart

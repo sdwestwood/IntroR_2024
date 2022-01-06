@@ -106,14 +106,14 @@ pre:not(.sourceCode) code {
 .webex-radiogroup label.webex-incorrect{
     border-width: 2px; 
     border-style: dotted; 
-    background-color: #ff6161; 
+    border-color: #ff6161; 
     border-radius: 0.25em;
 }
 .webex-correct,
 .webex-radiogroup label.webex-correct {
     border-width: 2px; 
     border-style: solid; 
-    background-color: #6b8f24;
+    border-color: #6b8f24;
     border-radius: 0.25em;
 }
 /* styles for hidden solutions */
