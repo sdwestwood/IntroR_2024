@@ -1,0 +1,254 @@
+h1:about-this-course About this course
+h2:intended-learning-outcomes Intended Learning Outcomes
+h2:what-will-i-need-to-complete-this-course What will I need to complete this course?
+h2:about-the-assessments About the Assessments
+h3:formative-assessments Formative Assessments
+h3:summative-assessments Summative Assessments
+h4:schedule-of-summative-assessments Schedule of summative assessments
+h3:late-submissions-extensions Late submissions & extensions
+h3:how-to-submit-your-assessments How to Submit Your Assessments
+h2:assistance Assistance
+h2:why-are-these-materials-open Why are these materials open?
+h2:acknowledgement Acknowledgement
+h1:before Assignment before starting the course
+h2:accessing Access to RStudio
+h3:install Installing R and RStudio on Your Own Machine
+h4:first-install-r First: Install R
+h4:second-install-rstudio Second: Install RStudio
+h4:opening-rstudio Opening RStudio
+h3:accessing-rstudio-on-university-computers Accessing RStudio on University Computers
+h3:using-rstudio-cloud Using RStudio Cloud
+h4:downloading-your-files-from-rstudio-cloud Downloading Your Files from RStudio Cloud
+h2:maximising-reproducibility-and-visibility Maximising Reproducibility and Visibility
+h1:introduction Introduction
+h2:intended-learning-outcomes-1 Intended Learning Outcomes
+h2:computer-literacy-basics Computer Literacy Basics
+h2:r-and-r-studio R and R Studio
+h3:r R
+h3:rstudio-ide RStudio IDE
+h4:console Console
+h4:environmenthistoryconnections Environment/History/Connections
+h4:filesplotspackageshelpviewer Files/Plots/Packages/Help/Viewer
+h2:r-r-studio-and-associated-file-types R, R Studio and Associated File Types
+h3:file-structuredirectories File Structure/Directories
+h3:file-extensions File Extensions
+h3:zip-files .zip Files
+h3:rstudio-specific-files RStudio Specific Files
+h3:r-files .r Files
+h3:rmd-files .Rmd files
+h4:code-chunks Code Chunks
+h2:comments Comments
+h2:saving-your-file Saving your file
+h2:sessions Sessions
+h3:what-is-a-session-in-r What is a session in R?
+h3:restarting-your-current-session Restarting Your Current Session
+h2:packages Packages
+h3:installing-packages Installing Packages
+h4:install-tidyverse What is Tidyverse?
+h4:install.packages 
+h3:load-tidyverse Loading Packages
+h2:functions Functions
+h3:what-is-a-function What is a function?
+h3:the-anatomy-of-a-function-names-and-arguments The Anatomy of a Function: names and arguments
+h2:formative-homework Formative Homework
+h3:install-r-and-rstudio-on-your-personal-computer Install R and RStudio on your personal computer
+h3:installing-and-loading-tidyverse Installing and Loading tidyverse
+h1:introduction-to-data Introduction to Data
+h2:intended-learning-outcomes-2 Intended Learning Outcomes
+h2:pre-steps Pre-Steps
+h3:downloading-materials Downloading materials
+h3:unzipping-the-zip-folder Unzipping the zip folder
+h3:setting-the-working-directory Setting the working directory
+h3:load-tidyverse-into-the-library Load tidyverse into the library
+h2:basic-data-types Basic data types
+h3:character Character
+h3:numeric Numeric
+h3:logical Logical
+h2:vectors Vectors
+h3:creating-vectors Creating vectors
+h3:converting-vectors-into-different-data-types-of-vectors-aka-funky-things-we-can-do Converting vectors into different data types of vectors aka funky things we can do
+h3:adding-elements-to-existing-vectors Adding elements to existing vectors
+h2:tibble---the-new-way-of-creating-a-dataframe Tibble - the new way of creating a dataframe
+h3:what-the-heck-is-a-tibble-do-you-mean-table What the heck is a tibble? Do you mean table?
+h3:how-to-make-a-tibble-from-scratch How to make a tibble from scratch
+h2:reading-in-data Reading in data
+h3:from-pre-existing-databases from pre-existing databases
+h3:from-existing-data-files from existing data files
+h2:last-point-for-today Last point for today
+h2:summative-homework Summative Homework
+h1:data-transformation-1-basic-one-table-verbs Data Transformation 1: Basic One Table Verbs
+h2:intended-learning-outcomes-3 Intended Learning Outcomes
+h2:data-wrangling Data Wrangling
+h2:pre-steps-1 Pre-Steps
+h3:downloading-materials-1 Downloading materials
+h3:unzipping-the-zip-folder-1 Unzipping the zip folder
+h3:setting-the-working-directory-1 Setting the working directory
+h3:loading-in-the-required-packages-into-the-library Loading in the required packages into the library
+h3:read-in-the-data Read in the data
+h3:view-the-data View the data
+h2:select select()
+h2:arrange arrange()
+h2:filter filter()
+h3:single-criterion Single criterion
+h3:multiple-criteria Multiple criteria
+h2:mutate mutate()
+h3:read-in-second-dataset Read in second dataset
+h2:summarise summarise()
+h2:adding-group_by Adding group_by()
+h2:formative-homework-1 Formative Homework
+h3:brief-introduction-to-the-homework-data Brief introduction to the homework data
+h1:data-transformation-2-more-one-and-two-table-verbs Data Transformation 2: More One and Two Table Verbs
+h2:intended-learning-outcomes-4 Intended Learning Outcomes
+h2:pre-steps-2 Pre-Steps
+h2:practicing-the-wikham-six Practicing the Wikham Six
+h3:select-1 select()
+h3:arrange-1 arrange()
+h3:filter-1 filter()
+h3:mutate-1 mutate()
+h3:group_by-and-summarise group_by() and summarise()
+h3:bringing-it-all-together Bringing it all together
+h2:pipes The pipe operator (%>%)
+h2:two-table-verbs Two-Table Verbs
+h3:bringing-in-new-data Bringing in new data
+h4:whats-the-data What’s the data
+h3:mutating-join-verbs Mutating Join Verbs
+h4:inner_join inner_join()
+h4:left_join left_join()
+h4:right_join right_join()
+h4:full_join full_join()
+h3:mutating-join-summary Mutating Join Summary
+h3:binding-join-verbs Binding Join Verbs
+h4:bind_rows bind_rows()
+h4:bind_cols bind_cols()
+h2:additional-information Additional information
+h2:summative-homework-1 Summative Homework
+h1:data-transformation-3-tidy-data Data Transformation 3: Tidy Data
+h2:intended-learning-outcomes-5 Intended Learning Outcomes
+h2:pre-steps-3 Pre-steps
+h2:tidy-data Tidy data
+h2:gather-and-spread gather() and spread()
+h3:gather gather()
+h3:spread spread()
+h2:separate-and-unite separate() and unite()
+h3:separate separate()
+h3:additional-arguments-for-separate additional arguments for separate()
+h4:retaining-the-original-column Retaining the original column
+h4:dropping-parts-of-the-original-column Dropping parts of the original column
+h4:separating-by-position Separating by position
+h4:separating-into-more-than-2-columns Separating into more than 2 columns
+h4:converting-data-types Converting data types
+h3:unite unite()
+h3:additional-arguments-for-unite additional arguments for unite()
+h4:retaining-the-original-column-1 Retaining the original column
+h4:removing-missing-values-before-uniting-columns Removing missing values before uniting columns
+h2:bonus-materials-mutate-row-names-from-the-mtcars Bonus materials: mutate row names from the 
+h2:additional-information-1 Additional information
+h2:formative-homework-2 Formative Homework
+h1:data-transformation-4-fine-tuned-data-manipulation Data Transformation 4: Fine-tuned Data Manipulation
+h2:intended-learning-outcomes-6 Intended Learning Outcomes
+h2:pre-steps-4 Pre-steps
+h2:rename rename()
+h2:conditional-statements Conditional statements
+h3:recode recode()
+h3:ifelse ifelse()
+h3:case_when case_when()
+h2:distinct distinct()
+h2:recap Recap
+h3:question-1 Question 1
+h3:question-2 Question 2
+h3:question-3 Question 3
+h3:question-4 Question 4
+h3:question-5 Question 5
+h2:summative-homework-2 Summative Homework
+h1:data-visualisation-1 Data Visualisation 1
+h2:pre-class-activities Pre-class Activities
+h2:intended-learning-outcomes-7 Intended Learning Outcomes
+h2:pre-steps-5 Pre-steps
+h2:introduction-to-the-data Introduction to the data
+h2:some-warm-up-tasks Some warm-up tasks
+h2:the-package-ggplot2 The package GGPLOT2
+h2:layering Layering
+h3:layer-1 Layer 1
+h3:layer-2-and-onward Layer 2 and onward
+h2:how-do-we-choose-the-type-of-plot How do we choose the type of plot?
+h3:data-format Data format
+h4:continuous Continuous
+h4:categorical Categorical
+h3:number-of-variables Number of variables
+h3:types-of-plots Types of plots
+h3:groupings Groupings
+h4:more-groupings More groupings
+h2:now-lets-have-a-look-at-different-plots-with-more-complexity Now let’s have a look at different plots with more complexity
+h2:other-plots Other plots
+h2:formative-homework-3 Formative Homework
+h1:data-visualisation-2 Data Visualisation 2
+h2:additional-resources Additional Resources
+h2:intended-learning-outcomes-8 Intended Learning Outcomes
+h2:pre-steps-6 Pre-steps
+h2:re-introduction-to-the-data Re-introduction to the data
+h2:create-multiple-plots-in-one Create multiple plots in one
+h3:select-the-data-beforehand-and-create-different-plots. Select the data beforehand and create different plots.
+h3:facets Facets
+h2:global-and-local-aesthetics Global and Local aesthetics
+h2:themes-making-your-plots-pretty-looking-the-way-you-want-them-to Themes: Making your plots pretty: looking the way you want them to
+h3:ready-made-themes Ready-made themes
+h3:adding-axes-titles-and-headings Adding axes titles and headings
+h2:changing-colours Changing colours
+h2:legends Legends
+h2:changing-axes-ticks Changing axes ticks
+h2:saving-plots Saving plots
+h2:summative-homework-3 Summative Homework
+h1:errors Errors
+h2:intended-learning-outcomes-9 Intended Learning Outcomes
+h2:errors-how-to-avoid-some-and-live-through-the-rest Errors: How to avoid some and live through the rest
+h2:debugging Debugging
+h3:messages-from-r Messages from R
+h3:error-messages Error Messages
+h4:could-not-find-function-1 Could not find function: 1
+h4:could-not-find-function-2 Could not find function: 2
+h4:unexpected Unexpected 
+h4:not-in-current-working-directory Not in current working directory
+h4:could-not-find-object Could not find object
+h4:code-wont-run-in-the-console Code won’t run, + in the console
+h3:multiple-errors Multiple Errors
+h3:finding-errors-in-longer-code-segments Finding errors in longer code segments
+h4:errors-in-pipes Errors in Pipes
+h4:errors-in-ggplot Errors in ggplot()
+h5:stat_smooth-requires-the-following-missing-aesthetics-y stat_smooth requires the following missing aesthetics: y
+h5:cannot-add-ggproto-objects-together.-did-you-forget-to-add-this-object-to-a-ggplot-object Cannot add ggproto objects together. Did you forget to add this object to a ggplot object?
+h5:stat_count-must-not-be-used-with-a-y-aesthetic. stat_count() must not be used with a y aesthetic.
+h3:warning-messages Warning Messages
+h3:other-messages Other Messages
+h2:searching-for-help-online Searching for Help Online
+h3:googling-it Googling It
+h3:stack-overflow Stack Overflow
+h3:youtube YouTube
+h3:further-reading Further Reading
+h2:formative-exercises Formative Exercises
+h1:recap-before-the-final-assessment Recap: Before the final assessment
+h2:outline-for-today Outline for today
+h2:lecture-10-bringing-your-skills-together Lecture 10: Bringing your skills together
+h3:question-1-1 Question 1
+h3:question-2-1 Question 2
+h3:question-3-1 Question 3
+h3:question-4-1 Question 4
+h3:question-5-1 Question 5
+h3:question-6 Question 6
+h3:question-7 Question 7
+h3:question-8 Question 8
+h3:question-9 Question 9
+h3:question-10 Question 10
+h3:question-11 Question 11
+h3:question-12-bonus Question 12 (Bonus)
+h3:question-13-bonus Question 13 (Bonus)
+h3:question-14-bonus Question 14 (Bonus)
+h2:solutions Solutions
+h1:appendices Appendices
+h2:changing-the-appearance-of-rmarkdown Changing the Appearance of RMarkdown
+h2:source-materials Source Materials
+h2:further-reading-1 Further Reading
+h3:statistics Statistics
+h4:learning-the-general-linear-model Learning the General Linear Model
+h3:more-advanced-use-of-r More Advanced Use of R
+h1:references References
+

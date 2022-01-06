@@ -1,0 +1,26 @@
+h1:data-transformation-2-more-one-and-two-table-verbs Data Transformation 2: More One and Two Table Verbs
+h2:intended-learning-outcomes Intended Learning Outcomes
+h2:pre-steps Pre-Steps
+h2:practicing-the-wikham-six Practicing the Wikham Six
+h3:select select()
+h3:arrange arrange()
+h3:filter filter()
+h3:mutate mutate()
+h3:group_by-and-summarise group_by() and summarise()
+h3:bringing-it-all-together Bringing it all together
+h2:pipes The pipe operator (%>%)
+h2:two-table-verbs Two-Table Verbs
+h3:bringing-in-new-data Bringing in new data
+h4:whats-the-data What’s the data
+h3:mutating-join-verbs Mutating Join Verbs
+h4:inner_join inner_join()
+h4:left_join left_join()
+h4:right_join right_join()
+h4:full_join full_join()
+h3:mutating-join-summary Mutating Join Summary
+h3:binding-join-verbs Binding Join Verbs
+h4:bind_rows bind_rows()
+h4:bind_cols bind_cols()
+h2:additional-information Additional information
+h2:summative-homework Summative Homework
+

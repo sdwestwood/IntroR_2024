@@ -1,0 +1,28 @@
+h1:errors Errors
+h2:intended-learning-outcomes Intended Learning Outcomes
+h2:errors-how-to-avoid-some-and-live-through-the-rest Errors: How to avoid some and live through the rest
+h2:debugging Debugging
+h3:messages-from-r Messages from R
+h3:error-messages Error Messages
+h4:could-not-find-function-1 Could not find function: 1
+h4:could-not-find-function-2 Could not find function: 2
+h4:unexpected Unexpected 
+h4:not-in-current-working-directory Not in current working directory
+h4:could-not-find-object Could not find object
+h4:code-wont-run-in-the-console Code won’t run, + in the console
+h3:multiple-errors Multiple Errors
+h3:finding-errors-in-longer-code-segments Finding errors in longer code segments
+h4:errors-in-pipes Errors in Pipes
+h4:errors-in-ggplot Errors in ggplot()
+h5:stat_smooth-requires-the-following-missing-aesthetics-y stat_smooth requires the following missing aesthetics: y
+h5:cannot-add-ggproto-objects-together.-did-you-forget-to-add-this-object-to-a-ggplot-object Cannot add ggproto objects together. Did you forget to add this object to a ggplot object?
+h5:stat_count-must-not-be-used-with-a-y-aesthetic. stat_count() must not be used with a y aesthetic.
+h3:warning-messages Warning Messages
+h3:other-messages Other Messages
+h2:searching-for-help-online Searching for Help Online
+h3:googling-it Googling It
+h3:stack-overflow Stack Overflow
+h3:youtube YouTube
+h3:further-reading Further Reading
+h2:formative-exercises Formative Exercises
+

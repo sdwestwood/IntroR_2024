@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Data Transformation 1: Basic One Table Verbs | Introduction to R</title>
+  <meta name="description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2019-2020." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Data Transformation 1: Basic One Table Verbs | Introduction to R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2019-2020." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Data Transformation 1: Basic One Table Verbs | Introduction to R" />
+  
+  <meta name="twitter:description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2019-2020." />
+  
+
+<meta name="author" content="Gaby Mahrholz, Greta Todorova, Wilhelmiina Toivo, and Jaimie Torrance" />
+
+
+<meta name="date" content="2022-01-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introduction-to-data.html"/>
+<link rel="next" href="data-transformation-2-more-one-and-two-table-verbs.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introduction to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About this course</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#intended-learning-outcomes"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-will-i-need-to-complete-this-course"><i class="fa fa-check"></i>What will I need to complete this course?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-assessments"><i class="fa fa-check"></i>About the Assessments</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#formative-assessments"><i class="fa fa-check"></i>Formative Assessments</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#summative-assessments"><i class="fa fa-check"></i>Summative Assessments</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#late-submissions-extensions"><i class="fa fa-check"></i>Late submissions &amp; extensions</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-submit-your-assessments"><i class="fa fa-check"></i>How to Submit Your Assessments</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#assistance"><i class="fa fa-check"></i>Assistance</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-are-these-materials-open"><i class="fa fa-check"></i>Why are these materials open?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgement"><i class="fa fa-check"></i>Acknowledgement</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="before.html"><a href="before.html"><i class="fa fa-check"></i>Assignment before starting the course</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="before.html"><a href="before.html#accessing"><i class="fa fa-check"></i><b>0.1</b> Access to RStudio</a>
+<ul>
+<li class="chapter" data-level="0.1.1" data-path="before.html"><a href="before.html#install"><i class="fa fa-check"></i><b>0.1.1</b> Installing R and RStudio on Your Own Machine</a></li>
+<li class="chapter" data-level="0.1.2" data-path="before.html"><a href="before.html#accessing-rstudio-on-university-computers"><i class="fa fa-check"></i><b>0.1.2</b> Accessing RStudio on University Computers</a></li>
+<li class="chapter" data-level="0.1.3" data-path="before.html"><a href="before.html#using-rstudio-cloud"><i class="fa fa-check"></i><b>0.1.3</b> Using RStudio Cloud</a></li>
+</ul></li>
+<li class="chapter" data-level="0.2" data-path="before.html"><a href="before.html#maximising-reproducibility-and-visibility"><i class="fa fa-check"></i><b>0.2</b> Maximising Reproducibility and Visibility</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#intended-learning-outcomes-1"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#computer-literacy-basics"><i class="fa fa-check"></i><b>1.1</b> Computer Literacy Basics</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#r-and-r-studio"><i class="fa fa-check"></i><b>1.2</b> R and R Studio</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#r"><i class="fa fa-check"></i><b>1.2.1</b> R</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#rstudio-ide"><i class="fa fa-check"></i><b>1.2.2</b> RStudio IDE</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#r-r-studio-and-associated-file-types"><i class="fa fa-check"></i><b>1.3</b> R, R Studio and Associated File Types</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="introduction.html"><a href="introduction.html#file-structuredirectories"><i class="fa fa-check"></i><b>1.3.1</b> File Structure/Directories</a></li>
+<li class="chapter" data-level="1.3.2" data-path="introduction.html"><a href="introduction.html#file-extensions"><i class="fa fa-check"></i><b>1.3.2</b> File Extensions</a></li>
+<li class="chapter" data-level="1.3.3" data-path="introduction.html"><a href="introduction.html#zip-files"><i class="fa fa-check"></i><b>1.3.3</b> .zip Files</a></li>
+<li class="chapter" data-level="1.3.4" data-path="introduction.html"><a href="introduction.html#rstudio-specific-files"><i class="fa fa-check"></i><b>1.3.4</b> RStudio Specific Files</a></li>
+<li class="chapter" data-level="1.3.5" data-path="introduction.html"><a href="introduction.html#r-files"><i class="fa fa-check"></i><b>1.3.5</b> .r Files</a></li>
+<li class="chapter" data-level="1.3.6" data-path="introduction.html"><a href="introduction.html#rmd-files"><i class="fa fa-check"></i><b>1.3.6</b> .Rmd files</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#comments"><i class="fa fa-check"></i><b>1.4</b> Comments</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#saving-your-file"><i class="fa fa-check"></i><b>1.5</b> Saving your file</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#sessions"><i class="fa fa-check"></i><b>1.6</b> Sessions</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="introduction.html"><a href="introduction.html#what-is-a-session-in-r"><i class="fa fa-check"></i><b>1.6.1</b> What is a session in R?</a></li>
+<li class="chapter" data-level="1.6.2" data-path="introduction.html"><a href="introduction.html#restarting-your-current-session"><i class="fa fa-check"></i><b>1.6.2</b> Restarting Your Current Session</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="introduction.html"><a href="introduction.html#packages"><i class="fa fa-check"></i><b>1.7</b> Packages</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="introduction.html"><a href="introduction.html#installing-packages"><i class="fa fa-check"></i><b>1.7.1</b> Installing Packages</a></li>
+<li class="chapter" data-level="1.7.2" data-path="introduction.html"><a href="introduction.html#load-tidyverse"><i class="fa fa-check"></i><b>1.7.2</b> Loading Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="introduction.html"><a href="introduction.html#functions"><i class="fa fa-check"></i><b>1.8</b> Functions</a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="introduction.html"><a href="introduction.html#what-is-a-function"><i class="fa fa-check"></i><b>1.8.1</b> What is a function?</a></li>
+<li class="chapter" data-level="1.8.2" data-path="introduction.html"><a href="introduction.html#the-anatomy-of-a-function-names-and-arguments"><i class="fa fa-check"></i><b>1.8.2</b> The Anatomy of a Function: names and arguments</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="introduction.html"><a href="introduction.html#formative-homework"><i class="fa fa-check"></i><b>1.9</b> Formative Homework</a>
+<ul>
+<li class="chapter" data-level="1.9.1" data-path="introduction.html"><a href="introduction.html#install-r-and-rstudio-on-your-personal-computer"><i class="fa fa-check"></i><b>1.9.1</b> Install R and RStudio on your personal computer</a></li>
+<li class="chapter" data-level="1.9.2" data-path="introduction.html"><a href="introduction.html#installing-and-loading-tidyverse"><i class="fa fa-check"></i><b>1.9.2</b> Installing and Loading tidyverse</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introduction-to-data.html"><a href="introduction-to-data.html"><i class="fa fa-check"></i><b>2</b> Introduction to Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction-to-data.html"><a href="introduction-to-data.html#intended-learning-outcomes-2"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="2.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#pre-steps"><i class="fa fa-check"></i><b>2.1</b> Pre-Steps</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#downloading-materials"><i class="fa fa-check"></i><b>2.1.1</b> Downloading materials</a></li>
+<li class="chapter" data-level="2.1.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#unzipping-the-zip-folder"><i class="fa fa-check"></i><b>2.1.2</b> Unzipping the zip folder</a></li>
+<li class="chapter" data-level="2.1.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#setting-the-working-directory"><i class="fa fa-check"></i><b>2.1.3</b> Setting the working directory</a></li>
+<li class="chapter" data-level="2.1.4" data-path="introduction-to-data.html"><a href="introduction-to-data.html#load-tidyverse-into-the-library"><i class="fa fa-check"></i><b>2.1.4</b> Load tidyverse into the library</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#basic-data-types"><i class="fa fa-check"></i><b>2.2</b> Basic data types</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#character"><i class="fa fa-check"></i><b>2.2.1</b> Character</a></li>
+<li class="chapter" data-level="2.2.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#numeric"><i class="fa fa-check"></i><b>2.2.2</b> Numeric</a></li>
+<li class="chapter" data-level="2.2.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#logical"><i class="fa fa-check"></i><b>2.2.3</b> Logical</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#vectors"><i class="fa fa-check"></i><b>2.3</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#creating-vectors"><i class="fa fa-check"></i><b>2.3.1</b> Creating vectors</a></li>
+<li class="chapter" data-level="2.3.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#converting-vectors-into-different-data-types-of-vectors-aka-funky-things-we-can-do"><i class="fa fa-check"></i><b>2.3.2</b> Converting vectors into different data types of vectors aka funky things we can do</a></li>
+<li class="chapter" data-level="2.3.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#adding-elements-to-existing-vectors"><i class="fa fa-check"></i><b>2.3.3</b> Adding elements to existing vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="introduction-to-data.html"><a href="introduction-to-data.html#tibble---the-new-way-of-creating-a-dataframe"><i class="fa fa-check"></i><b>2.4</b> Tibble - the new way of creating a dataframe</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#what-the-heck-is-a-tibble-do-you-mean-table"><i class="fa fa-check"></i><b>2.4.1</b> What the heck is a tibble? Do you mean table?</a></li>
+<li class="chapter" data-level="2.4.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#how-to-make-a-tibble-from-scratch"><i class="fa fa-check"></i><b>2.4.2</b> How to make a tibble from scratch</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="introduction-to-data.html"><a href="introduction-to-data.html#reading-in-data"><i class="fa fa-check"></i><b>2.5</b> Reading in data</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#from-pre-existing-databases"><i class="fa fa-check"></i><b>2.5.1</b> from pre-existing databases</a></li>
+<li class="chapter" data-level="2.5.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#from-existing-data-files"><i class="fa fa-check"></i><b>2.5.2</b> from existing data files</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="introduction-to-data.html"><a href="introduction-to-data.html#last-point-for-today"><i class="fa fa-check"></i><b>2.6</b> Last point for today</a></li>
+<li class="chapter" data-level="2.7" data-path="introduction-to-data.html"><a href="introduction-to-data.html#summative-homework"><i class="fa fa-check"></i><b>2.7</b> Summative Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html"><i class="fa fa-check"></i><b>3</b> Data Transformation 1: Basic One Table Verbs</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#intended-learning-outcomes-3"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="3.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#data-wrangling"><i class="fa fa-check"></i><b>3.1</b> Data Wrangling</a></li>
+<li class="chapter" data-level="3.2" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#pre-steps-1"><i class="fa fa-check"></i><b>3.2</b> Pre-Steps</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#downloading-materials-1"><i class="fa fa-check"></i><b>3.2.1</b> Downloading materials</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#unzipping-the-zip-folder-1"><i class="fa fa-check"></i><b>3.2.2</b> Unzipping the zip folder</a></li>
+<li class="chapter" data-level="3.2.3" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#setting-the-working-directory-1"><i class="fa fa-check"></i><b>3.2.3</b> Setting the working directory</a></li>
+<li class="chapter" data-level="3.2.4" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#loading-in-the-required-packages-into-the-library"><i class="fa fa-check"></i><b>3.2.4</b> Loading in the required packages into the library</a></li>
+<li class="chapter" data-level="3.2.5" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#read-in-the-data"><i class="fa fa-check"></i><b>3.2.5</b> Read in the data</a></li>
+<li class="chapter" data-level="3.2.6" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#view-the-data"><i class="fa fa-check"></i><b>3.2.6</b> View the data</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#select"><i class="fa fa-check"></i><b>3.3</b> select()</a></li>
+<li class="chapter" data-level="3.4" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#arrange"><i class="fa fa-check"></i><b>3.4</b> arrange()</a></li>
+<li class="chapter" data-level="3.5" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#filter"><i class="fa fa-check"></i><b>3.5</b> filter()</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#single-criterion"><i class="fa fa-check"></i><b>3.5.1</b> Single criterion</a></li>
+<li class="chapter" data-level="3.5.2" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#multiple-criteria"><i class="fa fa-check"></i><b>3.5.2</b> Multiple criteria</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#mutate"><i class="fa fa-check"></i><b>3.6</b> mutate()</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#read-in-second-dataset"><i class="fa fa-check"></i><b>3.6.1</b> Read in second dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#summarise"><i class="fa fa-check"></i><b>3.7</b> summarise()</a></li>
+<li class="chapter" data-level="3.8" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#adding-group_by"><i class="fa fa-check"></i><b>3.8</b> Adding group_by()</a></li>
+<li class="chapter" data-level="3.9" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#formative-homework-1"><i class="fa fa-check"></i><b>3.9</b> Formative Homework</a>
+<ul>
+<li class="chapter" data-level="3.9.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#brief-introduction-to-the-homework-data"><i class="fa fa-check"></i><b>3.9.1</b> Brief introduction to the homework data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html"><i class="fa fa-check"></i><b>4</b> Data Transformation 2: More One and Two Table Verbs</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#intended-learning-outcomes-4"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="4.1" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#pre-steps-2"><i class="fa fa-check"></i><b>4.1</b> Pre-Steps</a></li>
+<li class="chapter" data-level="4.2" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#practicing-the-wikham-six"><i class="fa fa-check"></i><b>4.2</b> Practicing the Wikham Six</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#select-1"><i class="fa fa-check"></i><b>4.2.1</b> select()</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#arrange-1"><i class="fa fa-check"></i><b>4.2.2</b> arrange()</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#filter-1"><i class="fa fa-check"></i><b>4.2.3</b> filter()</a></li>
+<li class="chapter" data-level="4.2.4" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#mutate-1"><i class="fa fa-check"></i><b>4.2.4</b> mutate()</a></li>
+<li class="chapter" data-level="4.2.5" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#group_by-and-summarise"><i class="fa fa-check"></i><b>4.2.5</b> group_by() and summarise()</a></li>
+<li class="chapter" data-level="4.2.6" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#bringing-it-all-together"><i class="fa fa-check"></i><b>4.2.6</b> Bringing it all together</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#pipes"><i class="fa fa-check"></i><b>4.3</b> The pipe operator (%&gt;%)</a></li>
+<li class="chapter" data-level="4.4" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#two-table-verbs"><i class="fa fa-check"></i><b>4.4</b> Two-Table Verbs</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#bringing-in-new-data"><i class="fa fa-check"></i><b>4.4.1</b> Bringing in new data</a></li>
+<li class="chapter" data-level="4.4.2" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#mutating-join-verbs"><i class="fa fa-check"></i><b>4.4.2</b> Mutating Join Verbs</a></li>
+<li class="chapter" data-level="4.4.3" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#mutating-join-summary"><i class="fa fa-check"></i><b>4.4.3</b> Mutating Join Summary</a></li>
+<li class="chapter" data-level="4.4.4" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#binding-join-verbs"><i class="fa fa-check"></i><b>4.4.4</b> Binding Join Verbs</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#additional-information"><i class="fa fa-check"></i><b>4.5</b> Additional information</a></li>
+<li class="chapter" data-level="4.6" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#summative-homework-1"><i class="fa fa-check"></i><b>4.6</b> Summative Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html"><i class="fa fa-check"></i><b>5</b> Data Transformation 3: Tidy Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#intended-learning-outcomes-5"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="5.1" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#pre-steps-3"><i class="fa fa-check"></i><b>5.1</b> Pre-steps</a></li>
+<li class="chapter" data-level="5.2" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#tidy-data"><i class="fa fa-check"></i><b>5.2</b> Tidy data</a></li>
+<li class="chapter" data-level="5.3" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#gather-and-spread"><i class="fa fa-check"></i><b>5.3</b> gather() and spread()</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#gather"><i class="fa fa-check"></i><b>5.3.1</b> gather()</a></li>
+<li class="chapter" data-level="5.3.2" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#spread"><i class="fa fa-check"></i><b>5.3.2</b> spread()</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#separate-and-unite"><i class="fa fa-check"></i><b>5.4</b> separate() and unite()</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#separate"><i class="fa fa-check"></i><b>5.4.1</b> separate()</a></li>
+<li class="chapter" data-level="5.4.2" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#additional-arguments-for-separate"><i class="fa fa-check"></i><b>5.4.2</b> additional arguments for separate()</a></li>
+<li class="chapter" data-level="5.4.3" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#unite"><i class="fa fa-check"></i><b>5.4.3</b> unite()</a></li>
+<li class="chapter" data-level="5.4.4" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#additional-arguments-for-unite"><i class="fa fa-check"></i><b>5.4.4</b> additional arguments for unite()</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#bonus-materials-mutate-row-names-from-the-mtcars"><i class="fa fa-check"></i><b>5.5</b> Bonus materials: mutate row names from the <code>mtcars</code></a></li>
+<li class="chapter" data-level="5.6" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#additional-information-1"><i class="fa fa-check"></i><b>5.6</b> Additional information</a></li>
+<li class="chapter" data-level="5.7" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#formative-homework-2"><i class="fa fa-check"></i><b>5.7</b> Formative Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html"><i class="fa fa-check"></i><b>6</b> Data Transformation 4: Fine-tuned Data Manipulation</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#intended-learning-outcomes-6"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="6.1" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#pre-steps-4"><i class="fa fa-check"></i><b>6.1</b> Pre-steps</a></li>
+<li class="chapter" data-level="6.2" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#rename"><i class="fa fa-check"></i><b>6.2</b> rename()</a></li>
+<li class="chapter" data-level="6.3" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#conditional-statements"><i class="fa fa-check"></i><b>6.3</b> Conditional statements</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#recode"><i class="fa fa-check"></i><b>6.3.1</b> recode()</a></li>
+<li class="chapter" data-level="6.3.2" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#ifelse"><i class="fa fa-check"></i><b>6.3.2</b> ifelse()</a></li>
+<li class="chapter" data-level="6.3.3" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#case_when"><i class="fa fa-check"></i><b>6.3.3</b> case_when()</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#distinct"><i class="fa fa-check"></i><b>6.4</b> distinct()</a></li>
+<li class="chapter" data-level="6.5" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#recap"><i class="fa fa-check"></i><b>6.5</b> Recap</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-1"><i class="fa fa-check"></i><b>6.5.1</b> Question 1</a></li>
+<li class="chapter" data-level="6.5.2" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-2"><i class="fa fa-check"></i><b>6.5.2</b> Question 2</a></li>
+<li class="chapter" data-level="6.5.3" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-3"><i class="fa fa-check"></i><b>6.5.3</b> Question 3</a></li>
+<li class="chapter" data-level="6.5.4" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-4"><i class="fa fa-check"></i><b>6.5.4</b> Question 4</a></li>
+<li class="chapter" data-level="6.5.5" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-5"><i class="fa fa-check"></i><b>6.5.5</b> Question 5</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#summative-homework-2"><i class="fa fa-check"></i><b>6.6</b> Summative Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html"><i class="fa fa-check"></i><b>7</b> Data Visualisation 1</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#pre-class-activities"><i class="fa fa-check"></i><b>7.1</b> Pre-class Activities</a></li>
+<li class="chapter" data-level="" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#intended-learning-outcomes-7"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="7.2" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#pre-steps-5"><i class="fa fa-check"></i><b>7.2</b> Pre-steps</a></li>
+<li class="chapter" data-level="7.3" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#introduction-to-the-data"><i class="fa fa-check"></i><b>7.3</b> Introduction to the data</a></li>
+<li class="chapter" data-level="7.4" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#some-warm-up-tasks"><i class="fa fa-check"></i><b>7.4</b> Some warm-up tasks</a></li>
+<li class="chapter" data-level="7.5" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#the-package-ggplot2"><i class="fa fa-check"></i><b>7.5</b> The package GGPLOT2</a></li>
+<li class="chapter" data-level="7.6" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#layering"><i class="fa fa-check"></i><b>7.6</b> Layering</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#layer-1"><i class="fa fa-check"></i><b>7.6.1</b> Layer 1</a></li>
+<li class="chapter" data-level="7.6.2" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#layer-2-and-onward"><i class="fa fa-check"></i><b>7.6.2</b> Layer 2 and onward</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#how-do-we-choose-the-type-of-plot"><i class="fa fa-check"></i><b>7.7</b> How do we choose the type of plot?</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#data-format"><i class="fa fa-check"></i><b>7.7.1</b> Data format</a></li>
+<li class="chapter" data-level="7.7.2" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#number-of-variables"><i class="fa fa-check"></i><b>7.7.2</b> Number of variables</a></li>
+<li class="chapter" data-level="7.7.3" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#types-of-plots"><i class="fa fa-check"></i><b>7.7.3</b> Types of plots</a></li>
+<li class="chapter" data-level="7.7.4" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#groupings"><i class="fa fa-check"></i><b>7.7.4</b> Groupings</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#now-lets-have-a-look-at-different-plots-with-more-complexity"><i class="fa fa-check"></i><b>7.8</b> Now let’s have a look at different plots with more complexity</a></li>
+<li class="chapter" data-level="7.9" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#other-plots"><i class="fa fa-check"></i><b>7.9</b> Other plots</a></li>
+<li class="chapter" data-level="7.10" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#formative-homework-3"><i class="fa fa-check"></i><b>7.10</b> Formative Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html"><i class="fa fa-check"></i><b>8</b> Data Visualisation 2</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#additional-resources"><i class="fa fa-check"></i><b>8.1</b> Additional Resources</a></li>
+<li class="chapter" data-level="" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#intended-learning-outcomes-8"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="8.2" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#pre-steps-6"><i class="fa fa-check"></i><b>8.2</b> Pre-steps</a></li>
+<li class="chapter" data-level="8.3" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#re-introduction-to-the-data"><i class="fa fa-check"></i><b>8.3</b> Re-introduction to the data</a></li>
+<li class="chapter" data-level="8.4" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#create-multiple-plots-in-one"><i class="fa fa-check"></i><b>8.4</b> Create multiple plots in one</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#select-the-data-beforehand-and-create-different-plots."><i class="fa fa-check"></i><b>8.4.1</b> Select the data beforehand and create different plots.</a></li>
+<li class="chapter" data-level="8.4.2" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#facets"><i class="fa fa-check"></i><b>8.4.2</b> Facets</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#global-and-local-aesthetics"><i class="fa fa-check"></i><b>8.5</b> Global and Local aesthetics</a></li>
+<li class="chapter" data-level="8.6" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#themes-making-your-plots-pretty-looking-the-way-you-want-them-to"><i class="fa fa-check"></i><b>8.6</b> Themes: Making your plots pretty: looking the way you want them to</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#ready-made-themes"><i class="fa fa-check"></i><b>8.6.1</b> Ready-made themes</a></li>
+<li class="chapter" data-level="8.6.2" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#adding-axes-titles-and-headings"><i class="fa fa-check"></i><b>8.6.2</b> Adding axes titles and headings</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#changing-colours"><i class="fa fa-check"></i><b>8.7</b> Changing colours</a></li>
+<li class="chapter" data-level="8.8" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#legends"><i class="fa fa-check"></i><b>8.8</b> Legends</a></li>
+<li class="chapter" data-level="8.9" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#changing-axes-ticks"><i class="fa fa-check"></i><b>8.9</b> Changing axes ticks</a></li>
+<li class="chapter" data-level="8.10" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#saving-plots"><i class="fa fa-check"></i><b>8.10</b> Saving plots</a></li>
+<li class="chapter" data-level="8.11" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#summative-homework-3"><i class="fa fa-check"></i><b>8.11</b> Summative Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="errors.html"><a href="errors.html"><i class="fa fa-check"></i><b>9</b> Errors</a>
+<ul>
+<li class="chapter" data-level="" data-path="errors.html"><a href="errors.html#intended-learning-outcomes-9"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="9.1" data-path="errors.html"><a href="errors.html#errors-how-to-avoid-some-and-live-through-the-rest"><i class="fa fa-check"></i><b>9.1</b> Errors: How to avoid some and live through the rest</a></li>
+<li class="chapter" data-level="9.2" data-path="errors.html"><a href="errors.html#debugging"><i class="fa fa-check"></i><b>9.2</b> Debugging</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="errors.html"><a href="errors.html#messages-from-r"><i class="fa fa-check"></i><b>9.2.1</b> Messages from R</a></li>
+<li class="chapter" data-level="9.2.2" data-path="errors.html"><a href="errors.html#error-messages"><i class="fa fa-check"></i><b>9.2.2</b> Error Messages</a></li>
+<li class="chapter" data-level="9.2.3" data-path="errors.html"><a href="errors.html#multiple-errors"><i class="fa fa-check"></i><b>9.2.3</b> Multiple Errors</a></li>
+<li class="chapter" data-level="9.2.4" data-path="errors.html"><a href="errors.html#finding-errors-in-longer-code-segments"><i class="fa fa-check"></i><b>9.2.4</b> Finding errors in longer code segments</a></li>
+<li class="chapter" data-level="9.2.5" data-path="errors.html"><a href="errors.html#warning-messages"><i class="fa fa-check"></i><b>9.2.5</b> Warning Messages</a></li>
+<li class="chapter" data-level="9.2.6" data-path="errors.html"><a href="errors.html#other-messages"><i class="fa fa-check"></i><b>9.2.6</b> Other Messages</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="errors.html"><a href="errors.html#searching-for-help-online"><i class="fa fa-check"></i><b>9.3</b> Searching for Help Online</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="errors.html"><a href="errors.html#googling-it"><i class="fa fa-check"></i><b>9.3.1</b> Googling It</a></li>
+<li class="chapter" data-level="9.3.2" data-path="errors.html"><a href="errors.html#stack-overflow"><i class="fa fa-check"></i><b>9.3.2</b> Stack Overflow</a></li>
+<li class="chapter" data-level="9.3.3" data-path="errors.html"><a href="errors.html#youtube"><i class="fa fa-check"></i><b>9.3.3</b> YouTube</a></li>
+<li class="chapter" data-level="9.3.4" data-path="errors.html"><a href="errors.html#further-reading"><i class="fa fa-check"></i><b>9.3.4</b> Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="errors.html"><a href="errors.html#formative-exercises"><i class="fa fa-check"></i><b>9.4</b> Formative Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html"><i class="fa fa-check"></i><b>10</b> Recap: Before the final assessment</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#outline-for-today"><i class="fa fa-check"></i><b>10.1</b> Outline for today</a></li>
+<li class="chapter" data-level="10.2" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#lecture-10-bringing-your-skills-together"><i class="fa fa-check"></i><b>10.2</b> Lecture 10: Bringing your skills together</a>
+<ul>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-1-1"><i class="fa fa-check"></i>Question 1</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-2-1"><i class="fa fa-check"></i>Question 2</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-3-1"><i class="fa fa-check"></i>Question 3</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-4-1"><i class="fa fa-check"></i>Question 4</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-5-1"><i class="fa fa-check"></i>Question 5</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-6"><i class="fa fa-check"></i>Question 6</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-7"><i class="fa fa-check"></i>Question 7</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-8"><i class="fa fa-check"></i>Question 8</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-9"><i class="fa fa-check"></i>Question 9</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-10"><i class="fa fa-check"></i>Question 10</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-11"><i class="fa fa-check"></i>Question 11</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-12-bonus"><i class="fa fa-check"></i>Question 12 (Bonus)</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-13-bonus"><i class="fa fa-check"></i>Question 13 (Bonus)</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-14-bonus"><i class="fa fa-check"></i>Question 14 (Bonus)</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#solutions"><i class="fa fa-check"></i><b>10.3</b> Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html"><i class="fa fa-check"></i>Appendices</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#changing-the-appearance-of-rmarkdown"><i class="fa fa-check"></i>Changing the Appearance of RMarkdown</a></li>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#source-materials"><i class="fa fa-check"></i>Source Materials</a></li>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#further-reading-1"><i class="fa fa-check"></i>Further Reading</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#statistics"><i class="fa fa-check"></i>Statistics</a></li>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#more-advanced-use-of-r"><i class="fa fa-check"></i>More Advanced Use of R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>11</b> References</a></li>
+<li class="divider"></li>
+<li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
+    target="blank"><img alt="Creative Commons License" 
+    style="border-width:0" 
+    src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-transformation-1-basic-one-table-verbs" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Data Transformation 1: Basic One Table Verbs</h1>
+<div id="intended-learning-outcomes-3" class="section level2 unnumbered">
+<h2>Intended Learning Outcomes</h2>
+<p>Be able to use the following dplyr one-table verbs:</p>
+<ul>
+<li>select()</li>
+<li>arrange()</li>
+<li>filter()</li>
+<li>mutate()</li>
+<li>group_by()</li>
+<li>summarise()</li>
+</ul>
+<p>This lesson is led by <a href="https://www.psy.gla.ac.uk/otherstaff/?id=TJ001">Jaimie Torrance</a>.</p>
+</div>
+<div id="data-wrangling" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Data Wrangling</h2>
+<p>It is estimated that data scientists spend between 50-80% of their time cleaning and preparing data. This so-called <strong>data wrangling</strong> is a crucial first step in organising data for subsequent analysis (NYTimes., 2014). The goal is generally to get the data into a “tidy” format whereby each variable is a column, each observation is a row and each value is a cell. The <code>tidyverse</code> package, developed by Hadley Wickham, is a collection of R packages built around this basic concept and intended to make data science fast, easy and fun. It contains six core packages: dplyr, tidyr, readr, purrr, ggplot2, and tibble.</p>
+<p><code>dplyr</code> provides a useful selection of functions - each corresponding to a basic verb:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">dplyr function</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">select()</td>
+<td align="left">Include or exclude certain variables (columns)</td>
+</tr>
+<tr class="even">
+<td align="left">arrange()</td>
+<td align="left">Reorder observations (rows)</td>
+</tr>
+<tr class="odd">
+<td align="left">filter()</td>
+<td align="left">Include or exclude certain observations (rows)</td>
+</tr>
+<tr class="even">
+<td align="left">mutate()</td>
+<td align="left">Create new variables (columns) and preserve existing ones</td>
+</tr>
+<tr class="odd">
+<td align="left">group_by()</td>
+<td align="left">Organise observations (rows) by variables (columns)</td>
+</tr>
+<tr class="even">
+<td align="left">summarise()</td>
+<td align="left">Compute summary statistics for selected variables (columns)</td>
+</tr>
+</tbody>
+</table>
+<p>These are termed <strong>one table verbs</strong> as they only operate on one table at a time. Today we will examine the Wickham Six; select(), arrange(), filter(), mutate(), group_by(), and summarise().</p>
+</div>
+<div id="pre-steps-1" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Pre-Steps</h2>
+<p>Before we can talk about today’s data, let’s do some house-keeping first.</p>
+<div id="downloading-materials-1" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Downloading materials</h3>
+<p>Download the materials we will be working with today from moodle. The zip folder that contains an Rmd file called <code>L3_stub</code>, and a data file called <code>CareerStats.csv</code>. Similar to last week, <code>L3_stub</code> contains all code chunks for today’s lesson, and is intended for you to add notes and comments.</p>
+</div>
+<div id="unzipping-the-zip-folder-1" class="section level3" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Unzipping the zip folder</h3>
+<p>Make sure you <strong>unzip the folder</strong> and check it contains the <code>L3_stub.Rmd</code> and <code>CareerStats.csv</code>.</p>
+</div>
+<div id="setting-the-working-directory-1" class="section level3" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Setting the working directory</h3>
+<p>Set that folder as your working directory for today. The files in the folders should now be visible in the <code>Files pane</code>.</p>
+</div>
+<div id="loading-in-the-required-packages-into-the-library" class="section level3" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> Loading in the required packages into the library</h3>
+<p>As we will be using functions that are part of <code>tidyverse</code>, we need to load it into the library. You will also need to load in the new package <code>babynames</code>. You will need to have this package installed first before you can load it into the library, if you haven’t done that yet use the <code>install.packages()</code> function down in your console first.</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb110-2"><a href="data-transformation-1-basic-one-table-verbs.html#cb110-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(babynames)</span></code></pre></div>
+</div>
+<div id="read-in-the-data" class="section level3" number="3.2.5">
+<h3><span class="header-section-number">3.2.5</span> Read in the data</h3>
+<p>Now, today we will work with two different datasets, one fairly simple dataset, and another more messy complex dataset later one.</p>
+<p>The first is a large dataset about babynames (big surprise!). The package you installed and loaded into the library is infact a readymade dataset, that can be read straight into the <code>Global Environment</code>. We will deal with the second dataset later.</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb111-1" aria-hidden="true" tabindex="-1"></a>Name_Data <span class="ot">&lt;-</span> babynames</span></code></pre></div>
+</div>
+<div id="view-the-data" class="section level3" number="3.2.6">
+<h3><span class="header-section-number">3.2.6</span> View the data</h3>
+<p>Click on <code>Name_Data</code> in your <code>Global Environment</code> to open your data in a new tab on the <code>Source</code> pane or call the object in your <code>Console</code> (by typing the name of the object <code>Name_Data</code>) to check that the data was correctly imported into R.</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb112-1" aria-hidden="true" tabindex="-1"></a>Name_Data</span></code></pre></div>
+<pre><code>## # A tibble: 1,924,665 x 5
+##     year sex   name          n   prop
+##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;int&gt;  &lt;dbl&gt;
+##  1  1880 F     Mary       7065 0.0724
+##  2  1880 F     Anna       2604 0.0267
+##  3  1880 F     Emma       2003 0.0205
+##  4  1880 F     Elizabeth  1939 0.0199
+##  5  1880 F     Minnie     1746 0.0179
+##  6  1880 F     Margaret   1578 0.0162
+##  7  1880 F     Ida        1472 0.0151
+##  8  1880 F     Alice      1414 0.0145
+##  9  1880 F     Bertha     1320 0.0135
+## 10  1880 F     Sarah      1288 0.0132
+## # ... with 1,924,655 more rows</code></pre>
+<div class="funfact">
+<p>
+You could also view the data by using the function <code>View()</code>. If you are more of a typer than a mouse-user you can type <code>View(Name_Data)</code> into your <code>Console</code>. This will open the data in a read-only, spreadsheet-like format in a new tab on the <code>Source</code> pane.
+</p>
+</div>
+<p>Remember from last week, we can also use <code>glimpse()</code> to view the columns and their datatypes.</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(Name_Data)</span></code></pre></div>
+<pre><code>## Rows: 1,924,665
+## Columns: 5
+## $ year &lt;dbl&gt; 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880,~
+## $ sex  &lt;chr&gt; &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, ~
+## $ name &lt;chr&gt; &quot;Mary&quot;, &quot;Anna&quot;, &quot;Emma&quot;, &quot;Elizabeth&quot;, &quot;Minnie&quot;, &quot;Margaret&quot;, &quot;Ida&quot;,~
+## $ n    &lt;int&gt; 7065, 2604, 2003, 1939, 1746, 1578, 1472, 1414, 1320, 1288, 1258,~
+## $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0.016~</code></pre>
+<p><code>head()</code> would be helpful in displaying only the first 6 rows of the dataset, but remember not to get “tricked” by the number of observations shown in the output.</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Name_Data)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 5
+##    year sex   name          n   prop
+##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;int&gt;  &lt;dbl&gt;
+## 1  1880 F     Mary       7065 0.0724
+## 2  1880 F     Anna       2604 0.0267
+## 3  1880 F     Emma       2003 0.0205
+## 4  1880 F     Elizabeth  1939 0.0199
+## 5  1880 F     Minnie     1746 0.0179
+## 6  1880 F     Margaret   1578 0.0162</code></pre>
+<p><span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span></p>
+<p>How many rows (or observations) does <code>Name_Data</code> have? <input class='webex-solveme nospaces' size='7' data-answer='["1924665"]'/> <br>
+How many columns (or variables) does <code>Name_Data</code> have? <input class='webex-solveme nospaces' size='1' data-answer='["5"]'/> <br></p>
+<div class="task">
+<p>
+Take some time to familiarise yourself with the variables in your dataframe.
+</p>
+</div>
+</div>
+</div>
+<div id="select" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> select()</h2>
+<p>You may not want to include every single variable in your analysis. In order to include or exclude certain variables (columns), use the <code>select()</code> function. The first argument to this function is the object you want to select variables from (i.e. our tibble called <code>Name_Data</code>), and the subsequent arguments are the variables to keep.</p>
+<p>For example, if you wanted to keep all variables except from <code>prop</code>, you could type:</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(Name_Data, year, sex, name, n)</span></code></pre></div>
+<pre><code>## # A tibble: 1,924,665 x 4
+##     year sex   name          n
+##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;int&gt;
+##  1  1880 F     Mary       7065
+##  2  1880 F     Anna       2604
+##  3  1880 F     Emma       2003
+##  4  1880 F     Elizabeth  1939
+##  5  1880 F     Minnie     1746
+##  6  1880 F     Margaret   1578
+##  7  1880 F     Ida        1472
+##  8  1880 F     Alice      1414
+##  9  1880 F     Bertha     1320
+## 10  1880 F     Sarah      1288
+## # ... with 1,924,655 more rows</code></pre>
+<p>That works fine when you have realtively few variables like this dataset, however this menthod can become very time consuming if you have a lot of varibales in your dataset. There are two ways on how we could have done this easier and faster:</p>
+<ol style="list-style-type: decimal">
+<li>We could use the colon operator <code>:</code>. Similar to last week where we used the colon operator for numerical sequences, we can use it here for selecting a sequence of column names. Here, it reads as “take object <code>student_HM</code>, and select columns <code>year</code>, and every other column though to <code>n</code>.”</li>
+</ol>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(Name_Data, year<span class="sc">:</span>n)</span></code></pre></div>
+<pre><code>## # A tibble: 1,924,665 x 4
+##     year sex   name          n
+##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;int&gt;
+##  1  1880 F     Mary       7065
+##  2  1880 F     Anna       2604
+##  3  1880 F     Emma       2003
+##  4  1880 F     Elizabeth  1939
+##  5  1880 F     Minnie     1746
+##  6  1880 F     Margaret   1578
+##  7  1880 F     Ida        1472
+##  8  1880 F     Alice      1414
+##  9  1880 F     Bertha     1320
+## 10  1880 F     Sarah      1288
+## # ... with 1,924,655 more rows</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>We could use “negative selection,” i.e. select the variable we wanted to drop by adding a <code>minus</code> in front of it.</li>
+</ol>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(Name_Data, <span class="sc">-</span>prop)</span></code></pre></div>
+<pre><code>## # A tibble: 1,924,665 x 4
+##     year sex   name          n
+##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;int&gt;
+##  1  1880 F     Mary       7065
+##  2  1880 F     Anna       2604
+##  3  1880 F     Emma       2003
+##  4  1880 F     Elizabeth  1939
+##  5  1880 F     Minnie     1746
+##  6  1880 F     Margaret   1578
+##  7  1880 F     Ida        1472
+##  8  1880 F     Alice      1414
+##  9  1880 F     Bertha     1320
+## 10  1880 F     Sarah      1288
+## # ... with 1,924,655 more rows</code></pre>
+<p>We also have the option of “de-selecting” more than one variable. By including the minus sign before each column we can remove as many as we want.</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(Name_Data, <span class="sc">-</span>prop, <span class="sc">-</span>sex)</span></code></pre></div>
+<pre><code>## # A tibble: 1,924,665 x 3
+##     year name          n
+##    &lt;dbl&gt; &lt;chr&gt;     &lt;int&gt;
+##  1  1880 Mary       7065
+##  2  1880 Anna       2604
+##  3  1880 Emma       2003
+##  4  1880 Elizabeth  1939
+##  5  1880 Minnie     1746
+##  6  1880 Margaret   1578
+##  7  1880 Ida        1472
+##  8  1880 Alice      1414
+##  9  1880 Bertha     1320
+## 10  1880 Sarah      1288
+## # ... with 1,924,655 more rows</code></pre>
+<div class="funfact">
+<p>
+We can also use <code>select()</code> in combination with the <code>c()</code> function. Remember, <code>c()</code>is “hugging things together.” We would put a single <code>minus</code> in front of the c rather than each of the column. This will read as exclude every column listed within the brackets.
+</p>
+<p>
+select(Name_Data, -c(sex, n, prop))
+</p>
+</div>
+<p>Remember, if you don’t save this data to an object (e.g. the original dataframe <code>Name_Data</code> or under a new name), it won’t be saved. We have not saved any of the previous tasks to the <code>Global Environment</code>, so there should still be only one babynames related object, e.g. the tibble named <code>Name_Data</code>.</p>
+<p><span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span></p>
+<div class="task">
+<p>
+<strong>Your turn</strong>
+</p>
+<p>
+Create a tibble called <code>Name_Short</code> that keeps all variables/columns from the data <code>Name_Data</code> except from <code>sex</code> and <code>n</code>. Your new object <code>Name_Short</code> should appear in your <code>Global Environment</code>.
+</p>
+</div>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Jaimie&#39;s solution:</span></span>
+<span id="cb126-2"><a href="data-transformation-1-basic-one-table-verbs.html#cb126-2" aria-hidden="true" tabindex="-1"></a>Name_Short <span class="ot">&lt;-</span> <span class="fu">select</span>(Name_Data, <span class="sc">-</span>sex, <span class="sc">-</span>n)</span>
+<span id="cb126-3"><a href="data-transformation-1-basic-one-table-verbs.html#cb126-3" aria-hidden="true" tabindex="-1"></a><span class="co"># OR</span></span>
+<span id="cb126-4"><a href="data-transformation-1-basic-one-table-verbs.html#cb126-4" aria-hidden="true" tabindex="-1"></a>Name_Short <span class="ot">&lt;-</span> <span class="fu">select</span>(Name_Data, <span class="sc">-</span><span class="fu">c</span>(sex, n))</span>
+<span id="cb126-5"><a href="data-transformation-1-basic-one-table-verbs.html#cb126-5" aria-hidden="true" tabindex="-1"></a><span class="co"># OR</span></span>
+<span id="cb126-6"><a href="data-transformation-1-basic-one-table-verbs.html#cb126-6" aria-hidden="true" tabindex="-1"></a>Name_Short <span class="ot">&lt;-</span> <span class="fu">select</span>(Name_Data, year, name, prop)</span></code></pre></div>
+<div class="warning">
+<p>
+You could also reference the position of column, rather than the actual name.
+</p>
+<ul>
+<li>
+select(Name_Data,1,3,5)
+</li>
+</ul>
+<p>
+While it works code-wise, and seems a much quicker approach, it is a very bad idea in the name of reproducibility. If you send your code to a fellow researcher, they would have no idea what the code does. Moreover, if at some point, you need to add another column to your data, and/or decide to reorder the sequence of your columns, your code would not run anymore the way you expect it to.
+</p>
+</div>
+</div>
+</div>
+<div id="arrange" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> arrange()</h2>
+<p>The <code>arrange()</code> function can reorder observations (rows) in ascending (default) or descending order. The first argument to this function is again an object (in this case the tibble <code>Name_Data</code>), and the subsequent arguments are the variables (columns) you want to sort by. For example, if you wanted to sort by <code>n</code> in <strong>ascending</strong> order (which is the default in <code>arrange()</code>) you would type:</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb127-1" aria-hidden="true" tabindex="-1"></a>Name_Arr <span class="ot">&lt;-</span> <span class="fu">arrange</span>(Name_Data, n)</span>
+<span id="cb127-2"><a href="data-transformation-1-basic-one-table-verbs.html#cb127-2" aria-hidden="true" tabindex="-1"></a>Name_Arr</span></code></pre></div>
+<pre><code>## # A tibble: 1,924,665 x 5
+##     year sex   name          n      prop
+##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;int&gt;     &lt;dbl&gt;
+##  1  1880 F     Adelle        5 0.0000512
+##  2  1880 F     Adina         5 0.0000512
+##  3  1880 F     Adrienne      5 0.0000512
+##  4  1880 F     Albertine     5 0.0000512
+##  5  1880 F     Alys          5 0.0000512
+##  6  1880 F     Ana           5 0.0000512
+##  7  1880 F     Araminta      5 0.0000512
+##  8  1880 F     Arthur        5 0.0000512
+##  9  1880 F     Birtha        5 0.0000512
+## 10  1880 F     Bulah         5 0.0000512
+## # ... with 1,924,655 more rows</code></pre>
+<div class="warning">
+<p>
+If you were to assign this code to the same object as before (i.e. Name_Data), the previous version of <code>Name_Data</code> would be overwritten.
+</p>
+</div>
+<p>Notice how the <code>n</code> column is now organised in alphabetical order i.e. smallest number to largest. Suppose you wanted to reverse this order, displaying largest, you would need to wrap the name of the variable in the <code>desc()</code> function (i.e. for <strong>descending</strong>).</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb129-1" aria-hidden="true" tabindex="-1"></a>Name_Arr2 <span class="ot">&lt;-</span> <span class="fu">arrange</span>(Name_Data, <span class="fu">desc</span>(n))</span>
+<span id="cb129-2"><a href="data-transformation-1-basic-one-table-verbs.html#cb129-2" aria-hidden="true" tabindex="-1"></a>Name_Arr2</span></code></pre></div>
+<pre><code>## # A tibble: 1,924,665 x 5
+##     year sex   name        n   prop
+##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;int&gt;  &lt;dbl&gt;
+##  1  1947 F     Linda   99686 0.0548
+##  2  1948 F     Linda   96209 0.0552
+##  3  1947 M     James   94756 0.0510
+##  4  1957 M     Michael 92695 0.0424
+##  5  1947 M     Robert  91642 0.0493
+##  6  1949 F     Linda   91016 0.0518
+##  7  1956 M     Michael 90620 0.0423
+##  8  1958 M     Michael 90520 0.0420
+##  9  1948 M     James   88588 0.0497
+## 10  1954 M     Michael 88514 0.0428
+## # ... with 1,924,655 more rows</code></pre>
+<p>You can also sort by more than one column. For example, you could sort by <code>name</code> first, and then <code>n</code> second:</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb131-1" aria-hidden="true" tabindex="-1"></a>Name_Arr3 <span class="ot">&lt;-</span> <span class="fu">arrange</span>(Name_Data, name, n)</span>
+<span id="cb131-2"><a href="data-transformation-1-basic-one-table-verbs.html#cb131-2" aria-hidden="true" tabindex="-1"></a>Name_Arr3</span></code></pre></div>
+<pre><code>## # A tibble: 1,924,665 x 5
+##     year sex   name      n       prop
+##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt;      &lt;dbl&gt;
+##  1  2007 M     Aaban     5 0.00000226
+##  2  2009 M     Aaban     6 0.00000283
+##  3  2010 M     Aaban     9 0.00000439
+##  4  2016 M     Aaban     9 0.00000446
+##  5  2011 M     Aaban    11 0.00000542
+##  6  2012 M     Aaban    11 0.00000543
+##  7  2017 M     Aaban    11 0.0000056 
+##  8  2013 M     Aaban    14 0.00000694
+##  9  2015 M     Aaban    15 0.00000736
+## 10  2014 M     Aaban    16 0.00000783
+## # ... with 1,924,655 more rows</code></pre>
+<p>You can also arrange by multiple columns in desceding order too, or arrange by one column in ascending order and another in descending order if you wanted.</p>
+</div>
+<div id="filter" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> filter()</h2>
+<div id="single-criterion" class="section level3" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> Single criterion</h3>
+<p>In order to include or exclude certain observations (rows), use the <code>filter()</code> function. The first argument to this function is an object (in this case the tibble <code>Name_Data</code>) and the subsequent argument is the criteria you wish to filter on. For example, if you want only those observations from the year of your birth:</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb133-1" aria-hidden="true" tabindex="-1"></a>Name_MyYear <span class="ot">&lt;-</span> <span class="fu">filter</span>(Name_Data, year <span class="sc">==</span> <span class="dv">1988</span>)</span>
+<span id="cb133-2"><a href="data-transformation-1-basic-one-table-verbs.html#cb133-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(Name_MyYear)</span></code></pre></div>
+<pre><code>## Rows: 22,364
+## Columns: 5
+## $ year &lt;dbl&gt; 1988, 1988, 1988, 1988, 1988, 1988, 1988, 1988, 1988, 1988, 1988,~
+## $ sex  &lt;chr&gt; &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, ~
+## $ name &lt;chr&gt; &quot;Jessica&quot;, &quot;Ashley&quot;, &quot;Amanda&quot;, &quot;Sarah&quot;, &quot;Jennifer&quot;, &quot;Brittany&quot;, &quot;~
+## $ n    &lt;int&gt; 51538, 49961, 39455, 28366, 27887, 26815, 22836, 20699, 20310, 20~
+## $ prop &lt;dbl&gt; 0.02680669, 0.02598643, 0.02052190, 0.01475413, 0.01450499, 0.013~</code></pre>
+<p>or keep observations of only popular names:</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb135-1" aria-hidden="true" tabindex="-1"></a>Name_Pop <span class="ot">&lt;-</span> <span class="fu">filter</span>(Name_Data, prop <span class="sc">&gt;=</span> <span class="fl">0.07</span>)</span>
+<span id="cb135-2"><a href="data-transformation-1-basic-one-table-verbs.html#cb135-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(Name_Pop)</span></code></pre></div>
+<pre><code>## Rows: 19
+## Columns: 5
+## $ year &lt;dbl&gt; 1880, 1880, 1880, 1881, 1881, 1882, 1882, 1882, 1883, 1883, 1884,~
+## $ sex  &lt;chr&gt; &quot;F&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, ~
+## $ name &lt;chr&gt; &quot;Mary&quot;, &quot;John&quot;, &quot;William&quot;, &quot;John&quot;, &quot;William&quot;, &quot;Mary&quot;, &quot;John&quot;, &quot;Wi~
+## $ n    &lt;int&gt; 7065, 9655, 9532, 8769, 8524, 8148, 9557, 9298, 8894, 8387, 9388,~
+## $ prop &lt;dbl&gt; 0.07238359, 0.08154561, 0.08050676, 0.08098299, 0.07872038, 0.070~</code></pre>
+<div class="question">
+<ol style="list-style-type: decimal">
+<li>
+<p>
+Notice how we saved the new data under a different object name (<code>Name_MyYear</code>). When using <code>filter()</code>, you should never replace/ overwrite your original data unless you know exactly what you are doing. What could be the consequences?
+</p>
+</li>
+<li>
+<p>
+By the way, what do symbols such <code>==</code> and <code>&gt;=</code> remind you of??? (hint: something we covered last week?)
+</p>
+</li>
+</ol>
+</div>
+<div class="webex-solution">
+<button>
+Answers
+</button>
+<div class="solved">
+<p>
+Consequences: You could potentially lose some data. Nothing is ever completely lost though (unless you are overwriting the original .csv file) but it could result in more work for you to restore everything from the beginning. Especially when your data scripts are very long and analysis is complex (i.e. taking up a lot of computing power), that could easily turn into a nightmare.
+</p>
+<p>
+Remember the relational operators that returned logical values of either <code>TRUE</code> or <code>FALSE</code>?
+</p>
+</div>
+</div>
+<p>Relational operators (such as <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, and <code>&gt;=</code>) compare two numerical expressions and return a Boolean variable: a variable whose value is either 0 (<code>FALSE</code>) or 1 (<code>TRUE</code>). So, essentially, <code>filter()</code> includes any observations (rows) for which the expression evaluates to <code>TRUE</code>, and excludes any for which it evaluates to <code>FALSE</code>. In the previous example, <code>filter()</code> sifted through 1924665 observations, keeping rows containing year that was equal to 1998.</p>
+<p>This works as well for columns of the data type <code>character</code>. If you want only those observations for a specific name, you could use the equivalence operator <code>==</code>. Be aware that a single equals sign (<code>=</code>) is used to assign a value to a variable whereas a double equals sign (<code>==</code>) is used to check whether two values are equal.</p>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb137-1" aria-hidden="true" tabindex="-1"></a>Name_Me <span class="ot">&lt;-</span> <span class="fu">filter</span>(Name_Data, name <span class="sc">==</span> <span class="st">&quot;Jaimie&quot;</span>)</span>
+<span id="cb137-2"><a href="data-transformation-1-basic-one-table-verbs.html#cb137-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(Name_Me)</span></code></pre></div>
+<pre><code>## Rows: 118
+## Columns: 5
+## $ year &lt;dbl&gt; 1946, 1948, 1951, 1952, 1953, 1954, 1955, 1956, 1957, 1958, 1958,~
+## $ sex  &lt;chr&gt; &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, ~
+## $ name &lt;chr&gt; &quot;Jaimie&quot;, &quot;Jaimie&quot;, &quot;Jaimie&quot;, &quot;Jaimie&quot;, &quot;Jaimie&quot;, &quot;Jaimie&quot;, &quot;Jaim~
+## $ n    &lt;int&gt; 7, 5, 8, 8, 6, 8, 12, 16, 9, 28, 12, 30, 13, 19, 10, 20, 7, 23, 1~
+## $ prop &lt;dbl&gt; 4.340e-06, 2.870e-06, 4.330e-06, 4.210e-06, 3.110e-06, 4.020e-06,~</code></pre>
+<p>Here, the <code>filter()</code> function compares every single value in the column <code>name</code> of the data object <code>Name_Data</code> with the character string written on the right-hand side of the equation (“Jaimie”).</p>
+<p>You can also use <code>filter()</code> to keep data from multiple options of the same variable using the <code>%in%</code> operator. In this case we want to filter several different names:</p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb139-1" aria-hidden="true" tabindex="-1"></a>Name_J <span class="ot">&lt;-</span> <span class="fu">filter</span>(Name_Data, name <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Jaimie&quot;</span>, <span class="st">&quot;Jamie&quot;</span>, <span class="st">&quot;Jaime&quot;</span>, <span class="st">&quot;James&quot;</span>, <span class="st">&quot;Jayme&quot;</span>))</span>
+<span id="cb139-2"><a href="data-transformation-1-basic-one-table-verbs.html#cb139-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(Name_J)</span></code></pre></div>
+<pre><code>## Rows: 963
+## Columns: 5
+## $ year &lt;dbl&gt; 1880, 1880, 1881, 1881, 1882, 1882, 1883, 1883, 1884, 1884, 1884,~
+## $ sex  &lt;chr&gt; &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, ~
+## $ name &lt;chr&gt; &quot;James&quot;, &quot;James&quot;, &quot;James&quot;, &quot;James&quot;, &quot;James&quot;, &quot;James&quot;, &quot;James&quot;, &quot;J~
+## $ n    &lt;int&gt; 22, 5927, 24, 5441, 18, 5892, 25, 5223, 33, 5, 5693, 26, 5175, 29~
+## $ prop &lt;dbl&gt; 0.00022540, 0.05005912, 0.00024278, 0.05024843, 0.00015558, 0.048~</code></pre>
+<p>Because <code>filter()</code> evalutes variables against your criteria and keeps observations that are <code>TRUE</code>, in essence the function defaults to “filter-in” certain observations. You can however also use it to “filter-out” specific observations, by using the ‘not equals’ operator <code>!=</code>. Here <code>filter()</code> keeps every row in which the value DOES NOT read what you have specificed.</p>
+<p>Using <code>filter()</code> to exclude certain observations.</p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb141-1" aria-hidden="true" tabindex="-1"></a>Name_J_Short <span class="ot">&lt;-</span> <span class="fu">filter</span>(Name_J, name <span class="sc">!=</span><span class="st">&quot;James&quot;</span>)</span>
+<span id="cb141-2"><a href="data-transformation-1-basic-one-table-verbs.html#cb141-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(Name_J_Short)</span></code></pre></div>
+<pre><code>## Rows: 687
+## Columns: 5
+## $ year &lt;dbl&gt; 1884, 1887, 1888, 1890, 1891, 1892, 1893, 1894, 1895, 1896, 1896,~
+## $ sex  &lt;chr&gt; &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, ~
+## $ name &lt;chr&gt; &quot;Jamie&quot;, &quot;Jamie&quot;, &quot;Jamie&quot;, &quot;Jamie&quot;, &quot;Jamie&quot;, &quot;Jamie&quot;, &quot;Jamie&quot;, &quot;J~
+## $ n    &lt;int&gt; 5, 5, 5, 12, 11, 10, 9, 9, 10, 8, 6, 9, 5, 11, 14, 20, 6, 20, 15,~
+## $ prop &lt;dbl&gt; 3.634e-05, 3.217e-05, 2.639e-05, 5.951e-05, 5.596e-05, 4.446e-05,~</code></pre>
+</div>
+<div id="multiple-criteria" class="section level3" number="3.5.2">
+<h3><span class="header-section-number">3.5.2</span> Multiple criteria</h3>
+<p>Often you will come across a situation where you will need to filter based on multiple criteria. For that you have the options of <code>AND</code> and <code>OR</code>. <code>AND</code>is used if you had two criteria and only wanted data returned when <strong>both</strong> criteria are met. <code>OR</code>is used if you had two criteria and wanted data returned for <strong>either</strong> criterion.</p>
+<center>
+<img src="images/AND_OR.png" height="150">
+</center>
+<p><strong>Simple Example:</strong> Just imagine, you have data of men and women who are either blond or dark-haired.</p>
+<center>
+<img src="images/avatars.png" height="150">
+</center>
+<p>If you wanted to filter everyone who has <em>blond</em> hair <strong>AND</strong> is a <em>man</em>, all your data looks like this:</p>
+<center>
+<img src="images/avatars_AND.png" height="150">
+</center>
+<p>Whereas, if you wanted to filter out everyone who has <strong>either</strong> <em>dark hair</em> <strong>OR</strong> is a <em>woman</em>, you would get:</p>
+<center>
+<img src="images/avatars_OR.png" height="150">
+</center>
+<p><br></p>
+<p><strong>What does that mean for our babynames data?</strong></p>
+<p>For example, to filter rows containing only your name, of one sex, since your year of birth, you would code:</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb143-1" aria-hidden="true" tabindex="-1"></a>Name_Specific <span class="ot">&lt;-</span> <span class="fu">filter</span>(Name_Data, name <span class="sc">==</span> <span class="st">&quot;Jaimie&quot;</span>, year <span class="sc">&gt;=</span> <span class="dv">1988</span>, sex <span class="sc">==</span> <span class="st">&quot;M&quot;</span>)</span>
+<span id="cb143-2"><a href="data-transformation-1-basic-one-table-verbs.html#cb143-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(Name_Specific)</span></code></pre></div>
+<pre><code>## Rows: 19
+## Columns: 5
+## $ year &lt;dbl&gt; 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998,~
+## $ sex  &lt;chr&gt; &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, ~
+## $ name &lt;chr&gt; &quot;Jaimie&quot;, &quot;Jaimie&quot;, &quot;Jaimie&quot;, &quot;Jaimie&quot;, &quot;Jaimie&quot;, &quot;Jaimie&quot;, &quot;Jaim~
+## $ n    &lt;int&gt; 22, 15, 28, 21, 19, 14, 6, 9, 10, 10, 6, 11, 9, 12, 7, 6, 6, 5, 5
+## $ prop &lt;dbl&gt; 1.099e-05, 7.160e-06, 1.302e-05, 9.910e-06, 9.050e-06, 6.780e-06,~</code></pre>
+<div class="funfact">
+<p>
+You could have also used the logical operator <code>&amp;</code> (AND) instead of the comma. <code>filter(Name_Data, name == “Jaimie” &amp; year &gt;= 1988 &amp; sex == “M”)</code> would have given you the same result as above.
+</p>
+</div>
+<p>If we wanted to filter the data <code>Name_Data</code> for either names with a very high count <strong>OR</strong> names that account for a very low proportion, we could use the logical operator <code>|</code> (OR).</p>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb145-1" aria-hidden="true" tabindex="-1"></a>Data_Or <span class="ot">&lt;-</span> <span class="fu">filter</span>(Name_Data, n <span class="sc">&gt;</span> <span class="dv">90000</span> <span class="sc">|</span> prop <span class="sc">&lt;</span> <span class="fl">2.27e-06</span>)</span>
+<span id="cb145-2"><a href="data-transformation-1-basic-one-table-verbs.html#cb145-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(Data_Or)</span></code></pre></div>
+<pre><code>## Rows: 2,041
+## Columns: 5
+## $ year &lt;dbl&gt; 1947, 1947, 1947, 1948, 1949, 1956, 1957, 1958, 2007, 2007, 2007,~
+## $ sex  &lt;chr&gt; &quot;F&quot;, &quot;M&quot;, &quot;M&quot;, &quot;F&quot;, &quot;F&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, ~
+## $ name &lt;chr&gt; &quot;Linda&quot;, &quot;James&quot;, &quot;Robert&quot;, &quot;Linda&quot;, &quot;Linda&quot;, &quot;Michael&quot;, &quot;Michael~
+## $ n    &lt;int&gt; 99686, 94756, 91642, 96209, 91016, 90620, 92695, 90520, 5, 5, 5, ~
+## $ prop &lt;dbl&gt; 0.05483812, 0.05101589, 0.04933934, 0.05521079, 0.05184643, 0.042~</code></pre>
+<p>As you will have noticed, <code>Data_Or</code> has now observations for names that either have a count over 90,000 in a year, or account for a very small proportion in a year. In this instance these are very distinct groups, and no observation would meet both criteria, check for yourself:</p>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb147-1" aria-hidden="true" tabindex="-1"></a>Data_Or2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(Name_Data, n <span class="sc">&gt;</span> <span class="dv">90000</span> <span class="sc">&amp;</span> prop <span class="sc">&lt;</span> <span class="fl">2.27e-06</span>)</span>
+<span id="cb147-2"><a href="data-transformation-1-basic-one-table-verbs.html#cb147-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(Data_Or2)</span></code></pre></div>
+<pre><code>## Rows: 0
+## Columns: 5
+## $ year &lt;dbl&gt; 
+## $ sex  &lt;chr&gt; 
+## $ name &lt;chr&gt; 
+## $ n    &lt;int&gt; 
+## $ prop &lt;dbl&gt;</code></pre>
+<p>Here we see <code>Data_Or2</code>, returns no observations. However sometimes, you might select multiple criteria, where some observations will only meet one, but other observations may meet both criteria (see below). So always keep in mind what exactly you want to find, and choose the best way to filter.</p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb149-1" aria-hidden="true" tabindex="-1"></a>Data_Or3 <span class="ot">&lt;-</span> <span class="fu">filter</span>(Name_Data, n <span class="sc">&gt;</span> <span class="dv">90000</span> <span class="sc">|</span> prop <span class="sc">&gt;</span> <span class="fl">0.05</span>)</span>
+<span id="cb149-2"><a href="data-transformation-1-basic-one-table-verbs.html#cb149-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(Data_Or3)</span></code></pre></div>
+<pre><code>## Rows: 172
+## Columns: 5
+## $ year &lt;dbl&gt; 1880, 1880, 1880, 1880, 1881, 1881, 1881, 1881, 1882, 1882, 1882,~
+## $ sex  &lt;chr&gt; &quot;F&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, ~
+## $ name &lt;chr&gt; &quot;Mary&quot;, &quot;John&quot;, &quot;William&quot;, &quot;James&quot;, &quot;Mary&quot;, &quot;John&quot;, &quot;William&quot;, &quot;J~
+## $ n    &lt;int&gt; 7065, 9655, 9532, 5927, 6919, 8769, 8524, 5441, 8148, 9557, 9298,~
+## $ prop &lt;dbl&gt; 0.07238359, 0.08154561, 0.08050676, 0.05005912, 0.06999140, 0.080~</code></pre>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb151-1" aria-hidden="true" tabindex="-1"></a>Data_Or4 <span class="ot">&lt;-</span> <span class="fu">filter</span>(Name_Data, n <span class="sc">&gt;</span> <span class="dv">90000</span> <span class="sc">&amp;</span> prop <span class="sc">&gt;</span> <span class="fl">0.05</span>)</span>
+<span id="cb151-2"><a href="data-transformation-1-basic-one-table-verbs.html#cb151-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(Data_Or4)</span></code></pre></div>
+<pre><code>## Rows: 4
+## Columns: 5
+## $ year &lt;dbl&gt; 1947, 1947, 1948, 1949
+## $ sex  &lt;chr&gt; &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;F&quot;
+## $ name &lt;chr&gt; &quot;Linda&quot;, &quot;James&quot;, &quot;Linda&quot;, &quot;Linda&quot;
+## $ n    &lt;int&gt; 99686, 94756, 96209, 91016
+## $ prop &lt;dbl&gt; 0.05483812, 0.05101589, 0.05521079, 0.05184643</code></pre>
+<p><span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span></p>
+<p>How many rows (or observations) does the object <code>Data_Or3</code> contain? <input class='webex-solveme nospaces' size='3' data-answer='["172"]'/><br>
+How many different female names are in <code>Data_Or4</code>? <input class='webex-solveme nospaces' size='1' data-answer='["1"]'/> <br></p>
+<p><br></p>
+<div class="task">
+<p>
+<strong>Your turn</strong>
+</p>
+<p>
+Make a tibble called <code>Name_Beat</code> that only shows data from <code>Name_Data</code> for the <code>names</code> John, Paul, George and Ringo, and just for <code>sex</code> males.
+</p>
+</div>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb153-1" aria-hidden="true" tabindex="-1"></a>Name_Beat <span class="ot">&lt;-</span> <span class="fu">filter</span>(Name_Data, name <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;John&quot;</span>, <span class="st">&quot;Paul&quot;</span>, <span class="st">&quot;George&quot;</span>, <span class="st">&quot;Ringo&quot;</span>), sex <span class="sc">==</span> <span class="st">&quot;M&quot;</span>)</span>
+<span id="cb153-2"><a href="data-transformation-1-basic-one-table-verbs.html#cb153-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-3"><a href="data-transformation-1-basic-one-table-verbs.html#cb153-3" aria-hidden="true" tabindex="-1"></a><span class="co"># If you have done this correct you should be able to produce a nice simple plot with the code below, to show change in proportional representation of these names over time (don&#39;t worry about what this code means, you&#39;ll learn more about plots later in the course)</span></span>
+<span id="cb153-4"><a href="data-transformation-1-basic-one-table-verbs.html#cb153-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-5"><a href="data-transformation-1-basic-one-table-verbs.html#cb153-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Name_Beat, <span class="fu">aes</span>(year, prop, <span class="at">colour=</span>name)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
+</div>
+</div>
+</div>
+<div id="mutate" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> mutate()</h2>
+<p>The <code>mutate()</code> function creates new variables (columns) onto the existing object. The first argument to this function is an object from your <code>Global Environment</code> (for example <code>Name_Data</code>) and the subsequent argument is the new column name and what you want it to contain. The following image was downloaded from <a href="https://www.sharpsightlabs.com/blog/mutate-in-r/" class="uri">https://www.sharpsightlabs.com/blog/mutate-in-r/</a></p>
+<center>
+<img src="images/mutate.png" height= "350">
+</center>
+<p>Let’s apply this to this to our <code>Name_Data</code> data tibble. Say we wanted to create a new column <code>Decade</code> that shows us the relative decade each observation is taken from. Save this as a new object <code>Name_Ext</code> to the <code>Global Environment</code> rather than overwriting <code>Name_Data</code> so that we can compare <code>Name_Data</code> with the extended <code>Name_Ext</code> later on.</p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb154-1" aria-hidden="true" tabindex="-1"></a>Name_Ext <span class="ot">&lt;-</span> <span class="fu">mutate</span>(Name_Data, <span class="at">Decade =</span> <span class="fu">floor</span>(year<span class="sc">/</span><span class="dv">10</span>)<span class="sc">*</span><span class="dv">10</span>)</span>
+<span id="cb154-2"><a href="data-transformation-1-basic-one-table-verbs.html#cb154-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(Name_Ext)</span></code></pre></div>
+<pre><code>## Rows: 1,924,665
+## Columns: 6
+## $ year   &lt;dbl&gt; 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 188~
+## $ sex    &lt;chr&gt; &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;~
+## $ name   &lt;chr&gt; &quot;Mary&quot;, &quot;Anna&quot;, &quot;Emma&quot;, &quot;Elizabeth&quot;, &quot;Minnie&quot;, &quot;Margaret&quot;, &quot;Ida~
+## $ n      &lt;int&gt; 7065, 2604, 2003, 1939, 1746, 1578, 1472, 1414, 1320, 1288, 125~
+## $ prop   &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0.0~
+## $ Decade &lt;dbl&gt; 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 188~</code></pre>
+<p>As we can see, <code>Name_Ext</code> has one column more than <code>Name_Data</code>. So <code>mutate()</code> took the value in the cells for each row of the variable <code>year</code>, devided it by 10, and using the <code>floor()</code> function, rounds that value down to the nearest whole number, before finally multiplying the result by 10, and adding it to a new column called <code>Decade</code>.</p>
+<p>Importantly, new variables will overwrite existing variables if column headings are identical. So if we wanted to halve the values in column <code>Decade</code> and store them in a column <code>Decade</code>, the original <code>Decade</code> would be overwritten. To demonstrate we will try doing this and stroring the output in a new object called <code>Name_Ext2</code>and save that to our <code>Global Environment</code>.</p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb156-1" aria-hidden="true" tabindex="-1"></a>Name_Ext2 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(Name_Ext, <span class="at">Decade =</span> Decade<span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb156-2"><a href="data-transformation-1-basic-one-table-verbs.html#cb156-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(Name_Ext2)</span></code></pre></div>
+<pre><code>## Rows: 1,924,665
+## Columns: 6
+## $ year   &lt;dbl&gt; 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 188~
+## $ sex    &lt;chr&gt; &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;~
+## $ name   &lt;chr&gt; &quot;Mary&quot;, &quot;Anna&quot;, &quot;Emma&quot;, &quot;Elizabeth&quot;, &quot;Minnie&quot;, &quot;Margaret&quot;, &quot;Ida~
+## $ n      &lt;int&gt; 7065, 2604, 2003, 1939, 1746, 1578, 1472, 1414, 1320, 1288, 125~
+## $ prop   &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0.0~
+## $ Decade &lt;dbl&gt; 940, 940, 940, 940, 940, 940, 940, 940, 940, 940, 940, 940, 940~</code></pre>
+<p>So now, <code>Name_Ext2</code> did not gain a column (it still contains 6 variables), and <code>Decade</code> now has (unhelpfully) half the numeric value of the decade. (As an aside you could prevent yourself from accidentally doing something like this by converting <code>Decade</code> from numeric double type data to character type data, if you had no intention of carrying out any calculations on that variable)</p>
+<div class="info">
+<p>
+The main take-away message here is to always check your data after manipulation if the outcome is really what you would expected. If you don’t inspect and accidentally overwrite columns, you would not notice any difference.
+</p>
+</div>
+<p>You can also use <code>mutate()</code> to drop columns you no longer need, as an alternative to the <code>select()</code> function. This would mean that <code>Name_Ext2</code> is now identical to <code>Name_Data</code>.</p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb158-1" aria-hidden="true" tabindex="-1"></a>Name_Ext2 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(Name_Ext2, <span class="at">Decade =</span> <span class="cn">NULL</span>)</span>
+<span id="cb158-2"><a href="data-transformation-1-basic-one-table-verbs.html#cb158-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(Name_Ext2)</span></code></pre></div>
+<pre><code>## Rows: 1,924,665
+## Columns: 5
+## $ year &lt;dbl&gt; 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880,~
+## $ sex  &lt;chr&gt; &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, ~
+## $ name &lt;chr&gt; &quot;Mary&quot;, &quot;Anna&quot;, &quot;Emma&quot;, &quot;Elizabeth&quot;, &quot;Minnie&quot;, &quot;Margaret&quot;, &quot;Ida&quot;,~
+## $ n    &lt;int&gt; 7065, 2604, 2003, 1939, 1746, 1578, 1472, 1414, 1320, 1288, 1258,~
+## $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0.016~</code></pre>
+<p>If you want to add more than 2 columns, you can do that in a single <code>mutate()</code> statement. You can also add variables that are not numerical values, such as <code>character</code> or <code>logical</code>.</p>
+<p>Add two columns to <code>Name_Ext</code> and call it <code>Name_Ext3</code>.</p>
+<ul>
+<li>Column 1 is called <code>MinName</code> and is of datatype <code>logical</code>. It contains a comparison of the value in <code>n</code> with the cut off count of 5 that allows inclusion in the dataset. Values of 5 should read <code>TRUE</code>, all other values <code>FALSE</code>.</li>
+<li>Column 2 is called <code>"20thCent"</code> and is of datatype <code>logical</code>. It contains a comparison of the value in <code>years</code> ensuring the value is between 1900 and 1999. Values inside this range should read <code>TRUE</code>, all other values <code>FALSE</code>.</li>
+</ul>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb160-1" aria-hidden="true" tabindex="-1"></a>Name_Ext3 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(Name_Ext, <span class="at">MinName =</span> n <span class="sc">==</span> <span class="dv">5</span>, <span class="st">&quot;20thCent&quot;</span> <span class="ot">=</span> year <span class="sc">&gt;=</span> <span class="dv">1900</span> <span class="sc">&amp;</span> year <span class="sc">&lt;=</span> <span class="dv">1999</span>)</span>
+<span id="cb160-2"><a href="data-transformation-1-basic-one-table-verbs.html#cb160-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(Name_Ext3)</span></code></pre></div>
+<pre><code>## Rows: 1,924,665
+## Columns: 8
+## $ year       &lt;dbl&gt; 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880,~
+## $ sex        &lt;chr&gt; &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;,~
+## $ name       &lt;chr&gt; &quot;Mary&quot;, &quot;Anna&quot;, &quot;Emma&quot;, &quot;Elizabeth&quot;, &quot;Minnie&quot;, &quot;Margaret&quot;, ~
+## $ n          &lt;int&gt; 7065, 2604, 2003, 1939, 1746, 1578, 1472, 1414, 1320, 1288,~
+## $ prop       &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843,~
+## $ Decade     &lt;dbl&gt; 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880,~
+## $ MinName    &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FAL~
+## $ `20thCent` &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FAL~</code></pre>
+<div class="solved">
+<p>
+You may have noticed we needed to put the name of our new column <code>“20thCent”</code> inside quotation marks. This is because that name would begin with numeric values which R will interpret as numeric values to be evaluated as code by default, which will then break our code. By placeing the name within quotation marks this tells R to treat this as a standard character string instead. It is always best to avoid creating variables with names that start with a number for this reason, but if it is necessary this is how you can work around it.
+</p>
+</div>
+<div class="task">
+<p>
+<strong>Your turn</strong>
+</p>
+<ul>
+<li>
+Add a new column to <code>Name_Ext3</code> that is called <code>Prcnt</code> that gives the percentage each name accounts for of total names that year. *Hint: <code>prop</code> is that same stat represented as a proportion.
+</li>
+</ul>
+</div>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb162-1" aria-hidden="true" tabindex="-1"></a>Name_Ext4 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(Name_Ext3, <span class="at">Prcnt =</span> prop <span class="sc">*</span> <span class="dv">100</span>)</span>
+<span id="cb162-2"><a href="data-transformation-1-basic-one-table-verbs.html#cb162-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(Name_Ext4)</span></code></pre></div>
+<pre><code>## Rows: 1,924,665
+## Columns: 9
+## $ year       &lt;dbl&gt; 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880,~
+## $ sex        &lt;chr&gt; &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;,~
+## $ name       &lt;chr&gt; &quot;Mary&quot;, &quot;Anna&quot;, &quot;Emma&quot;, &quot;Elizabeth&quot;, &quot;Minnie&quot;, &quot;Margaret&quot;, ~
+## $ n          &lt;int&gt; 7065, 2604, 2003, 1939, 1746, 1578, 1472, 1414, 1320, 1288,~
+## $ prop       &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843,~
+## $ Decade     &lt;dbl&gt; 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880,~
+## $ MinName    &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FAL~
+## $ `20thCent` &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FAL~
+## $ Prcnt      &lt;dbl&gt; 7.238359, 2.667896, 2.052149, 1.986579, 1.788843, 1.616720,~</code></pre>
+</div>
+<div id="read-in-second-dataset" class="section level3" number="3.6.1">
+<h3><span class="header-section-number">3.6.1</span> Read in second dataset</h3>
+<p>At this point we are reaching the end of the usefulness of the Babynames dataset (there is only so much you can do with 5 basic variables), and this is a good time to bring in the second dataset we mentioned.</p>
+<p>The second dataset, is a set of career and performance statistics of MMA athletes. You need to read the file <code>CareerStats.csv</code> containing your data into your <code>Global Environment</code> using the function <code>read_csv()</code>. Remember to store your data in an appropriately named object (e.g. <code>MMA_Data</code>).</p>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb164-1" aria-hidden="true" tabindex="-1"></a>MMA_Data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;CareerStats.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## Rows: 199 Columns: 32</code></pre>
+<pre><code>## -- Column specification --------------------------------------------------------
+## Delimiter: &quot;,&quot;
+## chr  (5): ID, HeightClass, ReachClass, Stance, WeightClass
+## dbl (27): Age, Height, Weight, BMI, Reach, T_Wins, T_Losses, T_Fights, Succe...</code></pre>
+<pre><code>## 
+## i Use `spec()` to retrieve the full column specification for this data.
+## i Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<div class="info">
+<p>
+As you can see this dataset has a lot more variables, which should make for more interesting ways of manipulating the data.
+</p>
+</div>
+</div>
+</div>
+<div id="summarise" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> summarise()</h2>
+<p>In order to compute summary statistics such as mean, median and standard deviation, use the <code>summarise()</code> function. This function creates a new tibble of your desired summary statistics. The first argument to this function is the data you are interested in summarising; in this case the object <code>MMA_Data</code>, and the subsequent argument is the new column name and what mathematical operation you want it to contain. You can add as many summary statistics in one <code>summarise()</code> function as you want; just separate them by a comma.</p>
+<div class="info">
+<p>
+You can use the help function to find out more about the kind of summary stats you can extract.
+</p>
+<p>
+Some of the most useful however are: <code>sum()</code> - sum total <code>n()</code> - count of observations <code>n_distinct()</code> - count of distinct (unique) observations <code>mean()</code> - measure of central tendency; mean <code>median()</code> - measure of central tendency; median <code>sd()</code> - standard deviation <code>IQR()</code> - interquartile range <code>min()</code> - the maximum available value in observations <code>max()</code> - the minimum available value in observations
+</p>
+</div>
+<p>Lets start generating some summary stats. For example, say you want to work out the average number of total fights (<code>T_Fights</code>) among the athletes and accompanying standard deviation for the entire sample:</p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(MMA_Data, <span class="at">Avg_Mean =</span> <span class="fu">mean</span>(T_Fights), <span class="at">SD =</span> <span class="fu">sd</span>(T_Fights))</span></code></pre></div>
+<pre><code>## # A tibble: 1 x 2
+##   Avg_Mean    SD
+##      &lt;dbl&gt; &lt;dbl&gt;
+## 1     23.0  9.80</code></pre>
+<p>Therefore, the average number of total fights for all the athletes in our sample is 22.98, with a standard deviation of 9.8.</p>
+<p>Let’s try another. what is the maximum and minimum hights for the entire sample?</p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(MMA_Data, <span class="at">Minimum =</span> <span class="fu">min</span>(Height), <span class="at">Maximum =</span> <span class="fu">max</span>(Height))</span></code></pre></div>
+<pre><code>## # A tibble: 1 x 2
+##   Minimum Maximum
+##     &lt;dbl&gt;   &lt;dbl&gt;
+## 1      63      83</code></pre>
+<p>Or maybe we want to know how many different (distinct) weightclasses are there in our dataset?</p>
+<p>How would we check that?</p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(MMA_Data, <span class="at">WeightClasses =</span> <span class="fu">n_distinct</span>(WeightClass))</span></code></pre></div>
+<pre><code>## # A tibble: 1 x 1
+##   WeightClasses
+##           &lt;int&gt;
+## 1             8</code></pre>
+</div>
+<div id="adding-group_by" class="section level2" number="3.8">
+<h2><span class="header-section-number">3.8</span> Adding group_by()</h2>
+<p>Now that’s all well and good, but in research we are most often interested in drawing comparisons and analysing differences (Between different groups of people, between different treatment types, between different countries etc.).</p>
+<p>This is where the <code>group_by()</code> function comes in handy. It can organise observations (rows) by variables (columns), thereby spliting the data up into subsets that can be analysed independently. The first argument to this function is the data you wish to organise, in this case <code>MMA_Data</code> and the subsequent argument is your chosen grouping variable you want to organise by (e.g. group by). Here we are grouping by weightclass, and saving this as a new object <code>MMA_G_Weight</code>;</p>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb174-1" aria-hidden="true" tabindex="-1"></a>MMA_G_Weight <span class="ot">&lt;-</span> <span class="fu">group_by</span>(MMA_Data, WeightClass)</span></code></pre></div>
+<p>If you view the object <code>MMA_G_Class</code>, it will not look any different to the original dataset (<code>MMA_Data</code>). However, be aware that the underlying structure has changed. In fact, you could use <code>glimpse()</code> to double check this.</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(MMA_G_Weight)</span></code></pre></div>
+<pre><code>## Rows: 199
+## Columns: 32
+## Groups: WeightClass [8]
+## $ ID            &lt;chr&gt; &quot;056c493bbd76a918&quot;, &quot;b102c26727306ab6&quot;, &quot;80eacd4da0617c5~
+## $ Age           &lt;dbl&gt; 31.88, 33.70, 34.41, 25.39, 31.02, 34.77, 33.97, 28.70, ~
+## $ Height        &lt;dbl&gt; 64, 65, 64, 64, 65, 66, 64, 65, 65, 66, 67, 65, 68, 65, ~
+## $ HeightClass   &lt;chr&gt; &quot;Short&quot;, &quot;Short&quot;, &quot;Short&quot;, &quot;Short&quot;, &quot;Short&quot;, &quot;Average&quot;, ~
+## $ Weight        &lt;dbl&gt; 125, 125, 125, 125, 125, 125, 125, 125, 125, 125, 135, 1~
+## $ BMI           &lt;dbl&gt; 21.454, 20.799, 21.454, 21.454, 20.799, 20.173, 21.454, ~
+## $ Reach         &lt;dbl&gt; 64, 67, 65, 63, 68, 66, 65, 67, 65, 65, 66, 65, 70, 68, ~
+## $ ReachClass    &lt;chr&gt; &quot;Below&quot;, &quot;Below&quot;, &quot;Below&quot;, &quot;Below&quot;, &quot;Below&quot;, &quot;Below&quot;, &quot;B~
+## $ Stance        &lt;chr&gt; &quot;Orthodox&quot;, &quot;Orthodox&quot;, &quot;Southpaw&quot;, &quot;Orthodox&quot;, &quot;Orthodo~
+## $ WeightClass   &lt;chr&gt; &quot;Flywieght&quot;, &quot;Flywieght&quot;, &quot;Flywieght&quot;, &quot;Flywieght&quot;, &quot;Fly~
+## $ T_Wins        &lt;dbl&gt; 13, 22, 26, 11, 15, 19, 23, 20, 19, 21, 15, 14, 12, 10, ~
+## $ T_Losses      &lt;dbl&gt; 2, 5, 5, 3, 0, 7, 9, 3, 7, 5, 8, 1, 1, 5, 5, 4, 5, 2, 2,~
+## $ T_Fights      &lt;dbl&gt; 15, 27, 31, 14, 15, 26, 32, 23, 26, 26, 24, 15, 13, 15, ~
+## $ Success       &lt;dbl&gt; 0.867, 0.815, 0.839, 0.786, 1.000, 0.731, 0.719, 0.870, ~
+## $ W_by_Decision &lt;dbl&gt; 8, 12, 10, 4, 2, 8, 13, 6, 7, 11, 6, 7, 7, 1, 5, 3, 3, 5~
+## $ `W_by_KO/TKO` &lt;dbl&gt; 5, 10, 7, 1, 8, 8, 0, 6, 8, 4, 3, 2, 2, 8, 2, 2, 1, 4, 2~
+## $ W_by_Sub      &lt;dbl&gt; 0, 0, 9, 6, 5, 3, 10, 8, 4, 6, 6, 5, 3, 1, 5, 6, 10, 4, ~
+## $ L_by_Decision &lt;dbl&gt; 1, 3, 4, 2, 0, 4, 5, 3, 6, 1, 4, 0, 1, 3, 5, 1, 5, 0, 1,~
+## $ `L_by_KO/TKO` &lt;dbl&gt; 1, 2, 1, 0, 0, 2, 3, 0, 0, 1, 1, 1, 0, 0, 0, 2, 0, 2, 1,~
+## $ L_by_Sub      &lt;dbl&gt; 0, 0, 0, 1, 0, 1, 1, 0, 1, 3, 3, 0, 0, 2, 0, 1, 0, 0, 0,~
+## $ PWDec         &lt;dbl&gt; 0.533, 0.444, 0.323, 0.286, 0.133, 0.308, 0.406, 0.261, ~
+## $ PWTko         &lt;dbl&gt; 0.333, 0.370, 0.226, 0.071, 0.533, 0.308, 0.000, 0.261, ~
+## $ PWSub         &lt;dbl&gt; 0.000, 0.000, 0.290, 0.429, 0.333, 0.115, 0.312, 0.348, ~
+## $ PLDec         &lt;dbl&gt; 0.067, 0.111, 0.129, 0.143, 0.000, 0.154, 0.156, 0.130, ~
+## $ PLTko         &lt;dbl&gt; 0.067, 0.074, 0.032, 0.000, 0.000, 0.077, 0.094, 0.000, ~
+## $ PLSub         &lt;dbl&gt; 0.000, 0.000, 0.000, 0.071, 0.000, 0.038, 0.031, 0.000, ~
+## $ Available     &lt;dbl&gt; 9, 12, 24, 8, 4, 14, 12, 5, 15, 4, 10, 2, 1, 6, 5, 4, 5,~
+## $ TTime         &lt;dbl&gt; 123.234, 137.034, 278.699, 113.466, 42.700, 168.316, 145~
+## $ Time_Avg      &lt;dbl&gt; 13.693, 11.419, 11.612, 14.183, 10.675, 12.023, 12.127, ~
+## $ TLpM          &lt;dbl&gt; 5.461, 3.196, 4.410, 2.732, 3.115, 3.624, 3.828, 5.851, ~
+## $ AbpM          &lt;dbl&gt; 2.605, 2.167, 2.515, 1.921, 1.616, 2.549, 2.948, 3.377, ~
+## $ SubAtt_Avg    &lt;dbl&gt; 0.122, 0.657, 0.700, 1.454, 3.864, 1.069, 0.618, 1.755, ~</code></pre>
+<p>You can now feed this grouped dataset (<code>MMA_G_Weight</code>) into the previous code line to obtain summary statistics by <code>WeightClass</code>, the code for finding summary statistics of average number of total fights, has been provided.:</p>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb177-1" aria-hidden="true" tabindex="-1"></a>Sum_Fights <span class="ot">&lt;-</span> <span class="fu">summarise</span>(MMA_G_Weight, <span class="at">Avg_Mean =</span> <span class="fu">mean</span>(T_Fights), <span class="at">SD =</span> <span class="fu">sd</span>(T_Fights))</span></code></pre></div>
+<p><span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span></p>
+<p>Which weightclass has the highest maximum height? <input class='webex-solveme nospaces' size='11' data-answer='["Heavyweight"]'/></p>
+<div class="task">
+<p>
+<strong>Your turn</strong>
+</p>
+<ul>
+<li>
+Try to fill out the code for finding summary stats of minimum and maximum height by <code>WeightClass</code>:
+</li>
+</ul>
+</div>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb178-1" aria-hidden="true" tabindex="-1"></a>Sum_Height <span class="ot">&lt;-</span> <span class="fu">summarise</span>(MMA_G_Weight, <span class="at">Minimum =</span> <span class="fu">min</span>(Height), <span class="at">Maximum =</span> <span class="fu">max</span>(Height))</span></code></pre></div>
+</div>
+<div class="info">
+<p>
+You can technically group by any variable! For example, there is nothing stopping you from grouping by a continuous variable like age or height. R will allow you to group by a numerical variable that is type double, the code will run.
+</p>
+<p>
+However you probably want to be more careful in choosing a categorical variable as grouping criteria. These will usually be character, or interger or even logical data types. However interger data type might also actually represent a continuous variable (but might have only been recorded in whole numbers), and a variable that is character type may not represent a useful category (like idividual ID’s for example).
+</p>
+<p>
+The point is R does not know what your dataset is actually about, and what your variables are meant to represent… R has no idea if your variable <em>should</em> be categorical or not. So it’s up to you to know what are sensible variables to use in the <code>group_by()</code> function.
+</p>
+</div>
+<p>You might also want to calculate and display the number of individuals from your dataset that are in different groups. This can be achieved by adding the summary function <code>n()</code> once you have grouped your data. the function <code>n()</code>, simply counts the number of observations and takes no arguments. Here we will group by <code>Stance</code> and count the number of athelets in each category:</p>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb179-1" aria-hidden="true" tabindex="-1"></a>MMA_G_Stance <span class="ot">&lt;-</span> <span class="fu">group_by</span>(MMA_Data, Stance)</span>
+<span id="cb179-2"><a href="data-transformation-1-basic-one-table-verbs.html#cb179-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb179-3"><a href="data-transformation-1-basic-one-table-verbs.html#cb179-3" aria-hidden="true" tabindex="-1"></a>Stance_Ns <span class="ot">&lt;-</span> <span class="fu">summarise</span>(MMA_G_Stance, <span class="at">N =</span> <span class="fu">n</span>())</span>
+<span id="cb179-4"><a href="data-transformation-1-basic-one-table-verbs.html#cb179-4" aria-hidden="true" tabindex="-1"></a>Stance_Ns</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 2
+##   Stance       N
+##   &lt;chr&gt;    &lt;int&gt;
+## 1 Orthodox   140
+## 2 Southpaw    45
+## 3 Switch      14</code></pre>
+<p><span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span></p>
+<p>How many athletes in the dataset have a Southpaw stance? <input class='webex-solveme nospaces' size='2' data-answer='["45"]'/> <br>
+How many athletes in the dataset have an Orthodox stance? <input class='webex-solveme nospaces' size='3' data-answer='["140"]'/></p>
+<p>Finally, it is possible to add multiple grouping variables. For example, the following code groups <code>MMA_Data</code> by <code>ReachClass</code> and <code>Stance</code> and then calculates the mean and standard deviation of average number of strikes landed per minute (<code>TLpM</code>) for each group (6 groups).</p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb181-1" aria-hidden="true" tabindex="-1"></a>MMA_G_RS <span class="ot">&lt;-</span> <span class="fu">group_by</span>(MMA_Data, ReachClass, Stance)</span>
+<span id="cb181-2"><a href="data-transformation-1-basic-one-table-verbs.html#cb181-2" aria-hidden="true" tabindex="-1"></a>MMA_LpM <span class="ot">&lt;-</span> <span class="fu">summarise</span>(MMA_G_RS, <span class="at">Mean =</span> <span class="fu">mean</span>(TLpM), <span class="at">SD =</span> <span class="fu">sd</span>(TLpM))</span></code></pre></div>
+<pre><code>## `summarise()` has grouped output by &#39;ReachClass&#39;. You can override using the `.groups` argument.</code></pre>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb183-1" aria-hidden="true" tabindex="-1"></a>MMA_LpM</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 4
+## # Groups:   ReachClass [2]
+##   ReachClass Stance    Mean    SD
+##   &lt;chr&gt;      &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;
+## 1 Above      Orthodox  5.44  1.66
+## 2 Above      Southpaw  4.68  1.16
+## 3 Above      Switch    5.92  1.29
+## 4 Below      Orthodox  5.33  1.60
+## 5 Below      Southpaw  5.02  1.47
+## 6 Below      Switch    5.95  3.63</code></pre>
+<p>So far we have not had to calculate any summary statistics with any missing values, denoted by <code>NA</code> in R. Missing values are always a bit of a hassle to deal with. Any computation you do that involves <code>NA</code> returns an <code>NA</code> - which translates as “you will not get a numeric result when your column contains missing values.” Missing values can be removed by adding the argument <code>na.rm = TRUE</code> to calculation functions like <code>mean()</code>, <code>median()</code> or <code>sd()</code>. For example, lets try to calulate a mean where we have some missing values:</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb185-1" aria-hidden="true" tabindex="-1"></a>Weight_Reach <span class="ot">&lt;-</span> <span class="fu">summarise</span>(MMA_G_Weight, <span class="at">Avg_Reach =</span> <span class="fu">mean</span>(Reach))</span>
+<span id="cb185-2"><a href="data-transformation-1-basic-one-table-verbs.html#cb185-2" aria-hidden="true" tabindex="-1"></a>Weight_Reach</span></code></pre></div>
+<pre><code>## # A tibble: 8 x 2
+##   WeightClass      Avg_Reach
+##   &lt;chr&gt;                &lt;dbl&gt;
+## 1 Bantamweight          67.8
+## 2 Fetherweight          71.0
+## 3 Flywieght             66.9
+## 4 Heavyweight           NA  
+## 5 LightHeavyweight      76.9
+## 6 Lightweight           72.6
+## 7 Middleweight          NA  
+## 8 Welterweight          74</code></pre>
+<p>The code runs without error, however you will notice we have a few stats missing (<code>NA</code>). Now lets tell R to remove any missing values when making its calculation.</p>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb187-1" aria-hidden="true" tabindex="-1"></a>Weight_Reach <span class="ot">&lt;-</span> <span class="fu">summarise</span>(MMA_G_Weight, <span class="at">Avg_Reach =</span> <span class="fu">mean</span>(Reach, <span class="at">na.rm =</span> T))</span>
+<span id="cb187-2"><a href="data-transformation-1-basic-one-table-verbs.html#cb187-2" aria-hidden="true" tabindex="-1"></a>Weight_Reach</span></code></pre></div>
+<pre><code>## # A tibble: 8 x 2
+##   WeightClass      Avg_Reach
+##   &lt;chr&gt;                &lt;dbl&gt;
+## 1 Bantamweight          67.8
+## 2 Fetherweight          71.0
+## 3 Flywieght             66.9
+## 4 Heavyweight           78.0
+## 5 LightHeavyweight      76.9
+## 6 Lightweight           72.6
+## 7 Middleweight          75.4
+## 8 Welterweight          74</code></pre>
+<div class="info">
+<p>
+Finally… If you need to return the data to a non-grouped form, use the <code>ungroup()</code> function.
+</p>
+</div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb189-1" aria-hidden="true" tabindex="-1"></a>MMA_Data <span class="ot">&lt;-</span> <span class="fu">group_by</span>(MMA_Data, BMI)</span>
+<span id="cb189-2"><a href="data-transformation-1-basic-one-table-verbs.html#cb189-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(MMA_Data)</span></code></pre></div>
+<pre><code>## Rows: 199
+## Columns: 32
+## Groups: BMI [70]
+## $ ID            &lt;chr&gt; &quot;056c493bbd76a918&quot;, &quot;b102c26727306ab6&quot;, &quot;80eacd4da0617c5~
+## $ Age           &lt;dbl&gt; 31.88, 33.70, 34.41, 25.39, 31.02, 34.77, 33.97, 28.70, ~
+## $ Height        &lt;dbl&gt; 64, 65, 64, 64, 65, 66, 64, 65, 65, 66, 67, 65, 68, 65, ~
+## $ HeightClass   &lt;chr&gt; &quot;Short&quot;, &quot;Short&quot;, &quot;Short&quot;, &quot;Short&quot;, &quot;Short&quot;, &quot;Average&quot;, ~
+## $ Weight        &lt;dbl&gt; 125, 125, 125, 125, 125, 125, 125, 125, 125, 125, 135, 1~
+## $ BMI           &lt;dbl&gt; 21.454, 20.799, 21.454, 21.454, 20.799, 20.173, 21.454, ~
+## $ Reach         &lt;dbl&gt; 64, 67, 65, 63, 68, 66, 65, 67, 65, 65, 66, 65, 70, 68, ~
+## $ ReachClass    &lt;chr&gt; &quot;Below&quot;, &quot;Below&quot;, &quot;Below&quot;, &quot;Below&quot;, &quot;Below&quot;, &quot;Below&quot;, &quot;B~
+## $ Stance        &lt;chr&gt; &quot;Orthodox&quot;, &quot;Orthodox&quot;, &quot;Southpaw&quot;, &quot;Orthodox&quot;, &quot;Orthodo~
+## $ WeightClass   &lt;chr&gt; &quot;Flywieght&quot;, &quot;Flywieght&quot;, &quot;Flywieght&quot;, &quot;Flywieght&quot;, &quot;Fly~
+## $ T_Wins        &lt;dbl&gt; 13, 22, 26, 11, 15, 19, 23, 20, 19, 21, 15, 14, 12, 10, ~
+## $ T_Losses      &lt;dbl&gt; 2, 5, 5, 3, 0, 7, 9, 3, 7, 5, 8, 1, 1, 5, 5, 4, 5, 2, 2,~
+## $ T_Fights      &lt;dbl&gt; 15, 27, 31, 14, 15, 26, 32, 23, 26, 26, 24, 15, 13, 15, ~
+## $ Success       &lt;dbl&gt; 0.867, 0.815, 0.839, 0.786, 1.000, 0.731, 0.719, 0.870, ~
+## $ W_by_Decision &lt;dbl&gt; 8, 12, 10, 4, 2, 8, 13, 6, 7, 11, 6, 7, 7, 1, 5, 3, 3, 5~
+## $ `W_by_KO/TKO` &lt;dbl&gt; 5, 10, 7, 1, 8, 8, 0, 6, 8, 4, 3, 2, 2, 8, 2, 2, 1, 4, 2~
+## $ W_by_Sub      &lt;dbl&gt; 0, 0, 9, 6, 5, 3, 10, 8, 4, 6, 6, 5, 3, 1, 5, 6, 10, 4, ~
+## $ L_by_Decision &lt;dbl&gt; 1, 3, 4, 2, 0, 4, 5, 3, 6, 1, 4, 0, 1, 3, 5, 1, 5, 0, 1,~
+## $ `L_by_KO/TKO` &lt;dbl&gt; 1, 2, 1, 0, 0, 2, 3, 0, 0, 1, 1, 1, 0, 0, 0, 2, 0, 2, 1,~
+## $ L_by_Sub      &lt;dbl&gt; 0, 0, 0, 1, 0, 1, 1, 0, 1, 3, 3, 0, 0, 2, 0, 1, 0, 0, 0,~
+## $ PWDec         &lt;dbl&gt; 0.533, 0.444, 0.323, 0.286, 0.133, 0.308, 0.406, 0.261, ~
+## $ PWTko         &lt;dbl&gt; 0.333, 0.370, 0.226, 0.071, 0.533, 0.308, 0.000, 0.261, ~
+## $ PWSub         &lt;dbl&gt; 0.000, 0.000, 0.290, 0.429, 0.333, 0.115, 0.312, 0.348, ~
+## $ PLDec         &lt;dbl&gt; 0.067, 0.111, 0.129, 0.143, 0.000, 0.154, 0.156, 0.130, ~
+## $ PLTko         &lt;dbl&gt; 0.067, 0.074, 0.032, 0.000, 0.000, 0.077, 0.094, 0.000, ~
+## $ PLSub         &lt;dbl&gt; 0.000, 0.000, 0.000, 0.071, 0.000, 0.038, 0.031, 0.000, ~
+## $ Available     &lt;dbl&gt; 9, 12, 24, 8, 4, 14, 12, 5, 15, 4, 10, 2, 1, 6, 5, 4, 5,~
+## $ TTime         &lt;dbl&gt; 123.234, 137.034, 278.699, 113.466, 42.700, 168.316, 145~
+## $ Time_Avg      &lt;dbl&gt; 13.693, 11.419, 11.612, 14.183, 10.675, 12.023, 12.127, ~
+## $ TLpM          &lt;dbl&gt; 5.461, 3.196, 4.410, 2.732, 3.115, 3.624, 3.828, 5.851, ~
+## $ AbpM          &lt;dbl&gt; 2.605, 2.167, 2.515, 1.921, 1.616, 2.549, 2.948, 3.377, ~
+## $ SubAtt_Avg    &lt;dbl&gt; 0.122, 0.657, 0.700, 1.454, 3.864, 1.069, 0.618, 1.755, ~</code></pre>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="data-transformation-1-basic-one-table-verbs.html#cb191-1" aria-hidden="true" tabindex="-1"></a>MMA_Data <span class="ot">&lt;-</span> <span class="fu">ungroup</span>(MMA_Data)</span>
+<span id="cb191-2"><a href="data-transformation-1-basic-one-table-verbs.html#cb191-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(MMA_Data)</span></code></pre></div>
+<pre><code>## Rows: 199
+## Columns: 32
+## $ ID            &lt;chr&gt; &quot;056c493bbd76a918&quot;, &quot;b102c26727306ab6&quot;, &quot;80eacd4da0617c5~
+## $ Age           &lt;dbl&gt; 31.88, 33.70, 34.41, 25.39, 31.02, 34.77, 33.97, 28.70, ~
+## $ Height        &lt;dbl&gt; 64, 65, 64, 64, 65, 66, 64, 65, 65, 66, 67, 65, 68, 65, ~
+## $ HeightClass   &lt;chr&gt; &quot;Short&quot;, &quot;Short&quot;, &quot;Short&quot;, &quot;Short&quot;, &quot;Short&quot;, &quot;Average&quot;, ~
+## $ Weight        &lt;dbl&gt; 125, 125, 125, 125, 125, 125, 125, 125, 125, 125, 135, 1~
+## $ BMI           &lt;dbl&gt; 21.454, 20.799, 21.454, 21.454, 20.799, 20.173, 21.454, ~
+## $ Reach         &lt;dbl&gt; 64, 67, 65, 63, 68, 66, 65, 67, 65, 65, 66, 65, 70, 68, ~
+## $ ReachClass    &lt;chr&gt; &quot;Below&quot;, &quot;Below&quot;, &quot;Below&quot;, &quot;Below&quot;, &quot;Below&quot;, &quot;Below&quot;, &quot;B~
+## $ Stance        &lt;chr&gt; &quot;Orthodox&quot;, &quot;Orthodox&quot;, &quot;Southpaw&quot;, &quot;Orthodox&quot;, &quot;Orthodo~
+## $ WeightClass   &lt;chr&gt; &quot;Flywieght&quot;, &quot;Flywieght&quot;, &quot;Flywieght&quot;, &quot;Flywieght&quot;, &quot;Fly~
+## $ T_Wins        &lt;dbl&gt; 13, 22, 26, 11, 15, 19, 23, 20, 19, 21, 15, 14, 12, 10, ~
+## $ T_Losses      &lt;dbl&gt; 2, 5, 5, 3, 0, 7, 9, 3, 7, 5, 8, 1, 1, 5, 5, 4, 5, 2, 2,~
+## $ T_Fights      &lt;dbl&gt; 15, 27, 31, 14, 15, 26, 32, 23, 26, 26, 24, 15, 13, 15, ~
+## $ Success       &lt;dbl&gt; 0.867, 0.815, 0.839, 0.786, 1.000, 0.731, 0.719, 0.870, ~
+## $ W_by_Decision &lt;dbl&gt; 8, 12, 10, 4, 2, 8, 13, 6, 7, 11, 6, 7, 7, 1, 5, 3, 3, 5~
+## $ `W_by_KO/TKO` &lt;dbl&gt; 5, 10, 7, 1, 8, 8, 0, 6, 8, 4, 3, 2, 2, 8, 2, 2, 1, 4, 2~
+## $ W_by_Sub      &lt;dbl&gt; 0, 0, 9, 6, 5, 3, 10, 8, 4, 6, 6, 5, 3, 1, 5, 6, 10, 4, ~
+## $ L_by_Decision &lt;dbl&gt; 1, 3, 4, 2, 0, 4, 5, 3, 6, 1, 4, 0, 1, 3, 5, 1, 5, 0, 1,~
+## $ `L_by_KO/TKO` &lt;dbl&gt; 1, 2, 1, 0, 0, 2, 3, 0, 0, 1, 1, 1, 0, 0, 0, 2, 0, 2, 1,~
+## $ L_by_Sub      &lt;dbl&gt; 0, 0, 0, 1, 0, 1, 1, 0, 1, 3, 3, 0, 0, 2, 0, 1, 0, 0, 0,~
+## $ PWDec         &lt;dbl&gt; 0.533, 0.444, 0.323, 0.286, 0.133, 0.308, 0.406, 0.261, ~
+## $ PWTko         &lt;dbl&gt; 0.333, 0.370, 0.226, 0.071, 0.533, 0.308, 0.000, 0.261, ~
+## $ PWSub         &lt;dbl&gt; 0.000, 0.000, 0.290, 0.429, 0.333, 0.115, 0.312, 0.348, ~
+## $ PLDec         &lt;dbl&gt; 0.067, 0.111, 0.129, 0.143, 0.000, 0.154, 0.156, 0.130, ~
+## $ PLTko         &lt;dbl&gt; 0.067, 0.074, 0.032, 0.000, 0.000, 0.077, 0.094, 0.000, ~
+## $ PLSub         &lt;dbl&gt; 0.000, 0.000, 0.000, 0.071, 0.000, 0.038, 0.031, 0.000, ~
+## $ Available     &lt;dbl&gt; 9, 12, 24, 8, 4, 14, 12, 5, 15, 4, 10, 2, 1, 6, 5, 4, 5,~
+## $ TTime         &lt;dbl&gt; 123.234, 137.034, 278.699, 113.466, 42.700, 168.316, 145~
+## $ Time_Avg      &lt;dbl&gt; 13.693, 11.419, 11.612, 14.183, 10.675, 12.023, 12.127, ~
+## $ TLpM          &lt;dbl&gt; 5.461, 3.196, 4.410, 2.732, 3.115, 3.624, 3.828, 5.851, ~
+## $ AbpM          &lt;dbl&gt; 2.605, 2.167, 2.515, 1.921, 1.616, 2.549, 2.948, 3.377, ~
+## $ SubAtt_Avg    &lt;dbl&gt; 0.122, 0.657, 0.700, 1.454, 3.864, 1.069, 0.618, 1.755, ~</code></pre>
+</div>
+<div id="formative-homework-1" class="section level2" number="3.9">
+<h2><span class="header-section-number">3.9</span> Formative Homework</h2>
+<p>The folder for the formative assessment can now be downloaded from moodle.</p>
+<ol style="list-style-type: decimal">
+<li>Load <code>tidyverse</code> into the library.</li>
+<li>Read the data from <code>TraitJudgementData.csv</code> into your <code>Global Environment</code> as an object called <code>traits_data</code>.</li>
+<li>Look at the data. Familiarise yourself with the data (see next section, and the paper in the folder), as well as the datatypes of each column.</li>
+</ol>
+<div id="brief-introduction-to-the-homework-data" class="section level3" number="3.9.1">
+<h3><span class="header-section-number">3.9.1</span> Brief introduction to the homework data</h3>
+<p>For the homework assignments each week, we will be using an open access dataset into how personality is determined from voices. A full version of the paper can be found <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0204991" class="uri">https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0204991</a>. All data and sounds are available on OSF (osf.io/s3cxy).</p>
+<p>However, for your assignment this week, all files necessary are compiled in a folder to download from moodle.</p>
+<p>The data in the <code>TraitJudgementData.csv</code> has ratings on 3 different personality traits (Trustworthiness, Dominance, and Attractiveness) for 30 male and 30 female voice stimuli. In total, 181 participants rated either male <em>OR</em> female speakers on <em>ONE</em> personality trait (e.g. Trustworthiness) only. The speakers were judged after saying a socially relevant word (“Hello”), a socially ambiguous word (“Colors”), a socially relevant sentence (“I urge you to submit your essay by the end of the week”), and a socially ambiguous sentence (“Some have accepted it as a miracle without physical explanation”). Socially relevant stimuli were meant to address the listener, whereas socially ambiguous stimuli were intended to not be directed towards the listener. Each participant rated all the voice stimuli twice in all four conditions (socially relevant words (RW), socially relevant sentences (RS), socially ambiguous words (AW), and socially ambiguous sentences (AS)). The experiment was conducted online.</p>
+<p>Here is a brief summary overview of the columns in the <code>TraitJudgementData.csv</code>.</p>
+<table>
+<colgroup>
+<col width="18%" />
+<col width="81%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">column name</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">PP_ID</td>
+<td align="left">Participant’s ID</td>
+</tr>
+<tr class="even">
+<td align="left">PP_Age</td>
+<td align="left">Participant’s Age</td>
+</tr>
+<tr class="odd">
+<td align="left">PP_Sex</td>
+<td align="left">Participant’s Sex (“female,” “male”)</td>
+</tr>
+<tr class="even">
+<td align="left">Nationality</td>
+<td align="left">Participant’s Nationality</td>
+</tr>
+<tr class="odd">
+<td align="left">Trait</td>
+<td align="left">Personality Trait participant judged the vocal stimuli on (“Trustworthiness,” “Dominance,” “Attractiveness”)</td>
+</tr>
+<tr class="even">
+<td align="left">Voice</td>
+<td align="left">Speaker’s ID</td>
+</tr>
+<tr class="odd">
+<td align="left">Voice_Sex</td>
+<td align="left">Speaker’s Sex (“Female,” “Male”)</td>
+</tr>
+<tr class="even">
+<td align="left">Condition</td>
+<td align="left">Speaker’s recording of socially relevant words (“RW”), socially relevant sentences (“RS”), socially ambiguous words (“AW”), and socially ambiguous sentences (“AS”)</td>
+</tr>
+<tr class="odd">
+<td align="left">Rating</td>
+<td align="left">Participants rated each <code>Voice</code> in each <code>Condition</code> twice (“Rating1,” “Rating2”)</td>
+</tr>
+<tr class="even">
+<td align="left">Response</td>
+<td align="left">Participant’s <code>Trait</code> judgements on a scale from 1 - 500</td>
+</tr>
+<tr class="odd">
+<td align="left">Reaction</td>
+<td align="left">Participant’s Reaction Time</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script>
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction-to-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-transformation-2-more-one-and-two-table-verbs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

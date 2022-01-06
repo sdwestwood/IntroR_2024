@@ -1,0 +1,161 @@
+--- 
+title: "Introduction to R"
+author: Gaby Mahrholz, Greta Todorova, Wilhelmiina Toivo, and Jaimie Torrance
+date: "`r Sys.Date()`"
+bibliography: [book.bib, packages.bib]
+biblio-style: "apalike"
+description: This is the course handbook for the Glasgow University Open Studies course
+  Introduction to R, academic session 2019-2020.
+documentclass: book
+link-citations: yes
+site: bookdown::bookdown_site
+
+---
+
+# About this course {-}
+
+```{r setup, include = F}
+# to render entire book run: bookdown::render_book(input = input_files) in the console with this object in the environment
+input_files <- list.files()[endsWith(list.files(), ".Rmd")] 
+
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'tidyverse'
+), 'packages.bib')
+```
+
+```{r setup2, include=FALSE}
+library(tidyverse)
+library(knitr)
+library(webexercises)
+
+add_to_bookdown()
+
+# knitr::opts_chunk$set(echo = TRUE)
+# if (!requireNamespace("webexercise")) {
+#   stop("You must have the 'webex' package installed to knit HTML from this template.\n   devtools::install_github(\"psyteachr/webexercise\")")
+# } else {
+#   library("webexercise")
+# }
+
+```
+
+
+This course is a short introduction on using R for dealing with data. 
+
+## Intended Learning Outcomes {-}
+
+The Intended Learning Outcomes (ILOs) for the entire course are:
+
+* Demonstrate how R and RStudio work by transforming and cleaning different types of data into an appropriate format for analysis and creating graphical representations to visualise different types of data;
+* Calculate summary statistics using R; and
+* Interpret common error messages and use in-built help facilities to debug their code. 
+
+Each chapter contained within will come with its own specific ILOs which will be clearly specified at the top of each page. 
+
+These ILOs will be the points that will be covered in the assessments.
+
+## What will I need to complete this course? {-}
+
+To successfully complete this course, you will need access to a computer that either already has, or you can download R and RStudio software on. This computer will need to use a Windows, Mac or Linux based operating system. You *can* run RStudio on a Chromebook sometimes, but the process is more complex (see <a href="https://www.reddit.com/r/chromeos/comments/8r5lwb/r_studio_for_chromebook/">here</a>).
+
+If you cannot use RStudio on your computer you might want to consider using <a href="https://rstudio.cloud/">RStudio Cloud</a>.
+
+All University of Glasgow Library computers should have this software installed. If you have enrolled in the University, you should have access to these.
+
+Before the first lesson you will be given the task of either installing R and RStudio on your own personal computer, or finding another suitable method of accessing the software. Full instructions will be given in [Chapter 1](\@ref(#accessing)) of this coursebook.
+
+```{block, type = "info"}
+**If you are having issues with access, talk to your tutors via the via the Microsoft Teams channel as soon as possible so that we can help you!** R, like any skill, will get better with practice and we want to ensure you can practice and complete the assessments as easily as possible.
+```
+
+## About the Assessments {-}
+
+### Formative Assessments {-}
+
+These assessments allow you to revise the concepts that you have learned in class. They do not count towards the course grade and, although we encourage you to, there is no requirement to complete them.
+
+These may take the form of coding assessments and/or multiple choice questions (MCQs) that will be delivered in the same format as the summative assessments - a downloadable file that you fill in the blanks of.
+
+The answers for each of the formative assessments will be available at 5pm one week after the assessment is posted.
+
+
+
+```{block, type = "info"}
+If you encounter something in the formative assessments that you want to ask a question about, then please use the Teams channel.
+```
+
+### Summative Assessments {-}
+
+**These are the assessments that count towards your course grade**.
+
+There will be 5 take-home exercises to complete as you progress through this course. They will be evenly spaced across the entire 10-week span, occurring every two weeks (after L2, L4, L6, L8, and L10). You will have one week from the time of the release of each assessment to submit your answer(s). The solutions of the summative assessments will be released with the grades and feedback (see schedule below), however, we can release solutions earlier once everyone has submitted or we have information that someone is not submitting their assessment for a particular week. So please let us know if you are not planning to submit a specific assessment.
+
+For the summative assessments, we ask you to **complete .Rmd files** (either by answering multiple choice questions, producing code or explaining what a code chunk does), and upload them to Moodle in the assessment submission section. The .Rmd files and data for specific assessments will be provided in a **zip folder within each lecture tile** you are asked to download and unzip before you start an assessment. The folder you download will also contain a questions file. It is strongly recommended to **read the questions file in combination with the .Rmd**, as they might provide additional information (such as giving you hints what output to expect, or what a graph may look like etc.).
+
+
+```{block, type = "warning"}
+Summative assessments will be due **ONE HOUR before the start of the next class** the following week (see schedule below for specific dates).
+
+We recommend that you start these early and, if required, seek assistance from the staff as early as possible. Please make use of the Teams channel if you are struggling or have questions! Remember you are not allowed to post any code on Teams.
+```
+
+
+#### Schedule of summative assessments {-}
+
+```{r, echo=FALSE}
+assessments <- tibble(`Summative assessment` = c("1 (week 2)", "2 (week 4)", "3 (week 6)", "4 (week 8)", "5 (week 10)"),
+                      `Assesses ILOs from lectures` = c("1 and 2", "3 and 4", "5 and 6", "7 and 8", "1-10"),
+                      `Assessment released` = c("28/09 at 6pm", "12/10 at 6pm", "26/10 at 6pm", "09/11 at 6pm", "23/11 at 6pm"),
+                      `Submission due` = c("05/10 at 5pm", "19/10 at 5pm", "02/11 at 5pm", "16/11 at 5pm", "30/11 at 5pm"),
+                      
+                      `Grades & Feedback released` = c("12/10 at 5pm", "26/10 at 5pm", "09/11 at 5pm", "23/11 at 5pm", "07/12 at 5pm"))
+
+kable(assessments)
+
+```
+
+<br>
+Keep in mind that the column `Assesses ILOs from lectures` means that the assessment will test you predominantly on skills gained within the lectures listed (e.g. for week 4 that means lectures 3 and 4), however you will also need to use knowledge from previous lessons as your learning is supposed to be cumulative (e.g. basic knowledge from lectures 1 and 2).
+
+We will never ask you to memorise any code as this is not how people produce code in reality. You may use notes and resources you complete in class to do these assessments and consult online resources to help you. You can work together to complete these tasks, but remember that grades are given on an individual basis and that **you must not plagiarise** the work of others.
+
+**For the purposes of your final grade, only 4 of these assessments will be counted and each will be worth 25%**. The lowest score out of the 5 assessments will be dropped and not taken into account when calculating your final grade. We encourage you to complete all 5 assessments. You must complete at least 75% (= 3 summative assessments) to be eligible for course credits. 
+
+
+### Late submissions & extensions {-}
+
+There will be penalties for late submissions. Your work will be assessed in the usual way, and the primary grade and secondary band will be adjusted to include reductions by two secondary bands for each working day (or part of a working day) the work was submitted late. For example, for submitting an assessment 6 hours after deadline with an assessed grade (had it been submitted on time) of A5, a penalty of 2 secondary bands reduction would result in a final grade of B2.
+
+You can apply for extensions for up to 5 working days. In that case, no grade points will be taken off your final grade for submitting after the official deadline. Please email Gaby (g.mahrholz.1@research.gla.ac.uk) if you find yourself struggling to submit on time. We are here for you. 
+
+For extensions after 5 working days, you have to submit a good cause form. If an extension for good cause has been granted, and the extension is past the date that solutions for the assessment have been released, an alternative assessment will be provided.
+
+Any blank document, or document that was submitted in a format other than an R Markdown file ending in .Rmd, will be considered as not submitted.
+
+
+
+### How to Submit Your Assessments {-}
+
+An .Rmd file to complete each summative assessment will be provided to you. In this file, you will be provided with code chunks in which to type your answers.
+
+Once you have provided code in all of the appropriate slots, you will then upload this file to the Assessment Submission section on Moodle.
+
+Formative assessments are not to be uploaded to Moodle. You will be provided an answer key to which you can compare your own answers. If you have questions about either your own answers or those provided by the tutors, please ask about it on the appropriate Teams channel.
+
+
+
+## Assistance {-}
+
+You can ask questions on the Microsoft Teams channel that accompanies this course. We ask that you do not post solutions to assessments here and any solutions posted will be removed.
+
+
+
+## Why are these materials open? {-}
+
+These materials have been adapted from various sources. Some of these materials have been Open Educational Materials with CC-BY-SA licenses. This means that any materials that use them must also be made open (SA means "share alike"). 
+
+We also believe in the value of open educational materials. Your course fees contribute to the development of this course, but also to providing you with lectures, supporting staff and certification and credits at the end of the course.
+
+## Acknowledgement {-}
+
+The materials were initially developed for the University of Glasgow Short Courses for the academic term 2019/20 by [Gaby Mahrholz](https://www.psy.gla.ac.uk/otherstaff/?id=GM005), [Kate Haining](https://www.psy.gla.ac.uk/otherstaff/?id=KH001), [Rebecca Lai](https://www.psy.gla.ac.uk/otherstaff/?id=RL003), [Greta Todorova](https://www.psy.gla.ac.uk/otherstaff/?id=GKT01), and [Wilhelmiina Toivo](https://www.psy.gla.ac.uk/otherstaff/?id=TIWT1), and modified for the academic term 2020/21 by the current tutors.

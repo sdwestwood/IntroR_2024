@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 9 Errors | Introduction to R</title>
+  <meta name="description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2019-2020." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 9 Errors | Introduction to R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2019-2020." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 9 Errors | Introduction to R" />
+  
+  <meta name="twitter:description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2019-2020." />
+  
+
+<meta name="author" content="Gaby Mahrholz, Greta Todorova, Wilhelmiina Toivo, and Jaimie Torrance" />
+
+
+<meta name="date" content="2022-01-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-visualisation-2.html"/>
+<link rel="next" href="recap-before-the-final-assessment.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introduction to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About this course</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#intended-learning-outcomes"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-will-i-need-to-complete-this-course"><i class="fa fa-check"></i>What will I need to complete this course?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-assessments"><i class="fa fa-check"></i>About the Assessments</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#formative-assessments"><i class="fa fa-check"></i>Formative Assessments</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#summative-assessments"><i class="fa fa-check"></i>Summative Assessments</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#late-submissions-extensions"><i class="fa fa-check"></i>Late submissions &amp; extensions</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-submit-your-assessments"><i class="fa fa-check"></i>How to Submit Your Assessments</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#assistance"><i class="fa fa-check"></i>Assistance</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-are-these-materials-open"><i class="fa fa-check"></i>Why are these materials open?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgement"><i class="fa fa-check"></i>Acknowledgement</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="before.html"><a href="before.html"><i class="fa fa-check"></i>Assignment before starting the course</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="before.html"><a href="before.html#accessing"><i class="fa fa-check"></i><b>0.1</b> Access to RStudio</a>
+<ul>
+<li class="chapter" data-level="0.1.1" data-path="before.html"><a href="before.html#install"><i class="fa fa-check"></i><b>0.1.1</b> Installing R and RStudio on Your Own Machine</a></li>
+<li class="chapter" data-level="0.1.2" data-path="before.html"><a href="before.html#accessing-rstudio-on-university-computers"><i class="fa fa-check"></i><b>0.1.2</b> Accessing RStudio on University Computers</a></li>
+<li class="chapter" data-level="0.1.3" data-path="before.html"><a href="before.html#using-rstudio-cloud"><i class="fa fa-check"></i><b>0.1.3</b> Using RStudio Cloud</a></li>
+</ul></li>
+<li class="chapter" data-level="0.2" data-path="before.html"><a href="before.html#maximising-reproducibility-and-visibility"><i class="fa fa-check"></i><b>0.2</b> Maximising Reproducibility and Visibility</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#intended-learning-outcomes-1"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#computer-literacy-basics"><i class="fa fa-check"></i><b>1.1</b> Computer Literacy Basics</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#r-and-r-studio"><i class="fa fa-check"></i><b>1.2</b> R and R Studio</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#r"><i class="fa fa-check"></i><b>1.2.1</b> R</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#rstudio-ide"><i class="fa fa-check"></i><b>1.2.2</b> RStudio IDE</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#r-r-studio-and-associated-file-types"><i class="fa fa-check"></i><b>1.3</b> R, R Studio and Associated File Types</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="introduction.html"><a href="introduction.html#file-structuredirectories"><i class="fa fa-check"></i><b>1.3.1</b> File Structure/Directories</a></li>
+<li class="chapter" data-level="1.3.2" data-path="introduction.html"><a href="introduction.html#file-extensions"><i class="fa fa-check"></i><b>1.3.2</b> File Extensions</a></li>
+<li class="chapter" data-level="1.3.3" data-path="introduction.html"><a href="introduction.html#zip-files"><i class="fa fa-check"></i><b>1.3.3</b> .zip Files</a></li>
+<li class="chapter" data-level="1.3.4" data-path="introduction.html"><a href="introduction.html#rstudio-specific-files"><i class="fa fa-check"></i><b>1.3.4</b> RStudio Specific Files</a></li>
+<li class="chapter" data-level="1.3.5" data-path="introduction.html"><a href="introduction.html#r-files"><i class="fa fa-check"></i><b>1.3.5</b> .r Files</a></li>
+<li class="chapter" data-level="1.3.6" data-path="introduction.html"><a href="introduction.html#rmd-files"><i class="fa fa-check"></i><b>1.3.6</b> .Rmd files</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#comments"><i class="fa fa-check"></i><b>1.4</b> Comments</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#saving-your-file"><i class="fa fa-check"></i><b>1.5</b> Saving your file</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#sessions"><i class="fa fa-check"></i><b>1.6</b> Sessions</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="introduction.html"><a href="introduction.html#what-is-a-session-in-r"><i class="fa fa-check"></i><b>1.6.1</b> What is a session in R?</a></li>
+<li class="chapter" data-level="1.6.2" data-path="introduction.html"><a href="introduction.html#restarting-your-current-session"><i class="fa fa-check"></i><b>1.6.2</b> Restarting Your Current Session</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="introduction.html"><a href="introduction.html#packages"><i class="fa fa-check"></i><b>1.7</b> Packages</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="introduction.html"><a href="introduction.html#installing-packages"><i class="fa fa-check"></i><b>1.7.1</b> Installing Packages</a></li>
+<li class="chapter" data-level="1.7.2" data-path="introduction.html"><a href="introduction.html#load-tidyverse"><i class="fa fa-check"></i><b>1.7.2</b> Loading Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="introduction.html"><a href="introduction.html#functions"><i class="fa fa-check"></i><b>1.8</b> Functions</a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="introduction.html"><a href="introduction.html#what-is-a-function"><i class="fa fa-check"></i><b>1.8.1</b> What is a function?</a></li>
+<li class="chapter" data-level="1.8.2" data-path="introduction.html"><a href="introduction.html#the-anatomy-of-a-function-names-and-arguments"><i class="fa fa-check"></i><b>1.8.2</b> The Anatomy of a Function: names and arguments</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="introduction.html"><a href="introduction.html#formative-homework"><i class="fa fa-check"></i><b>1.9</b> Formative Homework</a>
+<ul>
+<li class="chapter" data-level="1.9.1" data-path="introduction.html"><a href="introduction.html#install-r-and-rstudio-on-your-personal-computer"><i class="fa fa-check"></i><b>1.9.1</b> Install R and RStudio on your personal computer</a></li>
+<li class="chapter" data-level="1.9.2" data-path="introduction.html"><a href="introduction.html#installing-and-loading-tidyverse"><i class="fa fa-check"></i><b>1.9.2</b> Installing and Loading tidyverse</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introduction-to-data.html"><a href="introduction-to-data.html"><i class="fa fa-check"></i><b>2</b> Introduction to Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction-to-data.html"><a href="introduction-to-data.html#intended-learning-outcomes-2"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="2.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#pre-steps"><i class="fa fa-check"></i><b>2.1</b> Pre-Steps</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#downloading-materials"><i class="fa fa-check"></i><b>2.1.1</b> Downloading materials</a></li>
+<li class="chapter" data-level="2.1.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#unzipping-the-zip-folder"><i class="fa fa-check"></i><b>2.1.2</b> Unzipping the zip folder</a></li>
+<li class="chapter" data-level="2.1.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#setting-the-working-directory"><i class="fa fa-check"></i><b>2.1.3</b> Setting the working directory</a></li>
+<li class="chapter" data-level="2.1.4" data-path="introduction-to-data.html"><a href="introduction-to-data.html#load-tidyverse-into-the-library"><i class="fa fa-check"></i><b>2.1.4</b> Load tidyverse into the library</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#basic-data-types"><i class="fa fa-check"></i><b>2.2</b> Basic data types</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#character"><i class="fa fa-check"></i><b>2.2.1</b> Character</a></li>
+<li class="chapter" data-level="2.2.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#numeric"><i class="fa fa-check"></i><b>2.2.2</b> Numeric</a></li>
+<li class="chapter" data-level="2.2.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#logical"><i class="fa fa-check"></i><b>2.2.3</b> Logical</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#vectors"><i class="fa fa-check"></i><b>2.3</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#creating-vectors"><i class="fa fa-check"></i><b>2.3.1</b> Creating vectors</a></li>
+<li class="chapter" data-level="2.3.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#converting-vectors-into-different-data-types-of-vectors-aka-funky-things-we-can-do"><i class="fa fa-check"></i><b>2.3.2</b> Converting vectors into different data types of vectors aka funky things we can do</a></li>
+<li class="chapter" data-level="2.3.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#adding-elements-to-existing-vectors"><i class="fa fa-check"></i><b>2.3.3</b> Adding elements to existing vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="introduction-to-data.html"><a href="introduction-to-data.html#tibble---the-new-way-of-creating-a-dataframe"><i class="fa fa-check"></i><b>2.4</b> Tibble - the new way of creating a dataframe</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#what-the-heck-is-a-tibble-do-you-mean-table"><i class="fa fa-check"></i><b>2.4.1</b> What the heck is a tibble? Do you mean table?</a></li>
+<li class="chapter" data-level="2.4.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#how-to-make-a-tibble-from-scratch"><i class="fa fa-check"></i><b>2.4.2</b> How to make a tibble from scratch</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="introduction-to-data.html"><a href="introduction-to-data.html#reading-in-data"><i class="fa fa-check"></i><b>2.5</b> Reading in data</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#from-pre-existing-databases"><i class="fa fa-check"></i><b>2.5.1</b> from pre-existing databases</a></li>
+<li class="chapter" data-level="2.5.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#from-existing-data-files"><i class="fa fa-check"></i><b>2.5.2</b> from existing data files</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="introduction-to-data.html"><a href="introduction-to-data.html#last-point-for-today"><i class="fa fa-check"></i><b>2.6</b> Last point for today</a></li>
+<li class="chapter" data-level="2.7" data-path="introduction-to-data.html"><a href="introduction-to-data.html#summative-homework"><i class="fa fa-check"></i><b>2.7</b> Summative Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html"><i class="fa fa-check"></i><b>3</b> Data Transformation 1: Basic One Table Verbs</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#intended-learning-outcomes-3"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="3.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#data-wrangling"><i class="fa fa-check"></i><b>3.1</b> Data Wrangling</a></li>
+<li class="chapter" data-level="3.2" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#pre-steps-1"><i class="fa fa-check"></i><b>3.2</b> Pre-Steps</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#downloading-materials-1"><i class="fa fa-check"></i><b>3.2.1</b> Downloading materials</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#unzipping-the-zip-folder-1"><i class="fa fa-check"></i><b>3.2.2</b> Unzipping the zip folder</a></li>
+<li class="chapter" data-level="3.2.3" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#setting-the-working-directory-1"><i class="fa fa-check"></i><b>3.2.3</b> Setting the working directory</a></li>
+<li class="chapter" data-level="3.2.4" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#loading-in-the-required-packages-into-the-library"><i class="fa fa-check"></i><b>3.2.4</b> Loading in the required packages into the library</a></li>
+<li class="chapter" data-level="3.2.5" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#read-in-the-data"><i class="fa fa-check"></i><b>3.2.5</b> Read in the data</a></li>
+<li class="chapter" data-level="3.2.6" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#view-the-data"><i class="fa fa-check"></i><b>3.2.6</b> View the data</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#select"><i class="fa fa-check"></i><b>3.3</b> select()</a></li>
+<li class="chapter" data-level="3.4" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#arrange"><i class="fa fa-check"></i><b>3.4</b> arrange()</a></li>
+<li class="chapter" data-level="3.5" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#filter"><i class="fa fa-check"></i><b>3.5</b> filter()</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#single-criterion"><i class="fa fa-check"></i><b>3.5.1</b> Single criterion</a></li>
+<li class="chapter" data-level="3.5.2" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#multiple-criteria"><i class="fa fa-check"></i><b>3.5.2</b> Multiple criteria</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#mutate"><i class="fa fa-check"></i><b>3.6</b> mutate()</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#read-in-second-dataset"><i class="fa fa-check"></i><b>3.6.1</b> Read in second dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#summarise"><i class="fa fa-check"></i><b>3.7</b> summarise()</a></li>
+<li class="chapter" data-level="3.8" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#adding-group_by"><i class="fa fa-check"></i><b>3.8</b> Adding group_by()</a></li>
+<li class="chapter" data-level="3.9" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#formative-homework-1"><i class="fa fa-check"></i><b>3.9</b> Formative Homework</a>
+<ul>
+<li class="chapter" data-level="3.9.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#brief-introduction-to-the-homework-data"><i class="fa fa-check"></i><b>3.9.1</b> Brief introduction to the homework data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html"><i class="fa fa-check"></i><b>4</b> Data Transformation 2: More One and Two Table Verbs</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#intended-learning-outcomes-4"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="4.1" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#pre-steps-2"><i class="fa fa-check"></i><b>4.1</b> Pre-Steps</a></li>
+<li class="chapter" data-level="4.2" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#practicing-the-wikham-six"><i class="fa fa-check"></i><b>4.2</b> Practicing the Wikham Six</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#select-1"><i class="fa fa-check"></i><b>4.2.1</b> select()</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#arrange-1"><i class="fa fa-check"></i><b>4.2.2</b> arrange()</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#filter-1"><i class="fa fa-check"></i><b>4.2.3</b> filter()</a></li>
+<li class="chapter" data-level="4.2.4" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#mutate-1"><i class="fa fa-check"></i><b>4.2.4</b> mutate()</a></li>
+<li class="chapter" data-level="4.2.5" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#group_by-and-summarise"><i class="fa fa-check"></i><b>4.2.5</b> group_by() and summarise()</a></li>
+<li class="chapter" data-level="4.2.6" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#bringing-it-all-together"><i class="fa fa-check"></i><b>4.2.6</b> Bringing it all together</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#pipes"><i class="fa fa-check"></i><b>4.3</b> The pipe operator (%&gt;%)</a></li>
+<li class="chapter" data-level="4.4" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#two-table-verbs"><i class="fa fa-check"></i><b>4.4</b> Two-Table Verbs</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#bringing-in-new-data"><i class="fa fa-check"></i><b>4.4.1</b> Bringing in new data</a></li>
+<li class="chapter" data-level="4.4.2" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#mutating-join-verbs"><i class="fa fa-check"></i><b>4.4.2</b> Mutating Join Verbs</a></li>
+<li class="chapter" data-level="4.4.3" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#mutating-join-summary"><i class="fa fa-check"></i><b>4.4.3</b> Mutating Join Summary</a></li>
+<li class="chapter" data-level="4.4.4" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#binding-join-verbs"><i class="fa fa-check"></i><b>4.4.4</b> Binding Join Verbs</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#additional-information"><i class="fa fa-check"></i><b>4.5</b> Additional information</a></li>
+<li class="chapter" data-level="4.6" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#summative-homework-1"><i class="fa fa-check"></i><b>4.6</b> Summative Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html"><i class="fa fa-check"></i><b>5</b> Data Transformation 3: Tidy Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#intended-learning-outcomes-5"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="5.1" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#pre-steps-3"><i class="fa fa-check"></i><b>5.1</b> Pre-steps</a></li>
+<li class="chapter" data-level="5.2" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#tidy-data"><i class="fa fa-check"></i><b>5.2</b> Tidy data</a></li>
+<li class="chapter" data-level="5.3" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#gather-and-spread"><i class="fa fa-check"></i><b>5.3</b> gather() and spread()</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#gather"><i class="fa fa-check"></i><b>5.3.1</b> gather()</a></li>
+<li class="chapter" data-level="5.3.2" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#spread"><i class="fa fa-check"></i><b>5.3.2</b> spread()</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#separate-and-unite"><i class="fa fa-check"></i><b>5.4</b> separate() and unite()</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#separate"><i class="fa fa-check"></i><b>5.4.1</b> separate()</a></li>
+<li class="chapter" data-level="5.4.2" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#additional-arguments-for-separate"><i class="fa fa-check"></i><b>5.4.2</b> additional arguments for separate()</a></li>
+<li class="chapter" data-level="5.4.3" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#unite"><i class="fa fa-check"></i><b>5.4.3</b> unite()</a></li>
+<li class="chapter" data-level="5.4.4" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#additional-arguments-for-unite"><i class="fa fa-check"></i><b>5.4.4</b> additional arguments for unite()</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#bonus-materials-mutate-row-names-from-the-mtcars"><i class="fa fa-check"></i><b>5.5</b> Bonus materials: mutate row names from the <code>mtcars</code></a></li>
+<li class="chapter" data-level="5.6" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#additional-information-1"><i class="fa fa-check"></i><b>5.6</b> Additional information</a></li>
+<li class="chapter" data-level="5.7" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#formative-homework-2"><i class="fa fa-check"></i><b>5.7</b> Formative Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html"><i class="fa fa-check"></i><b>6</b> Data Transformation 4: Fine-tuned Data Manipulation</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#intended-learning-outcomes-6"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="6.1" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#pre-steps-4"><i class="fa fa-check"></i><b>6.1</b> Pre-steps</a></li>
+<li class="chapter" data-level="6.2" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#rename"><i class="fa fa-check"></i><b>6.2</b> rename()</a></li>
+<li class="chapter" data-level="6.3" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#conditional-statements"><i class="fa fa-check"></i><b>6.3</b> Conditional statements</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#recode"><i class="fa fa-check"></i><b>6.3.1</b> recode()</a></li>
+<li class="chapter" data-level="6.3.2" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#ifelse"><i class="fa fa-check"></i><b>6.3.2</b> ifelse()</a></li>
+<li class="chapter" data-level="6.3.3" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#case_when"><i class="fa fa-check"></i><b>6.3.3</b> case_when()</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#distinct"><i class="fa fa-check"></i><b>6.4</b> distinct()</a></li>
+<li class="chapter" data-level="6.5" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#recap"><i class="fa fa-check"></i><b>6.5</b> Recap</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-1"><i class="fa fa-check"></i><b>6.5.1</b> Question 1</a></li>
+<li class="chapter" data-level="6.5.2" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-2"><i class="fa fa-check"></i><b>6.5.2</b> Question 2</a></li>
+<li class="chapter" data-level="6.5.3" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-3"><i class="fa fa-check"></i><b>6.5.3</b> Question 3</a></li>
+<li class="chapter" data-level="6.5.4" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-4"><i class="fa fa-check"></i><b>6.5.4</b> Question 4</a></li>
+<li class="chapter" data-level="6.5.5" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-5"><i class="fa fa-check"></i><b>6.5.5</b> Question 5</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#summative-homework-2"><i class="fa fa-check"></i><b>6.6</b> Summative Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html"><i class="fa fa-check"></i><b>7</b> Data Visualisation 1</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#pre-class-activities"><i class="fa fa-check"></i><b>7.1</b> Pre-class Activities</a></li>
+<li class="chapter" data-level="" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#intended-learning-outcomes-7"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="7.2" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#pre-steps-5"><i class="fa fa-check"></i><b>7.2</b> Pre-steps</a></li>
+<li class="chapter" data-level="7.3" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#introduction-to-the-data"><i class="fa fa-check"></i><b>7.3</b> Introduction to the data</a></li>
+<li class="chapter" data-level="7.4" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#some-warm-up-tasks"><i class="fa fa-check"></i><b>7.4</b> Some warm-up tasks</a></li>
+<li class="chapter" data-level="7.5" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#the-package-ggplot2"><i class="fa fa-check"></i><b>7.5</b> The package GGPLOT2</a></li>
+<li class="chapter" data-level="7.6" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#layering"><i class="fa fa-check"></i><b>7.6</b> Layering</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#layer-1"><i class="fa fa-check"></i><b>7.6.1</b> Layer 1</a></li>
+<li class="chapter" data-level="7.6.2" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#layer-2-and-onward"><i class="fa fa-check"></i><b>7.6.2</b> Layer 2 and onward</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#how-do-we-choose-the-type-of-plot"><i class="fa fa-check"></i><b>7.7</b> How do we choose the type of plot?</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#data-format"><i class="fa fa-check"></i><b>7.7.1</b> Data format</a></li>
+<li class="chapter" data-level="7.7.2" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#number-of-variables"><i class="fa fa-check"></i><b>7.7.2</b> Number of variables</a></li>
+<li class="chapter" data-level="7.7.3" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#types-of-plots"><i class="fa fa-check"></i><b>7.7.3</b> Types of plots</a></li>
+<li class="chapter" data-level="7.7.4" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#groupings"><i class="fa fa-check"></i><b>7.7.4</b> Groupings</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#now-lets-have-a-look-at-different-plots-with-more-complexity"><i class="fa fa-check"></i><b>7.8</b> Now let’s have a look at different plots with more complexity</a></li>
+<li class="chapter" data-level="7.9" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#other-plots"><i class="fa fa-check"></i><b>7.9</b> Other plots</a></li>
+<li class="chapter" data-level="7.10" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#formative-homework-3"><i class="fa fa-check"></i><b>7.10</b> Formative Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html"><i class="fa fa-check"></i><b>8</b> Data Visualisation 2</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#additional-resources"><i class="fa fa-check"></i><b>8.1</b> Additional Resources</a></li>
+<li class="chapter" data-level="" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#intended-learning-outcomes-8"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="8.2" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#pre-steps-6"><i class="fa fa-check"></i><b>8.2</b> Pre-steps</a></li>
+<li class="chapter" data-level="8.3" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#re-introduction-to-the-data"><i class="fa fa-check"></i><b>8.3</b> Re-introduction to the data</a></li>
+<li class="chapter" data-level="8.4" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#create-multiple-plots-in-one"><i class="fa fa-check"></i><b>8.4</b> Create multiple plots in one</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#select-the-data-beforehand-and-create-different-plots."><i class="fa fa-check"></i><b>8.4.1</b> Select the data beforehand and create different plots.</a></li>
+<li class="chapter" data-level="8.4.2" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#facets"><i class="fa fa-check"></i><b>8.4.2</b> Facets</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#global-and-local-aesthetics"><i class="fa fa-check"></i><b>8.5</b> Global and Local aesthetics</a></li>
+<li class="chapter" data-level="8.6" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#themes-making-your-plots-pretty-looking-the-way-you-want-them-to"><i class="fa fa-check"></i><b>8.6</b> Themes: Making your plots pretty: looking the way you want them to</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#ready-made-themes"><i class="fa fa-check"></i><b>8.6.1</b> Ready-made themes</a></li>
+<li class="chapter" data-level="8.6.2" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#adding-axes-titles-and-headings"><i class="fa fa-check"></i><b>8.6.2</b> Adding axes titles and headings</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#changing-colours"><i class="fa fa-check"></i><b>8.7</b> Changing colours</a></li>
+<li class="chapter" data-level="8.8" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#legends"><i class="fa fa-check"></i><b>8.8</b> Legends</a></li>
+<li class="chapter" data-level="8.9" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#changing-axes-ticks"><i class="fa fa-check"></i><b>8.9</b> Changing axes ticks</a></li>
+<li class="chapter" data-level="8.10" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#saving-plots"><i class="fa fa-check"></i><b>8.10</b> Saving plots</a></li>
+<li class="chapter" data-level="8.11" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#summative-homework-3"><i class="fa fa-check"></i><b>8.11</b> Summative Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="errors.html"><a href="errors.html"><i class="fa fa-check"></i><b>9</b> Errors</a>
+<ul>
+<li class="chapter" data-level="" data-path="errors.html"><a href="errors.html#intended-learning-outcomes-9"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="9.1" data-path="errors.html"><a href="errors.html#errors-how-to-avoid-some-and-live-through-the-rest"><i class="fa fa-check"></i><b>9.1</b> Errors: How to avoid some and live through the rest</a></li>
+<li class="chapter" data-level="9.2" data-path="errors.html"><a href="errors.html#debugging"><i class="fa fa-check"></i><b>9.2</b> Debugging</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="errors.html"><a href="errors.html#messages-from-r"><i class="fa fa-check"></i><b>9.2.1</b> Messages from R</a></li>
+<li class="chapter" data-level="9.2.2" data-path="errors.html"><a href="errors.html#error-messages"><i class="fa fa-check"></i><b>9.2.2</b> Error Messages</a></li>
+<li class="chapter" data-level="9.2.3" data-path="errors.html"><a href="errors.html#multiple-errors"><i class="fa fa-check"></i><b>9.2.3</b> Multiple Errors</a></li>
+<li class="chapter" data-level="9.2.4" data-path="errors.html"><a href="errors.html#finding-errors-in-longer-code-segments"><i class="fa fa-check"></i><b>9.2.4</b> Finding errors in longer code segments</a></li>
+<li class="chapter" data-level="9.2.5" data-path="errors.html"><a href="errors.html#warning-messages"><i class="fa fa-check"></i><b>9.2.5</b> Warning Messages</a></li>
+<li class="chapter" data-level="9.2.6" data-path="errors.html"><a href="errors.html#other-messages"><i class="fa fa-check"></i><b>9.2.6</b> Other Messages</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="errors.html"><a href="errors.html#searching-for-help-online"><i class="fa fa-check"></i><b>9.3</b> Searching for Help Online</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="errors.html"><a href="errors.html#googling-it"><i class="fa fa-check"></i><b>9.3.1</b> Googling It</a></li>
+<li class="chapter" data-level="9.3.2" data-path="errors.html"><a href="errors.html#stack-overflow"><i class="fa fa-check"></i><b>9.3.2</b> Stack Overflow</a></li>
+<li class="chapter" data-level="9.3.3" data-path="errors.html"><a href="errors.html#youtube"><i class="fa fa-check"></i><b>9.3.3</b> YouTube</a></li>
+<li class="chapter" data-level="9.3.4" data-path="errors.html"><a href="errors.html#further-reading"><i class="fa fa-check"></i><b>9.3.4</b> Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="errors.html"><a href="errors.html#formative-exercises"><i class="fa fa-check"></i><b>9.4</b> Formative Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html"><i class="fa fa-check"></i><b>10</b> Recap: Before the final assessment</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#outline-for-today"><i class="fa fa-check"></i><b>10.1</b> Outline for today</a></li>
+<li class="chapter" data-level="10.2" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#lecture-10-bringing-your-skills-together"><i class="fa fa-check"></i><b>10.2</b> Lecture 10: Bringing your skills together</a>
+<ul>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-1-1"><i class="fa fa-check"></i>Question 1</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-2-1"><i class="fa fa-check"></i>Question 2</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-3-1"><i class="fa fa-check"></i>Question 3</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-4-1"><i class="fa fa-check"></i>Question 4</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-5-1"><i class="fa fa-check"></i>Question 5</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-6"><i class="fa fa-check"></i>Question 6</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-7"><i class="fa fa-check"></i>Question 7</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-8"><i class="fa fa-check"></i>Question 8</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-9"><i class="fa fa-check"></i>Question 9</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-10"><i class="fa fa-check"></i>Question 10</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-11"><i class="fa fa-check"></i>Question 11</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-12-bonus"><i class="fa fa-check"></i>Question 12 (Bonus)</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-13-bonus"><i class="fa fa-check"></i>Question 13 (Bonus)</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-14-bonus"><i class="fa fa-check"></i>Question 14 (Bonus)</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#solutions"><i class="fa fa-check"></i><b>10.3</b> Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html"><i class="fa fa-check"></i>Appendices</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#changing-the-appearance-of-rmarkdown"><i class="fa fa-check"></i>Changing the Appearance of RMarkdown</a></li>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#source-materials"><i class="fa fa-check"></i>Source Materials</a></li>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#further-reading-1"><i class="fa fa-check"></i>Further Reading</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#statistics"><i class="fa fa-check"></i>Statistics</a></li>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#more-advanced-use-of-r"><i class="fa fa-check"></i>More Advanced Use of R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>11</b> References</a></li>
+<li class="divider"></li>
+<li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
+    target="blank"><img alt="Creative Commons License" 
+    style="border-width:0" 
+    src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="errors" class="section level1" number="9">
+<h1><span class="header-section-number">Chapter 9</span> Errors</h1>
+<div id="intended-learning-outcomes-9" class="section level2 unnumbered">
+<h2>Intended Learning Outcomes</h2>
+<p>By the end of this session you should be:</p>
+<ol style="list-style-type: decimal">
+<li>Able to identify some of the more common errors found in R code.</li>
+<li>Able to correct some of the more common errors found in R code.</li>
+<li>Know where to go online to find help and continue your coding journey on your own.</li>
+</ol>
+<p>This lesson is led by <a href="https://www.psy.gla.ac.uk/otherstaff/?id=TJ001">Jaimie Torrance</a>.</p>
+</div>
+<div id="errors-how-to-avoid-some-and-live-through-the-rest" class="section level2" number="9.1">
+<h2><span class="header-section-number">9.1</span> Errors: How to avoid some and live through the rest</h2>
+<p>I don’t know a single person who can produce 100% correct code on the first attempt. It’s even common to produce code that runs, only for you to find out later that there were errors. Not all errors prevent code from running!</p>
+<p>This is a lesson focused on how to find and correct it <em>when</em> they happen- and they often do.</p>
+</div>
+<div id="debugging" class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> Debugging</h2>
+<center>
+<figure>
+<img src="images/debugging.jpg">
+<figcaption>
+A literal bug in a machine, often incorrectly cited as the source of the term “debugging.” From <a href="https://en.wikipedia.org/wiki/Debugging" class="uri">https://en.wikipedia.org/wiki/Debugging</a>.
+</figcaption>
+</figure>
+</center>
+<p><br></p>
+<p>Debugging is the process of identifying and removing errors from your code. It sounds a bit technical, but you’ve probably been doing it already.</p>
+<p>What you do to identify errors depends on what is wrong. There are various types of messages that R will give you that will help you identify the issues that you are having.</p>
+<p>Reading these error messages will come naturally after you get a bit more experience under your belt, but in the meantime let’s look at common problems.</p>
+<div id="messages-from-r" class="section level3" number="9.2.1">
+<h3><span class="header-section-number">9.2.1</span> Messages from R</h3>
+<p>Occasionally, R will return some text when you run a piece of code. Often, this text is coloured red, which causes a bit of panic in newer users. It is printed in the console, but also may be displayed below code chunks in R Markdown documents.</p>
+<div class="info">
+<p>
+It is important to note that <strong>not all red text indicates an error!</strong> There are a number of things that R could be trying to tell you, all that the red colour indicates is that you should be paying attention to it.
+</p>
+</div>
+<p>Let’s have a look at what different types of thing R could be telling you when you get a text output.</p>
+</div>
+<div id="error-messages" class="section level3" number="9.2.2">
+<h3><span class="header-section-number">9.2.2</span> Error Messages</h3>
+<p>These are definitely the ones that people worry about the most, but error messages given information about what has gone wrong. By reading and interpreting these messages we can diagnose the problem and fix it- a process called <strong>debugging</strong>. Let’s do something that will definitely generate an error and have a look at it:</p>
+<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="errors.html#cb447-1" aria-hidden="true" tabindex="-1"></a>demo <span class="ot">&lt;-</span> <span class="fu">read_cvs</span>(<span class="st">&quot;some_file_name.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## Error in read_cvs(&quot;some_file_name.csv&quot;): could not find function &quot;read_cvs&quot;</code></pre>
+<p>Breaking it down:</p>
+<ul>
+<li><code>Error...</code>: error messages are always preceded by the word error</li>
+<li><code>could not find function "read_cvs"</code>: the content of the error message. In this case the function I have tried to call is not found.</li>
+</ul>
+<div class="info">
+<p>
+<strong>Error messages should give a hint as to what has gone wrong</strong>. You will gain more experience in reading and interpreting these messages over time, most of us have just seen them a lot in our own work and have become accustomed to it!
+</p>
+</div>
+<p>Trying to run a piece of code that results in an error will not produce any output, besides the error message. This means that any objects you try to create or processes that you try to run, will not be created or run.</p>
+<div class="warning">
+<p>
+<strong>It is possible to write code which is valid, but does not do what you expect it to do!</strong> In this case, no error messages are produced, but the final outcome is still “incorrect”- that is, it is not the outcome that you anticipated.
+</p>
+<p>
+For this reason, you should always check that the outcome you have gotten from a line or segment of code is what you expected to get!
+</p>
+<p>
+For example, this might happen if you try to use <code>filter(variable &gt; 150)</code>, which would retain all observations where the values in <code>variable</code> were greater than 150, when you actually mean to use <code>filter(variable &lt; 150)</code> to get rid of all observations where the values in <code>variable</code> were greater than 150 (retaining those below 150).
+</p>
+</div>
+<p><span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span></p>
+<div class="task">
+<p>
+<strong>Your turn</strong>
+</p>
+<p>
+We have some error messages below- let’s look at them and see if we can solve them.
+</p>
+<p>
+If you want, you can download <a href="data/cars_for_sale.csv" download>cars_for_sale.csv</a> and test them out as we go.
+</p>
+</div>
+<div id="could-not-find-function-1" class="section level4 unnumbered">
+<h4>Could not find function: 1</h4>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="errors.html#cb449-1" aria-hidden="true" tabindex="-1"></a>demonstration <span class="ot">&lt;-</span> <span class="fu">read_cvs</span>(<span class="st">&quot;cars_for_sale.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## Error in read_cvs(&quot;cars_for_sale.csv&quot;): could not find function &quot;read_cvs&quot;</code></pre>
+<p>What do you think this error message means? How is it fixed?</p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="errors.html#cb451-1" aria-hidden="true" tabindex="-1"></a>demonstration <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;cars_for_sale.csv&quot;</span>)</span>
+<span id="cb451-2"><a href="errors.html#cb451-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb451-3"><a href="errors.html#cb451-3" aria-hidden="true" tabindex="-1"></a><span class="co"># We tried to run the function read_cvs()- this doesn&#39;t </span></span>
+<span id="cb451-4"><a href="errors.html#cb451-4" aria-hidden="true" tabindex="-1"></a><span class="co"># exist! Again, it might seem trivial, but R really </span></span>
+<span id="cb451-5"><a href="errors.html#cb451-5" aria-hidden="true" tabindex="-1"></a><span class="co"># won&#39;t know what this means.</span></span></code></pre></div>
+</div>
+</div>
+<div id="could-not-find-function-2" class="section level4 unnumbered">
+<h4>Could not find function: 2</h4>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="errors.html#cb452-1" aria-hidden="true" tabindex="-1"></a>demonstration <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;cars_for_sale.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="errors.html#cb453-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Error in read_cvs(&quot;cars_for_sale.csv&quot;): could not find function &quot;read_csv&quot;</span></span></code></pre></div>
+<p>What do you think this error message means? How is it fixed?</p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="errors.html#cb454-1" aria-hidden="true" tabindex="-1"></a>demonstration <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;cars_for_sale.csv&quot;</span>)</span>
+<span id="cb454-2"><a href="errors.html#cb454-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb454-3"><a href="errors.html#cb454-3" aria-hidden="true" tabindex="-1"></a><span class="co"># We tried to run the function read_csv(), but if tidyverse</span></span>
+<span id="cb454-4"><a href="errors.html#cb454-4" aria-hidden="true" tabindex="-1"></a><span class="co"># is not loaded then this function, which is part of tidyverse,</span></span>
+<span id="cb454-5"><a href="errors.html#cb454-5" aria-hidden="true" tabindex="-1"></a><span class="co"># is not available for use.</span></span>
+<span id="cb454-6"><a href="errors.html#cb454-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb454-7"><a href="errors.html#cb454-7" aria-hidden="true" tabindex="-1"></a><span class="co"># We need to run library(tidyverse) before we can use it</span></span></code></pre></div>
+</div>
+</div>
+<div id="unexpected" class="section level4 unnumbered">
+<h4>Unexpected ‘)’</h4>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="errors.html#cb455-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)<span class="er">)</span></span></code></pre></div>
+<pre><code>## Error: &lt;text&gt;:1:19: unexpected &#39;)&#39;
+## 1: library(tidyverse))
+##                       ^</code></pre>
+<p>What does the error message tell you? What happened and what do you think I should do to fix it?</p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="errors.html#cb457-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb457-2"><a href="errors.html#cb457-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb457-3"><a href="errors.html#cb457-3" aria-hidden="true" tabindex="-1"></a><span class="co"># There was an extra ) in there. It might seem trivial, </span></span>
+<span id="cb457-4"><a href="errors.html#cb457-4" aria-hidden="true" tabindex="-1"></a><span class="co"># but this prevented the line of code from being run.</span></span>
+<span id="cb457-5"><a href="errors.html#cb457-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb457-6"><a href="errors.html#cb457-6" aria-hidden="true" tabindex="-1"></a><span class="co"># This can happen with any function that uses brackets, </span></span>
+<span id="cb457-7"><a href="errors.html#cb457-7" aria-hidden="true" tabindex="-1"></a><span class="co"># but also with other symbols such as &quot;,&quot;.</span></span></code></pre></div>
+</div>
+</div>
+<div id="not-in-current-working-directory" class="section level4 unnumbered">
+<h4>Not in current working directory</h4>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="errors.html#cb458-1" aria-hidden="true" tabindex="-1"></a>demonstration <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;cars_for_sale.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## Error: &#39;cars_for_sale.csv&#39; does not exist in current working directory (&#39;C:/Users/gabym/OneDrive - University of Glasgow/Open Studies Short Courses/Intro to R/2021-22/Intro_to_R_Jan_2022&#39;).</code></pre>
+<p>What do you think this error means? We have all seen it at least once. I see it all the time because I always forget to do something when I start working.</p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p>If you are coding along and have correctly set your working directory before trying to replicate this error… you won’t see the error! Well done!</p>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="errors.html#cb460-1" aria-hidden="true" tabindex="-1"></a>demonstration <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;cars_for_sale.csv&quot;</span>)</span>
+<span id="cb460-2"><a href="errors.html#cb460-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb460-3"><a href="errors.html#cb460-3" aria-hidden="true" tabindex="-1"></a><span class="co"># We tried to run the function read_csv() and to read</span></span>
+<span id="cb460-4"><a href="errors.html#cb460-4" aria-hidden="true" tabindex="-1"></a><span class="co"># cars_for_sale.csv, but in this instance the file was </span></span>
+<span id="cb460-5"><a href="errors.html#cb460-5" aria-hidden="true" tabindex="-1"></a><span class="co"># not in the current working directory</span></span>
+<span id="cb460-6"><a href="errors.html#cb460-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb460-7"><a href="errors.html#cb460-7" aria-hidden="true" tabindex="-1"></a><span class="co"># to fix this we can go to the Session Menu, Set Working</span></span>
+<span id="cb460-8"><a href="errors.html#cb460-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Directory and Choose Directory to tell R where this file</span></span>
+<span id="cb460-9"><a href="errors.html#cb460-9" aria-hidden="true" tabindex="-1"></a><span class="co"># can be found</span></span></code></pre></div>
+</div>
+</div>
+<div id="could-not-find-object" class="section level4 unnumbered">
+<h4>Could not find object</h4>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="errors.html#cb461-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(demonstration)</span></code></pre></div>
+<pre><code>## Error in head(demonstration): object &#39;demonstration&#39; not found</code></pre>
+<p>I’ve tried to use the function head on the object I tried to create above. Have a think about why this error has been returned and how to fix it.</p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="errors.html#cb463-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(demonstration)</span>
+<span id="cb463-2"><a href="errors.html#cb463-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb463-3"><a href="errors.html#cb463-3" aria-hidden="true" tabindex="-1"></a><span class="co"># This code is correct, but errors can be cumulative... </span></span>
+<span id="cb463-4"><a href="errors.html#cb463-4" aria-hidden="true" tabindex="-1"></a><span class="co"># that is, if a later piece of code is contingent on a </span></span>
+<span id="cb463-5"><a href="errors.html#cb463-5" aria-hidden="true" tabindex="-1"></a><span class="co"># previous piece of code running successfully then</span></span>
+<span id="cb463-6"><a href="errors.html#cb463-6" aria-hidden="true" tabindex="-1"></a><span class="co"># the later piece of code won&#39;t work if the earlier</span></span>
+<span id="cb463-7"><a href="errors.html#cb463-7" aria-hidden="true" tabindex="-1"></a><span class="co"># one wasn&#39;t run!</span></span>
+<span id="cb463-8"><a href="errors.html#cb463-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb463-9"><a href="errors.html#cb463-9" aria-hidden="true" tabindex="-1"></a><span class="co"># The previous code creating the object had many errors, </span></span>
+<span id="cb463-10"><a href="errors.html#cb463-10" aria-hidden="true" tabindex="-1"></a><span class="co"># one loading tidyverse into the library which is </span></span>
+<span id="cb463-11"><a href="errors.html#cb463-11" aria-hidden="true" tabindex="-1"></a><span class="co"># necessary for the `read_csv()` function to be usable </span></span>
+<span id="cb463-12"><a href="errors.html#cb463-12" aria-hidden="true" tabindex="-1"></a><span class="co"># and the second was a typo in the `read_csv()` function, </span></span>
+<span id="cb463-13"><a href="errors.html#cb463-13" aria-hidden="true" tabindex="-1"></a><span class="co"># so the object `demonstration` was not created, and </span></span>
+<span id="cb463-14"><a href="errors.html#cb463-14" aria-hidden="true" tabindex="-1"></a><span class="co"># thus there is no object to call using `head()`</span></span></code></pre></div>
+</div>
+</div>
+<div id="code-wont-run-in-the-console" class="section level4 unnumbered">
+<h4>Code won’t run, + in the console</h4>
+<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="errors.html#cb464-1" aria-hidden="true" tabindex="-1"></a>demonstration <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;cars_for_sale.csv&quot;</span></span></code></pre></div>
+<p>This error appears in the console as below:</p>
+<center>
+<img src="images/plus_error.gif">
+</center>
+<p>What has happened? How do I fix it?</p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="errors.html#cb465-1" aria-hidden="true" tabindex="-1"></a>demonstration <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;cars_for_sale.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## Error: &#39;cars_for_sale.csv&#39; does not exist in current working directory (&#39;C:/Users/gabym/OneDrive - University of Glasgow/Open Studies Short Courses/Intro to R/2021-22/Intro_to_R_Jan_2022&#39;).</code></pre>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb467-1"><a href="errors.html#cb467-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This time there is a missing bracket at the end!</span></span>
+<span id="cb467-2"><a href="errors.html#cb467-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb467-3"><a href="errors.html#cb467-3" aria-hidden="true" tabindex="-1"></a><span class="co"># This means R is still expecting some kind of input.</span></span>
+<span id="cb467-4"><a href="errors.html#cb467-4" aria-hidden="true" tabindex="-1"></a><span class="co"># It&#39;s kinda like talking to someone but forgetting to </span></span>
+<span id="cb467-5"><a href="errors.html#cb467-5" aria-hidden="true" tabindex="-1"></a><span class="co"># finish the sentence! The person listening will be</span></span>
+<span id="cb467-6"><a href="errors.html#cb467-6" aria-hidden="true" tabindex="-1"></a><span class="co"># confused because they expected a bit more.</span></span>
+<span id="cb467-7"><a href="errors.html#cb467-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb467-8"><a href="errors.html#cb467-8" aria-hidden="true" tabindex="-1"></a><span class="co"># To get rid of the +, click in the console then </span></span>
+<span id="cb467-9"><a href="errors.html#cb467-9" aria-hidden="true" tabindex="-1"></a><span class="co"># press the escape key (&quot;esc&quot;, top-left of the keyboard)</span></span>
+<span id="cb467-10"><a href="errors.html#cb467-10" aria-hidden="true" tabindex="-1"></a><span class="co"># until you see the more familiar &gt; symbol.</span></span>
+<span id="cb467-11"><a href="errors.html#cb467-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb467-12"><a href="errors.html#cb467-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Next, correct the code by giving R what it expected </span></span>
+<span id="cb467-13"><a href="errors.html#cb467-13" aria-hidden="true" tabindex="-1"></a><span class="co"># you to finish with, in this case the closing ).</span></span>
+<span id="cb467-14"><a href="errors.html#cb467-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the code again to create the object.</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="multiple-errors" class="section level3" number="9.2.3">
+<h3><span class="header-section-number">9.2.3</span> Multiple Errors</h3>
+<p>If you have an error in your script on an earlier line, and have code later which depends on the success of running this earlier line, then you are also going have problems. Later code which might otherwise work would be missing a key component which would cause errors further down.</p>
+<p>Sometimes finding the source of an error requires you to go back to look through your previous code. Keep this in mind when debugging!</p>
+<p>For example: <code>libraary(tidyverse)</code> fails to load the appropriate package containing the function we need (<code>read_csv()</code>), which then means we do not load the data file we want.</p>
+<p>You can help prevent this sort of thing from happening by running all lines of code individually, rerunning later code after you’ve made changes to earlier code and periodically restarting the R session and running all code from the beginning.</p>
+<p>Find the error location by following the trail set out in the error message. Where did the code stop running correctly? When did the error message appear in the console or in the .Rmd outputs? What does the error message say?</p>
+<p>These pieces of information should allow you to find the location of the error and solve it successfully.</p>
+</div>
+<div id="finding-errors-in-longer-code-segments" class="section level3" number="9.2.4">
+<h3><span class="header-section-number">9.2.4</span> Finding errors in longer code segments</h3>
+<p>The above examples are the most simple examples of debugging that you are likely to get. If these are the only ones you encounter, you will be incredibly lucky!</p>
+<p>We’ve been learning to use longer segments of code- not only single lines as in the example above… this can make it more difficult to find and diagnose errors.</p>
+<p>Let’s look at some error messages in longer examples and discuss some of the strategies that you might want to use to make your life easier.</p>
+<div id="errors-in-pipes" class="section level4" number="9.2.4.1">
+<h4><span class="header-section-number">9.2.4.1</span> Errors in Pipes</h4>
+<p>As we saw before, pipes allow us to chain multiple functions together. For a recap of pipes, see the section on pipes in <a href="data-transformation-2-more-one-and-two-table-verbs.html#pipes">lecture 4</a>. This makes life a lot easier, <em>if the code works</em>. If there is an error, it makes debugging a little more difficult as we need to establish which line the error occurs in.</p>
+<p>Let’s get a working example going, and we’ll use some of the data built in to the tidyverse called <code>starwars</code> so we don’t need to import any new data. let’s look at it:</p>
+<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="errors.html#cb468-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb468-2"><a href="errors.html#cb468-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb468-3"><a href="errors.html#cb468-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(starwars)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 14
+##   name     height  mass hair_color  skin_color eye_color birth_year sex   gender
+##   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+## 1 Luke Sk~    172    77 blond       fair       blue            19   male  mascu~
+## 2 C-3PO       167    75 &lt;NA&gt;        gold       yellow         112   none  mascu~
+## 3 R2-D2        96    32 &lt;NA&gt;        white, bl~ red             33   none  mascu~
+## 4 Darth V~    202   136 none        white      yellow          41.9 male  mascu~
+## 5 Leia Or~    150    49 brown       light      brown           19   fema~ femin~
+## 6 Owen La~    178   120 brown, grey light      blue            52   male  mascu~
+## # ... with 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+<p>This is the data on the characters in the Star Wars universe (I have no idea if it counts the newer movies).</p>
+<p>Let’s look at this (faulty) code which counts the number of each species and their genders featured then arranges them by number in descending order:</p>
+<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="errors.html#cb470-1" aria-hidden="true" tabindex="-1"></a>species_count <span class="ot">&lt;-</span> starwars <span class="sc">%&gt;%</span></span>
+<span id="cb470-2"><a href="errors.html#cb470-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(starwars, species, gender) <span class="sc">%&gt;%</span></span>
+<span id="cb470-3"><a href="errors.html#cb470-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb470-4"><a href="errors.html#cb470-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span></code></pre></div>
+<pre><code>## Error: Must group by variables found in `.data`.
+## * Column `starwars` is not found.</code></pre>
+<p>What is the best way to find out which part is wrong?</p>
+<p>Going through it a bit at a time will help you!</p>
+<p>We can do this by first highlighting the first line <em><strong>before the first pipe</strong></em> and then pressing <code>Ctrl</code>+<code>Enter</code>. this will run only that line of code:</p>
+<center>
+<img src="images/pipe_error_1.gif" />
+</center>
+<p>OK, we can see that we now have an object called <code>species_count</code> in the environment, and this now contains the data set <code>starwars</code>. The code ran, and ran as we expected it to.</p>
+<p>Let’s move on to the second line. Highlight the first two lines <em><strong>before the second pipe</strong></em>, again this will only run the first two lines of code:</p>
+<center>
+<img src="images/pipe_error_2.gif" />
+</center>
+<pre><code>## Error: Must group by variables found in `.data`.
+## * Column `starwars` is not found.</code></pre>
+<p>There we go, the location of the error is uncovered! We can now look at what is going on in line 2 and figure out what is going on.</p>
+<p><span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span></p>
+<p>From the text of the error message that the error relates to the column name <code>starwars</code>, so we look at parts called <code>starwars</code> in our code. We have already established that the first time this appears (in line 1) that the code runs and runs as we expected it to, so the error is in line 2.</p>
+<p>Let’s look at line 2 in more detail. We know that:</p>
+<ul>
+<li>the result of line 1 (the entire data frame <code>starwars</code>) is run <strong>and then</strong> is put into the first argument of the second line’s function</li>
+<li><code>group_by()</code> normally takes a data frame as its first argument so we only need to specify the grouping variables because the data argument is already specified by the pipe.</li>
+</ul>
+<p>Given the information above and the text of the error message, who knows what is happening? What would the correct code be?</p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p>We tried to re-specify the data frame argument in the <code>group_by()</code> function on the second line.</p>
+<p>Because the pipe operator already does this, the function then interprets the extra <code>starwars</code> as a column to group by. There is no column called that in the data frame, so we get an error message saying that there is no column called <code>starwars</code>.</p>
+<pre><code>## Error: Must group by variables found in `.data`.
+## * Column `starwars` is not found.</code></pre>
+<p>This would be the correct code to use:</p>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="errors.html#cb474-1" aria-hidden="true" tabindex="-1"></a>species_count <span class="ot">&lt;-</span> starwars <span class="sc">%&gt;%</span></span>
+<span id="cb474-2"><a href="errors.html#cb474-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species, gender) <span class="sc">%&gt;%</span></span>
+<span id="cb474-3"><a href="errors.html#cb474-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb474-4"><a href="errors.html#cb474-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span></code></pre></div>
+<pre><code>## `summarise()` has grouped output by &#39;species&#39;. You can override using the `.groups` argument.</code></pre>
+<p>This is a common error for those who are new to using pipelines in their code.</p>
+</div>
+</div>
+<div id="errors-in-ggplot" class="section level4" number="9.2.4.2">
+<h4><span class="header-section-number">9.2.4.2</span> Errors in ggplot()</h4>
+<p><code>ggplot()</code> errors can be difficult to diagnose for the same reason that pipeline errors can be- there are multiple lines of code!</p>
+<p>Let’s get an example of a plot to work with. We’ll use the built in data set called <code>mpg</code>.</p>
+<p>The following plot looks at data on fuel consumption. More specifically it shows the relationship between city fuel consumption (on the x axis) and highway fuel consumption (on the y axis), with a “line of best fit” to demonstrate the correlation between them. Vehicles of different classes are specified in different colours according to the legend on the right of the graph.</p>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-378-1.png" width="672" /></p>
+<p>Plots are made by code, and like all the other code, it can be subject to the same errors from misplaced or missing brackets, commas and non-existent objects in the environment. We won’t be looking at these here because they’ve been covered above and you should be able to extrapolate that information when the same error occurs under different circumstances.</p>
+<p>Let’s look at a few errors that can occur specifically when creating plots:</p>
+<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="errors.html#cb477-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty)) <span class="sc">+</span></span>
+<span id="cb477-2"><a href="errors.html#cb477-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> F, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) </span>
+<span id="cb477-3"><a href="errors.html#cb477-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">colour =</span> class)) <span class="sc">+</span></span>
+<span id="cb477-4"><a href="errors.html#cb477-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span> (<span class="at">x =</span> <span class="st">&quot;City MPG&quot;</span>,</span>
+<span id="cb477-5"><a href="errors.html#cb477-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">&quot;Highway MPG&quot;</span>)</span></code></pre></div>
+<p>Here is the code to recreate the graph presented above, but I’ve created 3 errors in it. These are probably the most common errors you will encounter.</p>
+<p><span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span></p>
+<p>Let’s look at fixing these 3 errors. As a bonus, the same method used in debugging pipes is also used.</p>
+<p>The data set <code>mpg</code> is built in to tidyverse, so if you want to code and test the issues to see if you resolve them please do.</p>
+<div id="stat_smooth-requires-the-following-missing-aesthetics-y" class="section level5 unnumbered">
+<h5>stat_smooth requires the following missing aesthetics: y</h5>
+<p>This is our first attempt at replicating the graph above. This time we have three errors, two with error messages (currently), but let’s focus only on the first one for now. The error message that appears first in the console is the one that happens first in the code and <strong>error messages can be cumulative</strong>- even if we correct the second one it still might not work because of the earlier code.</p>
+<p>When I run this code, I get the following print out in the console, indicating the errors that have occurred:</p>
+<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="errors.html#cb478-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty)) <span class="sc">+</span></span>
+<span id="cb478-2"><a href="errors.html#cb478-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> F, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) </span>
+<span id="cb478-3"><a href="errors.html#cb478-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">colour =</span> class)) <span class="sc">+</span></span>
+<span id="cb478-4"><a href="errors.html#cb478-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span> (<span class="at">x =</span> <span class="st">&quot;City MPG&quot;</span>,</span>
+<span id="cb478-5"><a href="errors.html#cb478-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">&quot;Highway MPG&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="errors.html#cb479-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Error: stat_smooth requires the following missing aesthetics: y</span></span>
+<span id="cb479-2"><a href="errors.html#cb479-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> F, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) </span>
+<span id="cb479-3"><a href="errors.html#cb479-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Error: Cannot add ggproto objects together. Did you forget to add this object to a ggplot object?</span></span></code></pre></div>
+<p>Let’s do the same thing that we did with pipes, highlight the first line and run it. This time we don’t stop at a pipe, because there is no pipe, we <strong>stop before the <code>+</code></strong>.</p>
+<center>
+<img src="images/gg_error_2.gif" />
+</center>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-382-1.png" width="672" /></p>
+<p>OK, so this produces the first layer of the graph- the background with a scale on the axis.</p>
+<p>What do you think is going on here? There is a hint available at this stage. Compare the axes on the graph we are aiming to produce versus the axes you have on this sample.</p>
+<p>If you are still not sure, do the same thing with the second line of the code, this is where the error message is produced in the code and this should provide you with extra information.</p>
+<center>
+<img src="images/gg_error_3.gif" />
+</center>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p>You are attempting to plot a “line of best fit” to show a correlation between two variables, and those two variables should be presented on each of the axes. The erroneous code specifies only one axis (the <code>x</code> axis). The correct code also specifies the missing <code>y</code> axis:</p>
+<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="errors.html#cb480-1" aria-hidden="true" tabindex="-1"></a><span class="co"># first two lines should read:</span></span>
+<span id="cb480-2"><a href="errors.html#cb480-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb480-3"><a href="errors.html#cb480-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> F, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) </span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-383-1.png" width="672" /></p>
+</div>
+</div>
+<div id="cannot-add-ggproto-objects-together.-did-you-forget-to-add-this-object-to-a-ggplot-object" class="section level5 unnumbered">
+<h5>Cannot add ggproto objects together. Did you forget to add this object to a ggplot object?</h5>
+<p>Here you can clearly see that I have 2 <code>geom</code> layers, but only the <code>geom_smooth</code> is showing (that’s the line of the correlation between the variables on the x and y axes).</p>
+<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="errors.html#cb482-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y=</span> hwy)) <span class="sc">+</span></span>
+<span id="cb482-2"><a href="errors.html#cb482-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> F, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) </span>
+<span id="cb482-3"><a href="errors.html#cb482-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">colour =</span> class)) <span class="sc">+</span></span>
+<span id="cb482-4"><a href="errors.html#cb482-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span> (<span class="at">x =</span> <span class="st">&quot;City MPG&quot;</span>,</span>
+<span id="cb482-5"><a href="errors.html#cb482-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">&quot;Highway MPG&quot;</span>)</span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-385-1.png" width="672" /></p>
+<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="errors.html#cb484-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Error: Cannot add ggproto objects together. Did you forget to add this object to a ggplot object?</span></span></code></pre></div>
+<p>Let’s do the same thing that we did with pipes, highlight the first line and run it. As above, we don’t stop at a pipe we <strong>stop before the <code>+</code></strong>.</p>
+<center>
+<img src="images/gg_error_1.gif" />
+</center>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-387-1.png" width="672" /></p>
+<p>Did it do as we expected it to do?</p>
+<p>Keep moving down the code segment line by line until you find where the result deviates from what we were expecting.</p>
+<p>What was the problem in this case? How do we solve this?</p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p>The <code>+</code> symbol was missing at the end of the line <code>geom_smooth()</code>. This means that <code>ggplot()</code> didn’t know to add the extra layers to the graph!</p>
+</div>
+</div>
+<div id="stat_count-must-not-be-used-with-a-y-aesthetic." class="section level5 unnumbered">
+<h5>stat_count() must not be used with a y aesthetic.</h5>
+<p>Now that the previous error is fixed we can have a look at the next one.</p>
+<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="errors.html#cb485-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y=</span> hwy)) <span class="sc">+</span></span>
+<span id="cb485-2"><a href="errors.html#cb485-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> F, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb485-3"><a href="errors.html#cb485-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">colour =</span> class)) <span class="sc">+</span></span>
+<span id="cb485-4"><a href="errors.html#cb485-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span> (<span class="at">x =</span> <span class="st">&quot;City MPG&quot;</span>,</span>
+<span id="cb485-5"><a href="errors.html#cb485-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">&quot;Highway MPG&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="errors.html#cb486-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Error: stat_count() must not be used with a y aesthetic.</span></span></code></pre></div>
+<p><code>stat_count()</code> is another way of producing a <code>geom_bar()</code> style of graph. With this in mind, what do you think is wrong with the code segment?</p>
+<p>Do you think a bar graph is a good way to demonstrate the relationship between two sets of continuous values?</p>
+<p>Have a think and figure out what the problem is now. Run each line of code individually and see where the problem is coming from.</p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p>If we want to display individual data points a bar graph would be the wrong type of <code>geom</code> to use, as these produce counts and not individual points for each data point.</p>
+<p>instead of using <code>geom_bar()</code> we should have used <code>geom_point()</code> or <code>geom_jitter()</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="warning-messages" class="section level3" number="9.2.5">
+<h3><span class="header-section-number">9.2.5</span> Warning Messages</h3>
+<p>Warning messages are another type of message that you might encounter. Warning messages aren’t quite errors, but aren’t as benign as other types of textual outputs in the console.</p>
+<p>A warning will not halt the execution of code that you are running, but will allow the code to run. A warning message should spur you to checking if the function(s) you have tried to run have done so correctly.</p>
+</div>
+<div id="other-messages" class="section level3" number="9.2.6">
+<h3><span class="header-section-number">9.2.6</span> Other Messages</h3>
+<p>There are also other types of textual output, too numerous to classify here. Here is an example that you should have been seeing on a regular basis by this stage:</p>
+<center>
+<img src="images/tidyverse_success.png" />
+</center>
+<p>This informs us that by using the code <code>library(tidyverse)</code> we have loaded in the packages listed under the sections that says <code>Attaching Packages</code>. <code>tidyverse</code> is, after all, a collection of other packages.</p>
+<p>It also informs us that there are some conflicts- this usually panics people!</p>
+<p>This section indicates that the function <code>filter()</code>, as part of the <code>dplyr</code> package within <code>tidyverse</code>, is masking another function with the same name which is part of the <code>stats</code> package, a part of base R. The same with <code>lag()</code>.</p>
+<p>This just means that when you use the functions <code>filter()</code> or <code>lag()</code> it will be the <code>tidyverse</code> versions that are used as default.</p>
+<p>You can still use the others, you just need to specify <code>stats::filter()</code> or <code>stats::lag()</code> if you do want to use these.</p>
+<div class="warning">
+<p>
+Even though these functions use the same name, they do not perform the same function!
+</p>
+<p>
+<code>stats::filter()</code> and <code>stats::lag()</code> are both concerned with time series analysis, not with data wrangling!
+</p>
+</div>
+</div>
+</div>
+<div id="searching-for-help-online" class="section level2" number="9.3">
+<h2><span class="header-section-number">9.3</span> Searching for Help Online</h2>
+<p>There are multiple places online where you can search for help.</p>
+<div id="googling-it" class="section level3" number="9.3.1">
+<h3><span class="header-section-number">9.3.1</span> Googling It</h3>
+<p>The first thing you should do with an error is to Google it. It sounds daft, but if you are having an issue there is probably someone on the internet who has also had that same problem.</p>
+<p>The main thing that you need to remember is that you need to include the right level of information in your query:
+* searching for “R code not working” will not get you information which is specific enough.
+* searching for “R” and the text given in the error message will give you a lot more, but some error message text can be the same for different functions.
+* searching for “R,” the text given in the error message and the name of the function that is giving that error message will give you a lot more, specific information.</p>
+<p>Learning to Google with appropriate levels of detail in your question is a skill in itself! We know this because we were in exactly the same position as you when we were first learning- and we still frequently Google things!</p>
+</div>
+<div id="stack-overflow" class="section level3" number="9.3.2">
+<h3><span class="header-section-number">9.3.2</span> Stack Overflow</h3>
+<p><a href="https://stackoverflow.com/">Stack Overflow</a> is a useful site for discussion and asking for help from experts. It is a community for professional coders, and operates on a reputation-based system. There are already huge numbers of questions there that have been answered that you can search through, but if your question is novel or unique you might want to ask there.</p>
+</div>
+<div id="youtube" class="section level3" number="9.3.3">
+<h3><span class="header-section-number">9.3.3</span> YouTube</h3>
+<p><a href="https://www.youtube.com/results?search_query=learning+R">YouTube</a> has a number of free video tutorials that you might want to check out now that you’ve had an introduction from us. Sometimes hearing the information from a different perspective, or hearing it explained in a different way, can help you understand it better.</p>
+</div>
+<div id="further-reading" class="section level3" number="9.3.4">
+<h3><span class="header-section-number">9.3.4</span> Further Reading</h3>
+<p>Look at the <a href="appendices.html#appendices">appendices</a> section of this site to see some further reading materials to expand on the knowledge you’ve gained in this course.</p>
+</div>
+</div>
+<div id="formative-exercises" class="section level2" number="9.4">
+<h2><span class="header-section-number">9.4</span> Formative Exercises</h2>
+<p>Now that we have completed the stuff for the in-class, we can move on to the formative exercises. Try the first couple in class (time permitting) and discuss them with those sitting near you if you wish or Rebecca.</p>
+<p>Download the .zip folder <code>cars.zip</code> from Moodle. Extract the files and open the file <code>cars_formative.Rmd</code>.</p>
+<p>In this file there are 6 error diagnosis and correction questions.</p>
+<p>When you are done there is a file called <code>cars_solutions.Rmd</code> in this same zip folder. Use this to check your answers.</p>
+<p>If you have questions you can ask on the Moodle forum.</p>
+
+</div>
+</div>
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script>
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-visualisation-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="recap-before-the-final-assessment.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

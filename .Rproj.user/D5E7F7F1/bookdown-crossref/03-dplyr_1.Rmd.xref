@@ -1,0 +1,22 @@
+h1:data-transformation-1-basic-one-table-verbs Data Transformation 1: Basic One Table Verbs
+h2:intended-learning-outcomes Intended Learning Outcomes
+h2:data-wrangling Data Wrangling
+h2:pre-steps Pre-Steps
+h3:downloading-materials Downloading materials
+h3:unzipping-the-zip-folder Unzipping the zip folder
+h3:setting-the-working-directory Setting the working directory
+h3:loading-in-the-required-packages-into-the-library Loading in the required packages into the library
+h3:read-in-the-data Read in the data
+h3:view-the-data View the data
+h2:select select()
+h2:arrange arrange()
+h2:filter filter()
+h3:single-criterion Single criterion
+h3:multiple-criteria Multiple criteria
+h2:mutate mutate()
+h3:read-in-second-dataset Read in second dataset
+h2:summarise summarise()
+h2:adding-group_by Adding group_by()
+h2:formative-homework Formative Homework
+h3:brief-introduction-to-the-homework-data Brief introduction to the homework data
+

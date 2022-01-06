@@ -1,0 +1,23 @@
+h1:data-transformation-3-tidy-data Data Transformation 3: Tidy Data
+h2:intended-learning-outcomes Intended Learning Outcomes
+h2:pre-steps Pre-steps
+h2:tidy-data Tidy data
+h2:gather-and-spread gather() and spread()
+h3:gather gather()
+h3:spread spread()
+h2:separate-and-unite separate() and unite()
+h3:separate separate()
+h3:additional-arguments-for-separate additional arguments for separate()
+h4:retaining-the-original-column Retaining the original column
+h4:dropping-parts-of-the-original-column Dropping parts of the original column
+h4:separating-by-position Separating by position
+h4:separating-into-more-than-2-columns Separating into more than 2 columns
+h4:converting-data-types Converting data types
+h3:unite unite()
+h3:additional-arguments-for-unite additional arguments for unite()
+h4:retaining-the-original-column-1 Retaining the original column
+h4:removing-missing-values-before-uniting-columns Removing missing values before uniting columns
+h2:bonus-materials-mutate-row-names-from-the-mtcars Bonus materials: mutate row names from the 
+h2:additional-information Additional information
+h2:formative-homework Formative Homework
+

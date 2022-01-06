@@ -1,0 +1,32 @@
+{
+    "id": "8981FCD0",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1603791498234.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "expression": "traffic_scot",
+        "caption": "traffic_scot",
+        "totalObservations": 8,
+        "displayedObservations": 8,
+        "variables": 6,
+        "cacheKey": "CEA376E1",
+        "object": "traffic_scot",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=traffic_scot&cache_key=CEA376E1&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 14636990850465859,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1603791498234,
+    "read_only": false,
+    "read_only_alternatives": []
+}

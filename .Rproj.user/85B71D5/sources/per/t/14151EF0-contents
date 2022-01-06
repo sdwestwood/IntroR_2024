@@ -1,0 +1,35 @@
+---
+title: "chi-square"
+author: "WT"
+date: "14/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+data_chi <- read_csv("COVID-Reducing Data.csv") %>% 
+            select(Gender, beh1) %>% 
+            drop_na() %>% 
+            group_by(Gender, beh1) %>% 
+            count() %>% 
+            ungroup() %>% 
+            pivot_wider(names_from = "beh1", values_from = "n")
+
+results <- data_chi %>% select(-Gender) %>% chisq.test(correct=FALSE)
+
+
+```
+
+
+```{r}
+```
+
+
+
+
+
+
+
