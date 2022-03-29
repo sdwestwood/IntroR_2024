@@ -8,7 +8,7 @@
 4. create a data table from scratch
 5. import and store data
 
-This lesson is led by [Jaimie Torrance](https://www.psy.gla.ac.uk/otherstaff/?id=TJ001).
+This lesson is led by [Johanna Werner](https://www.psy.gla.ac.uk/otherstaff/?id=TJ001).
 
 
 ## Pre-Steps
