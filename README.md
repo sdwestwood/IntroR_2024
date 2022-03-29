@@ -1,6 +1,6 @@
-# Intro_to_R_2022
+# Intro_to_R_2020
  
-This is the course book for the Introduction to R, Glasgow University Open Studies course for the academic session 2021-2022.
+This is the course book for the Introduction to R, Glasgow University Open Studies course for the academic session 2020-2021.
 
 These materials are open with a CC-BY-SA license attached.
 

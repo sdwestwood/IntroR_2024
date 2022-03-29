@@ -8,7 +8,7 @@ By the end of this session you should be:
 2. Able to describe R and Studio, the coding environment and the associated file types.
 3. Able to install, load and describe the nature of R packages and describe the nature and use of functions in general.
 
-This lesson is led by [Johanna Werner](https://www.psy.gla.ac.uk/otherstaff/?id=TIWT1).
+This lesson is led by [Wilhelmiina Toivo](https://www.psy.gla.ac.uk/otherstaff/?id=TIWT1).
 
 ## Computer Literacy Basics
 
