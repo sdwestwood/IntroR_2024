@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 7 Data Visualisation 1 | Introduction to R</title>
   <meta name="description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2019-2020." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 7 Data Visualisation 1 | Introduction to R" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2019-2020." />
   
@@ -24,7 +23,7 @@
 <meta name="author" content="Gaby Mahrholz, Greta Todorova, Wilhelmiina Toivo, and Jaimie Torrance" />
 
 
-<meta name="date" content="2022-03-29" />
+<meta name="date" content="2022-03-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="data-transformation-4-fine-tuned-data-manipulation.html"/>
 <link rel="next" href="data-visualisation-2.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -159,307 +158,307 @@ div.csl-indent {
 <li><a href="./">Introduction to R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About this course</a>
+<li><a href="index.html#about-this-course">About this course<span></span></a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#intended-learning-outcomes"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-will-i-need-to-complete-this-course"><i class="fa fa-check"></i>What will I need to complete this course?</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-assessments"><i class="fa fa-check"></i>About the Assessments</a>
+<li><a href="index.html#intended-learning-outcomes">Intended Learning Outcomes<span></span></a></li>
+<li><a href="index.html#what-will-i-need-to-complete-this-course">What will I need to complete this course?<span></span></a></li>
+<li><a href="index.html#about-the-assessments">About the Assessments<span></span></a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#formative-assessments"><i class="fa fa-check"></i>Formative Assessments</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#summative-assessments"><i class="fa fa-check"></i>Summative Assessments</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#late-submissions-extensions"><i class="fa fa-check"></i>Late submissions &amp; extensions</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-submit-your-assessments"><i class="fa fa-check"></i>How to Submit Your Assessments</a></li>
+<li><a href="index.html#formative-assessments">Formative Assessments<span></span></a></li>
+<li><a href="index.html#summative-assessments">Summative Assessments<span></span></a></li>
+<li><a href="index.html#late-submissions-extensions">Late submissions &amp; extensions<span></span></a></li>
+<li><a href="index.html#how-to-submit-your-assessments">How to Submit Your Assessments<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#assistance"><i class="fa fa-check"></i>Assistance</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-are-these-materials-open"><i class="fa fa-check"></i>Why are these materials open?</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgement"><i class="fa fa-check"></i>Acknowledgement</a></li>
+<li><a href="index.html#assistance">Assistance<span></span></a></li>
+<li><a href="index.html#why-are-these-materials-open">Why are these materials open?<span></span></a></li>
+<li><a href="index.html#acknowledgement">Acknowledgement<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="before.html"><a href="before.html"><i class="fa fa-check"></i>Assignment before starting the course</a>
+<li><a href="before.html#before">Assignment before starting the course<span></span></a>
 <ul>
-<li class="chapter" data-level="0.1" data-path="before.html"><a href="before.html#accessing"><i class="fa fa-check"></i><b>0.1</b> Access to RStudio</a>
+<li class="chapter" data-level="0.1" data-path="before.html"><a href="before.html"><i class="fa fa-check"></i><b>0.1</b> Access to RStudio<span></span></a>
 <ul>
-<li class="chapter" data-level="0.1.1" data-path="before.html"><a href="before.html#install"><i class="fa fa-check"></i><b>0.1.1</b> Installing R and RStudio on Your Own Machine</a></li>
-<li class="chapter" data-level="0.1.2" data-path="before.html"><a href="before.html#accessing-rstudio-on-university-computers"><i class="fa fa-check"></i><b>0.1.2</b> Accessing RStudio on University Computers</a></li>
-<li class="chapter" data-level="0.1.3" data-path="before.html"><a href="before.html#using-rstudio-cloud"><i class="fa fa-check"></i><b>0.1.3</b> Using RStudio Cloud</a></li>
+<li class="chapter" data-level="0.1.1" data-path="before.html"><a href="before.html#install"><i class="fa fa-check"></i><b>0.1.1</b> Installing R and RStudio on Your Own Machine<span></span></a></li>
+<li class="chapter" data-level="0.1.2" data-path="before.html"><a href="before.html#accessing-rstudio-on-university-computers"><i class="fa fa-check"></i><b>0.1.2</b> Accessing RStudio on University Computers<span></span></a></li>
+<li class="chapter" data-level="0.1.3" data-path="before.html"><a href="before.html#using-rstudio-cloud"><i class="fa fa-check"></i><b>0.1.3</b> Using RStudio Cloud<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="0.2" data-path="before.html"><a href="before.html#maximising-reproducibility-and-visibility"><i class="fa fa-check"></i><b>0.2</b> Maximising Reproducibility and Visibility</a></li>
+<li class="chapter" data-level="0.2" data-path="before.html"><a href="before.html#maximising-reproducibility-and-visibility"><i class="fa fa-check"></i><b>0.2</b> Maximising Reproducibility and Visibility<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction<span></span></a>
 <ul>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#intended-learning-outcomes-1"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
-<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#computer-literacy-basics"><i class="fa fa-check"></i><b>1.1</b> Computer Literacy Basics</a></li>
-<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#r-and-r-studio"><i class="fa fa-check"></i><b>1.2</b> R and R Studio</a>
+<li><a href="introduction.html#intended-learning-outcomes-1">Intended Learning Outcomes<span></span></a></li>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#computer-literacy-basics"><i class="fa fa-check"></i><b>1.1</b> Computer Literacy Basics<span></span></a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#r-and-r-studio"><i class="fa fa-check"></i><b>1.2</b> R and R Studio<span></span></a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#r"><i class="fa fa-check"></i><b>1.2.1</b> R</a></li>
-<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#rstudio-ide"><i class="fa fa-check"></i><b>1.2.2</b> RStudio IDE</a></li>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#r"><i class="fa fa-check"></i><b>1.2.1</b> R<span></span></a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#rstudio-ide"><i class="fa fa-check"></i><b>1.2.2</b> RStudio IDE<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#r-r-studio-and-associated-file-types"><i class="fa fa-check"></i><b>1.3</b> R, R Studio and Associated File Types</a>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#r-r-studio-and-associated-file-types"><i class="fa fa-check"></i><b>1.3</b> R, R Studio and Associated File Types<span></span></a>
 <ul>
-<li class="chapter" data-level="1.3.1" data-path="introduction.html"><a href="introduction.html#file-structuredirectories"><i class="fa fa-check"></i><b>1.3.1</b> File Structure/Directories</a></li>
-<li class="chapter" data-level="1.3.2" data-path="introduction.html"><a href="introduction.html#file-extensions"><i class="fa fa-check"></i><b>1.3.2</b> File Extensions</a></li>
-<li class="chapter" data-level="1.3.3" data-path="introduction.html"><a href="introduction.html#zip-files"><i class="fa fa-check"></i><b>1.3.3</b> .zip Files</a></li>
-<li class="chapter" data-level="1.3.4" data-path="introduction.html"><a href="introduction.html#rstudio-specific-files"><i class="fa fa-check"></i><b>1.3.4</b> RStudio Specific Files</a></li>
-<li class="chapter" data-level="1.3.5" data-path="introduction.html"><a href="introduction.html#r-files"><i class="fa fa-check"></i><b>1.3.5</b> .r Files</a></li>
-<li class="chapter" data-level="1.3.6" data-path="introduction.html"><a href="introduction.html#rmd-files"><i class="fa fa-check"></i><b>1.3.6</b> .Rmd files</a></li>
+<li class="chapter" data-level="1.3.1" data-path="introduction.html"><a href="introduction.html#file-structuredirectories"><i class="fa fa-check"></i><b>1.3.1</b> File Structure/Directories<span></span></a></li>
+<li class="chapter" data-level="1.3.2" data-path="introduction.html"><a href="introduction.html#file-extensions"><i class="fa fa-check"></i><b>1.3.2</b> File Extensions<span></span></a></li>
+<li class="chapter" data-level="1.3.3" data-path="introduction.html"><a href="introduction.html#zip-files"><i class="fa fa-check"></i><b>1.3.3</b> .zip Files<span></span></a></li>
+<li class="chapter" data-level="1.3.4" data-path="introduction.html"><a href="introduction.html#rstudio-specific-files"><i class="fa fa-check"></i><b>1.3.4</b> RStudio Specific Files<span></span></a></li>
+<li class="chapter" data-level="1.3.5" data-path="introduction.html"><a href="introduction.html#r-files"><i class="fa fa-check"></i><b>1.3.5</b> .r Files<span></span></a></li>
+<li class="chapter" data-level="1.3.6" data-path="introduction.html"><a href="introduction.html#rmd-files"><i class="fa fa-check"></i><b>1.3.6</b> .Rmd files<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#comments"><i class="fa fa-check"></i><b>1.4</b> Comments</a></li>
-<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#saving-your-file"><i class="fa fa-check"></i><b>1.5</b> Saving your file</a></li>
-<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#sessions"><i class="fa fa-check"></i><b>1.6</b> Sessions</a>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#comments"><i class="fa fa-check"></i><b>1.4</b> Comments<span></span></a></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#saving-your-file"><i class="fa fa-check"></i><b>1.5</b> Saving your file<span></span></a></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#sessions"><i class="fa fa-check"></i><b>1.6</b> Sessions<span></span></a>
 <ul>
-<li class="chapter" data-level="1.6.1" data-path="introduction.html"><a href="introduction.html#what-is-a-session-in-r"><i class="fa fa-check"></i><b>1.6.1</b> What is a session in R?</a></li>
-<li class="chapter" data-level="1.6.2" data-path="introduction.html"><a href="introduction.html#restarting-your-current-session"><i class="fa fa-check"></i><b>1.6.2</b> Restarting Your Current Session</a></li>
+<li class="chapter" data-level="1.6.1" data-path="introduction.html"><a href="introduction.html#what-is-a-session-in-r"><i class="fa fa-check"></i><b>1.6.1</b> What is a session in R?<span></span></a></li>
+<li class="chapter" data-level="1.6.2" data-path="introduction.html"><a href="introduction.html#restarting-your-current-session"><i class="fa fa-check"></i><b>1.6.2</b> Restarting Your Current Session<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="1.7" data-path="introduction.html"><a href="introduction.html#packages"><i class="fa fa-check"></i><b>1.7</b> Packages</a>
+<li class="chapter" data-level="1.7" data-path="introduction.html"><a href="introduction.html#packages"><i class="fa fa-check"></i><b>1.7</b> Packages<span></span></a>
 <ul>
-<li class="chapter" data-level="1.7.1" data-path="introduction.html"><a href="introduction.html#installing-packages"><i class="fa fa-check"></i><b>1.7.1</b> Installing Packages</a></li>
-<li class="chapter" data-level="1.7.2" data-path="introduction.html"><a href="introduction.html#load-tidyverse"><i class="fa fa-check"></i><b>1.7.2</b> Loading Packages</a></li>
+<li class="chapter" data-level="1.7.1" data-path="introduction.html"><a href="introduction.html#installing-packages"><i class="fa fa-check"></i><b>1.7.1</b> Installing Packages<span></span></a></li>
+<li class="chapter" data-level="1.7.2" data-path="introduction.html"><a href="introduction.html#load-tidyverse"><i class="fa fa-check"></i><b>1.7.2</b> Loading Packages<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="1.8" data-path="introduction.html"><a href="introduction.html#functions"><i class="fa fa-check"></i><b>1.8</b> Functions</a>
+<li class="chapter" data-level="1.8" data-path="introduction.html"><a href="introduction.html#functions"><i class="fa fa-check"></i><b>1.8</b> Functions<span></span></a>
 <ul>
-<li class="chapter" data-level="1.8.1" data-path="introduction.html"><a href="introduction.html#what-is-a-function"><i class="fa fa-check"></i><b>1.8.1</b> What is a function?</a></li>
-<li class="chapter" data-level="1.8.2" data-path="introduction.html"><a href="introduction.html#the-anatomy-of-a-function-names-and-arguments"><i class="fa fa-check"></i><b>1.8.2</b> The Anatomy of a Function: names and arguments</a></li>
+<li class="chapter" data-level="1.8.1" data-path="introduction.html"><a href="introduction.html#what-is-a-function"><i class="fa fa-check"></i><b>1.8.1</b> What is a function?<span></span></a></li>
+<li class="chapter" data-level="1.8.2" data-path="introduction.html"><a href="introduction.html#the-anatomy-of-a-function-names-and-arguments"><i class="fa fa-check"></i><b>1.8.2</b> The Anatomy of a Function: names and arguments<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="1.9" data-path="introduction.html"><a href="introduction.html#formative-homework"><i class="fa fa-check"></i><b>1.9</b> Formative Homework</a>
+<li class="chapter" data-level="1.9" data-path="introduction.html"><a href="introduction.html#formative-homework"><i class="fa fa-check"></i><b>1.9</b> Formative Homework<span></span></a>
 <ul>
-<li class="chapter" data-level="1.9.1" data-path="introduction.html"><a href="introduction.html#install-r-and-rstudio-on-your-personal-computer"><i class="fa fa-check"></i><b>1.9.1</b> Install R and RStudio on your personal computer</a></li>
-<li class="chapter" data-level="1.9.2" data-path="introduction.html"><a href="introduction.html#installing-and-loading-tidyverse"><i class="fa fa-check"></i><b>1.9.2</b> Installing and Loading tidyverse</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="introduction-to-data.html"><a href="introduction-to-data.html"><i class="fa fa-check"></i><b>2</b> Introduction to Data</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-data.html"><a href="introduction-to-data.html#intended-learning-outcomes-2"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
-<li class="chapter" data-level="2.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#pre-steps"><i class="fa fa-check"></i><b>2.1</b> Pre-Steps</a>
-<ul>
-<li class="chapter" data-level="2.1.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#downloading-materials"><i class="fa fa-check"></i><b>2.1.1</b> Downloading materials</a></li>
-<li class="chapter" data-level="2.1.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#unzipping-the-zip-folder"><i class="fa fa-check"></i><b>2.1.2</b> Unzipping the zip folder</a></li>
-<li class="chapter" data-level="2.1.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#setting-the-working-directory"><i class="fa fa-check"></i><b>2.1.3</b> Setting the working directory</a></li>
-<li class="chapter" data-level="2.1.4" data-path="introduction-to-data.html"><a href="introduction-to-data.html#load-tidyverse-into-the-library"><i class="fa fa-check"></i><b>2.1.4</b> Load tidyverse into the library</a></li>
-</ul></li>
-<li class="chapter" data-level="2.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#basic-data-types"><i class="fa fa-check"></i><b>2.2</b> Basic data types</a>
-<ul>
-<li class="chapter" data-level="2.2.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#character"><i class="fa fa-check"></i><b>2.2.1</b> Character</a></li>
-<li class="chapter" data-level="2.2.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#numeric"><i class="fa fa-check"></i><b>2.2.2</b> Numeric</a></li>
-<li class="chapter" data-level="2.2.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#logical"><i class="fa fa-check"></i><b>2.2.3</b> Logical</a></li>
-</ul></li>
-<li class="chapter" data-level="2.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#vectors"><i class="fa fa-check"></i><b>2.3</b> Vectors</a>
-<ul>
-<li class="chapter" data-level="2.3.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#creating-vectors"><i class="fa fa-check"></i><b>2.3.1</b> Creating vectors</a></li>
-<li class="chapter" data-level="2.3.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#converting-vectors-into-different-data-types-of-vectors-aka-funky-things-we-can-do"><i class="fa fa-check"></i><b>2.3.2</b> Converting vectors into different data types of vectors aka funky things we can do</a></li>
-<li class="chapter" data-level="2.3.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#adding-elements-to-existing-vectors"><i class="fa fa-check"></i><b>2.3.3</b> Adding elements to existing vectors</a></li>
-</ul></li>
-<li class="chapter" data-level="2.4" data-path="introduction-to-data.html"><a href="introduction-to-data.html#tibble---the-new-way-of-creating-a-dataframe"><i class="fa fa-check"></i><b>2.4</b> Tibble - the new way of creating a dataframe</a>
-<ul>
-<li class="chapter" data-level="2.4.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#what-the-heck-is-a-tibble-do-you-mean-table"><i class="fa fa-check"></i><b>2.4.1</b> What the heck is a tibble? Do you mean table?</a></li>
-<li class="chapter" data-level="2.4.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#how-to-make-a-tibble-from-scratch"><i class="fa fa-check"></i><b>2.4.2</b> How to make a tibble from scratch</a></li>
-</ul></li>
-<li class="chapter" data-level="2.5" data-path="introduction-to-data.html"><a href="introduction-to-data.html#reading-in-data"><i class="fa fa-check"></i><b>2.5</b> Reading in data</a>
-<ul>
-<li class="chapter" data-level="2.5.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#from-pre-existing-databases"><i class="fa fa-check"></i><b>2.5.1</b> from pre-existing databases</a></li>
-<li class="chapter" data-level="2.5.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#from-existing-data-files"><i class="fa fa-check"></i><b>2.5.2</b> from existing data files</a></li>
-</ul></li>
-<li class="chapter" data-level="2.6" data-path="introduction-to-data.html"><a href="introduction-to-data.html#last-point-for-today"><i class="fa fa-check"></i><b>2.6</b> Last point for today</a></li>
-<li class="chapter" data-level="2.7" data-path="introduction-to-data.html"><a href="introduction-to-data.html#summative-homework"><i class="fa fa-check"></i><b>2.7</b> Summative Homework</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html"><i class="fa fa-check"></i><b>3</b> Data Transformation 1: Basic One Table Verbs</a>
-<ul>
-<li class="chapter" data-level="" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#intended-learning-outcomes-3"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
-<li class="chapter" data-level="3.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#data-wrangling"><i class="fa fa-check"></i><b>3.1</b> Data Wrangling</a></li>
-<li class="chapter" data-level="3.2" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#pre-steps-1"><i class="fa fa-check"></i><b>3.2</b> Pre-Steps</a>
-<ul>
-<li class="chapter" data-level="3.2.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#downloading-materials-1"><i class="fa fa-check"></i><b>3.2.1</b> Downloading materials</a></li>
-<li class="chapter" data-level="3.2.2" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#unzipping-the-zip-folder-1"><i class="fa fa-check"></i><b>3.2.2</b> Unzipping the zip folder</a></li>
-<li class="chapter" data-level="3.2.3" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#setting-the-working-directory-1"><i class="fa fa-check"></i><b>3.2.3</b> Setting the working directory</a></li>
-<li class="chapter" data-level="3.2.4" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#loading-in-the-required-packages-into-the-library"><i class="fa fa-check"></i><b>3.2.4</b> Loading in the required packages into the library</a></li>
-<li class="chapter" data-level="3.2.5" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#read-in-the-data"><i class="fa fa-check"></i><b>3.2.5</b> Read in the data</a></li>
-<li class="chapter" data-level="3.2.6" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#view-the-data"><i class="fa fa-check"></i><b>3.2.6</b> View the data</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#select"><i class="fa fa-check"></i><b>3.3</b> select()</a></li>
-<li class="chapter" data-level="3.4" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#arrange"><i class="fa fa-check"></i><b>3.4</b> arrange()</a></li>
-<li class="chapter" data-level="3.5" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#filter"><i class="fa fa-check"></i><b>3.5</b> filter()</a>
-<ul>
-<li class="chapter" data-level="3.5.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#single-criterion"><i class="fa fa-check"></i><b>3.5.1</b> Single criterion</a></li>
-<li class="chapter" data-level="3.5.2" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#multiple-criteria"><i class="fa fa-check"></i><b>3.5.2</b> Multiple criteria</a></li>
-</ul></li>
-<li class="chapter" data-level="3.6" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#mutate"><i class="fa fa-check"></i><b>3.6</b> mutate()</a>
-<ul>
-<li class="chapter" data-level="3.6.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#read-in-second-dataset"><i class="fa fa-check"></i><b>3.6.1</b> Read in second dataset</a></li>
-</ul></li>
-<li class="chapter" data-level="3.7" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#summarise"><i class="fa fa-check"></i><b>3.7</b> summarise()</a></li>
-<li class="chapter" data-level="3.8" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#adding-group_by"><i class="fa fa-check"></i><b>3.8</b> Adding group_by()</a></li>
-<li class="chapter" data-level="3.9" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#formative-homework-1"><i class="fa fa-check"></i><b>3.9</b> Formative Homework</a>
-<ul>
-<li class="chapter" data-level="3.9.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#brief-introduction-to-the-homework-data"><i class="fa fa-check"></i><b>3.9.1</b> Brief introduction to the homework data</a></li>
+<li class="chapter" data-level="1.9.1" data-path="introduction.html"><a href="introduction.html#install-r-and-rstudio-on-your-personal-computer"><i class="fa fa-check"></i><b>1.9.1</b> Install R and RStudio on your personal computer<span></span></a></li>
+<li class="chapter" data-level="1.9.2" data-path="introduction.html"><a href="introduction.html#installing-and-loading-tidyverse"><i class="fa fa-check"></i><b>1.9.2</b> Installing and Loading tidyverse<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html"><i class="fa fa-check"></i><b>4</b> Data Transformation 2: More One and Two Table Verbs</a>
+<li class="chapter" data-level="2" data-path="introduction-to-data.html"><a href="introduction-to-data.html"><i class="fa fa-check"></i><b>2</b> Introduction to Data<span></span></a>
 <ul>
-<li class="chapter" data-level="" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#intended-learning-outcomes-4"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
-<li class="chapter" data-level="4.1" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#pre-steps-2"><i class="fa fa-check"></i><b>4.1</b> Pre-Steps</a></li>
-<li class="chapter" data-level="4.2" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#practicing-the-wikham-six"><i class="fa fa-check"></i><b>4.2</b> Practicing the Wikham Six</a>
+<li><a href="introduction-to-data.html#intended-learning-outcomes-2">Intended Learning Outcomes<span></span></a></li>
+<li class="chapter" data-level="2.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#pre-steps"><i class="fa fa-check"></i><b>2.1</b> Pre-Steps<span></span></a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#select-1"><i class="fa fa-check"></i><b>4.2.1</b> select()</a></li>
-<li class="chapter" data-level="4.2.2" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#arrange-1"><i class="fa fa-check"></i><b>4.2.2</b> arrange()</a></li>
-<li class="chapter" data-level="4.2.3" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#filter-1"><i class="fa fa-check"></i><b>4.2.3</b> filter()</a></li>
-<li class="chapter" data-level="4.2.4" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#mutate-1"><i class="fa fa-check"></i><b>4.2.4</b> mutate()</a></li>
-<li class="chapter" data-level="4.2.5" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#group_by-and-summarise"><i class="fa fa-check"></i><b>4.2.5</b> group_by() and summarise()</a></li>
-<li class="chapter" data-level="4.2.6" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#bringing-it-all-together"><i class="fa fa-check"></i><b>4.2.6</b> Bringing it all together</a></li>
+<li class="chapter" data-level="2.1.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#downloading-materials"><i class="fa fa-check"></i><b>2.1.1</b> Downloading materials<span></span></a></li>
+<li class="chapter" data-level="2.1.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#unzipping-the-zip-folder"><i class="fa fa-check"></i><b>2.1.2</b> Unzipping the zip folder<span></span></a></li>
+<li class="chapter" data-level="2.1.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#setting-the-working-directory"><i class="fa fa-check"></i><b>2.1.3</b> Setting the working directory<span></span></a></li>
+<li class="chapter" data-level="2.1.4" data-path="introduction-to-data.html"><a href="introduction-to-data.html#load-tidyverse-into-the-library"><i class="fa fa-check"></i><b>2.1.4</b> Load tidyverse into the library<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#pipes"><i class="fa fa-check"></i><b>4.3</b> The pipe operator (%&gt;%)</a></li>
-<li class="chapter" data-level="4.4" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#two-table-verbs"><i class="fa fa-check"></i><b>4.4</b> Two-Table Verbs</a>
+<li class="chapter" data-level="2.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#basic-data-types"><i class="fa fa-check"></i><b>2.2</b> Basic data types<span></span></a>
 <ul>
-<li class="chapter" data-level="4.4.1" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#bringing-in-new-data"><i class="fa fa-check"></i><b>4.4.1</b> Bringing in new data</a></li>
-<li class="chapter" data-level="4.4.2" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#mutating-join-verbs"><i class="fa fa-check"></i><b>4.4.2</b> Mutating Join Verbs</a></li>
-<li class="chapter" data-level="4.4.3" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#mutating-join-summary"><i class="fa fa-check"></i><b>4.4.3</b> Mutating Join Summary</a></li>
-<li class="chapter" data-level="4.4.4" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#binding-join-verbs"><i class="fa fa-check"></i><b>4.4.4</b> Binding Join Verbs</a></li>
+<li class="chapter" data-level="2.2.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#character"><i class="fa fa-check"></i><b>2.2.1</b> Character<span></span></a></li>
+<li class="chapter" data-level="2.2.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#numeric"><i class="fa fa-check"></i><b>2.2.2</b> Numeric<span></span></a></li>
+<li class="chapter" data-level="2.2.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#logical"><i class="fa fa-check"></i><b>2.2.3</b> Logical<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#additional-information"><i class="fa fa-check"></i><b>4.5</b> Additional information</a></li>
-<li class="chapter" data-level="4.6" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#summative-homework-1"><i class="fa fa-check"></i><b>4.6</b> Summative Homework</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#vectors"><i class="fa fa-check"></i><b>2.3</b> Vectors<span></span></a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#creating-vectors"><i class="fa fa-check"></i><b>2.3.1</b> Creating vectors<span></span></a></li>
+<li class="chapter" data-level="2.3.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#converting-vectors-into-different-data-types-of-vectors-aka-funky-things-we-can-do"><i class="fa fa-check"></i><b>2.3.2</b> Converting vectors into different data types of vectors aka funky things we can do<span></span></a></li>
+<li class="chapter" data-level="2.3.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#adding-elements-to-existing-vectors"><i class="fa fa-check"></i><b>2.3.3</b> Adding elements to existing vectors<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html"><i class="fa fa-check"></i><b>5</b> Data Transformation 3: Tidy Data</a>
+<li class="chapter" data-level="2.4" data-path="introduction-to-data.html"><a href="introduction-to-data.html#tibble---the-new-way-of-creating-a-dataframe"><i class="fa fa-check"></i><b>2.4</b> Tibble - the new way of creating a dataframe<span></span></a>
 <ul>
-<li class="chapter" data-level="" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#intended-learning-outcomes-5"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
-<li class="chapter" data-level="5.1" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#pre-steps-3"><i class="fa fa-check"></i><b>5.1</b> Pre-steps</a></li>
-<li class="chapter" data-level="5.2" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#tidy-data"><i class="fa fa-check"></i><b>5.2</b> Tidy data</a></li>
-<li class="chapter" data-level="5.3" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#gather-and-spread"><i class="fa fa-check"></i><b>5.3</b> gather() and spread()</a>
-<ul>
-<li class="chapter" data-level="5.3.1" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#gather"><i class="fa fa-check"></i><b>5.3.1</b> gather()</a></li>
-<li class="chapter" data-level="5.3.2" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#spread"><i class="fa fa-check"></i><b>5.3.2</b> spread()</a></li>
+<li class="chapter" data-level="2.4.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#what-the-heck-is-a-tibble-do-you-mean-table"><i class="fa fa-check"></i><b>2.4.1</b> What the heck is a tibble? Do you mean table?<span></span></a></li>
+<li class="chapter" data-level="2.4.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#how-to-make-a-tibble-from-scratch"><i class="fa fa-check"></i><b>2.4.2</b> How to make a tibble from scratch<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#separate-and-unite"><i class="fa fa-check"></i><b>5.4</b> separate() and unite()</a>
+<li class="chapter" data-level="2.5" data-path="introduction-to-data.html"><a href="introduction-to-data.html#reading-in-data"><i class="fa fa-check"></i><b>2.5</b> Reading in data<span></span></a>
 <ul>
-<li class="chapter" data-level="5.4.1" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#separate"><i class="fa fa-check"></i><b>5.4.1</b> separate()</a></li>
-<li class="chapter" data-level="5.4.2" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#additional-arguments-for-separate"><i class="fa fa-check"></i><b>5.4.2</b> additional arguments for separate()</a></li>
-<li class="chapter" data-level="5.4.3" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#unite"><i class="fa fa-check"></i><b>5.4.3</b> unite()</a></li>
-<li class="chapter" data-level="5.4.4" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#additional-arguments-for-unite"><i class="fa fa-check"></i><b>5.4.4</b> additional arguments for unite()</a></li>
+<li class="chapter" data-level="2.5.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#from-pre-existing-databases"><i class="fa fa-check"></i><b>2.5.1</b> from pre-existing databases<span></span></a></li>
+<li class="chapter" data-level="2.5.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#from-existing-data-files"><i class="fa fa-check"></i><b>2.5.2</b> from existing data files<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#bonus-materials-mutate-row-names-from-the-mtcars"><i class="fa fa-check"></i><b>5.5</b> Bonus materials: mutate row names from the <code>mtcars</code></a></li>
-<li class="chapter" data-level="5.6" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#additional-information-1"><i class="fa fa-check"></i><b>5.6</b> Additional information</a></li>
-<li class="chapter" data-level="5.7" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#formative-homework-2"><i class="fa fa-check"></i><b>5.7</b> Formative Homework</a></li>
+<li class="chapter" data-level="2.6" data-path="introduction-to-data.html"><a href="introduction-to-data.html#last-point-for-today"><i class="fa fa-check"></i><b>2.6</b> Last point for today<span></span></a></li>
+<li class="chapter" data-level="2.7" data-path="introduction-to-data.html"><a href="introduction-to-data.html#summative-homework"><i class="fa fa-check"></i><b>2.7</b> Summative Homework<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html"><i class="fa fa-check"></i><b>6</b> Data Transformation 4: Fine-tuned Data Manipulation</a>
+<li class="chapter" data-level="3" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html"><i class="fa fa-check"></i><b>3</b> Data Transformation 1: Basic One Table Verbs<span></span></a>
 <ul>
-<li class="chapter" data-level="" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#intended-learning-outcomes-6"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
-<li class="chapter" data-level="6.1" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#pre-steps-4"><i class="fa fa-check"></i><b>6.1</b> Pre-steps</a></li>
-<li class="chapter" data-level="6.2" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#rename"><i class="fa fa-check"></i><b>6.2</b> rename()</a></li>
-<li class="chapter" data-level="6.3" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#conditional-statements"><i class="fa fa-check"></i><b>6.3</b> Conditional statements</a>
+<li><a href="data-transformation-1-basic-one-table-verbs.html#intended-learning-outcomes-3">Intended Learning Outcomes<span></span></a></li>
+<li class="chapter" data-level="3.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#data-wrangling"><i class="fa fa-check"></i><b>3.1</b> Data Wrangling<span></span></a></li>
+<li class="chapter" data-level="3.2" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#pre-steps-1"><i class="fa fa-check"></i><b>3.2</b> Pre-Steps<span></span></a>
 <ul>
-<li class="chapter" data-level="6.3.1" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#recode"><i class="fa fa-check"></i><b>6.3.1</b> recode()</a></li>
-<li class="chapter" data-level="6.3.2" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#ifelse"><i class="fa fa-check"></i><b>6.3.2</b> ifelse()</a></li>
-<li class="chapter" data-level="6.3.3" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#case_when"><i class="fa fa-check"></i><b>6.3.3</b> case_when()</a></li>
+<li class="chapter" data-level="3.2.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#downloading-materials-1"><i class="fa fa-check"></i><b>3.2.1</b> Downloading materials<span></span></a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#unzipping-the-zip-folder-1"><i class="fa fa-check"></i><b>3.2.2</b> Unzipping the zip folder<span></span></a></li>
+<li class="chapter" data-level="3.2.3" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#setting-the-working-directory-1"><i class="fa fa-check"></i><b>3.2.3</b> Setting the working directory<span></span></a></li>
+<li class="chapter" data-level="3.2.4" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#loading-in-the-required-packages-into-the-library"><i class="fa fa-check"></i><b>3.2.4</b> Loading in the required packages into the library<span></span></a></li>
+<li class="chapter" data-level="3.2.5" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#read-in-the-data"><i class="fa fa-check"></i><b>3.2.5</b> Read in the data<span></span></a></li>
+<li class="chapter" data-level="3.2.6" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#view-the-data"><i class="fa fa-check"></i><b>3.2.6</b> View the data<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#distinct"><i class="fa fa-check"></i><b>6.4</b> distinct()</a></li>
-<li class="chapter" data-level="6.5" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#recap"><i class="fa fa-check"></i><b>6.5</b> Recap</a>
+<li class="chapter" data-level="3.3" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#select"><i class="fa fa-check"></i><b>3.3</b> select()<span></span></a></li>
+<li class="chapter" data-level="3.4" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#arrange"><i class="fa fa-check"></i><b>3.4</b> arrange()<span></span></a></li>
+<li class="chapter" data-level="3.5" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#filter"><i class="fa fa-check"></i><b>3.5</b> filter()<span></span></a>
 <ul>
-<li class="chapter" data-level="6.5.1" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-1"><i class="fa fa-check"></i><b>6.5.1</b> Question 1</a></li>
-<li class="chapter" data-level="6.5.2" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-2"><i class="fa fa-check"></i><b>6.5.2</b> Question 2</a></li>
-<li class="chapter" data-level="6.5.3" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-3"><i class="fa fa-check"></i><b>6.5.3</b> Question 3</a></li>
-<li class="chapter" data-level="6.5.4" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-4"><i class="fa fa-check"></i><b>6.5.4</b> Question 4</a></li>
-<li class="chapter" data-level="6.5.5" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-5"><i class="fa fa-check"></i><b>6.5.5</b> Question 5</a></li>
+<li class="chapter" data-level="3.5.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#single-criterion"><i class="fa fa-check"></i><b>3.5.1</b> Single criterion<span></span></a></li>
+<li class="chapter" data-level="3.5.2" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#multiple-criteria"><i class="fa fa-check"></i><b>3.5.2</b> Multiple criteria<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#summative-homework-2"><i class="fa fa-check"></i><b>6.6</b> Summative Homework</a></li>
+<li class="chapter" data-level="3.6" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#mutate"><i class="fa fa-check"></i><b>3.6</b> mutate()<span></span></a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#read-in-second-dataset"><i class="fa fa-check"></i><b>3.6.1</b> Read in second dataset<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html"><i class="fa fa-check"></i><b>7</b> Data Visualisation 1</a>
+<li class="chapter" data-level="3.7" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#summarise"><i class="fa fa-check"></i><b>3.7</b> summarise()<span></span></a></li>
+<li class="chapter" data-level="3.8" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#adding-group_by"><i class="fa fa-check"></i><b>3.8</b> Adding group_by()<span></span></a></li>
+<li class="chapter" data-level="3.9" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#formative-homework-1"><i class="fa fa-check"></i><b>3.9</b> Formative Homework<span></span></a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#pre-class-activities"><i class="fa fa-check"></i><b>7.1</b> Pre-class Activities</a></li>
-<li class="chapter" data-level="" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#intended-learning-outcomes-7"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
-<li class="chapter" data-level="7.2" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#pre-steps-5"><i class="fa fa-check"></i><b>7.2</b> Pre-steps</a></li>
-<li class="chapter" data-level="7.3" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#introduction-to-the-data"><i class="fa fa-check"></i><b>7.3</b> Introduction to the data</a></li>
-<li class="chapter" data-level="7.4" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#some-warm-up-tasks"><i class="fa fa-check"></i><b>7.4</b> Some warm-up tasks</a></li>
-<li class="chapter" data-level="7.5" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#the-package-ggplot2"><i class="fa fa-check"></i><b>7.5</b> The package GGPLOT2</a></li>
-<li class="chapter" data-level="7.6" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#layering"><i class="fa fa-check"></i><b>7.6</b> Layering</a>
-<ul>
-<li class="chapter" data-level="7.6.1" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#layer-1"><i class="fa fa-check"></i><b>7.6.1</b> Layer 1</a></li>
-<li class="chapter" data-level="7.6.2" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#layer-2-and-onward"><i class="fa fa-check"></i><b>7.6.2</b> Layer 2 and onward</a></li>
-</ul></li>
-<li class="chapter" data-level="7.7" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#how-do-we-choose-the-type-of-plot"><i class="fa fa-check"></i><b>7.7</b> How do we choose the type of plot?</a>
-<ul>
-<li class="chapter" data-level="7.7.1" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#data-format"><i class="fa fa-check"></i><b>7.7.1</b> Data format</a></li>
-<li class="chapter" data-level="7.7.2" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#number-of-variables"><i class="fa fa-check"></i><b>7.7.2</b> Number of variables</a></li>
-<li class="chapter" data-level="7.7.3" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#types-of-plots"><i class="fa fa-check"></i><b>7.7.3</b> Types of plots</a></li>
-<li class="chapter" data-level="7.7.4" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#groupings"><i class="fa fa-check"></i><b>7.7.4</b> Groupings</a></li>
-</ul></li>
-<li class="chapter" data-level="7.8" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#now-lets-have-a-look-at-different-plots-with-more-complexity"><i class="fa fa-check"></i><b>7.8</b> Now let’s have a look at different plots with more complexity</a></li>
-<li class="chapter" data-level="7.9" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#other-plots"><i class="fa fa-check"></i><b>7.9</b> Other plots</a></li>
-<li class="chapter" data-level="7.10" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#formative-homework-3"><i class="fa fa-check"></i><b>7.10</b> Formative Homework</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html"><i class="fa fa-check"></i><b>8</b> Data Visualisation 2</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#additional-resources"><i class="fa fa-check"></i><b>8.1</b> Additional Resources</a></li>
-<li class="chapter" data-level="" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#intended-learning-outcomes-8"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
-<li class="chapter" data-level="8.2" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#pre-steps-6"><i class="fa fa-check"></i><b>8.2</b> Pre-steps</a></li>
-<li class="chapter" data-level="8.3" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#re-introduction-to-the-data"><i class="fa fa-check"></i><b>8.3</b> Re-introduction to the data</a></li>
-<li class="chapter" data-level="8.4" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#create-multiple-plots-in-one"><i class="fa fa-check"></i><b>8.4</b> Create multiple plots in one</a>
-<ul>
-<li class="chapter" data-level="8.4.1" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#select-the-data-beforehand-and-create-different-plots."><i class="fa fa-check"></i><b>8.4.1</b> Select the data beforehand and create different plots.</a></li>
-<li class="chapter" data-level="8.4.2" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#facets"><i class="fa fa-check"></i><b>8.4.2</b> Facets</a></li>
-</ul></li>
-<li class="chapter" data-level="8.5" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#global-and-local-aesthetics"><i class="fa fa-check"></i><b>8.5</b> Global and Local aesthetics</a></li>
-<li class="chapter" data-level="8.6" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#themes-making-your-plots-pretty-looking-the-way-you-want-them-to"><i class="fa fa-check"></i><b>8.6</b> Themes: Making your plots pretty: looking the way you want them to</a>
-<ul>
-<li class="chapter" data-level="8.6.1" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#ready-made-themes"><i class="fa fa-check"></i><b>8.6.1</b> Ready-made themes</a></li>
-<li class="chapter" data-level="8.6.2" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#adding-axes-titles-and-headings"><i class="fa fa-check"></i><b>8.6.2</b> Adding axes titles and headings</a></li>
-</ul></li>
-<li class="chapter" data-level="8.7" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#changing-colours"><i class="fa fa-check"></i><b>8.7</b> Changing colours</a></li>
-<li class="chapter" data-level="8.8" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#legends"><i class="fa fa-check"></i><b>8.8</b> Legends</a></li>
-<li class="chapter" data-level="8.9" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#changing-axes-ticks"><i class="fa fa-check"></i><b>8.9</b> Changing axes ticks</a></li>
-<li class="chapter" data-level="8.10" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#saving-plots"><i class="fa fa-check"></i><b>8.10</b> Saving plots</a></li>
-<li class="chapter" data-level="8.11" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#summative-homework-3"><i class="fa fa-check"></i><b>8.11</b> Summative Homework</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="errors.html"><a href="errors.html"><i class="fa fa-check"></i><b>9</b> Errors</a>
-<ul>
-<li class="chapter" data-level="" data-path="errors.html"><a href="errors.html#intended-learning-outcomes-9"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
-<li class="chapter" data-level="9.1" data-path="errors.html"><a href="errors.html#errors-how-to-avoid-some-and-live-through-the-rest"><i class="fa fa-check"></i><b>9.1</b> Errors: How to avoid some and live through the rest</a></li>
-<li class="chapter" data-level="9.2" data-path="errors.html"><a href="errors.html#debugging"><i class="fa fa-check"></i><b>9.2</b> Debugging</a>
-<ul>
-<li class="chapter" data-level="9.2.1" data-path="errors.html"><a href="errors.html#messages-from-r"><i class="fa fa-check"></i><b>9.2.1</b> Messages from R</a></li>
-<li class="chapter" data-level="9.2.2" data-path="errors.html"><a href="errors.html#error-messages"><i class="fa fa-check"></i><b>9.2.2</b> Error Messages</a></li>
-<li class="chapter" data-level="9.2.3" data-path="errors.html"><a href="errors.html#multiple-errors"><i class="fa fa-check"></i><b>9.2.3</b> Multiple Errors</a></li>
-<li class="chapter" data-level="9.2.4" data-path="errors.html"><a href="errors.html#finding-errors-in-longer-code-segments"><i class="fa fa-check"></i><b>9.2.4</b> Finding errors in longer code segments</a></li>
-<li class="chapter" data-level="9.2.5" data-path="errors.html"><a href="errors.html#warning-messages"><i class="fa fa-check"></i><b>9.2.5</b> Warning Messages</a></li>
-<li class="chapter" data-level="9.2.6" data-path="errors.html"><a href="errors.html#other-messages"><i class="fa fa-check"></i><b>9.2.6</b> Other Messages</a></li>
-</ul></li>
-<li class="chapter" data-level="9.3" data-path="errors.html"><a href="errors.html#searching-for-help-online"><i class="fa fa-check"></i><b>9.3</b> Searching for Help Online</a>
-<ul>
-<li class="chapter" data-level="9.3.1" data-path="errors.html"><a href="errors.html#googling-it"><i class="fa fa-check"></i><b>9.3.1</b> Googling It</a></li>
-<li class="chapter" data-level="9.3.2" data-path="errors.html"><a href="errors.html#stack-overflow"><i class="fa fa-check"></i><b>9.3.2</b> Stack Overflow</a></li>
-<li class="chapter" data-level="9.3.3" data-path="errors.html"><a href="errors.html#youtube"><i class="fa fa-check"></i><b>9.3.3</b> YouTube</a></li>
-<li class="chapter" data-level="9.3.4" data-path="errors.html"><a href="errors.html#further-reading"><i class="fa fa-check"></i><b>9.3.4</b> Further Reading</a></li>
-</ul></li>
-<li class="chapter" data-level="9.4" data-path="errors.html"><a href="errors.html#formative-exercises"><i class="fa fa-check"></i><b>9.4</b> Formative Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html"><i class="fa fa-check"></i><b>10</b> Recap: Before the final assessment</a>
-<ul>
-<li class="chapter" data-level="10.1" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#outline-for-today"><i class="fa fa-check"></i><b>10.1</b> Outline for today</a></li>
-<li class="chapter" data-level="10.2" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#lecture-10-bringing-your-skills-together"><i class="fa fa-check"></i><b>10.2</b> Lecture 10: Bringing your skills together</a>
-<ul>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-1-1"><i class="fa fa-check"></i>Question 1</a></li>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-2-1"><i class="fa fa-check"></i>Question 2</a></li>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-3-1"><i class="fa fa-check"></i>Question 3</a></li>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-4-1"><i class="fa fa-check"></i>Question 4</a></li>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-5-1"><i class="fa fa-check"></i>Question 5</a></li>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-6"><i class="fa fa-check"></i>Question 6</a></li>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-7"><i class="fa fa-check"></i>Question 7</a></li>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-8"><i class="fa fa-check"></i>Question 8</a></li>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-9"><i class="fa fa-check"></i>Question 9</a></li>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-10"><i class="fa fa-check"></i>Question 10</a></li>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-11"><i class="fa fa-check"></i>Question 11</a></li>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-12-bonus"><i class="fa fa-check"></i>Question 12 (Bonus)</a></li>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-13-bonus"><i class="fa fa-check"></i>Question 13 (Bonus)</a></li>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-14-bonus"><i class="fa fa-check"></i>Question 14 (Bonus)</a></li>
-</ul></li>
-<li class="chapter" data-level="10.3" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#solutions"><i class="fa fa-check"></i><b>10.3</b> Solutions</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html"><i class="fa fa-check"></i>Appendices</a>
-<ul>
-<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#changing-the-appearance-of-rmarkdown"><i class="fa fa-check"></i>Changing the Appearance of RMarkdown</a></li>
-<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#source-materials"><i class="fa fa-check"></i>Source Materials</a></li>
-<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#further-reading-1"><i class="fa fa-check"></i>Further Reading</a>
-<ul>
-<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#statistics"><i class="fa fa-check"></i>Statistics</a></li>
-<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#more-advanced-use-of-r"><i class="fa fa-check"></i>More Advanced Use of R</a></li>
+<li class="chapter" data-level="3.9.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#brief-introduction-to-the-homework-data"><i class="fa fa-check"></i><b>3.9.1</b> Brief introduction to the homework data<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>11</b> References</a></li>
+<li class="chapter" data-level="4" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html"><i class="fa fa-check"></i><b>4</b> Data Transformation 2: More One and Two Table Verbs<span></span></a>
+<ul>
+<li><a href="data-transformation-2-more-one-and-two-table-verbs.html#intended-learning-outcomes-4">Intended Learning Outcomes<span></span></a></li>
+<li class="chapter" data-level="4.1" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#pre-steps-2"><i class="fa fa-check"></i><b>4.1</b> Pre-Steps<span></span></a></li>
+<li class="chapter" data-level="4.2" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#practicing-the-wikham-six"><i class="fa fa-check"></i><b>4.2</b> Practicing the Wikham Six<span></span></a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#select-1"><i class="fa fa-check"></i><b>4.2.1</b> select()<span></span></a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#arrange-1"><i class="fa fa-check"></i><b>4.2.2</b> arrange()<span></span></a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#filter-1"><i class="fa fa-check"></i><b>4.2.3</b> filter()<span></span></a></li>
+<li class="chapter" data-level="4.2.4" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#mutate-1"><i class="fa fa-check"></i><b>4.2.4</b> mutate()<span></span></a></li>
+<li class="chapter" data-level="4.2.5" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#group_by-and-summarise"><i class="fa fa-check"></i><b>4.2.5</b> group_by() and summarise()<span></span></a></li>
+<li class="chapter" data-level="4.2.6" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#bringing-it-all-together"><i class="fa fa-check"></i><b>4.2.6</b> Bringing it all together<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#pipes"><i class="fa fa-check"></i><b>4.3</b> The pipe operator (%&gt;%)<span></span></a></li>
+<li class="chapter" data-level="4.4" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#two-table-verbs"><i class="fa fa-check"></i><b>4.4</b> Two-Table Verbs<span></span></a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#bringing-in-new-data"><i class="fa fa-check"></i><b>4.4.1</b> Bringing in new data<span></span></a></li>
+<li class="chapter" data-level="4.4.2" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#mutating-join-verbs"><i class="fa fa-check"></i><b>4.4.2</b> Mutating Join Verbs<span></span></a></li>
+<li class="chapter" data-level="4.4.3" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#mutating-join-summary"><i class="fa fa-check"></i><b>4.4.3</b> Mutating Join Summary<span></span></a></li>
+<li class="chapter" data-level="4.4.4" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#binding-join-verbs"><i class="fa fa-check"></i><b>4.4.4</b> Binding Join Verbs<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#additional-information"><i class="fa fa-check"></i><b>4.5</b> Additional information<span></span></a></li>
+<li class="chapter" data-level="4.6" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#summative-homework-1"><i class="fa fa-check"></i><b>4.6</b> Summative Homework<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html"><i class="fa fa-check"></i><b>5</b> Data Transformation 3: Tidy Data<span></span></a>
+<ul>
+<li><a href="data-transformation-3-tidy-data.html#intended-learning-outcomes-5">Intended Learning Outcomes<span></span></a></li>
+<li class="chapter" data-level="5.1" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#pre-steps-3"><i class="fa fa-check"></i><b>5.1</b> Pre-steps<span></span></a></li>
+<li class="chapter" data-level="5.2" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#tidy-data"><i class="fa fa-check"></i><b>5.2</b> Tidy data<span></span></a></li>
+<li class="chapter" data-level="5.3" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#gather-and-spread"><i class="fa fa-check"></i><b>5.3</b> gather() and spread()<span></span></a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#gather"><i class="fa fa-check"></i><b>5.3.1</b> gather()<span></span></a></li>
+<li class="chapter" data-level="5.3.2" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#spread"><i class="fa fa-check"></i><b>5.3.2</b> spread()<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#separate-and-unite"><i class="fa fa-check"></i><b>5.4</b> separate() and unite()<span></span></a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#separate"><i class="fa fa-check"></i><b>5.4.1</b> separate()<span></span></a></li>
+<li class="chapter" data-level="5.4.2" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#additional-arguments-for-separate"><i class="fa fa-check"></i><b>5.4.2</b> additional arguments for separate()<span></span></a></li>
+<li class="chapter" data-level="5.4.3" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#unite"><i class="fa fa-check"></i><b>5.4.3</b> unite()<span></span></a></li>
+<li class="chapter" data-level="5.4.4" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#additional-arguments-for-unite"><i class="fa fa-check"></i><b>5.4.4</b> additional arguments for unite()<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#bonus-materials-mutate-row-names-from-the-mtcars"><i class="fa fa-check"></i><b>5.5</b> Bonus materials: mutate row names from the <code>mtcars</code><span></span></a></li>
+<li class="chapter" data-level="5.6" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#additional-information-1"><i class="fa fa-check"></i><b>5.6</b> Additional information<span></span></a></li>
+<li class="chapter" data-level="5.7" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#formative-homework-2"><i class="fa fa-check"></i><b>5.7</b> Formative Homework<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html"><i class="fa fa-check"></i><b>6</b> Data Transformation 4: Fine-tuned Data Manipulation<span></span></a>
+<ul>
+<li><a href="data-transformation-4-fine-tuned-data-manipulation.html#intended-learning-outcomes-6">Intended Learning Outcomes<span></span></a></li>
+<li class="chapter" data-level="6.1" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#pre-steps-4"><i class="fa fa-check"></i><b>6.1</b> Pre-steps<span></span></a></li>
+<li class="chapter" data-level="6.2" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#rename"><i class="fa fa-check"></i><b>6.2</b> rename()<span></span></a></li>
+<li class="chapter" data-level="6.3" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#conditional-statements"><i class="fa fa-check"></i><b>6.3</b> Conditional statements<span></span></a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#recode"><i class="fa fa-check"></i><b>6.3.1</b> recode()<span></span></a></li>
+<li class="chapter" data-level="6.3.2" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#ifelse"><i class="fa fa-check"></i><b>6.3.2</b> ifelse()<span></span></a></li>
+<li class="chapter" data-level="6.3.3" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#case_when"><i class="fa fa-check"></i><b>6.3.3</b> case_when()<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#distinct"><i class="fa fa-check"></i><b>6.4</b> distinct()<span></span></a></li>
+<li class="chapter" data-level="6.5" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#recap"><i class="fa fa-check"></i><b>6.5</b> Recap<span></span></a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-1"><i class="fa fa-check"></i><b>6.5.1</b> Question 1<span></span></a></li>
+<li class="chapter" data-level="6.5.2" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-2"><i class="fa fa-check"></i><b>6.5.2</b> Question 2<span></span></a></li>
+<li class="chapter" data-level="6.5.3" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-3"><i class="fa fa-check"></i><b>6.5.3</b> Question 3<span></span></a></li>
+<li class="chapter" data-level="6.5.4" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-4"><i class="fa fa-check"></i><b>6.5.4</b> Question 4<span></span></a></li>
+<li class="chapter" data-level="6.5.5" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-5"><i class="fa fa-check"></i><b>6.5.5</b> Question 5<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#summative-homework-2"><i class="fa fa-check"></i><b>6.6</b> Summative Homework<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html"><i class="fa fa-check"></i><b>7</b> Data Visualisation 1<span></span></a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#pre-class-activities"><i class="fa fa-check"></i><b>7.1</b> Pre-class Activities<span></span></a></li>
+<li><a href="data-visualisation-1.html#intended-learning-outcomes-7">Intended Learning Outcomes<span></span></a></li>
+<li class="chapter" data-level="7.2" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#pre-steps-5"><i class="fa fa-check"></i><b>7.2</b> Pre-steps<span></span></a></li>
+<li class="chapter" data-level="7.3" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#introduction-to-the-data"><i class="fa fa-check"></i><b>7.3</b> Introduction to the data<span></span></a></li>
+<li class="chapter" data-level="7.4" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#some-warm-up-tasks"><i class="fa fa-check"></i><b>7.4</b> Some warm-up tasks<span></span></a></li>
+<li class="chapter" data-level="7.5" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#the-package-ggplot2"><i class="fa fa-check"></i><b>7.5</b> The package GGPLOT2<span></span></a></li>
+<li class="chapter" data-level="7.6" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#layering"><i class="fa fa-check"></i><b>7.6</b> Layering<span></span></a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#layer-1"><i class="fa fa-check"></i><b>7.6.1</b> Layer 1<span></span></a></li>
+<li class="chapter" data-level="7.6.2" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#layer-2-and-onward"><i class="fa fa-check"></i><b>7.6.2</b> Layer 2 and onward<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#how-do-we-choose-the-type-of-plot"><i class="fa fa-check"></i><b>7.7</b> How do we choose the type of plot?<span></span></a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#data-format"><i class="fa fa-check"></i><b>7.7.1</b> Data format<span></span></a></li>
+<li class="chapter" data-level="7.7.2" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#number-of-variables"><i class="fa fa-check"></i><b>7.7.2</b> Number of variables<span></span></a></li>
+<li class="chapter" data-level="7.7.3" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#types-of-plots"><i class="fa fa-check"></i><b>7.7.3</b> Types of plots<span></span></a></li>
+<li class="chapter" data-level="7.7.4" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#groupings"><i class="fa fa-check"></i><b>7.7.4</b> Groupings<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#now-lets-have-a-look-at-different-plots-with-more-complexity"><i class="fa fa-check"></i><b>7.8</b> Now let’s have a look at different plots with more complexity<span></span></a></li>
+<li class="chapter" data-level="7.9" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#other-plots"><i class="fa fa-check"></i><b>7.9</b> Other plots<span></span></a></li>
+<li class="chapter" data-level="7.10" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#formative-homework-3"><i class="fa fa-check"></i><b>7.10</b> Formative Homework<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html"><i class="fa fa-check"></i><b>8</b> Data Visualisation 2<span></span></a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#additional-resources"><i class="fa fa-check"></i><b>8.1</b> Additional Resources<span></span></a></li>
+<li><a href="data-visualisation-2.html#intended-learning-outcomes-8">Intended Learning Outcomes<span></span></a></li>
+<li class="chapter" data-level="8.2" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#pre-steps-6"><i class="fa fa-check"></i><b>8.2</b> Pre-steps<span></span></a></li>
+<li class="chapter" data-level="8.3" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#re-introduction-to-the-data"><i class="fa fa-check"></i><b>8.3</b> Re-introduction to the data<span></span></a></li>
+<li class="chapter" data-level="8.4" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#create-multiple-plots-in-one"><i class="fa fa-check"></i><b>8.4</b> Create multiple plots in one<span></span></a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#select-the-data-beforehand-and-create-different-plots."><i class="fa fa-check"></i><b>8.4.1</b> Select the data beforehand and create different plots.<span></span></a></li>
+<li class="chapter" data-level="8.4.2" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#facets"><i class="fa fa-check"></i><b>8.4.2</b> Facets<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#global-and-local-aesthetics"><i class="fa fa-check"></i><b>8.5</b> Global and Local aesthetics<span></span></a></li>
+<li class="chapter" data-level="8.6" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#themes-making-your-plots-pretty-looking-the-way-you-want-them-to"><i class="fa fa-check"></i><b>8.6</b> Themes: Making your plots pretty: looking the way you want them to<span></span></a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#ready-made-themes"><i class="fa fa-check"></i><b>8.6.1</b> Ready-made themes<span></span></a></li>
+<li class="chapter" data-level="8.6.2" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#adding-axes-titles-and-headings"><i class="fa fa-check"></i><b>8.6.2</b> Adding axes titles and headings<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#changing-colours"><i class="fa fa-check"></i><b>8.7</b> Changing colours<span></span></a></li>
+<li class="chapter" data-level="8.8" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#legends"><i class="fa fa-check"></i><b>8.8</b> Legends<span></span></a></li>
+<li class="chapter" data-level="8.9" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#changing-axes-ticks"><i class="fa fa-check"></i><b>8.9</b> Changing axes ticks<span></span></a></li>
+<li class="chapter" data-level="8.10" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#saving-plots"><i class="fa fa-check"></i><b>8.10</b> Saving plots<span></span></a></li>
+<li class="chapter" data-level="8.11" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#summative-homework-3"><i class="fa fa-check"></i><b>8.11</b> Summative Homework<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="errors.html"><a href="errors.html"><i class="fa fa-check"></i><b>9</b> Errors<span></span></a>
+<ul>
+<li><a href="errors.html#intended-learning-outcomes-9">Intended Learning Outcomes<span></span></a></li>
+<li class="chapter" data-level="9.1" data-path="errors.html"><a href="errors.html#errors-how-to-avoid-some-and-live-through-the-rest"><i class="fa fa-check"></i><b>9.1</b> Errors: How to avoid some and live through the rest<span></span></a></li>
+<li class="chapter" data-level="9.2" data-path="errors.html"><a href="errors.html#debugging"><i class="fa fa-check"></i><b>9.2</b> Debugging<span></span></a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="errors.html"><a href="errors.html#messages-from-r"><i class="fa fa-check"></i><b>9.2.1</b> Messages from R<span></span></a></li>
+<li class="chapter" data-level="9.2.2" data-path="errors.html"><a href="errors.html#error-messages"><i class="fa fa-check"></i><b>9.2.2</b> Error Messages<span></span></a></li>
+<li class="chapter" data-level="9.2.3" data-path="errors.html"><a href="errors.html#multiple-errors"><i class="fa fa-check"></i><b>9.2.3</b> Multiple Errors<span></span></a></li>
+<li class="chapter" data-level="9.2.4" data-path="errors.html"><a href="errors.html#finding-errors-in-longer-code-segments"><i class="fa fa-check"></i><b>9.2.4</b> Finding errors in longer code segments<span></span></a></li>
+<li class="chapter" data-level="9.2.5" data-path="errors.html"><a href="errors.html#warning-messages"><i class="fa fa-check"></i><b>9.2.5</b> Warning Messages<span></span></a></li>
+<li class="chapter" data-level="9.2.6" data-path="errors.html"><a href="errors.html#other-messages"><i class="fa fa-check"></i><b>9.2.6</b> Other Messages<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="errors.html"><a href="errors.html#searching-for-help-online"><i class="fa fa-check"></i><b>9.3</b> Searching for Help Online<span></span></a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="errors.html"><a href="errors.html#googling-it"><i class="fa fa-check"></i><b>9.3.1</b> Googling It<span></span></a></li>
+<li class="chapter" data-level="9.3.2" data-path="errors.html"><a href="errors.html#stack-overflow"><i class="fa fa-check"></i><b>9.3.2</b> Stack Overflow<span></span></a></li>
+<li class="chapter" data-level="9.3.3" data-path="errors.html"><a href="errors.html#youtube"><i class="fa fa-check"></i><b>9.3.3</b> YouTube<span></span></a></li>
+<li class="chapter" data-level="9.3.4" data-path="errors.html"><a href="errors.html#further-reading"><i class="fa fa-check"></i><b>9.3.4</b> Further Reading<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="errors.html"><a href="errors.html#formative-exercises"><i class="fa fa-check"></i><b>9.4</b> Formative Exercises<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html"><i class="fa fa-check"></i><b>10</b> Recap: Before the final assessment<span></span></a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#outline-for-today"><i class="fa fa-check"></i><b>10.1</b> Outline for today<span></span></a></li>
+<li class="chapter" data-level="10.2" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#lecture-10-bringing-your-skills-together"><i class="fa fa-check"></i><b>10.2</b> Lecture 10: Bringing your skills together<span></span></a>
+<ul>
+<li><a href="recap-before-the-final-assessment.html#question-1-1">Question 1<span></span></a></li>
+<li><a href="recap-before-the-final-assessment.html#question-2-1">Question 2<span></span></a></li>
+<li><a href="recap-before-the-final-assessment.html#question-3-1">Question 3<span></span></a></li>
+<li><a href="recap-before-the-final-assessment.html#question-4-1">Question 4<span></span></a></li>
+<li><a href="recap-before-the-final-assessment.html#question-5-1">Question 5<span></span></a></li>
+<li><a href="recap-before-the-final-assessment.html#question-6">Question 6<span></span></a></li>
+<li><a href="recap-before-the-final-assessment.html#question-7">Question 7<span></span></a></li>
+<li><a href="recap-before-the-final-assessment.html#question-8">Question 8<span></span></a></li>
+<li><a href="recap-before-the-final-assessment.html#question-9">Question 9<span></span></a></li>
+<li><a href="recap-before-the-final-assessment.html#question-10">Question 10<span></span></a></li>
+<li><a href="recap-before-the-final-assessment.html#question-11">Question 11<span></span></a></li>
+<li><a href="recap-before-the-final-assessment.html#question-12-bonus">Question 12 (Bonus)<span></span></a></li>
+<li><a href="recap-before-the-final-assessment.html#question-13-bonus">Question 13 (Bonus)<span></span></a></li>
+<li><a href="recap-before-the-final-assessment.html#question-14-bonus">Question 14 (Bonus)<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#solutions"><i class="fa fa-check"></i><b>10.3</b> Solutions<span></span></a></li>
+</ul></li>
+<li><a href="appendices.html#appendices">Appendices<span></span></a>
+<ul>
+<li><a href="appendices.html#changing-the-appearance-of-rmarkdown">Changing the Appearance of RMarkdown<span></span></a></li>
+<li><a href="appendices.html#source-materials">Source Materials<span></span></a></li>
+<li><a href="appendices.html#further-reading-1">Further Reading<span></span></a>
+<ul>
+<li><a href="appendices.html#statistics">Statistics<span></span></a></li>
+<li><a href="appendices.html#more-advanced-use-of-r">More Advanced Use of R<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>11</b> References<span></span></a></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
     target="blank"><img alt="Creative Commons License" 
@@ -483,11 +482,11 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-visualisation-1" class="section level1" number="7">
-<h1><span class="header-section-number">Chapter 7</span> Data Visualisation 1</h1>
+<div id="data-visualisation-1" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Data Visualisation 1<a href="data-visualisation-1.html#data-visualisation-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>This week we are moving on to plots. You have learned how to get your data into a usable format, so now it is time for you to learn how to visualise your data. Visualisations are important as they tell us how our data looks like; help us discover outlier variables, tells us about distribution abnormalities etc. Plots also help your reader to better understand the data that you are working with.</p>
-<div id="pre-class-activities" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> Pre-class Activities</h2>
+<div id="pre-class-activities" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Pre-class Activities<a href="data-visualisation-1.html#pre-class-activities" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Before you start this week’s class, here are some pre-class readings:</p>
 <ul>
 <li><a href="https://getpocket.com/explore/item/five-ways-to-lie-with-charts?utm_source=pocket-newtab-global-en-GB">Five Ways to Lie with Charts</a></li>
@@ -498,8 +497,8 @@ div.csl-indent {
 <li>Pre-class <a href="https://youtu.be/vP9hgPOvU1s">video</a></li>
 </ul>
 </div>
-<div id="intended-learning-outcomes-7" class="section level2 unnumbered">
-<h2>Intended Learning Outcomes</h2>
+<div id="intended-learning-outcomes-7" class="section level2 unnumbered hasAnchor">
+<h2>Intended Learning Outcomes<a href="data-visualisation-1.html#intended-learning-outcomes-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li>Develop an understanding of the basics of ggplot2 and how layering works</li>
 <li>Learn how to make simple two layer plots</li>
@@ -509,15 +508,15 @@ div.csl-indent {
 </ol>
 <p>This lesson is led by <a href="https://www.psy.gla.ac.uk/otherstaff/?id=GKT01">Greta Todorova</a>.</p>
 </div>
-<div id="pre-steps-5" class="section level2" number="7.2">
-<h2><span class="header-section-number">7.2</span> Pre-steps</h2>
+<div id="pre-steps-5" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Pre-steps<a href="data-visualisation-1.html#pre-steps-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Today, we will be working with <code>ggplot2</code> which is part of <code>tidyverse</code> and data from the Scottish Government saved in the file <code>free_movement_uk.csv</code>.</p>
 <p>Firstly, load <code>tidyverse</code>, and then read the data into your <code>Global Environment</code> as <code>migration_scot</code>.</p>
-<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="data-visualisation-1.html#cb405-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb405-2"><a href="data-visualisation-1.html#cb405-2" aria-hidden="true" tabindex="-1"></a>migration_scot <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;free_movement_uk.csv&quot;</span>) <span class="co">#downloaded from the Scottish Government Stats website</span></span></code></pre></div>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="data-visualisation-1.html#cb393-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb393-2"><a href="data-visualisation-1.html#cb393-2" aria-hidden="true" tabindex="-1"></a>migration_scot <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;free_movement_uk.csv&quot;</span>) <span class="co">#downloaded from the Scottish Government Stats website</span></span></code></pre></div>
 </div>
-<div id="introduction-to-the-data" class="section level2" number="7.3">
-<h2><span class="header-section-number">7.3</span> Introduction to the data</h2>
+<div id="introduction-to-the-data" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Introduction to the data<a href="data-visualisation-1.html#introduction-to-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This data is openly available from the Scottish Government, and it introduces the flow of people at different ages and sex into and out of the Scotland from the rest of UK (RUK) and Overseas. We have several variables to work with:</p>
 <table>
 <colgroup>
@@ -571,8 +570,8 @@ div.csl-indent {
 </table>
 <p>The data is a bit messy, so let’s clean it a little bit before we can work with it. When we make plots, we want to make sure that the data we are working with contains only data that we are going to include in the plot. This helps us avoid things like double counting. For example, if we have values for males and females and total, but we do not want to give separate representations for males and females, then we would only keep information that gives us the total number.</p>
 </div>
-<div id="some-warm-up-tasks" class="section level2" number="7.4">
-<h2><span class="header-section-number">7.4</span> Some warm-up tasks</h2>
+<div id="some-warm-up-tasks" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Some warm-up tasks<a href="data-visualisation-1.html#some-warm-up-tasks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Use pipes <code>%&gt;%</code> for the following 4 tasks and save your data into the <strong>traffic_scot</strong> variable so that it appears in your <code>Global Environment</code>.</p>
 <ol style="list-style-type: decimal">
 <li>Select only the necessary variable - <code>DateCode</code>, <code>Value</code>, <code>Sex</code>, <code>Age</code>, <code>Migration Source</code> &amp; <code>Migration Type</code> (notice that some variable names include spaces)</li>
@@ -580,25 +579,25 @@ div.csl-indent {
 <li>Keep only the total number of people by <code>Age</code> (‘All’) and <code>Sex</code> (‘All’)</li>
 <li>Keep only the information about the number of people that came to and left Scotland (we do not want to know about the net value)</li>
 </ol>
-<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="data-visualisation-1.html#cb406-1" aria-hidden="true" tabindex="-1"></a>traffic_scot <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="data-visualisation-1.html#cb394-1" aria-hidden="true" tabindex="-1"></a>traffic_scot <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="data-visualisation-1.html#cb407-1" aria-hidden="true" tabindex="-1"></a>traffic_scot <span class="ot">&lt;-</span> migration_scot <span class="sc">%&gt;%</span> </span>
-<span id="cb407-2"><a href="data-visualisation-1.html#cb407-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(DateCode, Value, Sex, Age, <span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span>, <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb407-3"><a href="data-visualisation-1.html#cb407-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DateCode <span class="sc">==</span> <span class="st">&#39;2016&#39;</span>, </span>
-<span id="cb407-4"><a href="data-visualisation-1.html#cb407-4" aria-hidden="true" tabindex="-1"></a>         Age <span class="sc">==</span> <span class="st">&#39;All&#39;</span>, </span>
-<span id="cb407-5"><a href="data-visualisation-1.html#cb407-5" aria-hidden="true" tabindex="-1"></a>         Sex <span class="sc">!=</span> <span class="st">&#39;All&#39;</span>, </span>
-<span id="cb407-6"><a href="data-visualisation-1.html#cb407-6" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">&#39;Net&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="data-visualisation-1.html#cb395-1" aria-hidden="true" tabindex="-1"></a>traffic_scot <span class="ot">&lt;-</span> migration_scot <span class="sc">%&gt;%</span> </span>
+<span id="cb395-2"><a href="data-visualisation-1.html#cb395-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(DateCode, Value, Sex, Age, <span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span>, <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb395-3"><a href="data-visualisation-1.html#cb395-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DateCode <span class="sc">==</span> <span class="st">&#39;2016&#39;</span>, </span>
+<span id="cb395-4"><a href="data-visualisation-1.html#cb395-4" aria-hidden="true" tabindex="-1"></a>         Age <span class="sc">==</span> <span class="st">&#39;All&#39;</span>, </span>
+<span id="cb395-5"><a href="data-visualisation-1.html#cb395-5" aria-hidden="true" tabindex="-1"></a>         Sex <span class="sc">!=</span> <span class="st">&#39;All&#39;</span>, </span>
+<span id="cb395-6"><a href="data-visualisation-1.html#cb395-6" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">&#39;Net&#39;</span>)</span></code></pre></div>
 </div>
 </div>
-<div id="the-package-ggplot2" class="section level2" number="7.5">
-<h2><span class="header-section-number">7.5</span> The package GGPLOT2</h2>
+<div id="the-package-ggplot2" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> The package GGPLOT2<a href="data-visualisation-1.html#the-package-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We use the <code>ggplot2</code> package due to its ease of layering and variety. With <code>ggplot2</code> we can create beautiful and varied plots that can show us much more than just the simplicity of the base R plots. Whereas the plot/graph’s job is to visualise the data, how you visualise your data is very important. Sometimes in an attempt to show off our plotting skills, we can make the graph difficult to read. Today and next week, using <code>ggplot2</code> we will streamline the process of plot creation.</p>
 </div>
-<div id="layering" class="section level2" number="7.6">
-<h2><span class="header-section-number">7.6</span> Layering</h2>
+<div id="layering" class="section level2 hasAnchor" number="7.6">
+<h2><span class="header-section-number">7.6</span> Layering<a href="data-visualisation-1.html#layering" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Plots created with <code>ggplot2</code> work in a layering format. In the simplest form we have two layers.</p>
 <ul>
 <li>Layer 1: what data are we going to use
@@ -609,21 +608,22 @@ Solution
 </ul>
 <p>Layer 1: ggplot(data, aes(x, y, …)) + <br>
 Layer 2: geom_something(…)</p>
-<div id="layer-1" class="section level3" number="7.6.1">
-<h3><span class="header-section-number">7.6.1</span> Layer 1</h3>
+<div id="layer-1" class="section level3 hasAnchor" number="7.6.1">
+<h3><span class="header-section-number">7.6.1</span> Layer 1<a href="data-visualisation-1.html#layer-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Plots always start with <em>ggplot()</em>. This initialises the plot. It is used to tell <em>R</em> what data we are going to use. We can also set the aesthetics of the plot which will be used to specify the axes of our plot, any groupings, variables we are going to colour based on, etc. Unless specifically overwritten in the following layers, all the data information you give in this first layer will be inherited in every following layer.</p>
 <p>For now we are going to stick with one global specification - i.e. we are going to specify all our data in this first layer.</p>
 <p>If you run just the first command, R is going to show you the first layer - i.e. a blank screen. R has prepared a space for you to create your plot.</p>
 <p>Let’s try it.</p>
-<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="data-visualisation-1.html#cb408-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="data-visualisation-1.html#cb396-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()</span></code></pre></div>
 <p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-279-1.png" width="672" /></p>
 <p>Now let’s add some information. Let’s include the data and the axes. From our data <code>traffic_scot</code> let’s put <code>Sex</code> on the x-axis and <code>Value</code> on the y-axis. This way we can visualise how many people from each sex category came to and left Scotland overall.</p>
 <p>What’s the difference with the empty plot above?</p>
-<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="data-visualisation-1.html#cb409-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value))</span></code></pre></div>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="data-visualisation-1.html#cb397-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value))</span></code></pre></div>
 <p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-280-1.png" width="672" /></p>
 <div class="question">
 <p>
-What is the difference in the produced plots from the above two lines of code? What does the first layer give you?
+What is the difference in the produced plots from the above two lines
+of code? What does the first layer give you?
 </p>
 </div>
 <div class="webex-solution">
@@ -632,33 +632,38 @@ Solution
 </button>
 <div class="solved">
 <p>
-If you look closely, new plot we have created with the first layer of <code>ggplot2</code> gives us numbers on y-axis and the two sexes on the x-axis. We also now have the titles of the two axes. We do not have any view of the data because we have not told <code>R</code> how we want to visualise the data. R only knows what the data is.
+If you look closely, new plot we have created with the first layer of
+<code>ggplot2</code> gives us numbers on y-axis and the two sexes on the
+x-axis. We also now have the titles of the two axes. We do not have any
+view of the data because we have not told <code>R</code> how we want to
+visualise the data. R only knows what the data is.
 </p>
 </div>
 </div>
 </div>
-<div id="layer-2-and-onward" class="section level3" number="7.6.2">
-<h3><span class="header-section-number">7.6.2</span> Layer 2 and onward</h3>
+<div id="layer-2-and-onward" class="section level3 hasAnchor" number="7.6.2">
+<h3><span class="header-section-number">7.6.2</span> Layer 2 and onward<a href="data-visualisation-1.html#layer-2-and-onward" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>From the second layer onward, we are specifying how we want our plot to look: from the type of graph to the titles and colours. For now, we are going to stick with the basics.</p>
 </div>
 </div>
-<div id="how-do-we-choose-the-type-of-plot" class="section level2" number="7.7">
-<h2><span class="header-section-number">7.7</span> How do we choose the type of plot?</h2>
+<div id="how-do-we-choose-the-type-of-plot" class="section level2 hasAnchor" number="7.7">
+<h2><span class="header-section-number">7.7</span> How do we choose the type of plot?<a href="data-visualisation-1.html#how-do-we-choose-the-type-of-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There are numerous plots we can choose from, and we are going to try several today.</p>
 <p>Before plotting we need to know what types of data we want to portray.</p>
 <p>Depending on whether our data is categorical or continuous, the type of plot that is most appropriate will change.</p>
-<div id="data-format" class="section level3" number="7.7.1">
-<h3><span class="header-section-number">7.7.1</span> Data format</h3>
-<div id="continuous" class="section level4" number="7.7.1.1">
-<h4><span class="header-section-number">7.7.1.1</span> Continuous</h4>
+<div id="data-format" class="section level3 hasAnchor" number="7.7.1">
+<h3><span class="header-section-number">7.7.1</span> Data format<a href="data-visualisation-1.html#data-format" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="continuous" class="section level4 hasAnchor" number="7.7.1.1">
+<h4><span class="header-section-number">7.7.1.1</span> Continuous<a href="data-visualisation-1.html#continuous" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>In continuous data the distance between any two consecutive points is equivalent to the distance between any other two consecutive points - i.e. the difference between 1 and 2 is the same as the difference between 3 and 4, or 5 and 6 etc. If you think back to <code>L2</code>, integer and double data types will fall in this category.</p>
 </div>
-<div id="categorical" class="section level4" number="7.7.1.2">
-<h4><span class="header-section-number">7.7.1.2</span> Categorical</h4>
+<div id="categorical" class="section level4 hasAnchor" number="7.7.1.2">
+<h4><span class="header-section-number">7.7.1.2</span> Categorical<a href="data-visualisation-1.html#categorical" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Categorical data, simply put, groups (categorises) data. The data in each group or category vary solely on one characteristic and usually those characteristics cannot be ranked - i.e. sex, race, nationality etc. If you think back to <code>L2</code>, logical and character data types will fall in this category.</p>
 <div class="question">
 <p>
-Can you think of a time when a continuous variable can be used as categorical and/or categorical data can be used as continuous?
+Can you think of a time when a continuous variable can be used as
+categorical and/or categorical data can be used as continuous?
 </p>
 </div>
 <div class="webex-solution">
@@ -667,21 +672,36 @@ Solution
 </button>
 <div class="solved">
 <p>
-Continuous that is really categorical: If you have used the numbers 1, 2, 3 … to label groups in your data, then that data is integer/double, but in reality the difference between 1 and 2 is in no way measurable. In this case you will have to transform that column in your data and change it from continuous to categorical, so R does not misinterpret it. if you do not remember how to do that, go back to <code>L2</code>.
+Continuous that is really categorical: If you have used the numbers
+1, 2, 3 … to label groups in your data, then that data is
+integer/double, but in reality the difference between 1 and 2 is in no
+way measurable. In this case you will have to transform that column in
+your data and change it from continuous to categorical, so R does not
+misinterpret it. if you do not remember how to do that, go back to
+<code>L2</code>.
 </p>
 <p>
-Categorical that can be used as continuous: Sometimes you have questions where people answer from Strongly Agree to Strongly Disagree, and you have given numeric values to the responses: 1 = Strongly Agree, 2 = Agree, 3 = Neutral, etc. In reality, you cannot say that the distance between Strongly Agree and Agree is the same as the distance between Agree and Neutral. However, we can make the assumption that they represent equal distances and treat the numbers as a continuous scale. In fact, this is often done in Psychology and the Social Sciences.
+Categorical that can be used as continuous: Sometimes you have
+questions where people answer from Strongly Agree to Strongly Disagree,
+and you have given numeric values to the responses: 1 = Strongly Agree,
+2 = Agree, 3 = Neutral, etc. In reality, you cannot say that the
+distance between Strongly Agree and Agree is the same as the distance
+between Agree and Neutral. However, we can make the assumption that they
+represent equal distances and treat the numbers as a continuous scale.
+In fact, this is often done in Psychology and the Social Sciences.
 </p>
 </div>
 </div>
 </div>
 </div>
-<div id="number-of-variables" class="section level3" number="7.7.2">
-<h3><span class="header-section-number">7.7.2</span> Number of variables</h3>
+<div id="number-of-variables" class="section level3 hasAnchor" number="7.7.2">
+<h3><span class="header-section-number">7.7.2</span> Number of variables<a href="data-visualisation-1.html#number-of-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Next we need to know the relationship between how many variables we want to show. In a 2D plot, we can usually graphically show between 1 and 3 variables with ease. After that, **usually*_** more than 2 dimensions are necessary.</p>
 <div class="task">
 <p>
-Look at the five plots below. What type of data are used: categorical or continuous, or both? How many variables do we need to create these plots?
+Look at the five plots below. What type of data are used: categorical
+or continuous, or both? How many variables do we need to create these
+plots?
 </p>
 </div>
 <p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-286-1.png" width="672" /></p>
@@ -691,7 +711,9 @@ Solution
 </button>
 <div class="solved">
 <p>
-3 variables: 2 continuous (depth &amp; density), 1 categorical (cut) <strong>In reality R only needs depth and cut, as it will calculate density for us.</strong>
+3 variables: 2 continuous (depth &amp; density), 1 categorical (cut)
+<strong>In reality R only needs depth and cut, as it will calculate
+density for us.</strong>
 </p>
 </div>
 </div>
@@ -702,7 +724,8 @@ Solution
 </button>
 <div class="solved">
 <p>
-3 variables: 2 categorical (clarity &amp; cut), 1 continuous (price)
+3 variables: 2 categorical (clarity &amp; cut), 1 continuous
+(price)
 </p>
 </div>
 </div>
@@ -735,25 +758,30 @@ Solution
 </button>
 <div class="solved">
 <p>
-3 variables: 2 continuous (Net worth &amp; Probability of being happy), 1 categorical (group)
+3 variables: 2 continuous (Net worth &amp; Probability of being
+happy), 1 categorical (group)
 </p>
 </div>
 </div>
 <div class="info">
 <p>
-<strong>Tip</strong>: Most of the time, if you cannot represent a graph in 2D then you are probably trying to show too much, and you should reconsider splitting it into multiple plots.
+<strong>Tip</strong>: Most of the time, if you cannot represent a
+graph in 2D then you are probably trying to show too much, and you
+should reconsider splitting it into multiple plots.
 </p>
 </div>
 <p>Let’s get back to our free movement data that we started with in the section above. Remember we wanted to visualise how many people from each sex category came to and left Scotland.</p>
 <div class="question">
 <p>
-How many variables have we chosen so far? Type the number in the box below.
+How many variables have we chosen so far? Type the number in the box
+below.
 </p>
 </div>
 <p><input class='webex-solveme nospaces' size='1' data-answer='["2"]'/> <br></p>
 <div class="question">
 <p>
-What types of data are we trying to plot according to our first layer? Continuous, categorical, or both?
+What types of data are we trying to plot according to our first
+layer? Continuous, categorical, or both?
 </p>
 </div>
 <div class="webex-solution">
@@ -762,13 +790,14 @@ Solution
 </button>
 <div class="solved">
 <p>
-We are using both continuous (value i.e. count of people) and categorical (sex).
+We are using both continuous (value i.e. count of people) and
+categorical (sex).
 </p>
 </div>
 </div>
 </div>
-<div id="types-of-plots" class="section level3" number="7.7.3">
-<h3><span class="header-section-number">7.7.3</span> Types of plots</h3>
+<div id="types-of-plots" class="section level3 hasAnchor" number="7.7.3">
+<h3><span class="header-section-number">7.7.3</span> Types of plots<a href="data-visualisation-1.html#types-of-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There is variety of plots that we can create using ggplot2. We select the plot by adding on <code>geom_???()</code>. Instead of the <strong>???</strong> we specify the type of plot we want to make. Below are some examples, but you can see more here: ggplot2 layers.</p>
 <table>
 <colgroup>
@@ -821,12 +850,14 @@ We are using both continuous (value i.e. count of people) and categorical (sex)
 </tbody>
 </table>
 <p>Let’s create a column/bar plot to visualise the data using <code>geom_col()</code>. What does the data look like?</p>
-<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="data-visualisation-1.html#cb410-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value)) <span class="sc">+</span> </span>
-<span id="cb410-2"><a href="data-visualisation-1.html#cb410-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="data-visualisation-1.html#cb398-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value)) <span class="sc">+</span> </span>
+<span id="cb398-2"><a href="data-visualisation-1.html#cb398-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div>
 <p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-300-1.png" width="672" /></p>
 <div class="question">
 <p>
-Considering what we know from the data description and the different variable in it, do we need another variable to make the plot more informative? If yes, which one?
+Considering what we know from the data description and the different
+variable in it, do we need another variable to make the plot more
+informative? If yes, which one?
 </p>
 </div>
 <p><input class='webex-solveme nospaces ignorecase' size='14' data-answer='["Migration Type"]'/> <br></p>
@@ -836,18 +867,23 @@ Explanation
 </button>
 <div class="solved">
 <p>
-If you worked in the immigration office, you would want to know how many people left and how many people came to Scotland. Knowing how many people moved about is not particularly informative. In what ways can we differentiate the males and females who came to and who went out of Scotland? Separating the data by <code>Migration Type</code> would tell us whether the people came into or left Scotland.
+If you worked in the immigration office, you would want to know how
+many people left and how many people came to Scotland. Knowing how many
+people moved about is not particularly informative. In what ways can we
+differentiate the males and females who came to and who went out of
+Scotland? Separating the data by <code>Migration Type</code> would tell
+us whether the people came into or left Scotland.
 </p>
 </div>
 </div>
 </div>
-<div id="groupings" class="section level3" number="7.7.4">
-<h3><span class="header-section-number">7.7.4</span> Groupings</h3>
+<div id="groupings" class="section level3 hasAnchor" number="7.7.4">
+<h3><span class="header-section-number">7.7.4</span> Groupings<a href="data-visualisation-1.html#groupings" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When we want to group data to provide a better representation, we can usually use colour, shapes etc. Most of the time, this will depend on the type of graph we want to create. If we are using line graphs, then colours are usually best. If we are using dot plots then we can use the shape as well as the colours to differentiate the different groups.</p>
 <p>Let’s first look at colour.</p>
 <p>Depending on the type of graph, colouring in can be done either with <code>colour</code> or with <code>fill</code>. For our column plots we use <code>fill.</code> If we used <code>colour</code>, then we would get different colours for the outlines. You can find out whether to use colour or fill by typing the name of the geom in the Help search bar or typing <code>?geom_col()</code> in the console and looking at the <strong>Aesthetics</strong> section.</p>
-<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="data-visualisation-1.html#cb411-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value, <span class="at">fill =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb411-2"><a href="data-visualisation-1.html#cb411-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="data-visualisation-1.html#cb399-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value, <span class="at">fill =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb399-2"><a href="data-visualisation-1.html#cb399-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>)</span></code></pre></div>
 <p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-303-1.png" width="672" /></p>
 <p>Let’s decompose the code above:</p>
 <p>We have our data and our two variables. They are the same as before. This time we are saying that we want the data to be separated even further by <code>Migration Type</code> and we have given two different colours to the ‘In’ and ‘Out’ migration types using the additional argument <code>fill</code>.</p>
@@ -858,12 +894,13 @@ Simple task:
 </p>
 <ol style="list-style-type: decimal">
 <li>
-Remove <code>position =‘dodge’</code> from the geom and describe what happens in your stub file.
+Remove <code>position =‘dodge’</code> from the geom and describe
+what happens in your stub file.
 </li>
 </ol>
 </div>
-<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="data-visualisation-1.html#cb412-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value, <span class="at">fill =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb412-2"><a href="data-visualisation-1.html#cb412-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="data-visualisation-1.html#cb400-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value, <span class="at">fill =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb400-2"><a href="data-visualisation-1.html#cb400-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div>
 <p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-305-1.png" width="672" /></p>
 <div class="task">
 <p>
@@ -871,17 +908,19 @@ Simple task:
 </p>
 <ol start="2" style="list-style-type: decimal">
 <li>
-Use <code>position = ‘fill’</code> and describe what happens in your stub.
+Use <code>position = ‘fill’</code> and describe what happens in your
+stub.
 </li>
 </ol>
 </div>
-<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="data-visualisation-1.html#cb413-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create your plot here</span></span>
-<span id="cb413-2"><a href="data-visualisation-1.html#cb413-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value, <span class="at">fill =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb413-3"><a href="data-visualisation-1.html#cb413-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&#39;fill&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="data-visualisation-1.html#cb401-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create your plot here</span></span>
+<span id="cb401-2"><a href="data-visualisation-1.html#cb401-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value, <span class="at">fill =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb401-3"><a href="data-visualisation-1.html#cb401-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&#39;fill&#39;</span>)</span></code></pre></div>
 <p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-307-1.png" width="672" /></p>
 <div class="question">
 <p>
-What are the differences between ‘dodge,’ ‘fill’ and no position argument? (Use <code>?geom_col()</code> to help you).
+What are the differences between ‘dodge’, ‘fill’ and no position
+argument? (Use <code>?geom_col()</code> to help you).
 </p>
 </div>
 <div class="webex-solution">
@@ -890,29 +929,37 @@ Explanation
 </button>
 <div class="solved">
 <p>
-If we use <code>position = ‘fill’</code> it stacks our data and it also gives us proportions: check the y-axis between the plot with <code>position = ‘fill’</code> and the one without any position arguments. Whereas the plot without the position argument just stacks information on top of one another, <code>position = ‘fill’</code> shows relative proportions. Use the Help menu or put <strong>?</strong> in the console in front of the function you want to know more about, for example <code>?geom_col()</code>.
+If we use <code>position = ‘fill’</code> it stacks our data and it
+also gives us proportions: check the y-axis between the plot with
+<code>position = ‘fill’</code> and the one without any position
+arguments. Whereas the plot without the position argument just stacks
+information on top of one another, <code>position = ‘fill’</code> shows
+relative proportions. Use the Help menu or put <strong>?</strong> in the
+console in front of the function you want to know more about, for
+example <code>?geom_col()</code>.
 </p>
 </div>
 </div>
 <p>The argument <code>position</code> is an argument specific for the <code>geom_col</code>. It is just one example of an additional argument that helps us to represent the data better. These types of arguments allow for better control over the plots that we create. To find what arguments each geom has, look for it in the Help section or put <strong>?</strong> in the <code>Console</code> in front of the function.</p>
 <p>Geoms in <code>ggplot2</code> have a large selection of arguments to allow you to adjust your visualisations. This is what makes it one of the most preferred visualisation packages by the R community.</p>
-<div id="more-groupings" class="section level4" number="7.7.4.1">
-<h4><span class="header-section-number">7.7.4.1</span> More groupings</h4>
+<div id="more-groupings" class="section level4 hasAnchor" number="7.7.4.1">
+<h4><span class="header-section-number">7.7.4.1</span> More groupings<a href="data-visualisation-1.html#more-groupings" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Now let’s imagine that we want to know whether the individuals are moving to/from Overseas or RUK as well as all the information we have so far. Should we create more groups? Let’s try also using colour as a grouping way, based on <code>Migration Source</code>.</p>
-<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="data-visualisation-1.html#cb414-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value, <span class="at">fill =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>, <span class="at">colour =</span><span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span>)) <span class="sc">+</span> </span>
-<span id="cb414-2"><a href="data-visualisation-1.html#cb414-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="data-visualisation-1.html#cb402-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value, <span class="at">fill =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>, <span class="at">colour =</span><span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span>)) <span class="sc">+</span> </span>
+<span id="cb402-2"><a href="data-visualisation-1.html#cb402-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>)</span></code></pre></div>
 <p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-310-1.png" width="672" /></p>
 <p>Here I have used the argument <code>colour</code> to give different borders to the migration sources. As you can see, this makes it much more difficult to see. Next week, we will work on separating the plots.</p>
 <div class="question">
 <p>
-Would you think there is a better way to represent the data? Write it down in your stub file.
+Would you think there is a better way to represent the data? Write it
+down in your stub file.
 </p>
 </div>
 </div>
 </div>
 </div>
-<div id="now-lets-have-a-look-at-different-plots-with-more-complexity" class="section level2" number="7.8">
-<h2><span class="header-section-number">7.8</span> Now let’s have a look at different plots with more complexity</h2>
+<div id="now-lets-have-a-look-at-different-plots-with-more-complexity" class="section level2 hasAnchor" number="7.8">
+<h2><span class="header-section-number">7.8</span> Now let’s have a look at different plots with more complexity<a href="data-visualisation-1.html#now-lets-have-a-look-at-different-plots-with-more-complexity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Imagine you want to see the difference in the number of people coming into and moving out of Scotland from both the RUK and Overseas throughout the years, but you do not want to know the net flow of people, their age or their sex.</p>
 <div class="question">
 <p>
@@ -930,16 +977,16 @@ DateCode, Migration Type, Migration Source, Value
 </div>
 </div>
 <p>First, let’s get the data we will need. We want our selected variables from above, and the overall data for the rest of the variables i.e. the ‘all’ categories for <code>Age</code>, and <code>Sex</code>. Remember we want to look at people moving in and out, so we do not want the net <code>Migration Type</code>. Save the output into the variable <strong>trafic_scot2</strong> so that it appears in your <code>Global Environment</code>.</p>
-<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="data-visualisation-1.html#cb415-1" aria-hidden="true" tabindex="-1"></a>traffic_scot2 <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="data-visualisation-1.html#cb403-1" aria-hidden="true" tabindex="-1"></a>traffic_scot2 <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="data-visualisation-1.html#cb416-1" aria-hidden="true" tabindex="-1"></a>traffic_scot2 <span class="ot">&lt;-</span> migration_scot <span class="sc">%&gt;%</span> </span>
-<span id="cb416-2"><a href="data-visualisation-1.html#cb416-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Age <span class="sc">==</span> <span class="st">&#39;All&#39;</span>, </span>
-<span id="cb416-3"><a href="data-visualisation-1.html#cb416-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">&#39;Net&#39;</span>,</span>
-<span id="cb416-4"><a href="data-visualisation-1.html#cb416-4" aria-hidden="true" tabindex="-1"></a>         Sex <span class="sc">==</span> <span class="st">&#39;All&#39;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb416-5"><a href="data-visualisation-1.html#cb416-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(DateCode, Value,<span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span>, <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="data-visualisation-1.html#cb404-1" aria-hidden="true" tabindex="-1"></a>traffic_scot2 <span class="ot">&lt;-</span> migration_scot <span class="sc">%&gt;%</span> </span>
+<span id="cb404-2"><a href="data-visualisation-1.html#cb404-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Age <span class="sc">==</span> <span class="st">&#39;All&#39;</span>, </span>
+<span id="cb404-3"><a href="data-visualisation-1.html#cb404-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">&#39;Net&#39;</span>,</span>
+<span id="cb404-4"><a href="data-visualisation-1.html#cb404-4" aria-hidden="true" tabindex="-1"></a>         Sex <span class="sc">==</span> <span class="st">&#39;All&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb404-5"><a href="data-visualisation-1.html#cb404-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(DateCode, Value,<span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span>, <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)</span></code></pre></div>
 </div>
 <div class="question">
 <p>
@@ -957,21 +1004,24 @@ What type of data are these variables?
 <p>Good way to portray data like this are point graphs (i.e. scatter plots) and line graphs.</p>
 <p>We have several variables again. It will help if we separate them with different aesthetics.</p>
 <p>Let’s start with a scatter plot.</p>
-<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="data-visualisation-1.html#cb417-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot2, <span class="fu">aes</span>(DateCode, Value, </span>
-<span id="cb417-2"><a href="data-visualisation-1.html#cb417-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">shape =</span> <span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span>, </span>
-<span id="cb417-3"><a href="data-visualisation-1.html#cb417-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">colour =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span> </span>
-<span id="cb417-4"><a href="data-visualisation-1.html#cb417-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="data-visualisation-1.html#cb405-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot2, <span class="fu">aes</span>(DateCode, Value, </span>
+<span id="cb405-2"><a href="data-visualisation-1.html#cb405-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">shape =</span> <span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span>, </span>
+<span id="cb405-3"><a href="data-visualisation-1.html#cb405-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">colour =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span> </span>
+<span id="cb405-4"><a href="data-visualisation-1.html#cb405-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span></code></pre></div>
 <p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-317-1.png" width="672" /></p>
 <p>This seems difficult to look at. Let’s make it easier by adding a line that connects the data. We can do this by adding another <strong>Layer</strong>.</p>
-<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="data-visualisation-1.html#cb418-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot2, <span class="fu">aes</span>(DateCode, Value, </span>
-<span id="cb418-2"><a href="data-visualisation-1.html#cb418-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">shape =</span> <span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span>,</span>
-<span id="cb418-3"><a href="data-visualisation-1.html#cb418-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">colour =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span> </span>
-<span id="cb418-4"><a href="data-visualisation-1.html#cb418-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb418-5"><a href="data-visualisation-1.html#cb418-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="data-visualisation-1.html#cb406-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot2, <span class="fu">aes</span>(DateCode, Value, </span>
+<span id="cb406-2"><a href="data-visualisation-1.html#cb406-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">shape =</span> <span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span>,</span>
+<span id="cb406-3"><a href="data-visualisation-1.html#cb406-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">colour =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span> </span>
+<span id="cb406-4"><a href="data-visualisation-1.html#cb406-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb406-5"><a href="data-visualisation-1.html#cb406-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div>
 <p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-318-1.png" width="672" /></p>
 <div class="question">
 <p>
-Question: How do we know that the line graph is going to connect the <code>Migration Type</code> and not the <code>Migration Source</code>? (Think about the aesthetics of <code>geom_line</code> and <code>geom_point</code>)
+Question: How do we know that the line graph is going to connect the
+<code>Migration Type</code> and not the <code>Migration Source</code>?
+(Think about the aesthetics of <code>geom_line</code> and
+<code>geom_point</code>)
 </p>
 </div>
 <div class="webex-solution">
@@ -980,39 +1030,54 @@ Solution
 </button>
 <div class="solved">
 <p>
-If we look up <code>geom_point()</code> and <code>geom_line()</code> we can see the type of aesthetics that they take. Look them up in the <code>Help</code> tab or by typing <code>?geom_point()</code> in the console. There you will find a section called aesthetics, which will tell you the aesthetics each of them can have. Because lines cannot use an aesthetic of shape, it will only inherit the colour aesthetic from <code>ggplot()</code>.
+If we look up <code>geom_point()</code> and <code>geom_line()</code>
+we can see the type of aesthetics that they take. Look them up in the
+<code>Help</code> tab or by typing <code>?geom_point()</code> in the
+console. There you will find a section called aesthetics, which will
+tell you the aesthetics each of them can have. Because lines cannot use
+an aesthetic of shape, it will only inherit the colour aesthetic from
+<code>ggplot()</code>.
 </p>
 </div>
 </div>
 <div class="info">
 <p>
-Scatter and dot plots are excellent representations of the data as they show us where each data point is. In this way no data can hide behind a bar chart.
+Scatter and dot plots are excellent representations of the data as
+they show us where each data point is. In this way no data can hide
+behind a bar chart.
 </p>
 </div>
 </div>
-<div id="other-plots" class="section level2" number="7.9">
-<h2><span class="header-section-number">7.9</span> Other plots</h2>
+<div id="other-plots" class="section level2 hasAnchor" number="7.9">
+<h2><span class="header-section-number">7.9</span> Other plots<a href="data-visualisation-1.html#other-plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let’s make some more plots.</p>
 <p><strong>Violin plots and Box plots</strong>
 We need a continuous variable and a categorical variable for both of them. In both of these the categorical variable usually goes on the x-axis and the continuous on the y axis.</p>
 <p>Let’s get back to the original data and plot the distribution of all females entering and leaving Scotland from overseas, from all ages. For this, we need to tidy the data into what we need and store it into the variable <code>female_migration</code>.</p>
-<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="data-visualisation-1.html#cb419-1" aria-hidden="true" tabindex="-1"></a>female_migration <span class="ot">&lt;-</span> migration_scot <span class="sc">%&gt;%</span> </span>
-<span id="cb419-2"><a href="data-visualisation-1.html#cb419-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Sex <span class="sc">==</span> <span class="st">&#39;Female&#39;</span>, </span>
-<span id="cb419-3"><a href="data-visualisation-1.html#cb419-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span> <span class="sc">==</span> <span class="st">&#39;To-from Overseas&#39;</span>, </span>
-<span id="cb419-4"><a href="data-visualisation-1.html#cb419-4" aria-hidden="true" tabindex="-1"></a>         Age <span class="sc">==</span> <span class="st">&#39;All&#39;</span>, </span>
-<span id="cb419-5"><a href="data-visualisation-1.html#cb419-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">&#39;Net&#39;</span>)</span>
-<span id="cb419-6"><a href="data-visualisation-1.html#cb419-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb419-7"><a href="data-visualisation-1.html#cb419-7" aria-hidden="true" tabindex="-1"></a><span class="co"># make box plots</span></span>
-<span id="cb419-8"><a href="data-visualisation-1.html#cb419-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(female_migration, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>, <span class="at">y =</span> Value, <span class="at">fill =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span> </span>
-<span id="cb419-9"><a href="data-visualisation-1.html#cb419-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="data-visualisation-1.html#cb407-1" aria-hidden="true" tabindex="-1"></a>female_migration <span class="ot">&lt;-</span> migration_scot <span class="sc">%&gt;%</span> </span>
+<span id="cb407-2"><a href="data-visualisation-1.html#cb407-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Sex <span class="sc">==</span> <span class="st">&#39;Female&#39;</span>, </span>
+<span id="cb407-3"><a href="data-visualisation-1.html#cb407-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span> <span class="sc">==</span> <span class="st">&#39;To-from Overseas&#39;</span>, </span>
+<span id="cb407-4"><a href="data-visualisation-1.html#cb407-4" aria-hidden="true" tabindex="-1"></a>         Age <span class="sc">==</span> <span class="st">&#39;All&#39;</span>, </span>
+<span id="cb407-5"><a href="data-visualisation-1.html#cb407-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">&#39;Net&#39;</span>)</span>
+<span id="cb407-6"><a href="data-visualisation-1.html#cb407-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb407-7"><a href="data-visualisation-1.html#cb407-7" aria-hidden="true" tabindex="-1"></a><span class="co"># make box plots</span></span>
+<span id="cb407-8"><a href="data-visualisation-1.html#cb407-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(female_migration, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>, <span class="at">y =</span> Value, <span class="at">fill =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span> </span>
+<span id="cb407-9"><a href="data-visualisation-1.html#cb407-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
 <p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-322-1.png" width="672" /></p>
-<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="data-visualisation-1.html#cb420-1" aria-hidden="true" tabindex="-1"></a><span class="co">#make violin plots</span></span>
-<span id="cb420-2"><a href="data-visualisation-1.html#cb420-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(female_migration, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>, <span class="at">y =</span> Value, <span class="at">fill =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span> </span>
-<span id="cb420-3"><a href="data-visualisation-1.html#cb420-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="data-visualisation-1.html#cb408-1" aria-hidden="true" tabindex="-1"></a><span class="co">#make violin plots</span></span>
+<span id="cb408-2"><a href="data-visualisation-1.html#cb408-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(female_migration, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>, <span class="at">y =</span> Value, <span class="at">fill =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span> </span>
+<span id="cb408-3"><a href="data-visualisation-1.html#cb408-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>()</span></code></pre></div>
 <p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-322-2.png" width="672" /></p>
 <div class="info">
 <p>
-These plots show us the distribution of females entering and leaving Scotland. What we can tell is that over the years is that we haven’t had less than 12000 women coming to Scotland and no more than 16000 women leaving. These types of plots also tell us where the bulk of the data is. We can see from the violin plots that the most common number of females coming into Scotland throughout the years is between 22000 and 18000. Box plots on the other hand, tell you where the middle 50% of the data are.
+These plots show us the distribution of females entering and leaving
+Scotland. What we can tell is that over the years is that we haven’t had
+less than 12000 women coming to Scotland and no more than 16000 women
+leaving. These types of plots also tell us where the bulk of the data
+is. We can see from the violin plots that the most common number of
+females coming into Scotland throughout the years is between 22000 and
+18000. Box plots on the other hand, tell you where the middle 50% of the
+data are.
 </p>
 </div>
 <div class="task">
@@ -1020,7 +1085,15 @@ These plots show us the distribution of females entering and leaving Scotland. W
 <strong>Your turn</strong>
 </p>
 <p>
-Using the data for this class follow the instructions. Remember, you can use <code>View()</code> in the console to look at your data, or click on the data variable in your <code>Global Environment</code>. This can help you to make your choices for the steps bellow and with the exact spelling. Start from the original dataset we loaded in the beginning <code>traffic_scot</code>. Use pipes <code>%&gt;%</code> for the first 5 steps and save the output into a variable <code>my_data</code>. Use that data to create three separate plots for steps 6, 7 and 8.
+Using the data for this class follow the instructions. Remember, you
+can use <code>View()</code> in the console to look at your data, or
+click on the data variable in your <code>Global Environment</code>. This
+can help you to make your choices for the steps bellow and with the
+exact spelling. Start from the original dataset we loaded in the
+beginning <code>traffic_scot</code>. Use pipes <code>%&gt;%</code> for
+the first 5 steps and save the output into a variable
+<code>my_data</code>. Use that data to create three separate plots for
+steps 6, 7 and 8.
 </p>
 <ol style="list-style-type: decimal">
 <li>
@@ -1036,13 +1109,19 @@ Select the total for both sex ( i.e. ‘all’).
 Select migration In and Out of Scotland.
 </li>
 <li>
-Pick whether you are going to look at <code>To-from Rest of UK</code> or <code>To-from Overseas</code>.
+Pick whether you are going to look at
+<code>To-from Rest of UK</code> or <code>To-from Overseas</code>.
 </li>
 <li>
-Plot the overall people, regardless of age and year, that have moved into and left Scotland using <code>geom_col()</code>. Save the plot in the variable q6 into your <code>Global Environment</code>.
+Plot the overall people, regardless of age and year, that have moved
+into and left Scotland using <code>geom_col()</code>. Save the plot in
+the variable q6 into your <code>Global Environment</code>.
 </li>
 <li>
-Create a new plot using <code>geom_col()</code> that shows the differences between the two years you have selected, regardless of age. Save the plot in the variable q7 into your <code>Global Environment</code>.
+Create a new plot using <code>geom_col()</code> that shows the
+differences between the two years you have selected, regardless of age.
+Save the plot in the variable q7 into your
+<code>Global Environment</code>.
 </li>
 <li>
 Plot the differences between the two ages, regardless of year.
@@ -1053,42 +1132,42 @@ Plot the differences between the two ages, regardless of year.
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="data-visualisation-1.html#cb421-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example answer </span></span>
-<span id="cb421-2"><a href="data-visualisation-1.html#cb421-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb421-3"><a href="data-visualisation-1.html#cb421-3" aria-hidden="true" tabindex="-1"></a>traffic_scot <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;free_movement_uk.csv&quot;</span>) </span></code></pre></div>
-<pre><code>## Rows: 28152 Columns: 9</code></pre>
-<pre><code>## -- Column specification --------------------------------------------------------
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="data-visualisation-1.html#cb409-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example answer </span></span>
+<span id="cb409-2"><a href="data-visualisation-1.html#cb409-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb409-3"><a href="data-visualisation-1.html#cb409-3" aria-hidden="true" tabindex="-1"></a>traffic_scot <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;free_movement_uk.csv&quot;</span>) </span></code></pre></div>
+<pre><code>## Rows: 28152 Columns: 9
+## -- Column specification --------------------------------------------------------
 ## Delimiter: &quot;,&quot;
 ## chr (7): FeatureCode, Measurement, Units, Age, Sex, Migration Source, Migrat...
-## dbl (2): DateCode, Value</code></pre>
-<pre><code>## 
+## dbl (2): DateCode, Value
+## 
 ## i Use `spec()` to retrieve the full column specification for this data.
 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="data-visualisation-1.html#cb425-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> traffic_scot <span class="sc">%&gt;%</span> </span>
-<span id="cb425-2"><a href="data-visualisation-1.html#cb425-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Age <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;21 years&#39;</span>, <span class="st">&#39;41 years&#39;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb425-3"><a href="data-visualisation-1.html#cb425-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(DateCode, Value, Age, Sex, <span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span>, <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb425-4"><a href="data-visualisation-1.html#cb425-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DateCode <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;2013&#39;</span>, <span class="st">&#39;2018&#39;</span>), </span>
-<span id="cb425-5"><a href="data-visualisation-1.html#cb425-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">&#39;Net&#39;</span>, </span>
-<span id="cb425-6"><a href="data-visualisation-1.html#cb425-6" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span> <span class="sc">==</span> <span class="st">&#39;To-from Overseas&#39;</span>, </span>
-<span id="cb425-7"><a href="data-visualisation-1.html#cb425-7" aria-hidden="true" tabindex="-1"></a>         Sex <span class="sc">==</span> <span class="st">&#39;All&#39;</span>)</span>
-<span id="cb425-8"><a href="data-visualisation-1.html#cb425-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb425-9"><a href="data-visualisation-1.html#cb425-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb425-10"><a href="data-visualisation-1.html#cb425-10" aria-hidden="true" tabindex="-1"></a>q6 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(my_data, <span class="fu">aes</span>(<span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>, Value)) <span class="sc">+</span> </span>
-<span id="cb425-11"><a href="data-visualisation-1.html#cb425-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span>
-<span id="cb425-12"><a href="data-visualisation-1.html#cb425-12" aria-hidden="true" tabindex="-1"></a>q6</span></code></pre></div>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="data-visualisation-1.html#cb411-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> traffic_scot <span class="sc">%&gt;%</span> </span>
+<span id="cb411-2"><a href="data-visualisation-1.html#cb411-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Age <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;21 years&#39;</span>, <span class="st">&#39;41 years&#39;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb411-3"><a href="data-visualisation-1.html#cb411-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(DateCode, Value, Age, Sex, <span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span>, <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb411-4"><a href="data-visualisation-1.html#cb411-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DateCode <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;2013&#39;</span>, <span class="st">&#39;2018&#39;</span>), </span>
+<span id="cb411-5"><a href="data-visualisation-1.html#cb411-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">&#39;Net&#39;</span>, </span>
+<span id="cb411-6"><a href="data-visualisation-1.html#cb411-6" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span> <span class="sc">==</span> <span class="st">&#39;To-from Overseas&#39;</span>, </span>
+<span id="cb411-7"><a href="data-visualisation-1.html#cb411-7" aria-hidden="true" tabindex="-1"></a>         Sex <span class="sc">==</span> <span class="st">&#39;All&#39;</span>)</span>
+<span id="cb411-8"><a href="data-visualisation-1.html#cb411-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb411-9"><a href="data-visualisation-1.html#cb411-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb411-10"><a href="data-visualisation-1.html#cb411-10" aria-hidden="true" tabindex="-1"></a>q6 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(my_data, <span class="fu">aes</span>(<span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>, Value)) <span class="sc">+</span> </span>
+<span id="cb411-11"><a href="data-visualisation-1.html#cb411-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span>
+<span id="cb411-12"><a href="data-visualisation-1.html#cb411-12" aria-hidden="true" tabindex="-1"></a>q6</span></code></pre></div>
 <p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-325-1.png" width="672" /></p>
-<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="data-visualisation-1.html#cb426-1" aria-hidden="true" tabindex="-1"></a>q7 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(my_data, <span class="fu">aes</span>(<span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>, Value, <span class="at">fill =</span> <span class="fu">as.character</span>(DateCode))) <span class="sc">+</span> </span>
-<span id="cb426-2"><a href="data-visualisation-1.html#cb426-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>)</span>
-<span id="cb426-3"><a href="data-visualisation-1.html#cb426-3" aria-hidden="true" tabindex="-1"></a>q7 </span></code></pre></div>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="data-visualisation-1.html#cb412-1" aria-hidden="true" tabindex="-1"></a>q7 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(my_data, <span class="fu">aes</span>(<span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>, Value, <span class="at">fill =</span> <span class="fu">as.character</span>(DateCode))) <span class="sc">+</span> </span>
+<span id="cb412-2"><a href="data-visualisation-1.html#cb412-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>)</span>
+<span id="cb412-3"><a href="data-visualisation-1.html#cb412-3" aria-hidden="true" tabindex="-1"></a>q7 </span></code></pre></div>
 <p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-325-2.png" width="672" /></p>
-<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="data-visualisation-1.html#cb427-1" aria-hidden="true" tabindex="-1"></a>q8 <span class="ot">&lt;-</span><span class="fu">ggplot</span>(my_data, <span class="fu">aes</span>(<span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>, Value, <span class="at">fill =</span> Age)) <span class="sc">+</span> </span>
-<span id="cb427-2"><a href="data-visualisation-1.html#cb427-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>)</span>
-<span id="cb427-3"><a href="data-visualisation-1.html#cb427-3" aria-hidden="true" tabindex="-1"></a>q8</span></code></pre></div>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="data-visualisation-1.html#cb413-1" aria-hidden="true" tabindex="-1"></a>q8 <span class="ot">&lt;-</span><span class="fu">ggplot</span>(my_data, <span class="fu">aes</span>(<span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>, Value, <span class="at">fill =</span> Age)) <span class="sc">+</span> </span>
+<span id="cb413-2"><a href="data-visualisation-1.html#cb413-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>)</span>
+<span id="cb413-3"><a href="data-visualisation-1.html#cb413-3" aria-hidden="true" tabindex="-1"></a>q8</span></code></pre></div>
 <p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-325-3.png" width="672" /></p>
 </div>
 </div>
-<div id="formative-homework-3" class="section level2" number="7.10">
-<h2><span class="header-section-number">7.10</span> Formative Homework</h2>
+<div id="formative-homework-3" class="section level2 hasAnchor" number="7.10">
+<h2><span class="header-section-number">7.10</span> Formative Homework<a href="data-visualisation-1.html#formative-homework-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The formative homework for this week can now be found on Moodle.</p>
 
 </div>

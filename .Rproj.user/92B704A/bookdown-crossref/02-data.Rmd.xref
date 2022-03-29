@@ -1,0 +1,24 @@
+h1:introduction-to-data Introduction to Data
+h2:intended-learning-outcomes Intended Learning Outcomes
+h2:pre-steps Pre-Steps
+h3:downloading-materials Downloading materials
+h3:unzipping-the-zip-folder Unzipping the zip folder
+h3:setting-the-working-directory Setting the working directory
+h3:load-tidyverse-into-the-library Load tidyverse into the library
+h2:basic-data-types Basic data types
+h3:character Character
+h3:numeric Numeric
+h3:logical Logical
+h2:vectors Vectors
+h3:creating-vectors Creating vectors
+h3:converting-vectors-into-different-data-types-of-vectors-aka-funky-things-we-can-do Converting vectors into different data types of vectors aka funky things we can do
+h3:adding-elements-to-existing-vectors Adding elements to existing vectors
+h2:tibble---the-new-way-of-creating-a-dataframe Tibble - the new way of creating a dataframe
+h3:what-the-heck-is-a-tibble-do-you-mean-table What the heck is a tibble? Do you mean table?
+h3:how-to-make-a-tibble-from-scratch How to make a tibble from scratch
+h2:reading-in-data Reading in data
+h3:from-pre-existing-databases from pre-existing databases
+h3:from-existing-data-files from existing data files
+h2:last-point-for-today Last point for today
+h2:summative-homework Summative Homework
+

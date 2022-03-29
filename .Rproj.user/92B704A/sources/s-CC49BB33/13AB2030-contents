@@ -1,0 +1,165 @@
+# Assignment before starting the course {-#before}
+
+This assignment is an important one as it will enable you to complete your future assignments. It looks long, but it is mostly screenshots to guide you through the process of installing the required software, or a short guide on how to use RStudio Cloud.
+
+## Access to RStudio {#accessing}
+
+Please ensure by the next class that you have access to the software so that you can practice using the formative assignments and complete the summative assignments when they are issued.
+
+The first summative assignment will be issued after class next week and you will be given one week to complete and submit it. 
+
+### Installing R and RStudio on Your Own Machine {#install}
+
+Unfortunately this is not as simple as installing software normally is on your computer. There are two separate things that you will need to install.
+
+#### First: Install R
+
+Follow <a href="https://www.stats.bris.ac.uk/R/">this link</a> and click on the part that says Download R 3.6.2 for Windows. You will get the following pop-up dialogue:
+
+<center><img src="images/download_prompt_R.png"></center>
+
+Click "Save File". The file will then be downloaded to your computer, most likely the "Downloads" folder unless you have changed your settings. Double click to run the file.
+
+You will be asked if you want to allow this to make changes to your computer, click yes. Select your language preference, review the license agreement and click next. The following screen will be presented:
+
+<center><img src="images/install_wiz_1.png"></center>
+
+Click next without changing the folder. The next screen let's you customise the installation, but we shouldn't need to make any changes at this point so click next without unselecting any components:
+
+<center><img src="images/install_wiz_2.png"></center>
+
+Also leave the star-up options as standard and click next:
+
+<center><img src="images/install_wiz_3.png"></center>
+
+Leave the start menu folder as standard:
+
+<center><img src="images/install_wiz_4.png"></center>
+
+Don't make any changes to the additional tasks part, just click next:
+
+<center><img src="images/install_wiz_5.png"></center>
+
+The Install Wizard will then install R:
+
+<center><img src="images/install_wiz_6.png"></center>
+
+You will be told when installation is complete:
+
+<center><img src="images/install_wiz_7.png"></center>
+
+#### Second: Install RStudio
+
+Follow <a href="https://rstudio.com/products/rstudio/download/">this link</a> to the RStudio website. Scroll down and press the button "Download" under RStudio Desktop- not the Server Option. On the next page press the button under stage 2, "Download RStudio for Windows". Your download will start and you will see the following prompt:
+
+<center><img src="images/download_prompt_Rstudio.png"></center>
+
+Click "Save File" when the button becomes active.
+
+Look in your download folder and double click the downloaded file. Click to allow the program to make changes to your computer. You will see this part next:
+
+<center><img src="images/install_wiz_studio_1.png"></center>
+
+Click next on this next window. Do not change the installation location. Click next:
+
+<center><img src="images/install_wiz_studio_2.png"></center>
+
+You will be taken to this screen. Again, don't change the start menu folder location here. 
+
+<center><img src="images/install_wiz_studio_3.png"></center>
+
+Click next and the installation will begin:
+
+<center><img src="images/install_wiz_studio_4.png"></center>
+
+You will then be notified when the installation is complete with this screen:
+
+<center><img src="images/install_wiz_studio_5.png"></center>
+
+#### Opening RStudio
+
+Remember that we have installed **two** programs on our computer. R, which is the base program, and RStudio, which is an extension of R.
+
+The software that we want to open and use is RStudio, not R. We want the shiny interface and added features.
+
+### Accessing RStudio on University Computers
+
+If you have a student card you will be able to access computing facilities provided for students, including those in the various libraries across campus. All university computers should have R and RStudio installed, as well as the required packages for this course. 
+
+You will not be required to install anything on university computers, please don't attempt to do so because we don't want the IT guys to yell at us.
+
+To login to the university computers you will require your GUID and password.
+
+### Using RStudio Cloud
+
+We recognise that not all students will have access to their own computers, and that some of those students will not be able to travel to campus to use the provided facilities. For this reason we recommend to those in that postition to think about using RStudio Cloud, available [here](https://rstudio.cloud/). 
+
+The RStudio Cloud allows you an electronic workspace, hosted by the RStudio team themselves.
+
+Navigate to the page and click the "Sign Up" button at the top right-hand side of the page. 
+
+Once you are logged in you will see your (for now) empty workspace:
+
+<center><img src="images/rstudio_cloud.png"></center>
+
+Click on "new project" and you will be taken to this page:
+
+<center><img src="images/rstudio_cloud_new.png"></center>
+
+As you can see it is almost identical to the way the program would appear on your computer if you had installed it there.
+
+To name your project you can click the name at the top of the page and type in a new one:
+
+<center><img src="images/rstudio_cloud_nameproj.png"></center>
+
+You will also need to upload any data files to the server before you can work with them. This is done with the 
+addition to the panel Files/Plots/Packages/Help/Viewer on the right- the "Files" pane now had a button to upload:
+
+<center><img src="images/rstudio_cloud_upload1.png"></center>
+
+Pressing this will open a pop-up box. Click on the "browse" button, navigate through your directories and identify the file you wish to upload and confirm. Then press ok. The file should then be uploaded and displayed in the files pane.
+
+<center><img src="images/rstudio_cloud_upload2.png"></center>
+
+```{block, type = "info"}
+If at any point you are struggling to access the required materials or software it is important that you contact the tutors **at the earliest opportunity** to discuss the issues you are having. 
+
+We want you to do well and have a good experience learning with us, let us know if you are experiencing difficulty so that we may help you resolve it!
+```
+
+#### Downloading Your Files from RStudio Cloud
+
+If you are using RStudio Cloud your files will be saved on the cloud, but you will need to download the .Rmd files that you have been working with (containing coursework etc) to upload them to the assignment submission pages on Moodle. 
+
+Here you can see the file `myfile.Rmd` that I have made on the cloud. To download it I select the checkbox next to the file and click on the "More" drop-down menu and click "export", as shown here:
+
+<center><img src="images/rstudio_cloud_download1.png"></center>
+
+I then get a dialogue box asking me if I want to name the file something different. I will stick with the original name, so I just click "Download":
+
+<center><img src="images/rstudio_cloud_download2.png"></center>
+
+Now I get a pop-up as I would when downloading any other file. To save the file ensure "Save File" is selected and click "OK":
+
+<center><img src="images/rstudio_cloud_download3.png"></center>
+
+The file will then be saved in the folder where your downloads are saved (usually the "Downloads" folder by default). You can then navigate to this file when browsing files to upload to Moodle.
+
+## Maximising Reproducibility and Visibility
+
+In order to set up R the way that we require, there are a few more steps. 
+
+First, open RStudio and click on the Tools menu at the top of the page and click on the part that says "Global Options":
+
+<center><img src="images/tools.png"></center>
+
+Next, a dialogue box will open. Ensure that these tick boxes and options are selected on yours and click apply:
+
+<center><img src="images/options.png"></center>
+
+Finally, go to RMarkdown and ensure that this option is unchecked:
+
+<center><img src="images/inline.png"></center>
+
+This meaning of the first part will be discussed in future lessons, and the second will mean that graphs that you make will be in the "Plots" tab to the right of the console. This means that code will not be obscured whenever you make a graph.
+

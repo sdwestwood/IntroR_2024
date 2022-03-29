@@ -1,0 +1,34 @@
+h1:introduction Introduction
+h2:intended-learning-outcomes Intended Learning Outcomes
+h2:computer-literacy-basics Computer Literacy Basics
+h2:r-and-r-studio R and R Studio
+h3:r R
+h3:rstudio-ide RStudio IDE
+h4:console Console
+h4:environmenthistoryconnections Environment/History/Connections
+h4:filesplotspackageshelpviewer Files/Plots/Packages/Help/Viewer
+h2:r-r-studio-and-associated-file-types R, R Studio and Associated File Types
+h3:file-structuredirectories File Structure/Directories
+h3:file-extensions File Extensions
+h3:zip-files .zip Files
+h3:rstudio-specific-files RStudio Specific Files
+h3:r-files .r Files
+h3:rmd-files .Rmd files
+h4:code-chunks Code Chunks
+h2:comments Comments
+h2:saving-your-file Saving your file
+h2:sessions Sessions
+h3:what-is-a-session-in-r What is a session in R?
+h3:restarting-your-current-session Restarting Your Current Session
+h2:packages Packages
+h3:installing-packages Installing Packages
+h4:install-tidyverse What is Tidyverse?
+h4:install.packages 
+h3:load-tidyverse Loading Packages
+h2:functions Functions
+h3:what-is-a-function What is a function?
+h3:the-anatomy-of-a-function-names-and-arguments The Anatomy of a Function: names and arguments
+h2:formative-homework Formative Homework
+h3:install-r-and-rstudio-on-your-personal-computer Install R and RStudio on your personal computer
+h3:installing-and-loading-tidyverse Installing and Loading tidyverse
+
