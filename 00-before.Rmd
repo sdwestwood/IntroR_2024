@@ -14,7 +14,7 @@ Unfortunately this is not as simple as installing software normally is on your c
 
 #### First: Install R
 
-Follow <a href="https://www.stats.bris.ac.uk/R/">this link</a> and click on the part that says Download R 3.6.2 for Windows. You will get the following pop-up dialogue:
+Follow <a href="https://www.stats.bris.ac.uk/R/">this link</a> and click on the part that says Download R R-4.1.3-win for Windows (or Mac). You will get the following pop-up dialogue (please note that as you are installing a newer version of R your download will be called R-4.1.3-win.exe instead of R-3.6.2 in the picture):
 
 <center><img src="images/download_prompt_R.png"></center>
 
@@ -50,7 +50,7 @@ You will be told when installation is complete:
 
 #### Second: Install RStudio
 
-Follow <a href="https://rstudio.com/products/rstudio/download/">this link</a> to the RStudio website. Scroll down and press the button "Download" under RStudio Desktop- not the Server Option. On the next page press the button under stage 2, "Download RStudio for Windows". Your download will start and you will see the following prompt:
+Follow <a href="https://rstudio.com/products/rstudio/download/">this link</a> to the RStudio website. Scroll down and press the button "Download" under RStudio Desktop- not the Server Option. On the next page press the button under stage 2, "Download RStudio for Windows". Your download will start and you will see the following prompt (note your as your download is a newer version it will again be named slightly differently RStudio-2022.02.1-461) :
 
 <center><img src="images/download_prompt_Rstudio.png"></center>
 
