@@ -23,7 +23,7 @@
 <meta name="author" content="Gaby Mahrholz, Greta Todorova, Wilhelmiina Toivo, and Jaimie Torrance, updated by Johanna Werner in 2022" />
 
 
-<meta name="date" content="2022-03-30" />
+<meta name="date" content="2022-04-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -319,10 +319,10 @@ div.csl-indent {
 <li><a href="data-transformation-3-tidy-data.html#intended-learning-outcomes-5">Intended Learning Outcomes<span></span></a></li>
 <li class="chapter" data-level="5.1" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#pre-steps-3"><i class="fa fa-check"></i><b>5.1</b> Pre-steps<span></span></a></li>
 <li class="chapter" data-level="5.2" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#tidy-data"><i class="fa fa-check"></i><b>5.2</b> Tidy data<span></span></a></li>
-<li class="chapter" data-level="5.3" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#gather-and-spread"><i class="fa fa-check"></i><b>5.3</b> gather() and spread()<span></span></a>
+<li class="chapter" data-level="5.3" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#pivot_longer-and-pivot_wider"><i class="fa fa-check"></i><b>5.3</b> pivot_longer() and pivot_wider()<span></span></a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#gather"><i class="fa fa-check"></i><b>5.3.1</b> gather()<span></span></a></li>
-<li class="chapter" data-level="5.3.2" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#spread"><i class="fa fa-check"></i><b>5.3.2</b> spread()<span></span></a></li>
+<li class="chapter" data-level="5.3.1" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#pivot_longer"><i class="fa fa-check"></i><b>5.3.1</b> pivot_longer()<span></span></a></li>
+<li class="chapter" data-level="5.3.2" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#pivot_wider"><i class="fa fa-check"></i><b>5.3.2</b> pivot_wider()<span></span></a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#separate-and-unite"><i class="fa fa-check"></i><b>5.4</b> separate() and unite()<span></span></a>
 <ul>
@@ -529,7 +529,7 @@ attention to it.
 <div id="error-messages" class="section level3 hasAnchor" number="9.2.2">
 <h3><span class="header-section-number">9.2.2</span> Error Messages<a href="errors.html#error-messages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>These are definitely the ones that people worry about the most, but error messages given information about what has gone wrong. By reading and interpreting these messages we can diagnose the problem and fix it- a process called <strong>debugging</strong>. Let’s do something that will definitely generate an error and have a look at it:</p>
-<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="errors.html#cb433-1" aria-hidden="true" tabindex="-1"></a>demo <span class="ot">&lt;-</span> <span class="fu">read_cvs</span>(<span class="st">&quot;some_file_name.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="errors.html#cb425-1" aria-hidden="true" tabindex="-1"></a>demo <span class="ot">&lt;-</span> <span class="fu">read_cvs</span>(<span class="st">&quot;some_file_name.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Error in read_cvs(&quot;some_file_name.csv&quot;): konnte Funktion &quot;read_cvs&quot; nicht finden</code></pre>
 <p>Breaking it down:</p>
 <ul>
@@ -583,41 +583,41 @@ them out as we go.
 </div>
 <div id="could-not-find-function-1" class="section level4 unnumbered hasAnchor">
 <h4>Could not find function: 1<a href="errors.html#could-not-find-function-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="errors.html#cb435-1" aria-hidden="true" tabindex="-1"></a>demonstration <span class="ot">&lt;-</span> <span class="fu">read_cvs</span>(<span class="st">&quot;cars_for_sale.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="errors.html#cb427-1" aria-hidden="true" tabindex="-1"></a>demonstration <span class="ot">&lt;-</span> <span class="fu">read_cvs</span>(<span class="st">&quot;cars_for_sale.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Error in read_cvs(&quot;cars_for_sale.csv&quot;): konnte Funktion &quot;read_cvs&quot; nicht finden</code></pre>
 <p>What do you think this error message means? How is it fixed?</p>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="errors.html#cb437-1" aria-hidden="true" tabindex="-1"></a>demonstration <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;cars_for_sale.csv&quot;</span>)</span>
-<span id="cb437-2"><a href="errors.html#cb437-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb437-3"><a href="errors.html#cb437-3" aria-hidden="true" tabindex="-1"></a><span class="co"># We tried to run the function read_cvs()- this doesn&#39;t </span></span>
-<span id="cb437-4"><a href="errors.html#cb437-4" aria-hidden="true" tabindex="-1"></a><span class="co"># exist! Again, it might seem trivial, but R really </span></span>
-<span id="cb437-5"><a href="errors.html#cb437-5" aria-hidden="true" tabindex="-1"></a><span class="co"># won&#39;t know what this means.</span></span></code></pre></div>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="errors.html#cb429-1" aria-hidden="true" tabindex="-1"></a>demonstration <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;cars_for_sale.csv&quot;</span>)</span>
+<span id="cb429-2"><a href="errors.html#cb429-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb429-3"><a href="errors.html#cb429-3" aria-hidden="true" tabindex="-1"></a><span class="co"># We tried to run the function read_cvs()- this doesn&#39;t </span></span>
+<span id="cb429-4"><a href="errors.html#cb429-4" aria-hidden="true" tabindex="-1"></a><span class="co"># exist! Again, it might seem trivial, but R really </span></span>
+<span id="cb429-5"><a href="errors.html#cb429-5" aria-hidden="true" tabindex="-1"></a><span class="co"># won&#39;t know what this means.</span></span></code></pre></div>
 </div>
 </div>
 <div id="could-not-find-function-2" class="section level4 unnumbered hasAnchor">
 <h4>Could not find function: 2<a href="errors.html#could-not-find-function-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="errors.html#cb438-1" aria-hidden="true" tabindex="-1"></a>demonstration <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;cars_for_sale.csv&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="errors.html#cb439-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Error in read_cvs(&quot;cars_for_sale.csv&quot;): could not find function &quot;read_csv&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="errors.html#cb430-1" aria-hidden="true" tabindex="-1"></a>demonstration <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;cars_for_sale.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="errors.html#cb431-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Error in read_cvs(&quot;cars_for_sale.csv&quot;): could not find function &quot;read_csv&quot;</span></span></code></pre></div>
 <p>What do you think this error message means? How is it fixed?</p>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="errors.html#cb440-1" aria-hidden="true" tabindex="-1"></a>demonstration <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;cars_for_sale.csv&quot;</span>)</span>
-<span id="cb440-2"><a href="errors.html#cb440-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb440-3"><a href="errors.html#cb440-3" aria-hidden="true" tabindex="-1"></a><span class="co"># We tried to run the function read_csv(), but if tidyverse</span></span>
-<span id="cb440-4"><a href="errors.html#cb440-4" aria-hidden="true" tabindex="-1"></a><span class="co"># is not loaded then this function, which is part of tidyverse,</span></span>
-<span id="cb440-5"><a href="errors.html#cb440-5" aria-hidden="true" tabindex="-1"></a><span class="co"># is not available for use.</span></span>
-<span id="cb440-6"><a href="errors.html#cb440-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb440-7"><a href="errors.html#cb440-7" aria-hidden="true" tabindex="-1"></a><span class="co"># We need to run library(tidyverse) before we can use it</span></span></code></pre></div>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="errors.html#cb432-1" aria-hidden="true" tabindex="-1"></a>demonstration <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;cars_for_sale.csv&quot;</span>)</span>
+<span id="cb432-2"><a href="errors.html#cb432-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb432-3"><a href="errors.html#cb432-3" aria-hidden="true" tabindex="-1"></a><span class="co"># We tried to run the function read_csv(), but if tidyverse</span></span>
+<span id="cb432-4"><a href="errors.html#cb432-4" aria-hidden="true" tabindex="-1"></a><span class="co"># is not loaded then this function, which is part of tidyverse,</span></span>
+<span id="cb432-5"><a href="errors.html#cb432-5" aria-hidden="true" tabindex="-1"></a><span class="co"># is not available for use.</span></span>
+<span id="cb432-6"><a href="errors.html#cb432-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb432-7"><a href="errors.html#cb432-7" aria-hidden="true" tabindex="-1"></a><span class="co"># We need to run library(tidyverse) before we can use it</span></span></code></pre></div>
 </div>
 </div>
 <div id="unexpected" class="section level4 unnumbered hasAnchor">
 <h4>Unexpected ‘)’<a href="errors.html#unexpected" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="errors.html#cb441-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)<span class="er">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="errors.html#cb433-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)<span class="er">)</span></span></code></pre></div>
 <pre><code>## Error: &lt;text&gt;:1:19: Unerwartete(s) &#39;)&#39;
 ## 1: library(tidyverse))
 ##                       ^</code></pre>
@@ -626,18 +626,18 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="errors.html#cb443-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb443-2"><a href="errors.html#cb443-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb443-3"><a href="errors.html#cb443-3" aria-hidden="true" tabindex="-1"></a><span class="co"># There was an extra ) in there. It might seem trivial, </span></span>
-<span id="cb443-4"><a href="errors.html#cb443-4" aria-hidden="true" tabindex="-1"></a><span class="co"># but this prevented the line of code from being run.</span></span>
-<span id="cb443-5"><a href="errors.html#cb443-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb443-6"><a href="errors.html#cb443-6" aria-hidden="true" tabindex="-1"></a><span class="co"># This can happen with any function that uses brackets, </span></span>
-<span id="cb443-7"><a href="errors.html#cb443-7" aria-hidden="true" tabindex="-1"></a><span class="co"># but also with other symbols such as &quot;,&quot;.</span></span></code></pre></div>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="errors.html#cb435-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb435-2"><a href="errors.html#cb435-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb435-3"><a href="errors.html#cb435-3" aria-hidden="true" tabindex="-1"></a><span class="co"># There was an extra ) in there. It might seem trivial, </span></span>
+<span id="cb435-4"><a href="errors.html#cb435-4" aria-hidden="true" tabindex="-1"></a><span class="co"># but this prevented the line of code from being run.</span></span>
+<span id="cb435-5"><a href="errors.html#cb435-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb435-6"><a href="errors.html#cb435-6" aria-hidden="true" tabindex="-1"></a><span class="co"># This can happen with any function that uses brackets, </span></span>
+<span id="cb435-7"><a href="errors.html#cb435-7" aria-hidden="true" tabindex="-1"></a><span class="co"># but also with other symbols such as &quot;,&quot;.</span></span></code></pre></div>
 </div>
 </div>
 <div id="not-in-current-working-directory" class="section level4 unnumbered hasAnchor">
 <h4>Not in current working directory<a href="errors.html#not-in-current-working-directory" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="errors.html#cb444-1" aria-hidden="true" tabindex="-1"></a>demonstration <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;cars_for_sale.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="errors.html#cb436-1" aria-hidden="true" tabindex="-1"></a>demonstration <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;cars_for_sale.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Error: &#39;cars_for_sale.csv&#39; does not exist in current working directory (&#39;C:/Users/johan/Desktop/Intro_to_R_2022_Book/Gaby&#39;).</code></pre>
 <p>What do you think this error means? We have all seen it at least once. I see it all the time because I always forget to do something when I start working.</p>
 <div class="webex-solution">
@@ -645,45 +645,45 @@ Solution
 Solution
 </button>
 <p>If you are coding along and have correctly set your working directory before trying to replicate this error… you won’t see the error! Well done!</p>
-<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="errors.html#cb446-1" aria-hidden="true" tabindex="-1"></a>demonstration <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;cars_for_sale.csv&quot;</span>)</span>
-<span id="cb446-2"><a href="errors.html#cb446-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb446-3"><a href="errors.html#cb446-3" aria-hidden="true" tabindex="-1"></a><span class="co"># We tried to run the function read_csv() and to read</span></span>
-<span id="cb446-4"><a href="errors.html#cb446-4" aria-hidden="true" tabindex="-1"></a><span class="co"># cars_for_sale.csv, but in this instance the file was </span></span>
-<span id="cb446-5"><a href="errors.html#cb446-5" aria-hidden="true" tabindex="-1"></a><span class="co"># not in the current working directory</span></span>
-<span id="cb446-6"><a href="errors.html#cb446-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb446-7"><a href="errors.html#cb446-7" aria-hidden="true" tabindex="-1"></a><span class="co"># to fix this we can go to the Session Menu, Set Working</span></span>
-<span id="cb446-8"><a href="errors.html#cb446-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Directory and Choose Directory to tell R where this file</span></span>
-<span id="cb446-9"><a href="errors.html#cb446-9" aria-hidden="true" tabindex="-1"></a><span class="co"># can be found</span></span></code></pre></div>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="errors.html#cb438-1" aria-hidden="true" tabindex="-1"></a>demonstration <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;cars_for_sale.csv&quot;</span>)</span>
+<span id="cb438-2"><a href="errors.html#cb438-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb438-3"><a href="errors.html#cb438-3" aria-hidden="true" tabindex="-1"></a><span class="co"># We tried to run the function read_csv() and to read</span></span>
+<span id="cb438-4"><a href="errors.html#cb438-4" aria-hidden="true" tabindex="-1"></a><span class="co"># cars_for_sale.csv, but in this instance the file was </span></span>
+<span id="cb438-5"><a href="errors.html#cb438-5" aria-hidden="true" tabindex="-1"></a><span class="co"># not in the current working directory</span></span>
+<span id="cb438-6"><a href="errors.html#cb438-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb438-7"><a href="errors.html#cb438-7" aria-hidden="true" tabindex="-1"></a><span class="co"># to fix this we can go to the Session Menu, Set Working</span></span>
+<span id="cb438-8"><a href="errors.html#cb438-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Directory and Choose Directory to tell R where this file</span></span>
+<span id="cb438-9"><a href="errors.html#cb438-9" aria-hidden="true" tabindex="-1"></a><span class="co"># can be found</span></span></code></pre></div>
 </div>
 </div>
 <div id="could-not-find-object" class="section level4 unnumbered hasAnchor">
 <h4>Could not find object<a href="errors.html#could-not-find-object" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="errors.html#cb447-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(demonstration)</span></code></pre></div>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="errors.html#cb439-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(demonstration)</span></code></pre></div>
 <pre><code>## Error in head(demonstration): Objekt &#39;demonstration&#39; nicht gefunden</code></pre>
 <p>I’ve tried to use the function head on the object I tried to create above. Have a think about why this error has been returned and how to fix it.</p>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="errors.html#cb449-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(demonstration)</span>
-<span id="cb449-2"><a href="errors.html#cb449-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb449-3"><a href="errors.html#cb449-3" aria-hidden="true" tabindex="-1"></a><span class="co"># This code is correct, but errors can be cumulative... </span></span>
-<span id="cb449-4"><a href="errors.html#cb449-4" aria-hidden="true" tabindex="-1"></a><span class="co"># that is, if a later piece of code is contingent on a </span></span>
-<span id="cb449-5"><a href="errors.html#cb449-5" aria-hidden="true" tabindex="-1"></a><span class="co"># previous piece of code running successfully then</span></span>
-<span id="cb449-6"><a href="errors.html#cb449-6" aria-hidden="true" tabindex="-1"></a><span class="co"># the later piece of code won&#39;t work if the earlier</span></span>
-<span id="cb449-7"><a href="errors.html#cb449-7" aria-hidden="true" tabindex="-1"></a><span class="co"># one wasn&#39;t run!</span></span>
-<span id="cb449-8"><a href="errors.html#cb449-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb449-9"><a href="errors.html#cb449-9" aria-hidden="true" tabindex="-1"></a><span class="co"># The previous code creating the object had many errors, </span></span>
-<span id="cb449-10"><a href="errors.html#cb449-10" aria-hidden="true" tabindex="-1"></a><span class="co"># one loading tidyverse into the library which is </span></span>
-<span id="cb449-11"><a href="errors.html#cb449-11" aria-hidden="true" tabindex="-1"></a><span class="co"># necessary for the `read_csv()` function to be usable </span></span>
-<span id="cb449-12"><a href="errors.html#cb449-12" aria-hidden="true" tabindex="-1"></a><span class="co"># and the second was a typo in the `read_csv()` function, </span></span>
-<span id="cb449-13"><a href="errors.html#cb449-13" aria-hidden="true" tabindex="-1"></a><span class="co"># so the object `demonstration` was not created, and </span></span>
-<span id="cb449-14"><a href="errors.html#cb449-14" aria-hidden="true" tabindex="-1"></a><span class="co"># thus there is no object to call using `head()`</span></span></code></pre></div>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="errors.html#cb441-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(demonstration)</span>
+<span id="cb441-2"><a href="errors.html#cb441-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb441-3"><a href="errors.html#cb441-3" aria-hidden="true" tabindex="-1"></a><span class="co"># This code is correct, but errors can be cumulative... </span></span>
+<span id="cb441-4"><a href="errors.html#cb441-4" aria-hidden="true" tabindex="-1"></a><span class="co"># that is, if a later piece of code is contingent on a </span></span>
+<span id="cb441-5"><a href="errors.html#cb441-5" aria-hidden="true" tabindex="-1"></a><span class="co"># previous piece of code running successfully then</span></span>
+<span id="cb441-6"><a href="errors.html#cb441-6" aria-hidden="true" tabindex="-1"></a><span class="co"># the later piece of code won&#39;t work if the earlier</span></span>
+<span id="cb441-7"><a href="errors.html#cb441-7" aria-hidden="true" tabindex="-1"></a><span class="co"># one wasn&#39;t run!</span></span>
+<span id="cb441-8"><a href="errors.html#cb441-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb441-9"><a href="errors.html#cb441-9" aria-hidden="true" tabindex="-1"></a><span class="co"># The previous code creating the object had many errors, </span></span>
+<span id="cb441-10"><a href="errors.html#cb441-10" aria-hidden="true" tabindex="-1"></a><span class="co"># one loading tidyverse into the library which is </span></span>
+<span id="cb441-11"><a href="errors.html#cb441-11" aria-hidden="true" tabindex="-1"></a><span class="co"># necessary for the `read_csv()` function to be usable </span></span>
+<span id="cb441-12"><a href="errors.html#cb441-12" aria-hidden="true" tabindex="-1"></a><span class="co"># and the second was a typo in the `read_csv()` function, </span></span>
+<span id="cb441-13"><a href="errors.html#cb441-13" aria-hidden="true" tabindex="-1"></a><span class="co"># so the object `demonstration` was not created, and </span></span>
+<span id="cb441-14"><a href="errors.html#cb441-14" aria-hidden="true" tabindex="-1"></a><span class="co"># thus there is no object to call using `head()`</span></span></code></pre></div>
 </div>
 </div>
 <div id="code-wont-run-in-the-console" class="section level4 unnumbered hasAnchor">
 <h4>Code won’t run, + in the console<a href="errors.html#code-wont-run-in-the-console" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="errors.html#cb450-1" aria-hidden="true" tabindex="-1"></a>demonstration <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;cars_for_sale.csv&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="errors.html#cb442-1" aria-hidden="true" tabindex="-1"></a>demonstration <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;cars_for_sale.csv&quot;</span></span></code></pre></div>
 <p>This error appears in the console as below:</p>
 <center>
 <img src="images/plus_error.gif">
@@ -693,22 +693,22 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="errors.html#cb451-1" aria-hidden="true" tabindex="-1"></a>demonstration <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;cars_for_sale.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="errors.html#cb443-1" aria-hidden="true" tabindex="-1"></a>demonstration <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;cars_for_sale.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Error: &#39;cars_for_sale.csv&#39; does not exist in current working directory (&#39;C:/Users/johan/Desktop/Intro_to_R_2022_Book/Gaby&#39;).</code></pre>
-<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="errors.html#cb453-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This time there is a missing bracket at the end!</span></span>
-<span id="cb453-2"><a href="errors.html#cb453-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb453-3"><a href="errors.html#cb453-3" aria-hidden="true" tabindex="-1"></a><span class="co"># This means R is still expecting some kind of input.</span></span>
-<span id="cb453-4"><a href="errors.html#cb453-4" aria-hidden="true" tabindex="-1"></a><span class="co"># It&#39;s kinda like talking to someone but forgetting to </span></span>
-<span id="cb453-5"><a href="errors.html#cb453-5" aria-hidden="true" tabindex="-1"></a><span class="co"># finish the sentence! The person listening will be</span></span>
-<span id="cb453-6"><a href="errors.html#cb453-6" aria-hidden="true" tabindex="-1"></a><span class="co"># confused because they expected a bit more.</span></span>
-<span id="cb453-7"><a href="errors.html#cb453-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb453-8"><a href="errors.html#cb453-8" aria-hidden="true" tabindex="-1"></a><span class="co"># To get rid of the +, click in the console then </span></span>
-<span id="cb453-9"><a href="errors.html#cb453-9" aria-hidden="true" tabindex="-1"></a><span class="co"># press the escape key (&quot;esc&quot;, top-left of the keyboard)</span></span>
-<span id="cb453-10"><a href="errors.html#cb453-10" aria-hidden="true" tabindex="-1"></a><span class="co"># until you see the more familiar &gt; symbol.</span></span>
-<span id="cb453-11"><a href="errors.html#cb453-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb453-12"><a href="errors.html#cb453-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Next, correct the code by giving R what it expected </span></span>
-<span id="cb453-13"><a href="errors.html#cb453-13" aria-hidden="true" tabindex="-1"></a><span class="co"># you to finish with, in this case the closing ).</span></span>
-<span id="cb453-14"><a href="errors.html#cb453-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the code again to create the object.</span></span></code></pre></div>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="errors.html#cb445-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This time there is a missing bracket at the end!</span></span>
+<span id="cb445-2"><a href="errors.html#cb445-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb445-3"><a href="errors.html#cb445-3" aria-hidden="true" tabindex="-1"></a><span class="co"># This means R is still expecting some kind of input.</span></span>
+<span id="cb445-4"><a href="errors.html#cb445-4" aria-hidden="true" tabindex="-1"></a><span class="co"># It&#39;s kinda like talking to someone but forgetting to </span></span>
+<span id="cb445-5"><a href="errors.html#cb445-5" aria-hidden="true" tabindex="-1"></a><span class="co"># finish the sentence! The person listening will be</span></span>
+<span id="cb445-6"><a href="errors.html#cb445-6" aria-hidden="true" tabindex="-1"></a><span class="co"># confused because they expected a bit more.</span></span>
+<span id="cb445-7"><a href="errors.html#cb445-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb445-8"><a href="errors.html#cb445-8" aria-hidden="true" tabindex="-1"></a><span class="co"># To get rid of the +, click in the console then </span></span>
+<span id="cb445-9"><a href="errors.html#cb445-9" aria-hidden="true" tabindex="-1"></a><span class="co"># press the escape key (&quot;esc&quot;, top-left of the keyboard)</span></span>
+<span id="cb445-10"><a href="errors.html#cb445-10" aria-hidden="true" tabindex="-1"></a><span class="co"># until you see the more familiar &gt; symbol.</span></span>
+<span id="cb445-11"><a href="errors.html#cb445-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb445-12"><a href="errors.html#cb445-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Next, correct the code by giving R what it expected </span></span>
+<span id="cb445-13"><a href="errors.html#cb445-13" aria-hidden="true" tabindex="-1"></a><span class="co"># you to finish with, in this case the closing ).</span></span>
+<span id="cb445-14"><a href="errors.html#cb445-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the code again to create the object.</span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -730,9 +730,9 @@ Solution
 <h4><span class="header-section-number">9.2.4.1</span> Errors in Pipes<a href="errors.html#errors-in-pipes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>As we saw before, pipes allow us to chain multiple functions together. For a recap of pipes, see the section on pipes in <a href="data-transformation-2-more-one-and-two-table-verbs.html#pipes">lecture 4</a>. This makes life a lot easier, <em>if the code works</em>. If there is an error, it makes debugging a little more difficult as we need to establish which line the error occurs in.</p>
 <p>Let’s get a working example going, and we’ll use some of the data built in to the tidyverse called <code>starwars</code> so we don’t need to import any new data. let’s look at it:</p>
-<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="errors.html#cb454-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb454-2"><a href="errors.html#cb454-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb454-3"><a href="errors.html#cb454-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(starwars)</span></code></pre></div>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="errors.html#cb446-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb446-2"><a href="errors.html#cb446-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb446-3"><a href="errors.html#cb446-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(starwars)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 14
 ##   name      height  mass hair_color skin_color eye_color birth_year sex   gender
 ##   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
@@ -746,10 +746,10 @@ Solution
 ## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 <p>This is the data on the characters in the Star Wars universe (I have no idea if it counts the newer movies).</p>
 <p>Let’s look at this (faulty) code which counts the number of each species and their genders featured then arranges them by number in descending order:</p>
-<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="errors.html#cb456-1" aria-hidden="true" tabindex="-1"></a>species_count <span class="ot">&lt;-</span> starwars <span class="sc">%&gt;%</span></span>
-<span id="cb456-2"><a href="errors.html#cb456-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(starwars, species, gender) <span class="sc">%&gt;%</span></span>
-<span id="cb456-3"><a href="errors.html#cb456-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb456-4"><a href="errors.html#cb456-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span></code></pre></div>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="errors.html#cb448-1" aria-hidden="true" tabindex="-1"></a>species_count <span class="ot">&lt;-</span> starwars <span class="sc">%&gt;%</span></span>
+<span id="cb448-2"><a href="errors.html#cb448-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(starwars, species, gender) <span class="sc">%&gt;%</span></span>
+<span id="cb448-3"><a href="errors.html#cb448-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb448-4"><a href="errors.html#cb448-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span></code></pre></div>
 <pre><code>## Error in `group_by()`:
 ## ! Must group by variables found in `.data`.
 ## x Column `starwars` is not found.</code></pre>
@@ -786,10 +786,10 @@ Solution
 ## ! Must group by variables found in `.data`.
 ## x Column `starwars` is not found.</code></pre>
 <p>This would be the correct code to use:</p>
-<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="errors.html#cb460-1" aria-hidden="true" tabindex="-1"></a>species_count <span class="ot">&lt;-</span> starwars <span class="sc">%&gt;%</span></span>
-<span id="cb460-2"><a href="errors.html#cb460-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species, gender) <span class="sc">%&gt;%</span></span>
-<span id="cb460-3"><a href="errors.html#cb460-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb460-4"><a href="errors.html#cb460-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span></code></pre></div>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="errors.html#cb452-1" aria-hidden="true" tabindex="-1"></a>species_count <span class="ot">&lt;-</span> starwars <span class="sc">%&gt;%</span></span>
+<span id="cb452-2"><a href="errors.html#cb452-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species, gender) <span class="sc">%&gt;%</span></span>
+<span id="cb452-3"><a href="errors.html#cb452-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb452-4"><a href="errors.html#cb452-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by &#39;species&#39;. You can override using the
 ## `.groups` argument.</code></pre>
 <p>This is a common error for those who are new to using pipelines in their code.</p>
@@ -801,14 +801,14 @@ Solution
 <p>Let’s get an example of a plot to work with. We’ll use the built in data set called <code>mpg</code>.</p>
 <p>The following plot looks at data on fuel consumption. More specifically it shows the relationship between city fuel consumption (on the x axis) and highway fuel consumption (on the y axis), with a “line of best fit” to demonstrate the correlation between them. Vehicles of different classes are specified in different colours according to the legend on the right of the graph.</p>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-378-1.png" width="672" /></p>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-369-1.png" width="672" /></p>
 <p>Plots are made by code, and like all the other code, it can be subject to the same errors from misplaced or missing brackets, commas and non-existent objects in the environment. We won’t be looking at these here because they’ve been covered above and you should be able to extrapolate that information when the same error occurs under different circumstances.</p>
 <p>Let’s look at a few errors that can occur specifically when creating plots:</p>
-<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="errors.html#cb463-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty)) <span class="sc">+</span></span>
-<span id="cb463-2"><a href="errors.html#cb463-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> F, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) </span>
-<span id="cb463-3"><a href="errors.html#cb463-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">colour =</span> class)) <span class="sc">+</span></span>
-<span id="cb463-4"><a href="errors.html#cb463-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span> (<span class="at">x =</span> <span class="st">&quot;City MPG&quot;</span>,</span>
-<span id="cb463-5"><a href="errors.html#cb463-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">&quot;Highway MPG&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="errors.html#cb455-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty)) <span class="sc">+</span></span>
+<span id="cb455-2"><a href="errors.html#cb455-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> F, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) </span>
+<span id="cb455-3"><a href="errors.html#cb455-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">colour =</span> class)) <span class="sc">+</span></span>
+<span id="cb455-4"><a href="errors.html#cb455-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span> (<span class="at">x =</span> <span class="st">&quot;City MPG&quot;</span>,</span>
+<span id="cb455-5"><a href="errors.html#cb455-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">&quot;Highway MPG&quot;</span>)</span></code></pre></div>
 <p>Here is the code to recreate the graph presented above, but I’ve created 3 errors in it. These are probably the most common errors you will encounter.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span></p>
 <p>Let’s look at fixing these 3 errors. As a bonus, the same method used in debugging pipes is also used.</p>
@@ -817,19 +817,19 @@ Solution
 <h5>stat_smooth requires the following missing aesthetics: y<a href="errors.html#stat_smooth-requires-the-following-missing-aesthetics-y" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>This is our first attempt at replicating the graph above. This time we have three errors, two with error messages (currently), but let’s focus only on the first one for now. The error message that appears first in the console is the one that happens first in the code and <strong>error messages can be cumulative</strong>- even if we correct the second one it still might not work because of the earlier code.</p>
 <p>When I run this code, I get the following print out in the console, indicating the errors that have occurred:</p>
-<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="errors.html#cb464-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty)) <span class="sc">+</span></span>
-<span id="cb464-2"><a href="errors.html#cb464-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> F, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) </span>
-<span id="cb464-3"><a href="errors.html#cb464-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">colour =</span> class)) <span class="sc">+</span></span>
-<span id="cb464-4"><a href="errors.html#cb464-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span> (<span class="at">x =</span> <span class="st">&quot;City MPG&quot;</span>,</span>
-<span id="cb464-5"><a href="errors.html#cb464-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">&quot;Highway MPG&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="errors.html#cb465-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Error: stat_smooth requires the following missing aesthetics: y</span></span>
-<span id="cb465-2"><a href="errors.html#cb465-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> F, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) </span>
-<span id="cb465-3"><a href="errors.html#cb465-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Error: Cannot add ggproto objects together. Did you forget to add this object to a ggplot object?</span></span></code></pre></div>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="errors.html#cb456-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty)) <span class="sc">+</span></span>
+<span id="cb456-2"><a href="errors.html#cb456-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> F, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) </span>
+<span id="cb456-3"><a href="errors.html#cb456-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">colour =</span> class)) <span class="sc">+</span></span>
+<span id="cb456-4"><a href="errors.html#cb456-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span> (<span class="at">x =</span> <span class="st">&quot;City MPG&quot;</span>,</span>
+<span id="cb456-5"><a href="errors.html#cb456-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">&quot;Highway MPG&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="errors.html#cb457-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Error: stat_smooth requires the following missing aesthetics: y</span></span>
+<span id="cb457-2"><a href="errors.html#cb457-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> F, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) </span>
+<span id="cb457-3"><a href="errors.html#cb457-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Error: Cannot add ggproto objects together. Did you forget to add this object to a ggplot object?</span></span></code></pre></div>
 <p>Let’s do the same thing that we did with pipes, highlight the first line and run it. This time we don’t stop at a pipe, because there is no pipe, we <strong>stop before the <code>+</code></strong>.</p>
 <center>
 <img src="images/gg_error_2.gif" />
 </center>
-<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-382-1.png" width="672" /></p>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-373-1.png" width="672" /></p>
 <p>OK, so this produces the first layer of the graph- the background with a scale on the axis.</p>
 <p>What do you think is going on here? There is a hint available at this stage. Compare the axes on the graph we are aiming to produce versus the axes you have on this sample.</p>
 <p>If you are still not sure, do the same thing with the second line of the code, this is where the error message is produced in the code and this should provide you with extra information.</p>
@@ -841,29 +841,29 @@ Solution
 Solution
 </button>
 <p>You are attempting to plot a “line of best fit” to show a correlation between two variables, and those two variables should be presented on each of the axes. The erroneous code specifies only one axis (the <code>x</code> axis). The correct code also specifies the missing <code>y</code> axis:</p>
-<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="errors.html#cb466-1" aria-hidden="true" tabindex="-1"></a><span class="co"># first two lines should read:</span></span>
-<span id="cb466-2"><a href="errors.html#cb466-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
-<span id="cb466-3"><a href="errors.html#cb466-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> F, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="errors.html#cb458-1" aria-hidden="true" tabindex="-1"></a><span class="co"># first two lines should read:</span></span>
+<span id="cb458-2"><a href="errors.html#cb458-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb458-3"><a href="errors.html#cb458-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> F, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) </span></code></pre></div>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-383-1.png" width="672" /></p>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-374-1.png" width="672" /></p>
 </div>
 </div>
 <div id="cannot-add-ggproto-objects-together.-did-you-forget-to-add-this-object-to-a-ggplot-object" class="section level5 unnumbered hasAnchor">
 <h5>Cannot add ggproto objects together. Did you forget to add this object to a ggplot object?<a href="errors.html#cannot-add-ggproto-objects-together.-did-you-forget-to-add-this-object-to-a-ggplot-object" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Here you can clearly see that I have 2 <code>geom</code> layers, but only the <code>geom_smooth</code> is showing (that’s the line of the correlation between the variables on the x and y axes).</p>
-<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="errors.html#cb468-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y=</span> hwy)) <span class="sc">+</span></span>
-<span id="cb468-2"><a href="errors.html#cb468-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> F, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) </span>
-<span id="cb468-3"><a href="errors.html#cb468-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">colour =</span> class)) <span class="sc">+</span></span>
-<span id="cb468-4"><a href="errors.html#cb468-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span> (<span class="at">x =</span> <span class="st">&quot;City MPG&quot;</span>,</span>
-<span id="cb468-5"><a href="errors.html#cb468-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">&quot;Highway MPG&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="errors.html#cb460-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y=</span> hwy)) <span class="sc">+</span></span>
+<span id="cb460-2"><a href="errors.html#cb460-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> F, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) </span>
+<span id="cb460-3"><a href="errors.html#cb460-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">colour =</span> class)) <span class="sc">+</span></span>
+<span id="cb460-4"><a href="errors.html#cb460-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span> (<span class="at">x =</span> <span class="st">&quot;City MPG&quot;</span>,</span>
+<span id="cb460-5"><a href="errors.html#cb460-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">&quot;Highway MPG&quot;</span>)</span></code></pre></div>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-385-1.png" width="672" /></p>
-<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="errors.html#cb470-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Error: Cannot add ggproto objects together. Did you forget to add this object to a ggplot object?</span></span></code></pre></div>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-376-1.png" width="672" /></p>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="errors.html#cb462-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Error: Cannot add ggproto objects together. Did you forget to add this object to a ggplot object?</span></span></code></pre></div>
 <p>Let’s do the same thing that we did with pipes, highlight the first line and run it. As above, we don’t stop at a pipe we <strong>stop before the <code>+</code></strong>.</p>
 <center>
 <img src="images/gg_error_1.gif" />
 </center>
-<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-387-1.png" width="672" /></p>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-378-1.png" width="672" /></p>
 <p>Did it do as we expected it to do?</p>
 <p>Keep moving down the code segment line by line until you find where the result deviates from what we were expecting.</p>
 <p>What was the problem in this case? How do we solve this?</p>
@@ -877,12 +877,12 @@ Solution
 <div id="stat_count-must-not-be-used-with-a-y-aesthetic." class="section level5 unnumbered hasAnchor">
 <h5>stat_count() must not be used with a y aesthetic.<a href="errors.html#stat_count-must-not-be-used-with-a-y-aesthetic." class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Now that the previous error is fixed we can have a look at the next one.</p>
-<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="errors.html#cb471-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y=</span> hwy)) <span class="sc">+</span></span>
-<span id="cb471-2"><a href="errors.html#cb471-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> F, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
-<span id="cb471-3"><a href="errors.html#cb471-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">colour =</span> class)) <span class="sc">+</span></span>
-<span id="cb471-4"><a href="errors.html#cb471-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span> (<span class="at">x =</span> <span class="st">&quot;City MPG&quot;</span>,</span>
-<span id="cb471-5"><a href="errors.html#cb471-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">&quot;Highway MPG&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="errors.html#cb472-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Error: stat_count() must not be used with a y aesthetic.</span></span></code></pre></div>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="errors.html#cb463-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y=</span> hwy)) <span class="sc">+</span></span>
+<span id="cb463-2"><a href="errors.html#cb463-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> F, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb463-3"><a href="errors.html#cb463-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">colour =</span> class)) <span class="sc">+</span></span>
+<span id="cb463-4"><a href="errors.html#cb463-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span> (<span class="at">x =</span> <span class="st">&quot;City MPG&quot;</span>,</span>
+<span id="cb463-5"><a href="errors.html#cb463-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">&quot;Highway MPG&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="errors.html#cb464-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Error: stat_count() must not be used with a y aesthetic.</span></span></code></pre></div>
 <p><code>stat_count()</code> is another way of producing a <code>geom_bar()</code> style of graph. With this in mind, what do you think is wrong with the code segment?</p>
 <p>Do you think a bar graph is a good way to demonstrate the relationship between two sets of continuous values?</p>
 <p>Have a think and figure out what the problem is now. Run each line of code individually and see where the problem is coming from.</p>

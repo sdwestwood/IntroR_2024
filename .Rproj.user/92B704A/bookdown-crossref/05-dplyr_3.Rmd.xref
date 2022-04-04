@@ -2,9 +2,9 @@ h1:data-transformation-3-tidy-data Data Transformation 3: Tidy Data
 h2:intended-learning-outcomes Intended Learning Outcomes
 h2:pre-steps Pre-steps
 h2:tidy-data Tidy data
-h2:gather-and-spread gather() and spread()
-h3:gather gather()
-h3:spread spread()
+h2:pivot_longer-and-pivot_wider pivot_longer() and pivot_wider()
+h3:pivot_longer pivot_longer()
+h3:pivot_wider pivot_wider()
 h2:separate-and-unite separate() and unite()
 h3:separate separate()
 h3:additional-arguments-for-separate additional arguments for separate()

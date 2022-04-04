@@ -23,7 +23,7 @@
 <meta name="author" content="Gaby Mahrholz, Greta Todorova, Wilhelmiina Toivo, and Jaimie Torrance, updated by Johanna Werner in 2022" />
 
 
-<meta name="date" content="2022-03-30" />
+<meta name="date" content="2022-04-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -319,10 +319,10 @@ div.csl-indent {
 <li><a href="data-transformation-3-tidy-data.html#intended-learning-outcomes-5">Intended Learning Outcomes<span></span></a></li>
 <li class="chapter" data-level="5.1" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#pre-steps-3"><i class="fa fa-check"></i><b>5.1</b> Pre-steps<span></span></a></li>
 <li class="chapter" data-level="5.2" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#tidy-data"><i class="fa fa-check"></i><b>5.2</b> Tidy data<span></span></a></li>
-<li class="chapter" data-level="5.3" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#gather-and-spread"><i class="fa fa-check"></i><b>5.3</b> gather() and spread()<span></span></a>
+<li class="chapter" data-level="5.3" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#pivot_longer-and-pivot_wider"><i class="fa fa-check"></i><b>5.3</b> pivot_longer() and pivot_wider()<span></span></a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#gather"><i class="fa fa-check"></i><b>5.3.1</b> gather()<span></span></a></li>
-<li class="chapter" data-level="5.3.2" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#spread"><i class="fa fa-check"></i><b>5.3.2</b> spread()<span></span></a></li>
+<li class="chapter" data-level="5.3.1" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#pivot_longer"><i class="fa fa-check"></i><b>5.3.1</b> pivot_longer()<span></span></a></li>
+<li class="chapter" data-level="5.3.2" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#pivot_wider"><i class="fa fa-check"></i><b>5.3.2</b> pivot_wider()<span></span></a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#separate-and-unite"><i class="fa fa-check"></i><b>5.4</b> separate() and unite()<span></span></a>
 <ul>
@@ -506,14 +506,14 @@ div.csl-indent {
 <li>Learn how to create groups in plots</li>
 <li>Learn how to make a variety of plots based on the type of variables we have</li>
 </ol>
-<p>This lesson is led by <a href="https://www.psy.gla.ac.uk/otherstaff/?id=GKT01">Greta Todorova</a>.</p>
+<p>This lesson is led by Sean Wood.</p>
 </div>
 <div id="pre-steps-5" class="section level2 hasAnchor" number="7.2">
 <h2><span class="header-section-number">7.2</span> Pre-steps<a href="data-visualisation-1.html#pre-steps-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Today, we will be working with <code>ggplot2</code> which is part of <code>tidyverse</code> and data from the Scottish Government saved in the file <code>free_movement_uk.csv</code>.</p>
 <p>Firstly, load <code>tidyverse</code>, and then read the data into your <code>Global Environment</code> as <code>migration_scot</code>.</p>
-<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="data-visualisation-1.html#cb393-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb393-2"><a href="data-visualisation-1.html#cb393-2" aria-hidden="true" tabindex="-1"></a>migration_scot <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;free_movement_uk.csv&quot;</span>) <span class="co">#downloaded from the Scottish Government Stats website</span></span></code></pre></div>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="data-visualisation-1.html#cb385-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb385-2"><a href="data-visualisation-1.html#cb385-2" aria-hidden="true" tabindex="-1"></a>migration_scot <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;free_movement_uk.csv&quot;</span>) <span class="co">#downloaded from the Scottish Government Stats website</span></span></code></pre></div>
 </div>
 <div id="introduction-to-the-data" class="section level2 hasAnchor" number="7.3">
 <h2><span class="header-section-number">7.3</span> Introduction to the data<a href="data-visualisation-1.html#introduction-to-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -579,17 +579,17 @@ div.csl-indent {
 <li>Keep only the total number of people by <code>Age</code> (‘All’) and <code>Sex</code> (‘All’)</li>
 <li>Keep only the information about the number of people that came to and left Scotland (we do not want to know about the net value)</li>
 </ol>
-<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="data-visualisation-1.html#cb394-1" aria-hidden="true" tabindex="-1"></a>traffic_scot <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="data-visualisation-1.html#cb386-1" aria-hidden="true" tabindex="-1"></a>traffic_scot <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="data-visualisation-1.html#cb395-1" aria-hidden="true" tabindex="-1"></a>traffic_scot <span class="ot">&lt;-</span> migration_scot <span class="sc">%&gt;%</span> </span>
-<span id="cb395-2"><a href="data-visualisation-1.html#cb395-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(DateCode, Value, Sex, Age, <span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span>, <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb395-3"><a href="data-visualisation-1.html#cb395-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DateCode <span class="sc">==</span> <span class="st">&#39;2016&#39;</span>, </span>
-<span id="cb395-4"><a href="data-visualisation-1.html#cb395-4" aria-hidden="true" tabindex="-1"></a>         Age <span class="sc">==</span> <span class="st">&#39;All&#39;</span>, </span>
-<span id="cb395-5"><a href="data-visualisation-1.html#cb395-5" aria-hidden="true" tabindex="-1"></a>         Sex <span class="sc">!=</span> <span class="st">&#39;All&#39;</span>, </span>
-<span id="cb395-6"><a href="data-visualisation-1.html#cb395-6" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">&#39;Net&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="data-visualisation-1.html#cb387-1" aria-hidden="true" tabindex="-1"></a>traffic_scot <span class="ot">&lt;-</span> migration_scot <span class="sc">%&gt;%</span> </span>
+<span id="cb387-2"><a href="data-visualisation-1.html#cb387-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(DateCode, Value, Sex, Age, <span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span>, <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb387-3"><a href="data-visualisation-1.html#cb387-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DateCode <span class="sc">==</span> <span class="st">&#39;2016&#39;</span>, </span>
+<span id="cb387-4"><a href="data-visualisation-1.html#cb387-4" aria-hidden="true" tabindex="-1"></a>         Age <span class="sc">==</span> <span class="st">&#39;All&#39;</span>, </span>
+<span id="cb387-5"><a href="data-visualisation-1.html#cb387-5" aria-hidden="true" tabindex="-1"></a>         Sex <span class="sc">!=</span> <span class="st">&#39;All&#39;</span>, </span>
+<span id="cb387-6"><a href="data-visualisation-1.html#cb387-6" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">&#39;Net&#39;</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="the-package-ggplot2" class="section level2 hasAnchor" number="7.5">
@@ -614,12 +614,12 @@ Layer 2: geom_something(…)</p>
 <p>For now we are going to stick with one global specification - i.e. we are going to specify all our data in this first layer.</p>
 <p>If you run just the first command, R is going to show you the first layer - i.e. a blank screen. R has prepared a space for you to create your plot.</p>
 <p>Let’s try it.</p>
-<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="data-visualisation-1.html#cb396-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()</span></code></pre></div>
-<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-279-1.png" width="672" /></p>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="data-visualisation-1.html#cb388-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()</span></code></pre></div>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-270-1.png" width="672" /></p>
 <p>Now let’s add some information. Let’s include the data and the axes. From our data <code>traffic_scot</code> let’s put <code>Sex</code> on the x-axis and <code>Value</code> on the y-axis. This way we can visualise how many people from each sex category came to and left Scotland overall.</p>
 <p>What’s the difference with the empty plot above?</p>
-<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="data-visualisation-1.html#cb397-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value))</span></code></pre></div>
-<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-280-1.png" width="672" /></p>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="data-visualisation-1.html#cb389-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value))</span></code></pre></div>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-271-1.png" width="672" /></p>
 <div class="question">
 <p>
 What is the difference in the produced plots from the above two lines
@@ -704,7 +704,7 @@ or continuous, or both? How many variables do we need to create these
 plots?
 </p>
 </div>
-<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-286-1.png" width="672" /></p>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-277-1.png" width="672" /></p>
 <div class="webex-solution">
 <button>
 Solution
@@ -717,7 +717,7 @@ density for us.</strong>
 </p>
 </div>
 </div>
-<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-288-1.png" width="672" /></p>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-279-1.png" width="672" /></p>
 <div class="webex-solution">
 <button>
 Solution
@@ -729,7 +729,7 @@ Solution
 </p>
 </div>
 </div>
-<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-290-1.png" width="672" /></p>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-281-1.png" width="672" /></p>
 <div class="webex-solution">
 <button>
 Solution
@@ -740,7 +740,7 @@ Solution
 </p>
 </div>
 </div>
-<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-292-1.png" width="672" /></p>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-283-1.png" width="672" /></p>
 <div class="webex-solution">
 <button>
 Solution
@@ -751,7 +751,7 @@ Solution
 </p>
 </div>
 </div>
-<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-294-1.png" width="672" /></p>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-285-1.png" width="672" /></p>
 <div class="webex-solution">
 <button>
 Solution
@@ -850,9 +850,9 @@ categorical (sex).
 </tbody>
 </table>
 <p>Let’s create a column/bar plot to visualise the data using <code>geom_col()</code>. What does the data look like?</p>
-<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="data-visualisation-1.html#cb398-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value)) <span class="sc">+</span> </span>
-<span id="cb398-2"><a href="data-visualisation-1.html#cb398-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div>
-<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-300-1.png" width="672" /></p>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="data-visualisation-1.html#cb390-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value)) <span class="sc">+</span> </span>
+<span id="cb390-2"><a href="data-visualisation-1.html#cb390-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-291-1.png" width="672" /></p>
 <div class="question">
 <p>
 Considering what we know from the data description and the different
@@ -882,9 +882,9 @@ us whether the people came into or left Scotland.
 <p>When we want to group data to provide a better representation, we can usually use colour, shapes etc. Most of the time, this will depend on the type of graph we want to create. If we are using line graphs, then colours are usually best. If we are using dot plots then we can use the shape as well as the colours to differentiate the different groups.</p>
 <p>Let’s first look at colour.</p>
 <p>Depending on the type of graph, colouring in can be done either with <code>colour</code> or with <code>fill</code>. For our column plots we use <code>fill.</code> If we used <code>colour</code>, then we would get different colours for the outlines. You can find out whether to use colour or fill by typing the name of the geom in the Help search bar or typing <code>?geom_col()</code> in the console and looking at the <strong>Aesthetics</strong> section.</p>
-<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="data-visualisation-1.html#cb399-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value, <span class="at">fill =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb399-2"><a href="data-visualisation-1.html#cb399-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>)</span></code></pre></div>
-<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-303-1.png" width="672" /></p>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="data-visualisation-1.html#cb391-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value, <span class="at">fill =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb391-2"><a href="data-visualisation-1.html#cb391-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>)</span></code></pre></div>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-294-1.png" width="672" /></p>
 <p>Let’s decompose the code above:</p>
 <p>We have our data and our two variables. They are the same as before. This time we are saying that we want the data to be separated even further by <code>Migration Type</code> and we have given two different colours to the ‘In’ and ‘Out’ migration types using the additional argument <code>fill</code>.</p>
 <p>We have also added the argument <code>position = 'dodge'</code> in the <code>geom_col()</code>. This makes sure that any groupings we create are then presented separately.</p>
@@ -899,9 +899,9 @@ what happens in your stub file.
 </li>
 </ol>
 </div>
-<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="data-visualisation-1.html#cb400-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value, <span class="at">fill =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb400-2"><a href="data-visualisation-1.html#cb400-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div>
-<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-305-1.png" width="672" /></p>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="data-visualisation-1.html#cb392-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value, <span class="at">fill =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb392-2"><a href="data-visualisation-1.html#cb392-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-296-1.png" width="672" /></p>
 <div class="task">
 <p>
 Simple task:
@@ -913,10 +913,10 @@ stub.
 </li>
 </ol>
 </div>
-<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="data-visualisation-1.html#cb401-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create your plot here</span></span>
-<span id="cb401-2"><a href="data-visualisation-1.html#cb401-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value, <span class="at">fill =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb401-3"><a href="data-visualisation-1.html#cb401-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&#39;fill&#39;</span>)</span></code></pre></div>
-<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-307-1.png" width="672" /></p>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="data-visualisation-1.html#cb393-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create your plot here</span></span>
+<span id="cb393-2"><a href="data-visualisation-1.html#cb393-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value, <span class="at">fill =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb393-3"><a href="data-visualisation-1.html#cb393-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&#39;fill&#39;</span>)</span></code></pre></div>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-298-1.png" width="672" /></p>
 <div class="question">
 <p>
 What are the differences between ‘dodge’, ‘fill’ and no position
@@ -945,9 +945,9 @@ example <code>?geom_col()</code>.
 <div id="more-groupings" class="section level4 hasAnchor" number="7.7.4.1">
 <h4><span class="header-section-number">7.7.4.1</span> More groupings<a href="data-visualisation-1.html#more-groupings" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Now let’s imagine that we want to know whether the individuals are moving to/from Overseas or RUK as well as all the information we have so far. Should we create more groups? Let’s try also using colour as a grouping way, based on <code>Migration Source</code>.</p>
-<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="data-visualisation-1.html#cb402-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value, <span class="at">fill =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>, <span class="at">colour =</span><span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span>)) <span class="sc">+</span> </span>
-<span id="cb402-2"><a href="data-visualisation-1.html#cb402-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>)</span></code></pre></div>
-<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-310-1.png" width="672" /></p>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="data-visualisation-1.html#cb394-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value, <span class="at">fill =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>, <span class="at">colour =</span><span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span>)) <span class="sc">+</span> </span>
+<span id="cb394-2"><a href="data-visualisation-1.html#cb394-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>)</span></code></pre></div>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-301-1.png" width="672" /></p>
 <p>Here I have used the argument <code>colour</code> to give different borders to the migration sources. As you can see, this makes it much more difficult to see. Next week, we will work on separating the plots.</p>
 <div class="question">
 <p>
@@ -977,16 +977,16 @@ DateCode, Migration Type, Migration Source, Value
 </div>
 </div>
 <p>First, let’s get the data we will need. We want our selected variables from above, and the overall data for the rest of the variables i.e. the ‘all’ categories for <code>Age</code>, and <code>Sex</code>. Remember we want to look at people moving in and out, so we do not want the net <code>Migration Type</code>. Save the output into the variable <strong>trafic_scot2</strong> so that it appears in your <code>Global Environment</code>.</p>
-<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="data-visualisation-1.html#cb403-1" aria-hidden="true" tabindex="-1"></a>traffic_scot2 <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="data-visualisation-1.html#cb395-1" aria-hidden="true" tabindex="-1"></a>traffic_scot2 <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="data-visualisation-1.html#cb404-1" aria-hidden="true" tabindex="-1"></a>traffic_scot2 <span class="ot">&lt;-</span> migration_scot <span class="sc">%&gt;%</span> </span>
-<span id="cb404-2"><a href="data-visualisation-1.html#cb404-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Age <span class="sc">==</span> <span class="st">&#39;All&#39;</span>, </span>
-<span id="cb404-3"><a href="data-visualisation-1.html#cb404-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">&#39;Net&#39;</span>,</span>
-<span id="cb404-4"><a href="data-visualisation-1.html#cb404-4" aria-hidden="true" tabindex="-1"></a>         Sex <span class="sc">==</span> <span class="st">&#39;All&#39;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb404-5"><a href="data-visualisation-1.html#cb404-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(DateCode, Value,<span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span>, <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="data-visualisation-1.html#cb396-1" aria-hidden="true" tabindex="-1"></a>traffic_scot2 <span class="ot">&lt;-</span> migration_scot <span class="sc">%&gt;%</span> </span>
+<span id="cb396-2"><a href="data-visualisation-1.html#cb396-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Age <span class="sc">==</span> <span class="st">&#39;All&#39;</span>, </span>
+<span id="cb396-3"><a href="data-visualisation-1.html#cb396-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">&#39;Net&#39;</span>,</span>
+<span id="cb396-4"><a href="data-visualisation-1.html#cb396-4" aria-hidden="true" tabindex="-1"></a>         Sex <span class="sc">==</span> <span class="st">&#39;All&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb396-5"><a href="data-visualisation-1.html#cb396-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(DateCode, Value,<span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span>, <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)</span></code></pre></div>
 </div>
 <div class="question">
 <p>
@@ -1004,18 +1004,18 @@ What type of data are these variables?
 <p>Good way to portray data like this are point graphs (i.e. scatter plots) and line graphs.</p>
 <p>We have several variables again. It will help if we separate them with different aesthetics.</p>
 <p>Let’s start with a scatter plot.</p>
-<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="data-visualisation-1.html#cb405-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot2, <span class="fu">aes</span>(DateCode, Value, </span>
-<span id="cb405-2"><a href="data-visualisation-1.html#cb405-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">shape =</span> <span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span>, </span>
-<span id="cb405-3"><a href="data-visualisation-1.html#cb405-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">colour =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span> </span>
-<span id="cb405-4"><a href="data-visualisation-1.html#cb405-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span></code></pre></div>
-<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-317-1.png" width="672" /></p>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="data-visualisation-1.html#cb397-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot2, <span class="fu">aes</span>(DateCode, Value, </span>
+<span id="cb397-2"><a href="data-visualisation-1.html#cb397-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">shape =</span> <span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span>, </span>
+<span id="cb397-3"><a href="data-visualisation-1.html#cb397-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">colour =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span> </span>
+<span id="cb397-4"><a href="data-visualisation-1.html#cb397-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span></code></pre></div>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-308-1.png" width="672" /></p>
 <p>This seems difficult to look at. Let’s make it easier by adding a line that connects the data. We can do this by adding another <strong>Layer</strong>.</p>
-<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="data-visualisation-1.html#cb406-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot2, <span class="fu">aes</span>(DateCode, Value, </span>
-<span id="cb406-2"><a href="data-visualisation-1.html#cb406-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">shape =</span> <span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span>,</span>
-<span id="cb406-3"><a href="data-visualisation-1.html#cb406-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">colour =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span> </span>
-<span id="cb406-4"><a href="data-visualisation-1.html#cb406-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb406-5"><a href="data-visualisation-1.html#cb406-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div>
-<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-318-1.png" width="672" /></p>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="data-visualisation-1.html#cb398-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot2, <span class="fu">aes</span>(DateCode, Value, </span>
+<span id="cb398-2"><a href="data-visualisation-1.html#cb398-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">shape =</span> <span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span>,</span>
+<span id="cb398-3"><a href="data-visualisation-1.html#cb398-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">colour =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span> </span>
+<span id="cb398-4"><a href="data-visualisation-1.html#cb398-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb398-5"><a href="data-visualisation-1.html#cb398-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-309-1.png" width="672" /></p>
 <div class="question">
 <p>
 Question: How do we know that the line graph is going to connect the
@@ -1054,20 +1054,20 @@ behind a bar chart.
 <p><strong>Violin plots and Box plots</strong>
 We need a continuous variable and a categorical variable for both of them. In both of these the categorical variable usually goes on the x-axis and the continuous on the y axis.</p>
 <p>Let’s get back to the original data and plot the distribution of all females entering and leaving Scotland from overseas, from all ages. For this, we need to tidy the data into what we need and store it into the variable <code>female_migration</code>.</p>
-<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="data-visualisation-1.html#cb407-1" aria-hidden="true" tabindex="-1"></a>female_migration <span class="ot">&lt;-</span> migration_scot <span class="sc">%&gt;%</span> </span>
-<span id="cb407-2"><a href="data-visualisation-1.html#cb407-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Sex <span class="sc">==</span> <span class="st">&#39;Female&#39;</span>, </span>
-<span id="cb407-3"><a href="data-visualisation-1.html#cb407-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span> <span class="sc">==</span> <span class="st">&#39;To-from Overseas&#39;</span>, </span>
-<span id="cb407-4"><a href="data-visualisation-1.html#cb407-4" aria-hidden="true" tabindex="-1"></a>         Age <span class="sc">==</span> <span class="st">&#39;All&#39;</span>, </span>
-<span id="cb407-5"><a href="data-visualisation-1.html#cb407-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">&#39;Net&#39;</span>)</span>
-<span id="cb407-6"><a href="data-visualisation-1.html#cb407-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb407-7"><a href="data-visualisation-1.html#cb407-7" aria-hidden="true" tabindex="-1"></a><span class="co"># make box plots</span></span>
-<span id="cb407-8"><a href="data-visualisation-1.html#cb407-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(female_migration, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>, <span class="at">y =</span> Value, <span class="at">fill =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span> </span>
-<span id="cb407-9"><a href="data-visualisation-1.html#cb407-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
-<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-322-1.png" width="672" /></p>
-<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="data-visualisation-1.html#cb408-1" aria-hidden="true" tabindex="-1"></a><span class="co">#make violin plots</span></span>
-<span id="cb408-2"><a href="data-visualisation-1.html#cb408-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(female_migration, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>, <span class="at">y =</span> Value, <span class="at">fill =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span> </span>
-<span id="cb408-3"><a href="data-visualisation-1.html#cb408-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>()</span></code></pre></div>
-<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-322-2.png" width="672" /></p>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="data-visualisation-1.html#cb399-1" aria-hidden="true" tabindex="-1"></a>female_migration <span class="ot">&lt;-</span> migration_scot <span class="sc">%&gt;%</span> </span>
+<span id="cb399-2"><a href="data-visualisation-1.html#cb399-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Sex <span class="sc">==</span> <span class="st">&#39;Female&#39;</span>, </span>
+<span id="cb399-3"><a href="data-visualisation-1.html#cb399-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span> <span class="sc">==</span> <span class="st">&#39;To-from Overseas&#39;</span>, </span>
+<span id="cb399-4"><a href="data-visualisation-1.html#cb399-4" aria-hidden="true" tabindex="-1"></a>         Age <span class="sc">==</span> <span class="st">&#39;All&#39;</span>, </span>
+<span id="cb399-5"><a href="data-visualisation-1.html#cb399-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">&#39;Net&#39;</span>)</span>
+<span id="cb399-6"><a href="data-visualisation-1.html#cb399-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb399-7"><a href="data-visualisation-1.html#cb399-7" aria-hidden="true" tabindex="-1"></a><span class="co"># make box plots</span></span>
+<span id="cb399-8"><a href="data-visualisation-1.html#cb399-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(female_migration, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>, <span class="at">y =</span> Value, <span class="at">fill =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span> </span>
+<span id="cb399-9"><a href="data-visualisation-1.html#cb399-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-313-1.png" width="672" /></p>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="data-visualisation-1.html#cb400-1" aria-hidden="true" tabindex="-1"></a><span class="co">#make violin plots</span></span>
+<span id="cb400-2"><a href="data-visualisation-1.html#cb400-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(female_migration, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>, <span class="at">y =</span> Value, <span class="at">fill =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>)) <span class="sc">+</span> </span>
+<span id="cb400-3"><a href="data-visualisation-1.html#cb400-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>()</span></code></pre></div>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-313-2.png" width="672" /></p>
 <div class="info">
 <p>
 These plots show us the distribution of females entering and leaving
@@ -1132,9 +1132,9 @@ Plot the differences between the two ages, regardless of year.
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="data-visualisation-1.html#cb409-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example answer </span></span>
-<span id="cb409-2"><a href="data-visualisation-1.html#cb409-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-3"><a href="data-visualisation-1.html#cb409-3" aria-hidden="true" tabindex="-1"></a>traffic_scot <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;free_movement_uk.csv&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="data-visualisation-1.html#cb401-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example answer </span></span>
+<span id="cb401-2"><a href="data-visualisation-1.html#cb401-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb401-3"><a href="data-visualisation-1.html#cb401-3" aria-hidden="true" tabindex="-1"></a>traffic_scot <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;free_movement_uk.csv&quot;</span>) </span></code></pre></div>
 <pre><code>## Rows: 28152 Columns: 9
 ## -- Column specification --------------------------------------------------------
 ## Delimiter: &quot;,&quot;
@@ -1143,27 +1143,27 @@ Solution
 ## 
 ## i Use `spec()` to retrieve the full column specification for this data.
 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="data-visualisation-1.html#cb411-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> traffic_scot <span class="sc">%&gt;%</span> </span>
-<span id="cb411-2"><a href="data-visualisation-1.html#cb411-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Age <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;21 years&#39;</span>, <span class="st">&#39;41 years&#39;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb411-3"><a href="data-visualisation-1.html#cb411-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(DateCode, Value, Age, Sex, <span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span>, <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb411-4"><a href="data-visualisation-1.html#cb411-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DateCode <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;2013&#39;</span>, <span class="st">&#39;2018&#39;</span>), </span>
-<span id="cb411-5"><a href="data-visualisation-1.html#cb411-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">&#39;Net&#39;</span>, </span>
-<span id="cb411-6"><a href="data-visualisation-1.html#cb411-6" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span> <span class="sc">==</span> <span class="st">&#39;To-from Overseas&#39;</span>, </span>
-<span id="cb411-7"><a href="data-visualisation-1.html#cb411-7" aria-hidden="true" tabindex="-1"></a>         Sex <span class="sc">==</span> <span class="st">&#39;All&#39;</span>)</span>
-<span id="cb411-8"><a href="data-visualisation-1.html#cb411-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb411-9"><a href="data-visualisation-1.html#cb411-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb411-10"><a href="data-visualisation-1.html#cb411-10" aria-hidden="true" tabindex="-1"></a>q6 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(my_data, <span class="fu">aes</span>(<span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>, Value)) <span class="sc">+</span> </span>
-<span id="cb411-11"><a href="data-visualisation-1.html#cb411-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span>
-<span id="cb411-12"><a href="data-visualisation-1.html#cb411-12" aria-hidden="true" tabindex="-1"></a>q6</span></code></pre></div>
-<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-325-1.png" width="672" /></p>
-<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="data-visualisation-1.html#cb412-1" aria-hidden="true" tabindex="-1"></a>q7 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(my_data, <span class="fu">aes</span>(<span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>, Value, <span class="at">fill =</span> <span class="fu">as.character</span>(DateCode))) <span class="sc">+</span> </span>
-<span id="cb412-2"><a href="data-visualisation-1.html#cb412-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>)</span>
-<span id="cb412-3"><a href="data-visualisation-1.html#cb412-3" aria-hidden="true" tabindex="-1"></a>q7 </span></code></pre></div>
-<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-325-2.png" width="672" /></p>
-<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="data-visualisation-1.html#cb413-1" aria-hidden="true" tabindex="-1"></a>q8 <span class="ot">&lt;-</span><span class="fu">ggplot</span>(my_data, <span class="fu">aes</span>(<span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>, Value, <span class="at">fill =</span> Age)) <span class="sc">+</span> </span>
-<span id="cb413-2"><a href="data-visualisation-1.html#cb413-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>)</span>
-<span id="cb413-3"><a href="data-visualisation-1.html#cb413-3" aria-hidden="true" tabindex="-1"></a>q8</span></code></pre></div>
-<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-325-3.png" width="672" /></p>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="data-visualisation-1.html#cb403-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> traffic_scot <span class="sc">%&gt;%</span> </span>
+<span id="cb403-2"><a href="data-visualisation-1.html#cb403-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Age <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;21 years&#39;</span>, <span class="st">&#39;41 years&#39;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb403-3"><a href="data-visualisation-1.html#cb403-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(DateCode, Value, Age, Sex, <span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span>, <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb403-4"><a href="data-visualisation-1.html#cb403-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DateCode <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;2013&#39;</span>, <span class="st">&#39;2018&#39;</span>), </span>
+<span id="cb403-5"><a href="data-visualisation-1.html#cb403-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span> <span class="sc">!=</span> <span class="st">&#39;Net&#39;</span>, </span>
+<span id="cb403-6"><a href="data-visualisation-1.html#cb403-6" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span> <span class="sc">==</span> <span class="st">&#39;To-from Overseas&#39;</span>, </span>
+<span id="cb403-7"><a href="data-visualisation-1.html#cb403-7" aria-hidden="true" tabindex="-1"></a>         Sex <span class="sc">==</span> <span class="st">&#39;All&#39;</span>)</span>
+<span id="cb403-8"><a href="data-visualisation-1.html#cb403-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb403-9"><a href="data-visualisation-1.html#cb403-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb403-10"><a href="data-visualisation-1.html#cb403-10" aria-hidden="true" tabindex="-1"></a>q6 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(my_data, <span class="fu">aes</span>(<span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>, Value)) <span class="sc">+</span> </span>
+<span id="cb403-11"><a href="data-visualisation-1.html#cb403-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span>
+<span id="cb403-12"><a href="data-visualisation-1.html#cb403-12" aria-hidden="true" tabindex="-1"></a>q6</span></code></pre></div>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-316-1.png" width="672" /></p>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="data-visualisation-1.html#cb404-1" aria-hidden="true" tabindex="-1"></a>q7 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(my_data, <span class="fu">aes</span>(<span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>, Value, <span class="at">fill =</span> <span class="fu">as.character</span>(DateCode))) <span class="sc">+</span> </span>
+<span id="cb404-2"><a href="data-visualisation-1.html#cb404-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>)</span>
+<span id="cb404-3"><a href="data-visualisation-1.html#cb404-3" aria-hidden="true" tabindex="-1"></a>q7 </span></code></pre></div>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-316-2.png" width="672" /></p>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="data-visualisation-1.html#cb405-1" aria-hidden="true" tabindex="-1"></a>q8 <span class="ot">&lt;-</span><span class="fu">ggplot</span>(my_data, <span class="fu">aes</span>(<span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>, Value, <span class="at">fill =</span> Age)) <span class="sc">+</span> </span>
+<span id="cb405-2"><a href="data-visualisation-1.html#cb405-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>)</span>
+<span id="cb405-3"><a href="data-visualisation-1.html#cb405-3" aria-hidden="true" tabindex="-1"></a>q8</span></code></pre></div>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-316-3.png" width="672" /></p>
 </div>
 </div>
 <div id="formative-homework-3" class="section level2 hasAnchor" number="7.10">

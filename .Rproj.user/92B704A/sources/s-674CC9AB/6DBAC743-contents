@@ -1,1 +1,0 @@
-shinyintro::clone("basic_template", "myapps/newapp")

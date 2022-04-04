@@ -108,9 +108,9 @@ summative-homework-1
 data-transformation-3-tidy-data
 pre-steps-3
 tidy-data
-gather-and-spread
-gather
-spread
+pivot_longer-and-pivot_wider
+pivot_longer
+pivot_wider
 separate-and-unite
 separate
 additional-arguments-for-separate
