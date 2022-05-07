@@ -1,0 +1,6 @@
+"0","fake_data <- mutate(fake_data, Institution_ifelse = ifelse(Institution == 1, ""UoG"", "
+"0","                                                           ifelse(Institution == 3, ""GCU"", "
+"0","                                                                  ifelse(Institution ==  4, ""UWS"", ""Strathclyde""))))"
+"2","Error in mutate(fake_data, Institution_ifelse = ifelse(Institution ==  : 
+  could not find function ""mutate""
+"

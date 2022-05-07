@@ -199,3 +199,10 @@ outline-for-today
 lecture-10-bringing-your-skills-together
 solutions
 references
+first-install-r-1
+second-install-rstudio-1
+opening-rstudio-1
+accessing-rstudio-on-university-computers-1
+using-rstudio-cloud-1
+downloading-your-files-from-rstudio-cloud-1
+maximising-reproducibility-and-visibility-1

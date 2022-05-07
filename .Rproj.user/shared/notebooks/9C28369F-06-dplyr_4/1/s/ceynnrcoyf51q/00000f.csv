@@ -1,0 +1,24 @@
+"0","fake_data <- mutate(fake_data, Grade = ifelse(Grade_points %in% 18:22, ""A"","
+"2","Warning messages:
+"
+"2","1: "
+"2","In readLines(index, encoding = encoding) :"
+"2","
+ "
+"2"," incomplete final line found on 'C:/Users/johan/Desktop/Intro_to_R_2022_Book/Gaby/index.Rmd'
+"
+"2","2: "
+"2","In readLines(index, encoding = encoding) :"
+"2","
+ "
+"2"," incomplete final line found on 'C:/Users/johan/Desktop/Intro_to_R_2022_Book/Gaby/index.Rmd'
+"
+"0","                                              ifelse(Grade_points %in% 15:17, ""B"","
+"0","                                                     ifelse(Grade_points %in% 12:14, ""C"","
+"0","                                                            ifelse(Grade_points %in% 9:11, ""D"","
+"0","                                                                   ifelse(Grade_points %in% 6:8, ""E"","
+"0","                                                                          ifelse(Grade_points %in% 3:5, ""F"","
+"0","                                                                                 ifelse(Grade_points %in% 1:2, ""G"",""H""))))))))"
+"2","Error in mutate(fake_data, Grade = ifelse(Grade_points %in% 18:22, ""A"",  : 
+  could not find function ""mutate""
+"

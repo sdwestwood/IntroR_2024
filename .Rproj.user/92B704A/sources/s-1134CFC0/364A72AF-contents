@@ -488,7 +488,7 @@ fake_data_sex <- fake_data %>%
   group_by(Institution, Sex) %>% 
   summarise(Average_gp = mean(Grade_points)) %>% 
   ungroup() %>% 
-  spread(Sex, Average_gp) %>% 
+  pivot_wider(names_from=Sex, values_from=Average_gp) %>% 
   select(Institution, Males = Male, Females = Female) %>% 
   mutate(Better = ifelse(Males > Females, "male", "female"))
 

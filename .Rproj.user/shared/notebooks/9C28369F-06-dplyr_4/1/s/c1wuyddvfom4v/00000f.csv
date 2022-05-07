@@ -1,0 +1,3 @@
+"0","kable(fake_data)"
+"2","Error in kable(fake_data) : could not find function ""kable""
+"

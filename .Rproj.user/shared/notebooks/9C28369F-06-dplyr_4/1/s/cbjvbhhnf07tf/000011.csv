@@ -1,0 +1,28 @@
+"0","fake_data_sex <- fake_data %>% 
+  filter(Sex != ""Other"") %>% # this step could actually be left out
+  group_by(Institution, Sex) %>% 
+  summarise(Average_gp = mean(Grade_points)) %>% 
+  ungroup() %>% 
+  pivot_wider(names_from=Sex, values_from=Average_gp) %>% 
+  select(Institution, Males = Male, Females = Female) %>% 
+  mutate(Better = ifelse(Males > Females, ""male"", ""female""))
+"
+"1","[38;5;252m`summarise()` has grouped output by 'Institution'. You can override using the
+`.groups` argument.[39m
+"
+"1","[1m[33mError[39m in [38;5;252m`select()`[39m:[22m
+[33m![39m Can't subset columns that don't exist.
+[31mx[39m Column `Male` doesn't exist.
+Backtrace:
+[90m  1. [39m... %>% ...
+[90m  4. [39m[1mdplyr[22m:::select.data.frame(., Institution, Males = Male, Females = Female)
+[90m  7. [39m[1mtidyselect[22m::eval_select(expr(c(...)), .data)
+[90m  8. [39mtidyselect:::eval_select_impl(...)
+[90m 17. [39mtidyselect:::vars_select_eval(...)
+     ...
+[90m 24. [39mtidyselect:::chr_as_locations(x, vars, call = call)
+[90m 25. [39m[1mvctrs[22m::vec_as_location(x, n = length(vars), names = vars)
+[90m 26. [39mvctrs `<fn>`()
+[90m 27. [39mvctrs:::stop_subscript_oob(...)
+[90m 28. [39mvctrs:::stop_subscript(...)
+"
