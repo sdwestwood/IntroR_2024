@@ -4009,7 +4009,7 @@ Use pipes `%>%` for the following 4 tasks and save your data into the **traffic_
 
 1. Select only the necessary variable - `DateCode`, `Value`, `Sex`, `Age`, `Migration Source` & `Migration Type` (notice that some variable names include spaces)
 2. Filter the data in column `DateCode`, and keep only observations from 2016
-3. Keep only the total number of people by `Age` ('All') and `Sex` ('All')
+3. Keep only the total number of people by `Age` ('All') and `Sex` ('Male' or 'Female')
 4. Keep only the information about the number of people that came to and left Scotland (we do not want to know about the net value)
 
 
