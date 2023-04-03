@@ -1,11 +1,11 @@
 --- 
 title: "Introduction to R"
-author: Gaby Mahrholz, Greta Todorova, Wilhelmiina Toivo, and Jaimie Torrance, updated by Johanna Werner in 2022
+author: Gaby Mahrholz, Greta Todorova, Wilhelmiina Toivo, and Jaimie Torrance, updated by Johanna Werner in 2022 and Sean Westwood in 2023
 date: "`r Sys.Date()`"
 bibliography: [book.bib, packages.bib]
 biblio-style: "apalike"
 description: This is the course handbook for the Glasgow University Open Studies course
-  Introduction to R, academic session 2022.
+  Introduction to R, academic session 2023.
 documentclass: book
 link-citations: yes
 site: bookdown::bookdown_site
@@ -105,10 +105,10 @@ We recommend that you start these early and, if required, seek assistance from t
 ```{r, echo=FALSE}
 assessments <- tibble(`Summative assessment` = c("1 (week 2)", "2 (week 4)", "3 (week 6)", "4 (week 8)", "5 (week 10)"),
                       `Assesses ILOs from lectures` = c("1 and 2", "3 and 4", "5 and 6", "7 and 8", "1-10"),
-                      `Assessment released` = c("11/04 at 6pm", "25/04 at 6pm", "09/05 at 6pm", "23/05 at 6pm", "06/06 at 6pm"),
-                      `Submission due` = c("18/04 at 5pm", "02/05 at 5pm", "16/05 at 5pm", "30/05 at 5pm", "13/06 at 5pm"),
+                      `Assessment released` = c("13/04 at 7pm", "27/04 at 7pm", "11/05 at 7pm", "25/05 at 7pm", "08/06 at 7pm"),
+                      `Submission due` = c("20/04 at 7pm", "04/05 at 7pm", "18/05 at 7pm", "01/06 at 7pm", "15/06 at 7pm"),
                       
-                      `Grades & Feedback released` = c("25/04 at 5pm", "09/05 at 5pm", "23/05 at 5pm", "06/06 at 5pm", "20/06 at 5pm"))
+                      `Grades & Feedback released` = c("27/04 at 7pm", "11/05 at 7pm", "25/05 at 7pm", "08/06 at 7pm", "22/06 at 7pm"))
 
 kable(assessments)
 
@@ -126,7 +126,7 @@ We will never ask you to memorise any code as this is not how people produce cod
 
 There will be penalties for late submissions. Your work will be assessed in the usual way, and the primary grade and secondary band will be adjusted to include reductions by two secondary bands for each working day (or part of a working day) the work was submitted late. For example, for submitting an assessment 6 hours after deadline with an assessed grade (had it been submitted on time) of A5, a penalty of 2 secondary bands reduction would result in a final grade of B2.
 
-You can apply for extensions for up to 5 working days. In that case, no grade points will be taken off your final grade for submitting after the official deadline. Please email Gaby (g.mahrholz.1@research.gla.ac.uk) if you find yourself struggling to submit on time. We are here for you. 
+You can apply for extensions for up to 5 working days. In that case, no grade points will be taken off your final grade for submitting after the official deadline. Please email the tutor who delivered the corresponding lesson (either sean.westwood@glasgow.ac.uk or courtney.taylorbrowneluka@glasgow.ac.uk) if you find yourself struggling to submit on time. We are here for you. 
 
 For extensions after 5 working days, you have to submit a good cause form. If an extension for good cause has been granted, and the extension is past the date that solutions for the assessment have been released, an alternative assessment will be provided.
 
@@ -158,4 +158,4 @@ We also believe in the value of open educational materials. Your course fees con
 
 ## Acknowledgement {-}
 
-The materials were initially developed for the University of Glasgow Short Courses for the academic term 2019/20 by [Gaby Mahrholz](https://www.psy.gla.ac.uk/otherstaff/?id=GM005), [Kate Haining](https://www.psy.gla.ac.uk/otherstaff/?id=KH001), [Rebecca Lai](https://www.psy.gla.ac.uk/otherstaff/?id=RL003), [Greta Todorova](https://www.psy.gla.ac.uk/otherstaff/?id=GKT01), and [Wilhelmiina Toivo](https://www.psy.gla.ac.uk/otherstaff/?id=TIWT1), and modified for the academic term 2020/21 by the current tutors.
+The materials were initially developed for the University of Glasgow Short Courses for the academic term 2019/20 by [Gaby Mahrholz](https://www.psy.gla.ac.uk/otherstaff/?id=GM005), [Kate Haining](https://www.psy.gla.ac.uk/otherstaff/?id=KH001), [Rebecca Lai](https://www.psy.gla.ac.uk/otherstaff/?id=RL003), [Greta Todorova](https://www.psy.gla.ac.uk/otherstaff/?id=GKT01), and [Wilhelmiina Toivo](https://www.psy.gla.ac.uk/otherstaff/?id=TIWT1), and modified for the academic term 2022/23 by the current tutors.
