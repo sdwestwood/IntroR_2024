@@ -1,1 +1,0 @@
-{"frames":[],"message":"Error in mutate(fake_data, Grade = ifelse(Grade_points %in% 18:22, \"A\",  : \n  could not find function \"mutate\"\n"}
