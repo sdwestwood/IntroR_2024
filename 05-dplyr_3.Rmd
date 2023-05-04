@@ -7,7 +7,7 @@ The whole purpose of the next two lecture is to tidy up dataframe and expose you
 1. How to rearrange data from long format into to wide format and vice versa
 2. How to combine and separate columns
 
-This lesson is led by Johanna Werner
+This lesson is led by Sean Westwood.
 
 
 
@@ -15,7 +15,7 @@ This lesson is led by Johanna Werner
 
 All the functions for tidying data are within `tidyverse` so we need to make sure to load it into the library. Today's lecture will make use of built-in dataframes but for practice examples, we may want to load in the West of Scotland seasonal sunshine and rain data you encountered last week.
 
-```{r L5, message=FALSE}
+```{r L5, message=FALSE, warning=FALSE}
 library(tidyverse)
 sun <- read_csv("wos_seasonal_sun.csv")
 rain <- read_csv("wos_seasonal_rain.csv")
@@ -188,7 +188,7 @@ table1_mod <- table1 %>%
 
 
 ```{r, echo=FALSE}
-kable(table1_mod)
+knitr::kable(table1_mod)
 ```
 
 
@@ -205,7 +205,7 @@ Your task is to `pivot_wider` the data back out, so that cases, population, and 
 ```
 
 ```{r, echo=FALSE}
-kable(pivot_wider(table1_mod, names_from = variable, values_from = values))
+knitr::kable(pivot_wider(table1_mod, names_from = variable, values_from = values))
 ```
 
 
@@ -316,7 +316,7 @@ By the way, the separator argument `sep = ` can be any non-alphanumeric characte
 But watch out! When the separator is a `full stop`, you would need to add a double backward slash in front of it (``sep = "\\\\."``).
 ```
 
-### additional arguments for separate()
+### Additional arguments for separate()
 
 #### Retaining the original column
 
@@ -483,7 +483,7 @@ tb_cases_converted
 ```
 
 
-### additional arguments for unite()
+### Additional arguments for unite()
 
 #### Retaining the original column
 

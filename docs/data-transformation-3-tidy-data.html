@@ -5,25 +5,25 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Data Transformation 3: Tidy Data | Introduction to R</title>
-  <meta name="description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2022." />
-  <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
+  <meta name="description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2022/2023." />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Data Transformation 3: Tidy Data | Introduction to R" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2022." />
+  <meta property="og:description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2022/2023." />
   
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 5 Data Transformation 3: Tidy Data | Introduction to R" />
   
-  <meta name="twitter:description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2022." />
+  <meta name="twitter:description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2022/2023." />
   
 
-<meta name="author" content="Gaby Mahrholz, Greta Todorova, Wilhelmiina Toivo, and Jaimie Torrance, updated by Johanna Werner in 2022" />
+<meta name="author" content="Gaby Mahrholz, Greta Todorova, Wilhelmiina Toivo, and Jaimie Torrance, updated by Johanna Werner in 2022 and Sean Westwood in 2023" />
 
 
-<meta name="date" content="2022-04-04" />
+<meta name="date" content="2023-05-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -119,28 +119,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -158,307 +136,313 @@ div.csl-indent {
 <li><a href="./">Introduction to R</a></li>
 
 <li class="divider"></li>
-<li><a href="index.html#about-this-course">About this course<span></span></a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About this course</a>
 <ul>
-<li><a href="index.html#intended-learning-outcomes">Intended Learning Outcomes<span></span></a></li>
-<li><a href="index.html#what-will-i-need-to-complete-this-course">What will I need to complete this course?<span></span></a></li>
-<li><a href="index.html#about-the-assessments">About the Assessments<span></span></a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#intended-learning-outcomes"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-will-i-need-to-complete-this-course"><i class="fa fa-check"></i>What will I need to complete this course?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-assessments"><i class="fa fa-check"></i>About the Assessments</a>
 <ul>
-<li><a href="index.html#formative-assessments">Formative Assessments<span></span></a></li>
-<li><a href="index.html#summative-assessments">Summative Assessments<span></span></a></li>
-<li><a href="index.html#late-submissions-extensions">Late submissions &amp; extensions<span></span></a></li>
-<li><a href="index.html#how-to-submit-your-assessments">How to Submit Your Assessments<span></span></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#formative-assessments"><i class="fa fa-check"></i>Formative Assessments</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#summative-assessments"><i class="fa fa-check"></i>Summative Assessments</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#late-submissions-extensions"><i class="fa fa-check"></i>Late submissions &amp; extensions</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-submit-your-assessments"><i class="fa fa-check"></i>How to Submit Your Assessments</a></li>
 </ul></li>
-<li><a href="index.html#assistance">Assistance<span></span></a></li>
-<li><a href="index.html#why-are-these-materials-open">Why are these materials open?<span></span></a></li>
-<li><a href="index.html#acknowledgement">Acknowledgement<span></span></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#assistance"><i class="fa fa-check"></i>Assistance</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-are-these-materials-open"><i class="fa fa-check"></i>Why are these materials open?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgement"><i class="fa fa-check"></i>Acknowledgement</a></li>
 </ul></li>
-<li><a href="before.html#before">Assignment before starting the course<span></span></a>
+<li class="chapter" data-level="" data-path="before.html"><a href="before.html"><i class="fa fa-check"></i>Assignment before starting the course</a>
 <ul>
-<li class="chapter" data-level="0.1" data-path="before.html"><a href="before.html"><i class="fa fa-check"></i><b>0.1</b> Access to RStudio<span></span></a>
+<li class="chapter" data-level="0.1" data-path="before.html"><a href="before.html#accessing"><i class="fa fa-check"></i><b>0.1</b> Access to RStudio</a>
 <ul>
-<li class="chapter" data-level="0.1.1" data-path="before.html"><a href="before.html#install"><i class="fa fa-check"></i><b>0.1.1</b> Installing R and RStudio on Your Own Machine<span></span></a></li>
-<li class="chapter" data-level="0.1.2" data-path="before.html"><a href="before.html#accessing-rstudio-on-university-computers"><i class="fa fa-check"></i><b>0.1.2</b> Accessing RStudio on University Computers<span></span></a></li>
-<li class="chapter" data-level="0.1.3" data-path="before.html"><a href="before.html#using-rstudio-cloud"><i class="fa fa-check"></i><b>0.1.3</b> Using RStudio Cloud<span></span></a></li>
+<li class="chapter" data-level="0.1.1" data-path="before.html"><a href="before.html#install"><i class="fa fa-check"></i><b>0.1.1</b> Installing R and RStudio on Your Own Machine</a></li>
+<li class="chapter" data-level="0.1.2" data-path="before.html"><a href="before.html#accessing-rstudio-on-university-computers"><i class="fa fa-check"></i><b>0.1.2</b> Accessing RStudio on University Computers</a></li>
+<li class="chapter" data-level="0.1.3" data-path="before.html"><a href="before.html#using-rstudio-cloud"><i class="fa fa-check"></i><b>0.1.3</b> Using RStudio Cloud</a></li>
 </ul></li>
-<li class="chapter" data-level="0.2" data-path="before.html"><a href="before.html#maximising-reproducibility-and-visibility"><i class="fa fa-check"></i><b>0.2</b> Maximising Reproducibility and Visibility<span></span></a></li>
+<li class="chapter" data-level="0.2" data-path="before.html"><a href="before.html#maximising-reproducibility-and-visibility"><i class="fa fa-check"></i><b>0.2</b> Maximising Reproducibility and Visibility</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction<span></span></a>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
-<li><a href="introduction.html#intended-learning-outcomes-1">Intended Learning Outcomes<span></span></a></li>
-<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#computer-literacy-basics"><i class="fa fa-check"></i><b>1.1</b> Computer Literacy Basics<span></span></a></li>
-<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#r-and-r-studio"><i class="fa fa-check"></i><b>1.2</b> R and R Studio<span></span></a>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#intended-learning-outcomes-1"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#computer-literacy-basics"><i class="fa fa-check"></i><b>1.1</b> Computer Literacy Basics</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#r-and-r-studio"><i class="fa fa-check"></i><b>1.2</b> R and R Studio</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#r"><i class="fa fa-check"></i><b>1.2.1</b> R<span></span></a></li>
-<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#rstudio-ide"><i class="fa fa-check"></i><b>1.2.2</b> RStudio IDE<span></span></a></li>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#r"><i class="fa fa-check"></i><b>1.2.1</b> R</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#rstudio-ide"><i class="fa fa-check"></i><b>1.2.2</b> RStudio IDE</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#r-r-studio-and-associated-file-types"><i class="fa fa-check"></i><b>1.3</b> R, R Studio and Associated File Types<span></span></a>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#r-r-studio-and-associated-file-types"><i class="fa fa-check"></i><b>1.3</b> R, R Studio and Associated File Types</a>
 <ul>
-<li class="chapter" data-level="1.3.1" data-path="introduction.html"><a href="introduction.html#file-structuredirectories"><i class="fa fa-check"></i><b>1.3.1</b> File Structure/Directories<span></span></a></li>
-<li class="chapter" data-level="1.3.2" data-path="introduction.html"><a href="introduction.html#file-extensions"><i class="fa fa-check"></i><b>1.3.2</b> File Extensions<span></span></a></li>
-<li class="chapter" data-level="1.3.3" data-path="introduction.html"><a href="introduction.html#zip-files"><i class="fa fa-check"></i><b>1.3.3</b> .zip Files<span></span></a></li>
-<li class="chapter" data-level="1.3.4" data-path="introduction.html"><a href="introduction.html#rstudio-specific-files"><i class="fa fa-check"></i><b>1.3.4</b> RStudio Specific Files<span></span></a></li>
-<li class="chapter" data-level="1.3.5" data-path="introduction.html"><a href="introduction.html#r-files"><i class="fa fa-check"></i><b>1.3.5</b> .r Files<span></span></a></li>
-<li class="chapter" data-level="1.3.6" data-path="introduction.html"><a href="introduction.html#rmd-files"><i class="fa fa-check"></i><b>1.3.6</b> .Rmd files<span></span></a></li>
+<li class="chapter" data-level="1.3.1" data-path="introduction.html"><a href="introduction.html#file-structuredirectories"><i class="fa fa-check"></i><b>1.3.1</b> File Structure/Directories</a></li>
+<li class="chapter" data-level="1.3.2" data-path="introduction.html"><a href="introduction.html#file-extensions"><i class="fa fa-check"></i><b>1.3.2</b> File Extensions</a></li>
+<li class="chapter" data-level="1.3.3" data-path="introduction.html"><a href="introduction.html#zip-files"><i class="fa fa-check"></i><b>1.3.3</b> .zip Files</a></li>
+<li class="chapter" data-level="1.3.4" data-path="introduction.html"><a href="introduction.html#rstudio-specific-files"><i class="fa fa-check"></i><b>1.3.4</b> RStudio Specific Files</a></li>
+<li class="chapter" data-level="1.3.5" data-path="introduction.html"><a href="introduction.html#r-files"><i class="fa fa-check"></i><b>1.3.5</b> .r Files</a></li>
+<li class="chapter" data-level="1.3.6" data-path="introduction.html"><a href="introduction.html#rmd-files"><i class="fa fa-check"></i><b>1.3.6</b> .Rmd files</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#comments"><i class="fa fa-check"></i><b>1.4</b> Comments<span></span></a></li>
-<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#saving-your-file"><i class="fa fa-check"></i><b>1.5</b> Saving your file<span></span></a></li>
-<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#sessions"><i class="fa fa-check"></i><b>1.6</b> Sessions<span></span></a>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#comments"><i class="fa fa-check"></i><b>1.4</b> Comments</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#saving-your-file"><i class="fa fa-check"></i><b>1.5</b> Saving your file</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#sessions"><i class="fa fa-check"></i><b>1.6</b> Sessions</a>
 <ul>
-<li class="chapter" data-level="1.6.1" data-path="introduction.html"><a href="introduction.html#what-is-a-session-in-r"><i class="fa fa-check"></i><b>1.6.1</b> What is a session in R?<span></span></a></li>
-<li class="chapter" data-level="1.6.2" data-path="introduction.html"><a href="introduction.html#restarting-your-current-session"><i class="fa fa-check"></i><b>1.6.2</b> Restarting Your Current Session<span></span></a></li>
+<li class="chapter" data-level="1.6.1" data-path="introduction.html"><a href="introduction.html#what-is-a-session-in-r"><i class="fa fa-check"></i><b>1.6.1</b> What is a session in R?</a></li>
+<li class="chapter" data-level="1.6.2" data-path="introduction.html"><a href="introduction.html#restarting-your-current-session"><i class="fa fa-check"></i><b>1.6.2</b> Restarting Your Current Session</a></li>
 </ul></li>
-<li class="chapter" data-level="1.7" data-path="introduction.html"><a href="introduction.html#packages"><i class="fa fa-check"></i><b>1.7</b> Packages<span></span></a>
+<li class="chapter" data-level="1.7" data-path="introduction.html"><a href="introduction.html#packages"><i class="fa fa-check"></i><b>1.7</b> Packages</a>
 <ul>
-<li class="chapter" data-level="1.7.1" data-path="introduction.html"><a href="introduction.html#installing-packages"><i class="fa fa-check"></i><b>1.7.1</b> Installing Packages<span></span></a></li>
-<li class="chapter" data-level="1.7.2" data-path="introduction.html"><a href="introduction.html#load-tidyverse"><i class="fa fa-check"></i><b>1.7.2</b> Loading Packages<span></span></a></li>
+<li class="chapter" data-level="1.7.1" data-path="introduction.html"><a href="introduction.html#installing-packages"><i class="fa fa-check"></i><b>1.7.1</b> Installing Packages</a></li>
+<li class="chapter" data-level="1.7.2" data-path="introduction.html"><a href="introduction.html#load-tidyverse"><i class="fa fa-check"></i><b>1.7.2</b> Loading Packages</a></li>
 </ul></li>
-<li class="chapter" data-level="1.8" data-path="introduction.html"><a href="introduction.html#functions"><i class="fa fa-check"></i><b>1.8</b> Functions<span></span></a>
+<li class="chapter" data-level="1.8" data-path="introduction.html"><a href="introduction.html#functions"><i class="fa fa-check"></i><b>1.8</b> Functions</a>
 <ul>
-<li class="chapter" data-level="1.8.1" data-path="introduction.html"><a href="introduction.html#what-is-a-function"><i class="fa fa-check"></i><b>1.8.1</b> What is a function?<span></span></a></li>
-<li class="chapter" data-level="1.8.2" data-path="introduction.html"><a href="introduction.html#the-anatomy-of-a-function-names-and-arguments"><i class="fa fa-check"></i><b>1.8.2</b> The Anatomy of a Function: names and arguments<span></span></a></li>
+<li class="chapter" data-level="1.8.1" data-path="introduction.html"><a href="introduction.html#what-is-a-function"><i class="fa fa-check"></i><b>1.8.1</b> What is a function?</a></li>
+<li class="chapter" data-level="1.8.2" data-path="introduction.html"><a href="introduction.html#the-anatomy-of-a-function-names-and-arguments"><i class="fa fa-check"></i><b>1.8.2</b> The Anatomy of a Function: names and arguments</a></li>
 </ul></li>
-<li class="chapter" data-level="1.9" data-path="introduction.html"><a href="introduction.html#formative-homework"><i class="fa fa-check"></i><b>1.9</b> Formative Homework<span></span></a>
+<li class="chapter" data-level="1.9" data-path="introduction.html"><a href="introduction.html#formative-homework"><i class="fa fa-check"></i><b>1.9</b> Formative Homework</a>
 <ul>
-<li class="chapter" data-level="1.9.1" data-path="introduction.html"><a href="introduction.html#install-r-and-rstudio-on-your-personal-computer"><i class="fa fa-check"></i><b>1.9.1</b> Install R and RStudio on your personal computer<span></span></a></li>
-<li class="chapter" data-level="1.9.2" data-path="introduction.html"><a href="introduction.html#installing-and-loading-tidyverse"><i class="fa fa-check"></i><b>1.9.2</b> Installing and Loading tidyverse<span></span></a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="introduction-to-data.html"><a href="introduction-to-data.html"><i class="fa fa-check"></i><b>2</b> Introduction to Data<span></span></a>
-<ul>
-<li><a href="introduction-to-data.html#intended-learning-outcomes-2">Intended Learning Outcomes<span></span></a></li>
-<li class="chapter" data-level="2.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#pre-steps"><i class="fa fa-check"></i><b>2.1</b> Pre-Steps<span></span></a>
-<ul>
-<li class="chapter" data-level="2.1.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#downloading-materials"><i class="fa fa-check"></i><b>2.1.1</b> Downloading materials<span></span></a></li>
-<li class="chapter" data-level="2.1.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#unzipping-the-zip-folder"><i class="fa fa-check"></i><b>2.1.2</b> Unzipping the zip folder<span></span></a></li>
-<li class="chapter" data-level="2.1.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#setting-the-working-directory"><i class="fa fa-check"></i><b>2.1.3</b> Setting the working directory<span></span></a></li>
-<li class="chapter" data-level="2.1.4" data-path="introduction-to-data.html"><a href="introduction-to-data.html#load-tidyverse-into-the-library"><i class="fa fa-check"></i><b>2.1.4</b> Load tidyverse into the library<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="2.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#basic-data-types"><i class="fa fa-check"></i><b>2.2</b> Basic data types<span></span></a>
-<ul>
-<li class="chapter" data-level="2.2.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#character"><i class="fa fa-check"></i><b>2.2.1</b> Character<span></span></a></li>
-<li class="chapter" data-level="2.2.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#numeric"><i class="fa fa-check"></i><b>2.2.2</b> Numeric<span></span></a></li>
-<li class="chapter" data-level="2.2.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#logical"><i class="fa fa-check"></i><b>2.2.3</b> Logical<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="2.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#vectors"><i class="fa fa-check"></i><b>2.3</b> Vectors<span></span></a>
-<ul>
-<li class="chapter" data-level="2.3.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#creating-vectors"><i class="fa fa-check"></i><b>2.3.1</b> Creating vectors<span></span></a></li>
-<li class="chapter" data-level="2.3.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#converting-vectors-into-different-data-types-of-vectors-aka-funky-things-we-can-do"><i class="fa fa-check"></i><b>2.3.2</b> Converting vectors into different data types of vectors aka funky things we can do<span></span></a></li>
-<li class="chapter" data-level="2.3.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#adding-elements-to-existing-vectors"><i class="fa fa-check"></i><b>2.3.3</b> Adding elements to existing vectors<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="2.4" data-path="introduction-to-data.html"><a href="introduction-to-data.html#tibble---the-new-way-of-creating-a-dataframe"><i class="fa fa-check"></i><b>2.4</b> Tibble - the new way of creating a dataframe<span></span></a>
-<ul>
-<li class="chapter" data-level="2.4.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#what-the-heck-is-a-tibble-do-you-mean-table"><i class="fa fa-check"></i><b>2.4.1</b> What the heck is a tibble? Do you mean table?<span></span></a></li>
-<li class="chapter" data-level="2.4.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#how-to-make-a-tibble-from-scratch"><i class="fa fa-check"></i><b>2.4.2</b> How to make a tibble from scratch<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="2.5" data-path="introduction-to-data.html"><a href="introduction-to-data.html#reading-in-data"><i class="fa fa-check"></i><b>2.5</b> Reading in data<span></span></a>
-<ul>
-<li class="chapter" data-level="2.5.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#from-pre-existing-databases"><i class="fa fa-check"></i><b>2.5.1</b> from pre-existing databases<span></span></a></li>
-<li class="chapter" data-level="2.5.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#from-existing-data-files"><i class="fa fa-check"></i><b>2.5.2</b> from existing data files<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="2.6" data-path="introduction-to-data.html"><a href="introduction-to-data.html#last-point-for-today"><i class="fa fa-check"></i><b>2.6</b> Last point for today<span></span></a></li>
-<li class="chapter" data-level="2.7" data-path="introduction-to-data.html"><a href="introduction-to-data.html#summative-homework"><i class="fa fa-check"></i><b>2.7</b> Summative Homework<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html"><i class="fa fa-check"></i><b>3</b> Data Transformation 1: Basic One Table Verbs<span></span></a>
-<ul>
-<li><a href="data-transformation-1-basic-one-table-verbs.html#intended-learning-outcomes-3">Intended Learning Outcomes<span></span></a></li>
-<li class="chapter" data-level="3.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#data-wrangling"><i class="fa fa-check"></i><b>3.1</b> Data Wrangling<span></span></a></li>
-<li class="chapter" data-level="3.2" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#pre-steps-1"><i class="fa fa-check"></i><b>3.2</b> Pre-Steps<span></span></a>
-<ul>
-<li class="chapter" data-level="3.2.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#downloading-materials-1"><i class="fa fa-check"></i><b>3.2.1</b> Downloading materials<span></span></a></li>
-<li class="chapter" data-level="3.2.2" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#unzipping-the-zip-folder-1"><i class="fa fa-check"></i><b>3.2.2</b> Unzipping the zip folder<span></span></a></li>
-<li class="chapter" data-level="3.2.3" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#setting-the-working-directory-1"><i class="fa fa-check"></i><b>3.2.3</b> Setting the working directory<span></span></a></li>
-<li class="chapter" data-level="3.2.4" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#loading-in-the-required-packages-into-the-library"><i class="fa fa-check"></i><b>3.2.4</b> Loading in the required packages into the library<span></span></a></li>
-<li class="chapter" data-level="3.2.5" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#read-in-the-data"><i class="fa fa-check"></i><b>3.2.5</b> Read in the data<span></span></a></li>
-<li class="chapter" data-level="3.2.6" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#view-the-data"><i class="fa fa-check"></i><b>3.2.6</b> View the data<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="3.3" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#select"><i class="fa fa-check"></i><b>3.3</b> select()<span></span></a></li>
-<li class="chapter" data-level="3.4" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#arrange"><i class="fa fa-check"></i><b>3.4</b> arrange()<span></span></a></li>
-<li class="chapter" data-level="3.5" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#filter"><i class="fa fa-check"></i><b>3.5</b> filter()<span></span></a>
-<ul>
-<li class="chapter" data-level="3.5.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#single-criterion"><i class="fa fa-check"></i><b>3.5.1</b> Single criterion<span></span></a></li>
-<li class="chapter" data-level="3.5.2" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#multiple-criteria"><i class="fa fa-check"></i><b>3.5.2</b> Multiple criteria<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="3.6" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#mutate"><i class="fa fa-check"></i><b>3.6</b> mutate()<span></span></a>
-<ul>
-<li class="chapter" data-level="3.6.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#read-in-second-dataset"><i class="fa fa-check"></i><b>3.6.1</b> Read in second dataset<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="3.7" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#summarise"><i class="fa fa-check"></i><b>3.7</b> summarise()<span></span></a></li>
-<li class="chapter" data-level="3.8" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#adding-group_by"><i class="fa fa-check"></i><b>3.8</b> Adding group_by()<span></span></a></li>
-<li class="chapter" data-level="3.9" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#formative-homework-1"><i class="fa fa-check"></i><b>3.9</b> Formative Homework<span></span></a>
-<ul>
-<li class="chapter" data-level="3.9.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#brief-introduction-to-the-homework-data"><i class="fa fa-check"></i><b>3.9.1</b> Brief introduction to the homework data<span></span></a></li>
+<li class="chapter" data-level="1.9.1" data-path="introduction.html"><a href="introduction.html#install-r-and-rstudio-on-your-personal-computer"><i class="fa fa-check"></i><b>1.9.1</b> Install R and RStudio on your personal computer</a></li>
+<li class="chapter" data-level="1.9.2" data-path="introduction.html"><a href="introduction.html#installing-and-loading-tidyverse"><i class="fa fa-check"></i><b>1.9.2</b> Installing and Loading tidyverse</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html"><i class="fa fa-check"></i><b>4</b> Data Transformation 2: More One and Two Table Verbs<span></span></a>
+<li class="chapter" data-level="2" data-path="introduction-to-data.html"><a href="introduction-to-data.html"><i class="fa fa-check"></i><b>2</b> Introduction to Data</a>
 <ul>
-<li><a href="data-transformation-2-more-one-and-two-table-verbs.html#intended-learning-outcomes-4">Intended Learning Outcomes<span></span></a></li>
-<li class="chapter" data-level="4.1" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#pre-steps-2"><i class="fa fa-check"></i><b>4.1</b> Pre-Steps<span></span></a></li>
-<li class="chapter" data-level="4.2" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#practicing-the-wikham-six"><i class="fa fa-check"></i><b>4.2</b> Practicing the Wikham Six<span></span></a>
+<li class="chapter" data-level="" data-path="introduction-to-data.html"><a href="introduction-to-data.html#intended-learning-outcomes-2"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="2.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#pre-steps"><i class="fa fa-check"></i><b>2.1</b> Pre-Steps</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#select-1"><i class="fa fa-check"></i><b>4.2.1</b> select()<span></span></a></li>
-<li class="chapter" data-level="4.2.2" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#arrange-1"><i class="fa fa-check"></i><b>4.2.2</b> arrange()<span></span></a></li>
-<li class="chapter" data-level="4.2.3" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#filter-1"><i class="fa fa-check"></i><b>4.2.3</b> filter()<span></span></a></li>
-<li class="chapter" data-level="4.2.4" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#mutate-1"><i class="fa fa-check"></i><b>4.2.4</b> mutate()<span></span></a></li>
-<li class="chapter" data-level="4.2.5" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#group_by-and-summarise"><i class="fa fa-check"></i><b>4.2.5</b> group_by() and summarise()<span></span></a></li>
-<li class="chapter" data-level="4.2.6" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#bringing-it-all-together"><i class="fa fa-check"></i><b>4.2.6</b> Bringing it all together<span></span></a></li>
+<li class="chapter" data-level="2.1.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#downloading-materials"><i class="fa fa-check"></i><b>2.1.1</b> Downloading materials</a></li>
+<li class="chapter" data-level="2.1.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#unzipping-the-zip-folder"><i class="fa fa-check"></i><b>2.1.2</b> Unzipping the zip folder</a></li>
+<li class="chapter" data-level="2.1.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#setting-the-working-directory"><i class="fa fa-check"></i><b>2.1.3</b> Setting the working directory</a></li>
+<li class="chapter" data-level="2.1.4" data-path="introduction-to-data.html"><a href="introduction-to-data.html#load-tidyverse-into-the-library"><i class="fa fa-check"></i><b>2.1.4</b> Load tidyverse into the library</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#pipes"><i class="fa fa-check"></i><b>4.3</b> The pipe operator (%&gt;%)<span></span></a></li>
-<li class="chapter" data-level="4.4" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#two-table-verbs"><i class="fa fa-check"></i><b>4.4</b> Two-Table Verbs<span></span></a>
+<li class="chapter" data-level="2.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#basic-data-types"><i class="fa fa-check"></i><b>2.2</b> Basic data types</a>
 <ul>
-<li class="chapter" data-level="4.4.1" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#bringing-in-new-data"><i class="fa fa-check"></i><b>4.4.1</b> Bringing in new data<span></span></a></li>
-<li class="chapter" data-level="4.4.2" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#mutating-join-verbs"><i class="fa fa-check"></i><b>4.4.2</b> Mutating Join Verbs<span></span></a></li>
-<li class="chapter" data-level="4.4.3" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#mutating-join-summary"><i class="fa fa-check"></i><b>4.4.3</b> Mutating Join Summary<span></span></a></li>
-<li class="chapter" data-level="4.4.4" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#binding-join-verbs"><i class="fa fa-check"></i><b>4.4.4</b> Binding Join Verbs<span></span></a></li>
+<li class="chapter" data-level="2.2.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#character"><i class="fa fa-check"></i><b>2.2.1</b> Character</a></li>
+<li class="chapter" data-level="2.2.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#numeric"><i class="fa fa-check"></i><b>2.2.2</b> Numeric</a></li>
+<li class="chapter" data-level="2.2.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#logical"><i class="fa fa-check"></i><b>2.2.3</b> Logical</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#additional-information"><i class="fa fa-check"></i><b>4.5</b> Additional information<span></span></a></li>
-<li class="chapter" data-level="4.6" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#summative-homework-1"><i class="fa fa-check"></i><b>4.6</b> Summative Homework<span></span></a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#vectors"><i class="fa fa-check"></i><b>2.3</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#creating-vectors"><i class="fa fa-check"></i><b>2.3.1</b> Creating vectors</a></li>
+<li class="chapter" data-level="2.3.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#converting-vectors-into-different-data-types-of-vectors-aka-funky-things-we-can-do"><i class="fa fa-check"></i><b>2.3.2</b> Converting vectors into different data types of vectors aka funky things we can do</a></li>
+<li class="chapter" data-level="2.3.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#adding-elements-to-existing-vectors"><i class="fa fa-check"></i><b>2.3.3</b> Adding elements to existing vectors</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html"><i class="fa fa-check"></i><b>5</b> Data Transformation 3: Tidy Data<span></span></a>
+<li class="chapter" data-level="2.4" data-path="introduction-to-data.html"><a href="introduction-to-data.html#tibble---the-new-way-of-creating-a-dataframe"><i class="fa fa-check"></i><b>2.4</b> Tibble - the new way of creating a dataframe</a>
 <ul>
-<li><a href="data-transformation-3-tidy-data.html#intended-learning-outcomes-5">Intended Learning Outcomes<span></span></a></li>
-<li class="chapter" data-level="5.1" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#pre-steps-3"><i class="fa fa-check"></i><b>5.1</b> Pre-steps<span></span></a></li>
-<li class="chapter" data-level="5.2" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#tidy-data"><i class="fa fa-check"></i><b>5.2</b> Tidy data<span></span></a></li>
-<li class="chapter" data-level="5.3" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#pivot_longer-and-pivot_wider"><i class="fa fa-check"></i><b>5.3</b> pivot_longer() and pivot_wider()<span></span></a>
-<ul>
-<li class="chapter" data-level="5.3.1" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#pivot_longer"><i class="fa fa-check"></i><b>5.3.1</b> pivot_longer()<span></span></a></li>
-<li class="chapter" data-level="5.3.2" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#pivot_wider"><i class="fa fa-check"></i><b>5.3.2</b> pivot_wider()<span></span></a></li>
+<li class="chapter" data-level="2.4.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#what-the-heck-is-a-tibble-do-you-mean-table"><i class="fa fa-check"></i><b>2.4.1</b> What the heck is a tibble? Do you mean table?</a></li>
+<li class="chapter" data-level="2.4.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#how-to-make-a-tibble-from-scratch"><i class="fa fa-check"></i><b>2.4.2</b> How to make a tibble from scratch</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#separate-and-unite"><i class="fa fa-check"></i><b>5.4</b> separate() and unite()<span></span></a>
+<li class="chapter" data-level="2.5" data-path="introduction-to-data.html"><a href="introduction-to-data.html#reading-in-data"><i class="fa fa-check"></i><b>2.5</b> Reading in data</a>
 <ul>
-<li class="chapter" data-level="5.4.1" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#separate"><i class="fa fa-check"></i><b>5.4.1</b> separate()<span></span></a></li>
-<li class="chapter" data-level="5.4.2" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#additional-arguments-for-separate"><i class="fa fa-check"></i><b>5.4.2</b> additional arguments for separate()<span></span></a></li>
-<li class="chapter" data-level="5.4.3" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#unite"><i class="fa fa-check"></i><b>5.4.3</b> unite()<span></span></a></li>
-<li class="chapter" data-level="5.4.4" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#additional-arguments-for-unite"><i class="fa fa-check"></i><b>5.4.4</b> additional arguments for unite()<span></span></a></li>
+<li class="chapter" data-level="2.5.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#from-pre-existing-databases"><i class="fa fa-check"></i><b>2.5.1</b> from pre-existing databases</a></li>
+<li class="chapter" data-level="2.5.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#from-existing-data-files"><i class="fa fa-check"></i><b>2.5.2</b> from existing data files</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#bonus-materials-mutate-row-names-from-the-mtcars"><i class="fa fa-check"></i><b>5.5</b> Bonus materials: mutate row names from the <code>mtcars</code><span></span></a></li>
-<li class="chapter" data-level="5.6" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#additional-information-1"><i class="fa fa-check"></i><b>5.6</b> Additional information<span></span></a></li>
-<li class="chapter" data-level="5.7" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#formative-homework-2"><i class="fa fa-check"></i><b>5.7</b> Formative Homework<span></span></a></li>
+<li class="chapter" data-level="2.6" data-path="introduction-to-data.html"><a href="introduction-to-data.html#last-point-for-today"><i class="fa fa-check"></i><b>2.6</b> Last point for today</a></li>
+<li class="chapter" data-level="2.7" data-path="introduction-to-data.html"><a href="introduction-to-data.html#summative-homework"><i class="fa fa-check"></i><b>2.7</b> Summative Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html"><i class="fa fa-check"></i><b>6</b> Data Transformation 4: Fine-tuned Data Manipulation<span></span></a>
+<li class="chapter" data-level="3" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html"><i class="fa fa-check"></i><b>3</b> Data Transformation 1: Basic One Table Verbs</a>
 <ul>
-<li><a href="data-transformation-4-fine-tuned-data-manipulation.html#intended-learning-outcomes-6">Intended Learning Outcomes<span></span></a></li>
-<li class="chapter" data-level="6.1" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#pre-steps-4"><i class="fa fa-check"></i><b>6.1</b> Pre-steps<span></span></a></li>
-<li class="chapter" data-level="6.2" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#rename"><i class="fa fa-check"></i><b>6.2</b> rename()<span></span></a></li>
-<li class="chapter" data-level="6.3" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#conditional-statements"><i class="fa fa-check"></i><b>6.3</b> Conditional statements<span></span></a>
+<li class="chapter" data-level="" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#intended-learning-outcomes-3"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="3.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#data-wrangling"><i class="fa fa-check"></i><b>3.1</b> Data Wrangling</a></li>
+<li class="chapter" data-level="3.2" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#pre-steps-1"><i class="fa fa-check"></i><b>3.2</b> Pre-Steps</a>
 <ul>
-<li class="chapter" data-level="6.3.1" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#recode"><i class="fa fa-check"></i><b>6.3.1</b> recode()<span></span></a></li>
-<li class="chapter" data-level="6.3.2" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#ifelse"><i class="fa fa-check"></i><b>6.3.2</b> ifelse()<span></span></a></li>
-<li class="chapter" data-level="6.3.3" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#case_when"><i class="fa fa-check"></i><b>6.3.3</b> case_when()<span></span></a></li>
+<li class="chapter" data-level="3.2.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#downloading-materials-1"><i class="fa fa-check"></i><b>3.2.1</b> Downloading materials</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#unzipping-the-zip-folder-1"><i class="fa fa-check"></i><b>3.2.2</b> Unzipping the zip folder</a></li>
+<li class="chapter" data-level="3.2.3" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#setting-the-working-directory-1"><i class="fa fa-check"></i><b>3.2.3</b> Setting the working directory</a></li>
+<li class="chapter" data-level="3.2.4" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#loading-in-the-required-packages-into-the-library"><i class="fa fa-check"></i><b>3.2.4</b> Loading in the required packages into the library</a></li>
+<li class="chapter" data-level="3.2.5" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#read-in-the-data"><i class="fa fa-check"></i><b>3.2.5</b> Read in the data</a></li>
+<li class="chapter" data-level="3.2.6" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#view-the-data"><i class="fa fa-check"></i><b>3.2.6</b> View the data</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#distinct"><i class="fa fa-check"></i><b>6.4</b> distinct()<span></span></a></li>
-<li class="chapter" data-level="6.5" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#recap"><i class="fa fa-check"></i><b>6.5</b> Recap<span></span></a>
+<li class="chapter" data-level="3.3" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#select"><i class="fa fa-check"></i><b>3.3</b> select()</a></li>
+<li class="chapter" data-level="3.4" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#arrange"><i class="fa fa-check"></i><b>3.4</b> arrange()</a></li>
+<li class="chapter" data-level="3.5" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#filter"><i class="fa fa-check"></i><b>3.5</b> filter()</a>
 <ul>
-<li class="chapter" data-level="6.5.1" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-1"><i class="fa fa-check"></i><b>6.5.1</b> Question 1<span></span></a></li>
-<li class="chapter" data-level="6.5.2" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-2"><i class="fa fa-check"></i><b>6.5.2</b> Question 2<span></span></a></li>
-<li class="chapter" data-level="6.5.3" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-3"><i class="fa fa-check"></i><b>6.5.3</b> Question 3<span></span></a></li>
-<li class="chapter" data-level="6.5.4" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-4"><i class="fa fa-check"></i><b>6.5.4</b> Question 4<span></span></a></li>
-<li class="chapter" data-level="6.5.5" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-5"><i class="fa fa-check"></i><b>6.5.5</b> Question 5<span></span></a></li>
+<li class="chapter" data-level="3.5.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#single-criterion"><i class="fa fa-check"></i><b>3.5.1</b> Single criterion</a></li>
+<li class="chapter" data-level="3.5.2" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#multiple-criteria"><i class="fa fa-check"></i><b>3.5.2</b> Multiple criteria</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#summative-homework-2"><i class="fa fa-check"></i><b>6.6</b> Summative Homework<span></span></a></li>
+<li class="chapter" data-level="3.6" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#mutate"><i class="fa fa-check"></i><b>3.6</b> mutate()</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#read-in-second-dataset"><i class="fa fa-check"></i><b>3.6.1</b> Read in second dataset</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html"><i class="fa fa-check"></i><b>7</b> Data Visualisation 1<span></span></a>
+<li class="chapter" data-level="3.7" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#summarise"><i class="fa fa-check"></i><b>3.7</b> summarise()</a></li>
+<li class="chapter" data-level="3.8" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#adding-group_by"><i class="fa fa-check"></i><b>3.8</b> Adding group_by()</a></li>
+<li class="chapter" data-level="3.9" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#formative-homework-1"><i class="fa fa-check"></i><b>3.9</b> Formative Homework</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#pre-class-activities"><i class="fa fa-check"></i><b>7.1</b> Pre-class Activities<span></span></a></li>
-<li><a href="data-visualisation-1.html#intended-learning-outcomes-7">Intended Learning Outcomes<span></span></a></li>
-<li class="chapter" data-level="7.2" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#pre-steps-5"><i class="fa fa-check"></i><b>7.2</b> Pre-steps<span></span></a></li>
-<li class="chapter" data-level="7.3" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#introduction-to-the-data"><i class="fa fa-check"></i><b>7.3</b> Introduction to the data<span></span></a></li>
-<li class="chapter" data-level="7.4" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#some-warm-up-tasks"><i class="fa fa-check"></i><b>7.4</b> Some warm-up tasks<span></span></a></li>
-<li class="chapter" data-level="7.5" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#the-package-ggplot2"><i class="fa fa-check"></i><b>7.5</b> The package GGPLOT2<span></span></a></li>
-<li class="chapter" data-level="7.6" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#layering"><i class="fa fa-check"></i><b>7.6</b> Layering<span></span></a>
-<ul>
-<li class="chapter" data-level="7.6.1" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#layer-1"><i class="fa fa-check"></i><b>7.6.1</b> Layer 1<span></span></a></li>
-<li class="chapter" data-level="7.6.2" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#layer-2-and-onward"><i class="fa fa-check"></i><b>7.6.2</b> Layer 2 and onward<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="7.7" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#how-do-we-choose-the-type-of-plot"><i class="fa fa-check"></i><b>7.7</b> How do we choose the type of plot?<span></span></a>
-<ul>
-<li class="chapter" data-level="7.7.1" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#data-format"><i class="fa fa-check"></i><b>7.7.1</b> Data format<span></span></a></li>
-<li class="chapter" data-level="7.7.2" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#number-of-variables"><i class="fa fa-check"></i><b>7.7.2</b> Number of variables<span></span></a></li>
-<li class="chapter" data-level="7.7.3" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#types-of-plots"><i class="fa fa-check"></i><b>7.7.3</b> Types of plots<span></span></a></li>
-<li class="chapter" data-level="7.7.4" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#groupings"><i class="fa fa-check"></i><b>7.7.4</b> Groupings<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="7.8" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#now-lets-have-a-look-at-different-plots-with-more-complexity"><i class="fa fa-check"></i><b>7.8</b> Now let’s have a look at different plots with more complexity<span></span></a></li>
-<li class="chapter" data-level="7.9" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#other-plots"><i class="fa fa-check"></i><b>7.9</b> Other plots<span></span></a></li>
-<li class="chapter" data-level="7.10" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#formative-homework-3"><i class="fa fa-check"></i><b>7.10</b> Formative Homework<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html"><i class="fa fa-check"></i><b>8</b> Data Visualisation 2<span></span></a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#additional-resources"><i class="fa fa-check"></i><b>8.1</b> Additional Resources<span></span></a></li>
-<li><a href="data-visualisation-2.html#intended-learning-outcomes-8">Intended Learning Outcomes<span></span></a></li>
-<li class="chapter" data-level="8.2" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#pre-steps-6"><i class="fa fa-check"></i><b>8.2</b> Pre-steps<span></span></a></li>
-<li class="chapter" data-level="8.3" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#re-introduction-to-the-data"><i class="fa fa-check"></i><b>8.3</b> Re-introduction to the data<span></span></a></li>
-<li class="chapter" data-level="8.4" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#create-multiple-plots-in-one"><i class="fa fa-check"></i><b>8.4</b> Create multiple plots in one<span></span></a>
-<ul>
-<li class="chapter" data-level="8.4.1" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#select-the-data-beforehand-and-create-different-plots."><i class="fa fa-check"></i><b>8.4.1</b> Select the data beforehand and create different plots.<span></span></a></li>
-<li class="chapter" data-level="8.4.2" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#facets"><i class="fa fa-check"></i><b>8.4.2</b> Facets<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="8.5" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#global-and-local-aesthetics"><i class="fa fa-check"></i><b>8.5</b> Global and Local aesthetics<span></span></a></li>
-<li class="chapter" data-level="8.6" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#themes-making-your-plots-pretty-looking-the-way-you-want-them-to"><i class="fa fa-check"></i><b>8.6</b> Themes: Making your plots pretty: looking the way you want them to<span></span></a>
-<ul>
-<li class="chapter" data-level="8.6.1" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#ready-made-themes"><i class="fa fa-check"></i><b>8.6.1</b> Ready-made themes<span></span></a></li>
-<li class="chapter" data-level="8.6.2" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#adding-axes-titles-and-headings"><i class="fa fa-check"></i><b>8.6.2</b> Adding axes titles and headings<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="8.7" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#changing-colours"><i class="fa fa-check"></i><b>8.7</b> Changing colours<span></span></a></li>
-<li class="chapter" data-level="8.8" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#legends"><i class="fa fa-check"></i><b>8.8</b> Legends<span></span></a></li>
-<li class="chapter" data-level="8.9" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#changing-axes-ticks"><i class="fa fa-check"></i><b>8.9</b> Changing axes ticks<span></span></a></li>
-<li class="chapter" data-level="8.10" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#saving-plots"><i class="fa fa-check"></i><b>8.10</b> Saving plots<span></span></a></li>
-<li class="chapter" data-level="8.11" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#summative-homework-3"><i class="fa fa-check"></i><b>8.11</b> Summative Homework<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="errors.html"><a href="errors.html"><i class="fa fa-check"></i><b>9</b> Errors<span></span></a>
-<ul>
-<li><a href="errors.html#intended-learning-outcomes-9">Intended Learning Outcomes<span></span></a></li>
-<li class="chapter" data-level="9.1" data-path="errors.html"><a href="errors.html#errors-how-to-avoid-some-and-live-through-the-rest"><i class="fa fa-check"></i><b>9.1</b> Errors: How to avoid some and live through the rest<span></span></a></li>
-<li class="chapter" data-level="9.2" data-path="errors.html"><a href="errors.html#debugging"><i class="fa fa-check"></i><b>9.2</b> Debugging<span></span></a>
-<ul>
-<li class="chapter" data-level="9.2.1" data-path="errors.html"><a href="errors.html#messages-from-r"><i class="fa fa-check"></i><b>9.2.1</b> Messages from R<span></span></a></li>
-<li class="chapter" data-level="9.2.2" data-path="errors.html"><a href="errors.html#error-messages"><i class="fa fa-check"></i><b>9.2.2</b> Error Messages<span></span></a></li>
-<li class="chapter" data-level="9.2.3" data-path="errors.html"><a href="errors.html#multiple-errors"><i class="fa fa-check"></i><b>9.2.3</b> Multiple Errors<span></span></a></li>
-<li class="chapter" data-level="9.2.4" data-path="errors.html"><a href="errors.html#finding-errors-in-longer-code-segments"><i class="fa fa-check"></i><b>9.2.4</b> Finding errors in longer code segments<span></span></a></li>
-<li class="chapter" data-level="9.2.5" data-path="errors.html"><a href="errors.html#warning-messages"><i class="fa fa-check"></i><b>9.2.5</b> Warning Messages<span></span></a></li>
-<li class="chapter" data-level="9.2.6" data-path="errors.html"><a href="errors.html#other-messages"><i class="fa fa-check"></i><b>9.2.6</b> Other Messages<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="9.3" data-path="errors.html"><a href="errors.html#searching-for-help-online"><i class="fa fa-check"></i><b>9.3</b> Searching for Help Online<span></span></a>
-<ul>
-<li class="chapter" data-level="9.3.1" data-path="errors.html"><a href="errors.html#googling-it"><i class="fa fa-check"></i><b>9.3.1</b> Googling It<span></span></a></li>
-<li class="chapter" data-level="9.3.2" data-path="errors.html"><a href="errors.html#stack-overflow"><i class="fa fa-check"></i><b>9.3.2</b> Stack Overflow<span></span></a></li>
-<li class="chapter" data-level="9.3.3" data-path="errors.html"><a href="errors.html#youtube"><i class="fa fa-check"></i><b>9.3.3</b> YouTube<span></span></a></li>
-<li class="chapter" data-level="9.3.4" data-path="errors.html"><a href="errors.html#further-reading"><i class="fa fa-check"></i><b>9.3.4</b> Further Reading<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="9.4" data-path="errors.html"><a href="errors.html#formative-exercises"><i class="fa fa-check"></i><b>9.4</b> Formative Exercises<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html"><i class="fa fa-check"></i><b>10</b> Recap: Before the final assessment<span></span></a>
-<ul>
-<li class="chapter" data-level="10.1" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#outline-for-today"><i class="fa fa-check"></i><b>10.1</b> Outline for today<span></span></a></li>
-<li class="chapter" data-level="10.2" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#lecture-10-bringing-your-skills-together"><i class="fa fa-check"></i><b>10.2</b> Lecture 10: Bringing your skills together<span></span></a>
-<ul>
-<li><a href="recap-before-the-final-assessment.html#question-1-1">Question 1<span></span></a></li>
-<li><a href="recap-before-the-final-assessment.html#question-2-1">Question 2<span></span></a></li>
-<li><a href="recap-before-the-final-assessment.html#question-3-1">Question 3<span></span></a></li>
-<li><a href="recap-before-the-final-assessment.html#question-4-1">Question 4<span></span></a></li>
-<li><a href="recap-before-the-final-assessment.html#question-5-1">Question 5<span></span></a></li>
-<li><a href="recap-before-the-final-assessment.html#question-6">Question 6<span></span></a></li>
-<li><a href="recap-before-the-final-assessment.html#question-7">Question 7<span></span></a></li>
-<li><a href="recap-before-the-final-assessment.html#question-8">Question 8<span></span></a></li>
-<li><a href="recap-before-the-final-assessment.html#question-9">Question 9<span></span></a></li>
-<li><a href="recap-before-the-final-assessment.html#question-10">Question 10<span></span></a></li>
-<li><a href="recap-before-the-final-assessment.html#question-11">Question 11<span></span></a></li>
-<li><a href="recap-before-the-final-assessment.html#question-12-bonus">Question 12 (Bonus)<span></span></a></li>
-<li><a href="recap-before-the-final-assessment.html#question-13-bonus">Question 13 (Bonus)<span></span></a></li>
-<li><a href="recap-before-the-final-assessment.html#question-14-bonus">Question 14 (Bonus)<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="10.3" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#solutions"><i class="fa fa-check"></i><b>10.3</b> Solutions<span></span></a></li>
-</ul></li>
-<li><a href="appendices.html#appendices">Appendices<span></span></a>
-<ul>
-<li><a href="appendices.html#changing-the-appearance-of-rmarkdown">Changing the Appearance of RMarkdown<span></span></a></li>
-<li><a href="appendices.html#source-materials">Source Materials<span></span></a></li>
-<li><a href="appendices.html#further-reading-1">Further Reading<span></span></a>
-<ul>
-<li><a href="appendices.html#statistics">Statistics<span></span></a></li>
-<li><a href="appendices.html#more-advanced-use-of-r">More Advanced Use of R<span></span></a></li>
+<li class="chapter" data-level="3.9.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#brief-introduction-to-the-homework-data"><i class="fa fa-check"></i><b>3.9.1</b> Brief introduction to the homework data</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>11</b> References<span></span></a></li>
+<li class="chapter" data-level="4" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html"><i class="fa fa-check"></i><b>4</b> Data Transformation 2: More One and Two Table Verbs</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#intended-learning-outcomes-4"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="4.1" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#practicing-the-wikham-six"><i class="fa fa-check"></i><b>4.1</b> Practicing the Wikham Six</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#select-1"><i class="fa fa-check"></i><b>4.1.1</b> select()</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#arrange-1"><i class="fa fa-check"></i><b>4.1.2</b> arrange()</a></li>
+<li class="chapter" data-level="4.1.3" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#filter-1"><i class="fa fa-check"></i><b>4.1.3</b> filter()</a></li>
+<li class="chapter" data-level="4.1.4" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#mutate-1"><i class="fa fa-check"></i><b>4.1.4</b> mutate()</a></li>
+<li class="chapter" data-level="4.1.5" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#group_by-and-summarise"><i class="fa fa-check"></i><b>4.1.5</b> group_by() and summarise()</a></li>
+<li class="chapter" data-level="4.1.6" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#bringing-it-all-together"><i class="fa fa-check"></i><b>4.1.6</b> Bringing it all together</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#pipes"><i class="fa fa-check"></i><b>4.2</b> The pipe operator (%&gt;%)</a></li>
+<li class="chapter" data-level="4.3" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#two-table-verbs"><i class="fa fa-check"></i><b>4.3</b> Two-Table Verbs</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#bringing-in-new-data"><i class="fa fa-check"></i><b>4.3.1</b> Bringing in new data</a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#mutating-join-summary"><i class="fa fa-check"></i><b>4.3.2</b> Mutating Join Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#additional-information"><i class="fa fa-check"></i><b>4.4</b> Additional information</a></li>
+<li class="chapter" data-level="4.5" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#summative-homework-1"><i class="fa fa-check"></i><b>4.5</b> Summative Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html"><i class="fa fa-check"></i><b>5</b> Data Transformation 3: Tidy Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#intended-learning-outcomes-5"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="5.1" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#pre-steps-2"><i class="fa fa-check"></i><b>5.1</b> Pre-steps</a></li>
+<li class="chapter" data-level="5.2" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#tidy-data"><i class="fa fa-check"></i><b>5.2</b> Tidy data</a></li>
+<li class="chapter" data-level="5.3" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#pivot_longer-and-pivot_wider"><i class="fa fa-check"></i><b>5.3</b> pivot_longer() and pivot_wider()</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#pivot_longer"><i class="fa fa-check"></i><b>5.3.1</b> pivot_longer()</a></li>
+<li class="chapter" data-level="5.3.2" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#pivot_wider"><i class="fa fa-check"></i><b>5.3.2</b> pivot_wider()</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#separate-and-unite"><i class="fa fa-check"></i><b>5.4</b> separate() and unite()</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#separate"><i class="fa fa-check"></i><b>5.4.1</b> separate()</a></li>
+<li class="chapter" data-level="5.4.2" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#additional-arguments-for-separate"><i class="fa fa-check"></i><b>5.4.2</b> Additional arguments for separate()</a></li>
+<li class="chapter" data-level="5.4.3" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#unite"><i class="fa fa-check"></i><b>5.4.3</b> unite()</a></li>
+<li class="chapter" data-level="5.4.4" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#additional-arguments-for-unite"><i class="fa fa-check"></i><b>5.4.4</b> Additional arguments for unite()</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#bonus-materials-mutate-row-names-from-the-mtcars"><i class="fa fa-check"></i><b>5.5</b> Bonus materials: mutate row names from the <code>mtcars</code></a></li>
+<li class="chapter" data-level="5.6" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#additional-information-1"><i class="fa fa-check"></i><b>5.6</b> Additional information</a></li>
+<li class="chapter" data-level="5.7" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#formative-homework-2"><i class="fa fa-check"></i><b>5.7</b> Formative Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html"><i class="fa fa-check"></i><b>6</b> Data Transformation 4: Fine-tuned Data Manipulation</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#intended-learning-outcomes-6"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="6.1" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#pre-steps-3"><i class="fa fa-check"></i><b>6.1</b> Pre-steps</a></li>
+<li class="chapter" data-level="6.2" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#rename"><i class="fa fa-check"></i><b>6.2</b> rename()</a></li>
+<li class="chapter" data-level="6.3" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#conditional-statements"><i class="fa fa-check"></i><b>6.3</b> Conditional statements</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#recode"><i class="fa fa-check"></i><b>6.3.1</b> recode()</a></li>
+<li class="chapter" data-level="6.3.2" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#ifelse"><i class="fa fa-check"></i><b>6.3.2</b> ifelse()</a></li>
+<li class="chapter" data-level="6.3.3" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#case_when"><i class="fa fa-check"></i><b>6.3.3</b> case_when()</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#distinct"><i class="fa fa-check"></i><b>6.4</b> distinct()</a></li>
+<li class="chapter" data-level="6.5" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#recap"><i class="fa fa-check"></i><b>6.5</b> Recap</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-1"><i class="fa fa-check"></i><b>6.5.1</b> Question 1</a></li>
+<li class="chapter" data-level="6.5.2" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-2"><i class="fa fa-check"></i><b>6.5.2</b> Question 2</a></li>
+<li class="chapter" data-level="6.5.3" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-3"><i class="fa fa-check"></i><b>6.5.3</b> Question 3</a></li>
+<li class="chapter" data-level="6.5.4" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-4"><i class="fa fa-check"></i><b>6.5.4</b> Question 4</a></li>
+<li class="chapter" data-level="6.5.5" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-5"><i class="fa fa-check"></i><b>6.5.5</b> Question 5</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#summative-homework-2"><i class="fa fa-check"></i><b>6.6</b> Summative Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html"><i class="fa fa-check"></i><b>7</b> Data Visualisation 1</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#pre-class-activities"><i class="fa fa-check"></i><b>7.1</b> Pre-class Activities</a></li>
+<li class="chapter" data-level="" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#intended-learning-outcomes-7"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="7.2" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#pre-steps-4"><i class="fa fa-check"></i><b>7.2</b> Pre-steps</a></li>
+<li class="chapter" data-level="7.3" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#introduction-to-the-data"><i class="fa fa-check"></i><b>7.3</b> Introduction to the data</a></li>
+<li class="chapter" data-level="7.4" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#some-warm-up-tasks"><i class="fa fa-check"></i><b>7.4</b> Some warm-up tasks</a></li>
+<li class="chapter" data-level="7.5" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#the-package-ggplot2"><i class="fa fa-check"></i><b>7.5</b> The package GGPLOT2</a></li>
+<li class="chapter" data-level="7.6" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#layering"><i class="fa fa-check"></i><b>7.6</b> Layering</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#layer-1"><i class="fa fa-check"></i><b>7.6.1</b> Layer 1</a></li>
+<li class="chapter" data-level="7.6.2" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#layer-2-and-onward"><i class="fa fa-check"></i><b>7.6.2</b> Layer 2 and onward</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#how-do-we-choose-the-type-of-plot"><i class="fa fa-check"></i><b>7.7</b> How do we choose the type of plot?</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#data-format"><i class="fa fa-check"></i><b>7.7.1</b> Data format</a></li>
+<li class="chapter" data-level="7.7.2" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#number-of-variables"><i class="fa fa-check"></i><b>7.7.2</b> Number of variables</a></li>
+<li class="chapter" data-level="7.7.3" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#types-of-plots"><i class="fa fa-check"></i><b>7.7.3</b> Types of plots</a></li>
+<li class="chapter" data-level="7.7.4" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#groupings"><i class="fa fa-check"></i><b>7.7.4</b> Groupings</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#now-lets-have-a-look-at-different-plots-with-more-complexity"><i class="fa fa-check"></i><b>7.8</b> Now let’s have a look at different plots with more complexity</a></li>
+<li class="chapter" data-level="7.9" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#other-plots"><i class="fa fa-check"></i><b>7.9</b> Other plots</a></li>
+<li class="chapter" data-level="7.10" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#formative-homework-3"><i class="fa fa-check"></i><b>7.10</b> Formative Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html"><i class="fa fa-check"></i><b>8</b> Data Visualisation 2</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#additional-resources"><i class="fa fa-check"></i><b>8.1</b> Additional Resources</a></li>
+<li class="chapter" data-level="" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#intended-learning-outcomes-8"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="8.2" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#pre-steps-5"><i class="fa fa-check"></i><b>8.2</b> Pre-steps</a></li>
+<li class="chapter" data-level="8.3" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#re-introduction-to-the-data"><i class="fa fa-check"></i><b>8.3</b> Re-introduction to the data</a></li>
+<li class="chapter" data-level="8.4" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#create-multiple-plots-in-one"><i class="fa fa-check"></i><b>8.4</b> Create multiple plots in one</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#select-the-data-beforehand-and-create-different-plots."><i class="fa fa-check"></i><b>8.4.1</b> Select the data beforehand and create different plots.</a></li>
+<li class="chapter" data-level="8.4.2" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#facets"><i class="fa fa-check"></i><b>8.4.2</b> Facets</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#global-and-local-aesthetics"><i class="fa fa-check"></i><b>8.5</b> Global and Local aesthetics</a></li>
+<li class="chapter" data-level="8.6" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#themes-making-your-plots-pretty-looking-the-way-you-want-them-to"><i class="fa fa-check"></i><b>8.6</b> Themes: Making your plots pretty: looking the way you want them to</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#ready-made-themes"><i class="fa fa-check"></i><b>8.6.1</b> Ready-made themes</a></li>
+<li class="chapter" data-level="8.6.2" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#adding-axes-titles-and-headings"><i class="fa fa-check"></i><b>8.6.2</b> Adding axes titles and headings</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#changing-colours"><i class="fa fa-check"></i><b>8.7</b> Changing colours</a></li>
+<li class="chapter" data-level="8.8" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#legends"><i class="fa fa-check"></i><b>8.8</b> Legends</a></li>
+<li class="chapter" data-level="8.9" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#changing-axes-ticks"><i class="fa fa-check"></i><b>8.9</b> Changing axes ticks</a></li>
+<li class="chapter" data-level="8.10" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#saving-plots"><i class="fa fa-check"></i><b>8.10</b> Saving plots</a></li>
+<li class="chapter" data-level="8.11" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#summative-homework-3"><i class="fa fa-check"></i><b>8.11</b> Summative Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="errors.html"><a href="errors.html"><i class="fa fa-check"></i><b>9</b> Errors</a>
+<ul>
+<li class="chapter" data-level="" data-path="errors.html"><a href="errors.html#intended-learning-outcomes-9"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="9.1" data-path="errors.html"><a href="errors.html#errors-how-to-avoid-some-and-live-through-the-rest"><i class="fa fa-check"></i><b>9.1</b> Errors: How to avoid some and live through the rest</a></li>
+<li class="chapter" data-level="9.2" data-path="errors.html"><a href="errors.html#debugging"><i class="fa fa-check"></i><b>9.2</b> Debugging</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="errors.html"><a href="errors.html#messages-from-r"><i class="fa fa-check"></i><b>9.2.1</b> Messages from R</a></li>
+<li class="chapter" data-level="9.2.2" data-path="errors.html"><a href="errors.html#error-messages"><i class="fa fa-check"></i><b>9.2.2</b> Error Messages</a></li>
+<li class="chapter" data-level="9.2.3" data-path="errors.html"><a href="errors.html#multiple-errors"><i class="fa fa-check"></i><b>9.2.3</b> Multiple Errors</a></li>
+<li class="chapter" data-level="9.2.4" data-path="errors.html"><a href="errors.html#finding-errors-in-longer-code-segments"><i class="fa fa-check"></i><b>9.2.4</b> Finding errors in longer code segments</a></li>
+<li class="chapter" data-level="9.2.5" data-path="errors.html"><a href="errors.html#warning-messages"><i class="fa fa-check"></i><b>9.2.5</b> Warning Messages</a></li>
+<li class="chapter" data-level="9.2.6" data-path="errors.html"><a href="errors.html#other-messages"><i class="fa fa-check"></i><b>9.2.6</b> Other Messages</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="errors.html"><a href="errors.html#searching-for-help-online"><i class="fa fa-check"></i><b>9.3</b> Searching for Help Online</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="errors.html"><a href="errors.html#googling-it"><i class="fa fa-check"></i><b>9.3.1</b> Googling It</a></li>
+<li class="chapter" data-level="9.3.2" data-path="errors.html"><a href="errors.html#stack-overflow"><i class="fa fa-check"></i><b>9.3.2</b> Stack Overflow</a></li>
+<li class="chapter" data-level="9.3.3" data-path="errors.html"><a href="errors.html#youtube"><i class="fa fa-check"></i><b>9.3.3</b> YouTube</a></li>
+<li class="chapter" data-level="9.3.4" data-path="errors.html"><a href="errors.html#further-reading"><i class="fa fa-check"></i><b>9.3.4</b> Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="errors.html"><a href="errors.html#formative-exercises"><i class="fa fa-check"></i><b>9.4</b> Formative Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html"><i class="fa fa-check"></i><b>10</b> Recap: Before the final assessment</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#outline-for-today"><i class="fa fa-check"></i><b>10.1</b> Outline for today</a></li>
+<li class="chapter" data-level="10.2" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#lecture-10-bringing-your-skills-together"><i class="fa fa-check"></i><b>10.2</b> Lecture 10: Bringing your skills together</a>
+<ul>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-1-1"><i class="fa fa-check"></i>Question 1</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-2-1"><i class="fa fa-check"></i>Question 2</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-3-1"><i class="fa fa-check"></i>Question 3</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-4-1"><i class="fa fa-check"></i>Question 4</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-5-1"><i class="fa fa-check"></i>Question 5</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-6"><i class="fa fa-check"></i>Question 6</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-7"><i class="fa fa-check"></i>Question 7</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-8"><i class="fa fa-check"></i>Question 8</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-9"><i class="fa fa-check"></i>Question 9</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-10"><i class="fa fa-check"></i>Question 10</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-11"><i class="fa fa-check"></i>Question 11</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-12-bonus"><i class="fa fa-check"></i>Question 12 (Bonus)</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-13-bonus"><i class="fa fa-check"></i>Question 13 (Bonus)</a></li>
+<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-14-bonus"><i class="fa fa-check"></i>Question 14 (Bonus)</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#solutions"><i class="fa fa-check"></i><b>10.3</b> Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html"><i class="fa fa-check"></i>Appendices</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#changing-the-appearance-of-rmarkdown"><i class="fa fa-check"></i>Changing the Appearance of RMarkdown</a></li>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#source-materials"><i class="fa fa-check"></i>Source Materials</a></li>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#further-reading-1"><i class="fa fa-check"></i>Further Reading</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#statistics"><i class="fa fa-check"></i>Statistics</a></li>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#more-advanced-use-of-r"><i class="fa fa-check"></i>More Advanced Use of R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="before.html"><a href="before.html#before"><i class="fa fa-check"></i>Assignment before starting the course</a>
+<ul>
+<li class="chapter" data-level="10.4" data-path="before.html"><a href="before.html#accessing"><i class="fa fa-check"></i><b>10.4</b> Access to RStudio</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="before.html"><a href="before.html#install"><i class="fa fa-check"></i><b>10.4.1</b> Installing R and RStudio on Your Own Machine</a></li>
+<li class="chapter" data-level="10.4.2" data-path="before.html"><a href="before.html#accessing-rstudio-on-university-computers-1"><i class="fa fa-check"></i><b>10.4.2</b> Accessing RStudio on University Computers</a></li>
+<li class="chapter" data-level="10.4.3" data-path="before.html"><a href="before.html#using-rstudio-cloud-1"><i class="fa fa-check"></i><b>10.4.3</b> Using RStudio Cloud</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="before.html"><a href="before.html#maximising-reproducibility-and-visibility-1"><i class="fa fa-check"></i><b>10.5</b> Maximising Reproducibility and Visibility</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
     target="blank"><img alt="Creative Commons License" 
@@ -491,14 +475,14 @@ div.csl-indent {
 <li>How to rearrange data from long format into to wide format and vice versa</li>
 <li>How to combine and separate columns</li>
 </ol>
-<p>This lesson is led by Johanna Werner</p>
+<p>This lesson is led by Sean Westwood.</p>
 </div>
-<div id="pre-steps-3" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Pre-steps<a href="data-transformation-3-tidy-data.html#pre-steps-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="pre-steps-2" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Pre-steps<a href="data-transformation-3-tidy-data.html#pre-steps-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>All the functions for tidying data are within <code>tidyverse</code> so we need to make sure to load it into the library. Today’s lecture will make use of built-in dataframes but for practice examples, we may want to load in the West of Scotland seasonal sunshine and rain data you encountered last week.</p>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="data-transformation-3-tidy-data.html#cb254-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb254-2"><a href="data-transformation-3-tidy-data.html#cb254-2" aria-hidden="true" tabindex="-1"></a>sun <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;wos_seasonal_sun.csv&quot;</span>)</span>
-<span id="cb254-3"><a href="data-transformation-3-tidy-data.html#cb254-3" aria-hidden="true" tabindex="-1"></a>rain <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;wos_seasonal_rain.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="data-transformation-3-tidy-data.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="data-transformation-3-tidy-data.html#cb1-2" aria-hidden="true" tabindex="-1"></a>sun <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;wos_seasonal_sun.csv&quot;</span>)</span>
+<span id="cb1-3"><a href="data-transformation-3-tidy-data.html#cb1-3" aria-hidden="true" tabindex="-1"></a>rain <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;wos_seasonal_rain.csv&quot;</span>)</span></code></pre></div>
 </div>
 <div id="tidy-data" class="section level2 hasAnchor" number="5.2">
 <h2><span class="header-section-number">5.2</span> Tidy data<a href="data-transformation-3-tidy-data.html#tidy-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -528,8 +512,8 @@ div.csl-indent {
 <div id="pivot_longer" class="section level3 hasAnchor" number="5.3.1">
 <h3><span class="header-section-number">5.3.1</span> pivot_longer()<a href="data-transformation-3-tidy-data.html#pivot_longer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We can start this lecture by looking at a practical example in the build-in datasets <code>table1</code> to <code>table5</code>. They show the number of Tuberculosis cases documented by the World Health Organization in Afghanistan, Brazil, and China between 1999 and 2000 (the full dataset is called <code>who</code>). The data is part of the <code>tidyverse</code> package, so as long as we have <code>tidyverse</code> loaded into the library, there should not be an issue in accessing this dataset.</p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="data-transformation-3-tidy-data.html#cb255-1" aria-hidden="true" tabindex="-1"></a>table1</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 4
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="data-transformation-3-tidy-data.html#cb2-1" aria-hidden="true" tabindex="-1"></a>table1</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
 ##   country      year  cases population
 ##   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
 ## 1 Afghanistan  1999    745   19987071
@@ -543,8 +527,8 @@ div.csl-indent {
 <img src="images/tidy_1.png" >
 </center>
 <p>You can see the data contains values associated with four variables (<code>country</code>, <code>year</code>, <code>cases</code>, and <code>population</code>). <code>table4a</code> however, looks a touch not right.</p>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="data-transformation-3-tidy-data.html#cb257-1" aria-hidden="true" tabindex="-1"></a>table4a</span></code></pre></div>
-<pre><code>## # A tibble: 3 x 3
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="data-transformation-3-tidy-data.html#cb4-1" aria-hidden="true" tabindex="-1"></a>table4a</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 3
 ##   country     `1999` `2000`
 ## * &lt;chr&gt;        &lt;int&gt;  &lt;int&gt;
 ## 1 Afghanistan    745   2666
@@ -570,8 +554,8 @@ div.csl-indent {
 <li>We need to come up with the name of a new column in which all the case values will be stored -&gt; <code>cases</code></li>
 <li>And finally, we need to tell R which columns in <code>table4a</code> we want to turn into long format (i.e. the columns of the 7 subscales) -&gt; 1999 and 2000 (Note that “1999” and “2000” are non-syntactic names as they don’t start with a letter. The solution is to surround them in backticks.)Make sure to surround the new column names with quotation marks.</li>
 </ul>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="data-transformation-3-tidy-data.html#cb259-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pivot_longer</span>(table4a, <span class="at">cols =</span> <span class="st">`</span><span class="at">1999</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2000</span><span class="st">`</span> , <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;cases&quot;</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 3
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="data-transformation-3-tidy-data.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pivot_longer</span>(table4a, <span class="at">cols =</span> <span class="st">`</span><span class="at">1999</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2000</span><span class="st">`</span> , <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;cases&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
 ##   country     year   cases
 ##   &lt;chr&gt;       &lt;chr&gt;  &lt;int&gt;
 ## 1 Afghanistan 1999     745
@@ -596,8 +580,8 @@ long format.
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="data-transformation-3-tidy-data.html#cb261-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pivot_longer</span>(table4b, <span class="at">cols=</span><span class="st">`</span><span class="at">1999</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2000</span><span class="st">`</span>,  <span class="at">names_to =</span><span class="st">&quot;year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;population&quot;</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 3
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="data-transformation-3-tidy-data.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pivot_longer</span>(table4b, <span class="at">cols=</span><span class="st">`</span><span class="at">1999</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2000</span><span class="st">`</span>,  <span class="at">names_to =</span><span class="st">&quot;year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;population&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
 ##   country     year  population
 ##   &lt;chr&gt;       &lt;chr&gt;      &lt;int&gt;
 ## 1 Afghanistan 1999    19987071
@@ -627,9 +611,9 @@ reshape the data into a tidier format. Store the output in the
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="data-transformation-3-tidy-data.html#cb263-1" aria-hidden="true" tabindex="-1"></a>sun_tidy <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(sun, <span class="at">cols=</span> win<span class="sc">:</span>aut, <span class="at">names_to =</span> <span class="st">&quot;season&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;sun&quot;</span>)</span>
-<span id="cb263-2"><a href="data-transformation-3-tidy-data.html#cb263-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sun_tidy)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 3
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="data-transformation-3-tidy-data.html#cb10-1" aria-hidden="true" tabindex="-1"></a>sun_tidy <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(sun, <span class="at">cols=</span> win<span class="sc">:</span>aut, <span class="at">names_to =</span> <span class="st">&quot;season&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;sun&quot;</span>)</span>
+<span id="cb10-2"><a href="data-transformation-3-tidy-data.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sun_tidy)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
 ##    year season   sun
 ##   &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;
 ## 1  1919 win      NA 
@@ -638,9 +622,9 @@ Solution
 ## 4  1919 aut     257.
 ## 5  1920 win     111.
 ## 6  1920 spr     328.</code></pre>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="data-transformation-3-tidy-data.html#cb265-1" aria-hidden="true" tabindex="-1"></a>rain_tidy <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(rain, <span class="at">cols=</span> win<span class="sc">:</span>aut, <span class="at">names_to =</span> <span class="st">&quot;season&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;rain&quot;</span>)</span>
-<span id="cb265-2"><a href="data-transformation-3-tidy-data.html#cb265-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rain_tidy)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 3
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="data-transformation-3-tidy-data.html#cb12-1" aria-hidden="true" tabindex="-1"></a>rain_tidy <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(rain, <span class="at">cols=</span> win<span class="sc">:</span>aut, <span class="at">names_to =</span> <span class="st">&quot;season&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;rain&quot;</span>)</span>
+<span id="cb12-2"><a href="data-transformation-3-tidy-data.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rain_tidy)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
 ##    year season  rain
 ##   &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;
 ## 1  1862 win      NA 
@@ -654,8 +638,8 @@ Solution
 <div id="pivot_wider" class="section level3 hasAnchor" number="5.3.2">
 <h3><span class="header-section-number">5.3.2</span> pivot_wider()<a href="data-transformation-3-tidy-data.html#pivot_wider" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now onto the reverse. <code>pivot_wider()</code> will spread the data from <code>long</code> into <code>wide format</code>. When you have observations that are scattered across multiple rows, you can use <code>pivot_wider()</code> to split those rows up into separate variables. Let’s take a look at <code>table2</code>.</p>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="data-transformation-3-tidy-data.html#cb267-1" aria-hidden="true" tabindex="-1"></a>table2</span></code></pre></div>
-<pre><code>## # A tibble: 12 x 4
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="data-transformation-3-tidy-data.html#cb14-1" aria-hidden="true" tabindex="-1"></a>table2</span></code></pre></div>
+<pre><code>## # A tibble: 12 × 4
 ##    country      year type            count
 ##    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;           &lt;int&gt;
 ##  1 Afghanistan  1999 cases             745
@@ -690,8 +674,8 @@ Solution
 <li>We need to decide which of the columns in <code>table2</code> has all the data in it that will become the new cell values -&gt; <code>count</code></li>
 </ul>
 <p>When using <code>pivot_wider()</code>, make sure you do not surround the <code>names_from</code> and <code>values_from</code> arguments with quotation marks. They refer to existing columns rather than column names we have to create when using <code>pivot_longer()</code></p>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="data-transformation-3-tidy-data.html#cb269-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pivot_wider</span>(table2, <span class="at">names_from =</span> type, <span class="at">values_from =</span> count)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 4
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="data-transformation-3-tidy-data.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pivot_wider</span>(table2, <span class="at">names_from =</span> type, <span class="at">values_from =</span> count)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
 ##   country      year  cases population
 ##   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
 ## 1 Afghanistan  1999    745   19987071
@@ -702,9 +686,9 @@ Solution
 ## 6 China        2000 213766 1280428583</code></pre>
 <p>Voila, <code>cases</code> and <code>population</code> are in their own columns.</p>
 <p>Let me modify <code>table1</code> a tiny bit.</p>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="data-transformation-3-tidy-data.html#cb271-1" aria-hidden="true" tabindex="-1"></a>table1_mod <span class="ot">&lt;-</span> table1 <span class="sc">%&gt;%</span> </span>
-<span id="cb271-2"><a href="data-transformation-3-tidy-data.html#cb271-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> cases<span class="sc">/</span> population <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb271-3"><a href="data-transformation-3-tidy-data.html#cb271-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols=</span> cases<span class="sc">:</span>percent, <span class="at">names_to=</span> <span class="st">&quot;variable&quot;</span>, <span class="at">values_to=</span> <span class="st">&quot;values&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="data-transformation-3-tidy-data.html#cb18-1" aria-hidden="true" tabindex="-1"></a>table1_mod <span class="ot">&lt;-</span> table1 <span class="sc">%&gt;%</span> </span>
+<span id="cb18-2"><a href="data-transformation-3-tidy-data.html#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> cases<span class="sc">/</span> population <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-3"><a href="data-transformation-3-tidy-data.html#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols=</span> cases<span class="sc">:</span>percent, <span class="at">names_to=</span> <span class="st">&quot;variable&quot;</span>, <span class="at">values_to=</span> <span class="st">&quot;values&quot;</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -906,7 +890,7 @@ this…
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="data-transformation-3-tidy-data.html#cb272-1" aria-hidden="true" tabindex="-1"></a>table1_mod_corrected <span class="ot">&lt;-</span> <span class="fu">pivot_wider</span>(table1_mod, <span class="at">names_from =</span> variable, <span class="at">values_from =</span> values)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="data-transformation-3-tidy-data.html#cb19-1" aria-hidden="true" tabindex="-1"></a>table1_mod_corrected <span class="ot">&lt;-</span> <span class="fu">pivot_wider</span>(table1_mod, <span class="at">names_from =</span> variable, <span class="at">values_from =</span> values)</span></code></pre></div>
 </div>
 <div class="task">
 <p>
@@ -929,20 +913,20 @@ Your final datasets should have the columns <code>year</code>,
 </p>
 </div>
 <p>This is what the fox did:</p>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="data-transformation-3-tidy-data.html#cb273-1" aria-hidden="true" tabindex="-1"></a>sun_fail <span class="ot">&lt;-</span> sun_tidy <span class="sc">%&gt;%</span> </span>
-<span id="cb273-2"><a href="data-transformation-3-tidy-data.html#cb273-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">408</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb273-3"><a href="data-transformation-3-tidy-data.html#cb273-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="fu">c</span>(year, sun), <span class="at">names_to =</span> <span class="st">&quot;col_names&quot;</span>, <span class="at">values_to=</span><span class="st">&quot;values&quot;</span> )</span>
-<span id="cb273-4"><a href="data-transformation-3-tidy-data.html#cb273-4" aria-hidden="true" tabindex="-1"></a>rain_fail <span class="ot">&lt;-</span> rain_tidy <span class="sc">%&gt;%</span> </span>
-<span id="cb273-5"><a href="data-transformation-3-tidy-data.html#cb273-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">616</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb273-6"><a href="data-transformation-3-tidy-data.html#cb273-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="fu">c</span>(year, rain), <span class="at">names_to =</span> <span class="st">&quot;col_names&quot;</span>, <span class="at">values_to=</span><span class="st">&quot;values&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="data-transformation-3-tidy-data.html#cb20-1" aria-hidden="true" tabindex="-1"></a>sun_fail <span class="ot">&lt;-</span> sun_tidy <span class="sc">%&gt;%</span> </span>
+<span id="cb20-2"><a href="data-transformation-3-tidy-data.html#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">408</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb20-3"><a href="data-transformation-3-tidy-data.html#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="fu">c</span>(year, sun), <span class="at">names_to =</span> <span class="st">&quot;col_names&quot;</span>, <span class="at">values_to=</span><span class="st">&quot;values&quot;</span> )</span>
+<span id="cb20-4"><a href="data-transformation-3-tidy-data.html#cb20-4" aria-hidden="true" tabindex="-1"></a>rain_fail <span class="ot">&lt;-</span> rain_tidy <span class="sc">%&gt;%</span> </span>
+<span id="cb20-5"><a href="data-transformation-3-tidy-data.html#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">616</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb20-6"><a href="data-transformation-3-tidy-data.html#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="fu">c</span>(year, rain), <span class="at">names_to =</span> <span class="st">&quot;col_names&quot;</span>, <span class="at">values_to=</span><span class="st">&quot;values&quot;</span>)</span></code></pre></div>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="data-transformation-3-tidy-data.html#cb274-1" aria-hidden="true" tabindex="-1"></a>sun_outfoxed <span class="ot">&lt;-</span> <span class="fu">pivot_wider</span>(sun_fail, <span class="at">names_from =</span> col_names, <span class="at">values_from =</span> values) <span class="sc">%&gt;%</span> </span>
-<span id="cb274-2"><a href="data-transformation-3-tidy-data.html#cb274-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, season, sun)</span>
-<span id="cb274-3"><a href="data-transformation-3-tidy-data.html#cb274-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sun_outfoxed)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 3
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="data-transformation-3-tidy-data.html#cb21-1" aria-hidden="true" tabindex="-1"></a>sun_outfoxed <span class="ot">&lt;-</span> <span class="fu">pivot_wider</span>(sun_fail, <span class="at">names_from =</span> col_names, <span class="at">values_from =</span> values) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-2"><a href="data-transformation-3-tidy-data.html#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, season, sun)</span>
+<span id="cb21-3"><a href="data-transformation-3-tidy-data.html#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sun_outfoxed)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
 ##    year season   sun
 ##   &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;
 ## 1  1919 win      NA 
@@ -951,10 +935,10 @@ Solution
 ## 4  1919 aut     257.
 ## 5  1920 win     111.
 ## 6  1920 spr     328.</code></pre>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="data-transformation-3-tidy-data.html#cb276-1" aria-hidden="true" tabindex="-1"></a>rain_outfoxed <span class="ot">&lt;-</span> <span class="fu">pivot_wider</span>(rain_fail, <span class="at">names_from =</span> col_names, <span class="at">values_from =</span> values) <span class="sc">%&gt;%</span> </span>
-<span id="cb276-2"><a href="data-transformation-3-tidy-data.html#cb276-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, season, rain)</span>
-<span id="cb276-3"><a href="data-transformation-3-tidy-data.html#cb276-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rain_outfoxed)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 3
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="data-transformation-3-tidy-data.html#cb23-1" aria-hidden="true" tabindex="-1"></a>rain_outfoxed <span class="ot">&lt;-</span> <span class="fu">pivot_wider</span>(rain_fail, <span class="at">names_from =</span> col_names, <span class="at">values_from =</span> values) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-2"><a href="data-transformation-3-tidy-data.html#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, season, rain)</span>
+<span id="cb23-3"><a href="data-transformation-3-tidy-data.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rain_outfoxed)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
 ##    year season  rain
 ##   &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;
 ## 1  1862 win      NA 
@@ -972,8 +956,8 @@ Solution
 <div id="separate" class="section level3 hasAnchor" number="5.4.1">
 <h3><span class="header-section-number">5.4.1</span> separate()<a href="data-transformation-3-tidy-data.html#separate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Take a look at <code>table3</code>.</p>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="data-transformation-3-tidy-data.html#cb278-1" aria-hidden="true" tabindex="-1"></a>table3</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 3
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="data-transformation-3-tidy-data.html#cb25-1" aria-hidden="true" tabindex="-1"></a>table3</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
 ##   country      year rate             
 ## * &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;            
 ## 1 Afghanistan  1999 745/19987071     
@@ -1003,8 +987,8 @@ Solution
 <li>the into argument asking into how many columns we want to separate the old column and what we want to call these new columns -&gt; <code>c("cases", "population")</code>, and</li>
 <li>a separator argument -&gt; <code>"/"</code>.</li>
 </ul>
-<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="data-transformation-3-tidy-data.html#cb280-1" aria-hidden="true" tabindex="-1"></a><span class="fu">separate</span>(table3, rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;population&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 4
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="data-transformation-3-tidy-data.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">separate</span>(table3, rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;population&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
 ##   country      year cases  population
 ##   &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;     
 ## 1 Afghanistan  1999 745    19987071  
@@ -1050,12 +1034,12 @@ would need to add a double backward slash in front of it
 </div>
 </div>
 <div id="additional-arguments-for-separate" class="section level3 hasAnchor" number="5.4.2">
-<h3><span class="header-section-number">5.4.2</span> additional arguments for separate()<a href="data-transformation-3-tidy-data.html#additional-arguments-for-separate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.4.2</span> Additional arguments for separate()<a href="data-transformation-3-tidy-data.html#additional-arguments-for-separate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="retaining-the-original-column" class="section level4 hasAnchor" number="5.4.2.1">
 <h4><span class="header-section-number">5.4.2.1</span> Retaining the original column<a href="data-transformation-3-tidy-data.html#retaining-the-original-column" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>If for some reason, you wanted to keep the original column, you can set an additional argument <code>remove</code> to <code>FALSE</code>.</p>
-<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="data-transformation-3-tidy-data.html#cb282-1" aria-hidden="true" tabindex="-1"></a><span class="fu">separate</span>(table3, rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;population&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>, <span class="at">remove =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 5
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="data-transformation-3-tidy-data.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">separate</span>(table3, rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;population&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>, <span class="at">remove =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 5
 ##   country      year rate              cases  population
 ##   &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;             &lt;chr&gt;  &lt;chr&gt;     
 ## 1 Afghanistan  1999 745/19987071      745    19987071  
@@ -1068,8 +1052,8 @@ would need to add a double backward slash in front of it
 <div id="dropping-parts-of-the-original-column" class="section level4 hasAnchor" number="5.4.2.2">
 <h4><span class="header-section-number">5.4.2.2</span> Dropping parts of the original column<a href="data-transformation-3-tidy-data.html#dropping-parts-of-the-original-column" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>What if we were just interested retaining part of the data in the cell, for example keeping the column <code>cases</code> but not <code>population</code>. The solution would be to work with an <code>NA</code> argument. Defining the new columns as <code>cases</code> and <code>NA</code> will keep everything before the separator in the column <code>cases</code>, and drops everything after the separator.</p>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="data-transformation-3-tidy-data.html#cb284-1" aria-hidden="true" tabindex="-1"></a><span class="fu">separate</span>(table3, rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="cn">NA</span>), <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 3
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="data-transformation-3-tidy-data.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">separate</span>(table3, rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="cn">NA</span>), <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
 ##   country      year cases 
 ##   &lt;chr&gt;       &lt;int&gt; &lt;chr&gt; 
 ## 1 Afghanistan  1999 745   
@@ -1093,8 +1077,8 @@ Retain the column <code>rate</code> as well.
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="data-transformation-3-tidy-data.html#cb286-1" aria-hidden="true" tabindex="-1"></a><span class="fu">separate</span>(table3, rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">&quot;population&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>, <span class="at">remove =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 4
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="data-transformation-3-tidy-data.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">separate</span>(table3, rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">&quot;population&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>, <span class="at">remove =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
 ##   country      year rate              population
 ##   &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;             &lt;chr&gt;     
 ## 1 Afghanistan  1999 745/19987071      19987071  
@@ -1109,8 +1093,8 @@ Solution
 <h4><span class="header-section-number">5.4.2.3</span> Separating by position<a href="data-transformation-3-tidy-data.html#separating-by-position" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>It is also possible to separate by position. <code>sep = 2</code> would split the column between the second and third character/ number etc.</p>
 <p>Let’s try that the separation by position. We will keep 4 letters from each <code>country</code> name rather than the whole word, and drop the rest.</p>
-<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="data-transformation-3-tidy-data.html#cb288-1" aria-hidden="true" tabindex="-1"></a><span class="fu">separate</span>(table3, country, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;country&quot;</span>, <span class="cn">NA</span>), <span class="at">sep =</span> <span class="dv">4</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 3
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="data-transformation-3-tidy-data.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">separate</span>(table3, country, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;country&quot;</span>, <span class="cn">NA</span>), <span class="at">sep =</span> <span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
 ##   country  year rate             
 ##   &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;            
 ## 1 Afgh     1999 745/19987071     
@@ -1123,14 +1107,14 @@ Solution
 <div id="separating-into-more-than-2-columns" class="section level4 hasAnchor" number="5.4.2.4">
 <h4><span class="header-section-number">5.4.2.4</span> Separating into more than 2 columns<a href="data-transformation-3-tidy-data.html#separating-into-more-than-2-columns" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Special case. Let’s modify <code>table3</code> a little bit by adding a new column with a value of 200 and unite that column with column <code>rate</code>.</p>
-<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="data-transformation-3-tidy-data.html#cb290-1" aria-hidden="true" tabindex="-1"></a>table3_mod <span class="ot">&lt;-</span> table3 <span class="sc">%&gt;%</span> </span>
-<span id="cb290-2"><a href="data-transformation-3-tidy-data.html#cb290-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new =</span> <span class="dv">200</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb290-3"><a href="data-transformation-3-tidy-data.html#cb290-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(rate, rate, new, <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="data-transformation-3-tidy-data.html#cb37-1" aria-hidden="true" tabindex="-1"></a>table3_mod <span class="ot">&lt;-</span> table3 <span class="sc">%&gt;%</span> </span>
+<span id="cb37-2"><a href="data-transformation-3-tidy-data.html#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new =</span> <span class="dv">200</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb37-3"><a href="data-transformation-3-tidy-data.html#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(rate, rate, new, <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>)</span></code></pre></div>
 <p>Now column <code>rate</code> has 3 sets of numbers, separated by two <code>/</code>. If we define we want to split the data into 2 columns, the first 2 sets of numbers are kept, and the third one is dropped with a warning. The code is still executed but the warning indicates that it might not have gone as planned. Hence, it is always good to check that the data object in the <code>Global Environment</code> looks exactly as what you have intended.</p>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="data-transformation-3-tidy-data.html#cb291-1" aria-hidden="true" tabindex="-1"></a><span class="fu">separate</span>(table3_mod, rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;population&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="data-transformation-3-tidy-data.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">separate</span>(table3_mod, rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;population&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: Expected 2 pieces. Additional pieces discarded in 6 rows [1, 2, 3, 4,
 ## 5, 6].</code></pre>
-<pre><code>## # A tibble: 6 x 4
+<pre><code>## # A tibble: 6 × 4
 ##   country      year cases  population
 ##   &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;     
 ## 1 Afghanistan  1999 745    19987071  
@@ -1140,8 +1124,8 @@ Solution
 ## 5 China        1999 212258 1272915272
 ## 6 China        2000 213766 1280428583</code></pre>
 <p>If we are separating the columns and wanted to keep all sets of numbers, one in each column, we would use an into argument that includes 3 new columns.</p>
-<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="data-transformation-3-tidy-data.html#cb294-1" aria-hidden="true" tabindex="-1"></a><span class="fu">separate</span>(table3_mod, rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;population&quot;</span>, <span class="st">&quot;200&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 5
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="data-transformation-3-tidy-data.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">separate</span>(table3_mod, rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;population&quot;</span>, <span class="st">&quot;200&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 5
 ##   country      year cases  population `200`
 ##   &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;
 ## 1 Afghanistan  1999 745    19987071   200  
@@ -1160,8 +1144,8 @@ contains non-alphanumeric characters as part of your cell values.
 </p>
 </div>
 <p>If the values in <code>population</code> and <code>200</code> (separated by a <code>/</code>) were some sort of <code>ID_code</code>, <strong>AND</strong> we wanted to split the data into 2 columns, after the first <code>/</code> only, we would have to include an <code>extra</code> argument, and set it to <code>"merge"</code>.</p>
-<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="data-transformation-3-tidy-data.html#cb296-1" aria-hidden="true" tabindex="-1"></a><span class="fu">separate</span>(table3_mod, rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;ID_code&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>, <span class="at">extra =</span> <span class="st">&quot;merge&quot;</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 4
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="data-transformation-3-tidy-data.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">separate</span>(table3_mod, rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;ID_code&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>, <span class="at">extra =</span> <span class="st">&quot;merge&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
 ##   country      year cases  ID_code       
 ##   &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;         
 ## 1 Afghanistan  1999 745    19987071/200  
@@ -1191,10 +1175,10 @@ we wanted to sum up the cases column, values would need to be
 <code>as.integer()</code>.
 </p>
 </div>
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="data-transformation-3-tidy-data.html#cb298-1" aria-hidden="true" tabindex="-1"></a>table3_mod <span class="sc">%&gt;%</span> </span>
-<span id="cb298-2"><a href="data-transformation-3-tidy-data.html#cb298-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;ID_code&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>, <span class="at">extra =</span> <span class="st">&quot;merge&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb298-3"><a href="data-transformation-3-tidy-data.html#cb298-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cases =</span> <span class="fu">as.integer</span>(cases))</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 4
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="data-transformation-3-tidy-data.html#cb45-1" aria-hidden="true" tabindex="-1"></a>table3_mod <span class="sc">%&gt;%</span> </span>
+<span id="cb45-2"><a href="data-transformation-3-tidy-data.html#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;ID_code&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>, <span class="at">extra =</span> <span class="st">&quot;merge&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb45-3"><a href="data-transformation-3-tidy-data.html#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cases =</span> <span class="fu">as.integer</span>(cases))</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
 ##   country      year  cases ID_code       
 ##   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt; &lt;chr&gt;         
 ## 1 Afghanistan  1999    745 19987071/200  
@@ -1208,9 +1192,9 @@ we wanted to sum up the cases column, values would need to be
 <div id="converting-data-types" class="section level4 hasAnchor" number="5.4.2.5">
 <h4><span class="header-section-number">5.4.2.5</span> Converting data types<a href="data-transformation-3-tidy-data.html#converting-data-types" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The slightly quicker and perhaps more elegant solution would be to add another argument <code>convert</code> to <code>separate()</code> and set it to <code>TRUE</code>. This will convert <code>cases</code> to <code>integer</code> and leave <code>ID_code</code> as <code>character</code> due to the non-numerical <code>/</code>.</p>
-<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="data-transformation-3-tidy-data.html#cb300-1" aria-hidden="true" tabindex="-1"></a>table3_mod <span class="sc">%&gt;%</span> </span>
-<span id="cb300-2"><a href="data-transformation-3-tidy-data.html#cb300-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;ID_code&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>, <span class="at">extra =</span> <span class="st">&quot;merge&quot;</span>, <span class="at">convert =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 4
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="data-transformation-3-tidy-data.html#cb47-1" aria-hidden="true" tabindex="-1"></a>table3_mod <span class="sc">%&gt;%</span> </span>
+<span id="cb47-2"><a href="data-transformation-3-tidy-data.html#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;ID_code&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>, <span class="at">extra =</span> <span class="st">&quot;merge&quot;</span>, <span class="at">convert =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
 ##   country      year  cases ID_code       
 ##   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt; &lt;chr&gt;         
 ## 1 Afghanistan  1999    745 19987071/200  
@@ -1224,8 +1208,8 @@ we wanted to sum up the cases column, values would need to be
 <div id="unite" class="section level3 hasAnchor" number="5.4.3">
 <h3><span class="header-section-number">5.4.3</span> unite()<a href="data-transformation-3-tidy-data.html#unite" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Take a look at <code>table5</code>.</p>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="data-transformation-3-tidy-data.html#cb302-1" aria-hidden="true" tabindex="-1"></a>table5</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 4
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="data-transformation-3-tidy-data.html#cb49-1" aria-hidden="true" tabindex="-1"></a>table5</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
 ##   country     century year  rate             
 ## * &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            
 ## 1 Afghanistan 19      99    745/19987071     
@@ -1246,8 +1230,8 @@ we wanted to sum up the cases column, values would need to be
 </center>
 <p><br></p>
 <p>We would need the data <code>table5</code>, a new column we want to create <code>year</code>, the two columns we would like to combine (<code>century</code> and <code>year</code>), and define the separator as “nothing” since the default is sep = “_“.</p>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="data-transformation-3-tidy-data.html#cb304-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unite</span>(table5, year, century, year, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 3
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="data-transformation-3-tidy-data.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unite</span>(table5, year, century, year, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
 ##   country     year  rate             
 ##   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;            
 ## 1 Afghanistan 1999  745/19987071     
@@ -1276,11 +1260,11 @@ values.
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="data-transformation-3-tidy-data.html#cb306-1" aria-hidden="true" tabindex="-1"></a>tb_cases <span class="ot">&lt;-</span> table5 <span class="sc">%&gt;%</span> </span>
-<span id="cb306-2"><a href="data-transformation-3-tidy-data.html#cb306-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;population&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>, <span class="at">convert =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb306-3"><a href="data-transformation-3-tidy-data.html#cb306-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(year, century, year, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb306-4"><a href="data-transformation-3-tidy-data.html#cb306-4" aria-hidden="true" tabindex="-1"></a>tb_cases</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 4
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="data-transformation-3-tidy-data.html#cb53-1" aria-hidden="true" tabindex="-1"></a>tb_cases <span class="ot">&lt;-</span> table5 <span class="sc">%&gt;%</span> </span>
+<span id="cb53-2"><a href="data-transformation-3-tidy-data.html#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;population&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>, <span class="at">convert =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb53-3"><a href="data-transformation-3-tidy-data.html#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(year, century, year, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb53-4"><a href="data-transformation-3-tidy-data.html#cb53-4" aria-hidden="true" tabindex="-1"></a>tb_cases</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
 ##   country     year   cases population
 ##   &lt;chr&gt;       &lt;chr&gt;  &lt;int&gt;      &lt;int&gt;
 ## 1 Afghanistan 1999     745   19987071
@@ -1301,10 +1285,10 @@ have the need to convert the data type, we need to use the function
 argument available.
 </p>
 </div>
-<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="data-transformation-3-tidy-data.html#cb308-1" aria-hidden="true" tabindex="-1"></a>tb_cases_converted <span class="ot">&lt;-</span> tb_cases <span class="sc">%&gt;%</span> </span>
-<span id="cb308-2"><a href="data-transformation-3-tidy-data.html#cb308-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.integer</span>(year))</span>
-<span id="cb308-3"><a href="data-transformation-3-tidy-data.html#cb308-3" aria-hidden="true" tabindex="-1"></a>tb_cases_converted</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 4
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="data-transformation-3-tidy-data.html#cb55-1" aria-hidden="true" tabindex="-1"></a>tb_cases_converted <span class="ot">&lt;-</span> tb_cases <span class="sc">%&gt;%</span> </span>
+<span id="cb55-2"><a href="data-transformation-3-tidy-data.html#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.integer</span>(year))</span>
+<span id="cb55-3"><a href="data-transformation-3-tidy-data.html#cb55-3" aria-hidden="true" tabindex="-1"></a>tb_cases_converted</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
 ##   country      year  cases population
 ##   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
 ## 1 Afghanistan  1999    745   19987071
@@ -1315,12 +1299,12 @@ argument available.
 ## 6 China        2000 213766 1280428583</code></pre>
 </div>
 <div id="additional-arguments-for-unite" class="section level3 hasAnchor" number="5.4.4">
-<h3><span class="header-section-number">5.4.4</span> additional arguments for unite()<a href="data-transformation-3-tidy-data.html#additional-arguments-for-unite" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.4.4</span> Additional arguments for unite()<a href="data-transformation-3-tidy-data.html#additional-arguments-for-unite" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="retaining-the-original-column-1" class="section level4 hasAnchor" number="5.4.4.1">
 <h4><span class="header-section-number">5.4.4.1</span> Retaining the original column<a href="data-transformation-3-tidy-data.html#retaining-the-original-column-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Similarly to <code>separate()</code>, unite also comes with a remove statement, so if you wanted to keep the original columns before merging them together, you would code</p>
-<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="data-transformation-3-tidy-data.html#cb310-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unite</span>(table5, year_combined, century, year, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>, <span class="at">remove =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 5
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="data-transformation-3-tidy-data.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unite</span>(table5, year_combined, century, year, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>, <span class="at">remove =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 5
 ##   country     year_combined century year  rate             
 ##   &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            
 ## 1 Afghanistan 1999          19      99    745/19987071     
@@ -1333,11 +1317,11 @@ argument available.
 <div id="removing-missing-values-before-uniting-columns" class="section level4 hasAnchor" number="5.4.4.2">
 <h4><span class="header-section-number">5.4.4.2</span> Removing missing values before uniting columns<a href="data-transformation-3-tidy-data.html#removing-missing-values-before-uniting-columns" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><code>unite()</code> also comes with an <code>na.rm</code> statement that will remove missing values prior to uniting the values of a column (actually, the values have to be a “character” column). Let me modify <code>table5</code> a wee bit to make that point.</p>
-<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="data-transformation-3-tidy-data.html#cb312-1" aria-hidden="true" tabindex="-1"></a>table5_mod <span class="ot">&lt;-</span> table5 <span class="sc">%&gt;%</span> </span>
-<span id="cb312-2"><a href="data-transformation-3-tidy-data.html#cb312-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;200&quot;</span>, <span class="cn">NA</span>), <span class="dv">3</span>))</span>
-<span id="cb312-3"><a href="data-transformation-3-tidy-data.html#cb312-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb312-4"><a href="data-transformation-3-tidy-data.html#cb312-4" aria-hidden="true" tabindex="-1"></a>table5_mod</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 5
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="data-transformation-3-tidy-data.html#cb59-1" aria-hidden="true" tabindex="-1"></a>table5_mod <span class="ot">&lt;-</span> table5 <span class="sc">%&gt;%</span> </span>
+<span id="cb59-2"><a href="data-transformation-3-tidy-data.html#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;200&quot;</span>, <span class="cn">NA</span>), <span class="dv">3</span>))</span>
+<span id="cb59-3"><a href="data-transformation-3-tidy-data.html#cb59-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-4"><a href="data-transformation-3-tidy-data.html#cb59-4" aria-hidden="true" tabindex="-1"></a>table5_mod</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 5
 ##   country     century year  rate              new  
 ##   &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;             &lt;chr&gt;
 ## 1 Afghanistan 19      99    745/19987071      200  
@@ -1347,8 +1331,8 @@ argument available.
 ## 5 China       19      99    212258/1272915272 200  
 ## 6 China       20      00    213766/1280428583 &lt;NA&gt;</code></pre>
 <p>If we wanted to combine the values of <code>rate</code> and <code>new</code>, we would code</p>
-<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="data-transformation-3-tidy-data.html#cb314-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unite</span>(table5_mod, rate, rate, new, <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 4
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="data-transformation-3-tidy-data.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unite</span>(table5_mod, rate, rate, new, <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
 ##   country     century year  rate                 
 ##   &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;                
 ## 1 Afghanistan 19      99    745/19987071/200     
@@ -1358,8 +1342,8 @@ argument available.
 ## 5 China       19      99    212258/1272915272/200
 ## 6 China       20      00    213766/1280428583/NA</code></pre>
 <p>See how R adds the missing values onto rate, which we do not want. To avoid that happening, we can use the <code>na.rm</code> statement which removes missing values in columns of data type character before merging the columns.</p>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="data-transformation-3-tidy-data.html#cb316-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unite</span>(table5_mod, rate, rate, new, <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 4
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="data-transformation-3-tidy-data.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unite</span>(table5_mod, rate, rate, new, <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
 ##   country     century year  rate                 
 ##   &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;                
 ## 1 Afghanistan 19      99    745/19987071/200     
@@ -1374,9 +1358,9 @@ argument available.
 <div id="bonus-materials-mutate-row-names-from-the-mtcars" class="section level2 hasAnchor" number="5.5">
 <h2><span class="header-section-number">5.5</span> Bonus materials: mutate row names from the <code>mtcars</code><a href="data-transformation-3-tidy-data.html#bonus-materials-mutate-row-names-from-the-mtcars" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Remember, in lecture 2 when we were talking about the <code>mtcars</code> dataset and how the car types were not in listed as a separate column but rather row names? Let’s just read in the data and have another quick look to jog our memories…</p>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="data-transformation-3-tidy-data.html#cb318-1" aria-hidden="true" tabindex="-1"></a>df_mtcars <span class="ot">&lt;-</span> mtcars</span>
-<span id="cb318-2"><a href="data-transformation-3-tidy-data.html#cb318-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb318-3"><a href="data-transformation-3-tidy-data.html#cb318-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_mtcars)</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="data-transformation-3-tidy-data.html#cb65-1" aria-hidden="true" tabindex="-1"></a>df_mtcars <span class="ot">&lt;-</span> mtcars</span>
+<span id="cb65-2"><a href="data-transformation-3-tidy-data.html#cb65-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-3"><a href="data-transformation-3-tidy-data.html#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_mtcars)</span></code></pre></div>
 <pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
 ## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
 ## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
@@ -1386,10 +1370,10 @@ argument available.
 ## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
 <p>You can see much better what I’m talking about when you view your <code>df_mtcars</code>.</p>
 <p>Now, that we have learnt about the <code>mutate()</code> function, we can attempt to get all of these row names into a new column. All we have to do is combining a function called <code>rownames()</code> with <code>mutate()</code>. We also could use some more of these handy pipes <code>%&gt;%</code> you learnt about last week.</p>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="data-transformation-3-tidy-data.html#cb320-1" aria-hidden="true" tabindex="-1"></a>df_mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> </span>
-<span id="cb320-2"><a href="data-transformation-3-tidy-data.html#cb320-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Car_type =</span> <span class="fu">rownames</span>(mtcars))</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="data-transformation-3-tidy-data.html#cb67-1" aria-hidden="true" tabindex="-1"></a>df_mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb67-2"><a href="data-transformation-3-tidy-data.html#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Car_type =</span> <span class="fu">rownames</span>(mtcars))</span></code></pre></div>
 <p>In this example, we have taken the dataset <code>mtcars</code>, then added a new column called <code>Car_type</code> with <code>mutate()</code>. The column <code>Car_type</code> should then hold all the values that were previously listed as the row names in the original <code>mtcars</code> data.</p>
-<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="data-transformation-3-tidy-data.html#cb321-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_mtcars)</span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="data-transformation-3-tidy-data.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_mtcars)</span></code></pre></div>
 <pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
 ## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
 ## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
@@ -1415,12 +1399,12 @@ to make <code>Car_type</code> the first column in the dataframe?
 <button>
 Answer
 </button>
-<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="data-transformation-3-tidy-data.html#cb323-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We could use the fuction select()</span></span>
-<span id="cb323-2"><a href="data-transformation-3-tidy-data.html#cb323-2" aria-hidden="true" tabindex="-1"></a>df_mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> </span>
-<span id="cb323-3"><a href="data-transformation-3-tidy-data.html#cb323-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Car_type =</span> <span class="fu">rownames</span>(mtcars)) <span class="sc">%&gt;%</span> </span>
-<span id="cb323-4"><a href="data-transformation-3-tidy-data.html#cb323-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Car_type, mpg<span class="sc">:</span>carb)</span>
-<span id="cb323-5"><a href="data-transformation-3-tidy-data.html#cb323-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb323-6"><a href="data-transformation-3-tidy-data.html#cb323-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_mtcars)</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="data-transformation-3-tidy-data.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We could use the fuction select()</span></span>
+<span id="cb70-2"><a href="data-transformation-3-tidy-data.html#cb70-2" aria-hidden="true" tabindex="-1"></a>df_mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb70-3"><a href="data-transformation-3-tidy-data.html#cb70-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Car_type =</span> <span class="fu">rownames</span>(mtcars)) <span class="sc">%&gt;%</span> </span>
+<span id="cb70-4"><a href="data-transformation-3-tidy-data.html#cb70-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Car_type, mpg<span class="sc">:</span>carb)</span>
+<span id="cb70-5"><a href="data-transformation-3-tidy-data.html#cb70-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-6"><a href="data-transformation-3-tidy-data.html#cb70-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_mtcars)</span></code></pre></div>
 <pre><code>##                            Car_type  mpg cyl disp  hp drat    wt  qsec vs am
 ## Mazda RX4                 Mazda RX4 21.0   6  160 110 3.90 2.620 16.46  0  1
 ## Mazda RX4 Wag         Mazda RX4 Wag 21.0   6  160 110 3.90 2.875 17.02  0  1

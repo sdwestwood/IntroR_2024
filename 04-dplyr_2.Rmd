@@ -19,7 +19,7 @@
 * Binding joins: `bind_rows()`, `bind_cols()`
 
 
-This lesson is led by Johanna Werner.
+This lesson is led by Sean Westwood.
 
 
 
@@ -103,7 +103,7 @@ Using `arrange()`, take the table `Example_1` and arrange it first by `Reach` in
 `r hide("Solution")`
 ```{r}
 # Jaimie's solution
-Q2 <- arrange(Example_1, desc(Reach), desc(Height))
+Q2 <- arrange(Example_1, desc(Reach), Height)
 ```
 `r unhide()`
 
@@ -148,13 +148,13 @@ How many athletes (observations) are left in `Q3`? `r fitb("50")`
 **Your turn**
 
 Now try taking the original table `MMA_Data` and keep only those athletes from the "Welterweight" `WeightClass`, who are over 72 inches in `Height`. Store the result in `Q4`.
-- Hint - remember they will need to match *both* conditions 
+Hint: remember they will need to match *both* conditions 
 ```
 
 `r hide("Solution")`
 ```{r}
 # Jaimie's solution
-Q4 <- filter(MMA_Data, WeightClass == "Welterweight", Height <= 72)
+Q4 <- filter(MMA_Data, WeightClass == "Welterweight", Height > 72)
 ```
 `r unhide()`
 
