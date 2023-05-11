@@ -137,7 +137,7 @@ The next variable to recode is `Institution`:
 
 In the questionnaire, two participants forgot to indicate which university they are studying at (coded as 99), but fortunately we know that they are at the University of Strathclyde (the test was distributed to 10 students at each institution, however, Strathclyde only has 8 responses).
 
-Add a new column `Institution_char` to `fake_data` that holds the recoded values as
+Add a new column `Institution_char` to `fake_data` that holds the recoded values as the character strings indicated above.
 ```
 
 
