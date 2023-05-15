@@ -6,7 +6,7 @@ This week we are moving on to plots. You have learned how to get your data into 
 
 Before you start this week's class, here are some pre-class readings:
 * [Five Ways to Lie with Charts](https://getpocket.com/explore/item/five-ways-to-lie-with-charts?utm_source=pocket-newtab-global-en-GB)
-* [Datasaurus Dosen](https://www.autodeskresearch.com/publications/samestats) - How a T-Rex convinced people to plot their data (and a fun visualisation of the principle in this [thread](https://twitter.com/ameisen_strasse/status/1316133566972125186) )
+* [Datasaurus Dosen](https://blog.revolutionanalytics.com/2017/05/the-datasaurus-dozen.html) - How a T-Rex convinced people to plot their data (and a fun visualisation of the principle in this [thread](https://twitter.com/ameisen_strasse/status/1316133566972125186) )
 * [Anscombe's Quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet) - Old school version of datasaurus
 * [Tips on Graph making](https://medium.com/information-visualization/5-things-you-should-focus-on-when-designing-graphs-693a16421040)
 * Here is a webspace with a large compilation of graphs that will help you develop a better understanding of what style you can use for the data you have and for the message you are trying to convey. The graphs also come with R code for you to adapt to data you might have. - [The R Graph Gallery](https://www.r-graph-gallery.com/index.html)
