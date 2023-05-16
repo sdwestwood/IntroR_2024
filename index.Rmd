@@ -4,8 +4,7 @@ author: Gaby Mahrholz, Greta Todorova, Wilhelmiina Toivo, and Jaimie Torrance, u
 date: "`r Sys.Date()`"
 bibliography: [book.bib, packages.bib]
 biblio-style: "apalike"
-description: This is the course handbook for the Glasgow University Open Studies course
-Introduction to R, academic session 2022/2023.
+description: This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2022/2023.
 documentclass: book
 link-citations: yes
 site: bookdown::bookdown_site
