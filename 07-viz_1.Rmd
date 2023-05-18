@@ -22,7 +22,7 @@ Before you start this week's class, here are some pre-class readings:
 4. Learn how to create groups in plots
 5. Learn how to make a variety of plots based on the type of variables we have
 
-This lesson is led by Sean Wood.
+This lesson is led by Sean Westwood.
 
 ## Pre-steps
 
