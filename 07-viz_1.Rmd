@@ -30,7 +30,7 @@ Today, we will be working with `ggplot2` which is part of `tidyverse` and data f
 
 Firstly, load `tidyverse`, and then read the data into your `Global Environment` as `migration_scot`. 
 
-```{r L7, message=FALSE}
+```{r L7, message=FALSE, warning=FALSE}
 library(tidyverse)
 migration_scot <- read_csv("free_movement_uk.csv") #downloaded from the Scottish Government Stats website
 ```
@@ -264,7 +264,7 @@ df <- data.frame(
  group = rep(c("A","B"),
  each = 100)
 )
-ggplot(df, aes(x=x, y=y, group=group)) + geom_line(aes(colour = group), linetype = 1, size = 2) +
+ggplot(df, aes(x=x, y=y, group=group)) + geom_line(aes(colour = group), linetype = 1, linewidth = 2) +
   theme_bw() +
   labs(y = 'Bank balance\n(pos=debit, neg=credit)', 
        x = 'Probability of being happy')
