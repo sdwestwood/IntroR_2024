@@ -1,4 +1,4 @@
-# Data Visualisation 2
+# Data Visualisation 2: Combining and Customising 
 
 Today, we will continue working with `ggplot2` which is part of `tidyverse`. We will continue working with the data from the Scottish Government saved in the file `free_movement_uk.csv`. 
 

@@ -1,669 +1,565 @@
-# Data Transformation 2: More One and Two Table Verbs
+# Tidy Data 1: Principles and Pivot Functions
 
 ## Intended Learning Outcomes {-}
 
-1. Become comfortable with the Wickham Six dplyr one-table verbs:
-
-* `select()`
-* `arrange()`
-* `filter()`
-* `mutate()`
-* `group_by()`
-* `summarise()`
-
-2. Be able to chain functions together using the pipe operator (`%>%`)
-
-3. Be able to use the following dplyr two-table verbs:
-
-* Mutating joins: `left_join()`, `right_join()`, `full_join()`, `inner_join()`
-* Binding joins: `bind_rows()`, `bind_cols()`
+1. understand what tidy data is
+2. pivot
+3. recode
 
 
-This lesson is led by Sean Westwood.
+## Pre-steps
 
+All the functions for tidying data are within `tidyverse` so we need to make sure to load it into the library. Today's lecture will make use of built-in dataframes but for practice examples, we may want to load in the West of Scotland seasonal sunshine and rain data you encountered last week.
 
-
-##	Pre-Steps
-
-1. Make sure to download todays materials and save them to your desired working directory. Make sure you have all the correct files including the `L4_Stub` file, and the data files; `CareerStats2.csv`, `wos_seasonal_sun.csv`, `wos_seasonal_rain.csv`, `wos_monthly_sun.csv` and `wos_monthly_rain.csv`.
-2. Open the `L4_stub` file.
-3. Load `tidyverse` into the library.
-4. Read the data from `CareerStats2.csv` into your `Global Environment` as `MMA_Data`.
-
-
-`r hide("Solution")`
-```{r L4, message=FALSE}
+```{r L5, message=FALSE, warning=FALSE}
 library(tidyverse)
-MMA_Data <- read_csv("CareerStats2.csv")
+sun <- read_csv("wos_seasonal_sun.csv")
+rain <- read_csv("wos_seasonal_rain.csv")
+```
+
+
+## Tidy data
+
+*"Happy families are all alike; every unhappy family is unhappy in its own way."* -- Leo Tolstoy
+
+*"Tidy datasets are all alike, but every messy dataset is messy in its own way."* -- Hadley Wickham
+
+
+In this chapter, you will learn a consistent way to organise your data in R. Hadley Wickham and Garrett Grolemund call this **tidy data**. In most cases, data does not come in a tidy format. Researchers spend most of their time getting the data into the shape it needs to be for a particular analysis. The tools we introduce you to this week and next should form the basics for data wrangling. The idea is that tidy datasets are easier to work with in the long run.
+
+There are three interrelated rules which make a dataset tidy:
+
+1. Each variable must have its own column.
+2. Each observation must have its own row.
+3. Each value must have its own cell.
+
+
+If you want to know more about tidy data, Hadley Wickham's paper can be found on https://vita.had.co.nz/papers/tidy-data.pdf or check out chapter 12 in the book R for Data Science (https://r4ds.had.co.nz/tidy-data.html).
+
+We will see today how `pivot_longer()`, `pivot_wider()`, `separate()`, and `unite()` can help us to get our data into a tidy format.
+
+
+## pivot_longer() and pivot_wider()
+
+`pivot_longer()` and `pivot_wider()` are part of `tidyr` (also part of the tidyverse package) and help you to rearrange the shape of your data. To get your data into long format, you would use `pivot_longer()`; if you wanted to get your data from long to wide format, you would need `pivot_wider()`. Here is a representation of data in wide format and in long format.
+
+<center> <img src="images/original-dfs-tidy.png" > </center>
+
+We cannot say "wide format is tidy" or "the data should always be in long format"; how your data needs to be formatted depends on your data (and the meaning). If x, y, and z are separate variables, then the data is tidy in the wide format as shown above; if x, y, and z are levels of a variable (`key` in the image above), you want to shape your data into long format.
+
+
+The gif animation by Garrick Aden-Buie (https://www.garrickadenbuie.com/project/tidyexplain/#pivot-wider-and-longer) shows you how `pivot_longer()` and `pivot_wider()` work by rearranging your data from wide to long format and vice versa.
+
+<center> <https://raw.githubusercontent.com/gadenbuie/tidyexplain/main/images/tidyr-pivoting.gif > </center>
+
+
+
+### pivot_longer()
+We can start this lecture by looking at a practical example in the build-in datasets `table1` to `table5`. They show the number of Tuberculosis cases documented by the World Health Organization in Afghanistan, Brazil, and China between 1999 and 2000 (the full dataset is called `who`). The data is part of the `tidyverse` package, so as long as we have `tidyverse` loaded into the library, there should not be an issue in accessing this dataset.
+
+
+```{r}
+table1
+```
+
+`table1` has a very tidy structure as it follows the three principles above - each variable is its own column, each observation is its own row, and each value is its own cell. 
+
+<center> <img src="images/tidy_1.png" > </center>
+
+You can see the data contains values associated with four variables (`country`, `year`, `cases`, and `population`). `table4a` however, looks a touch not right.
+
+```{r}
+table4a
+```
+
+<center> <img src="images/tidy_4a_1.png" > </center>
+
+Somehow the values for the columns `year` and `cases` are missing and instead we find two separate columns for `1999` and `2000` that have all `cases` values listed. This is a problem as `1999` and `2000` are actual values and not variables. What we want to do, is pivot_longer `1999` and `2000` in one column `year` and respective values into a second column called `cases`.
+
+
+<center> <img src="images/tidy_4a.png" > </center>
+
+
+Currently the data is in what is called a `wide format`. The function `pivot_longer()` comes in handy when we want to get the data into the shape of a `long format` like in `table1`. `pivot_longer()` is structured like:
+
+<br>
+
+<center> <img src="images/gather.png" > </center>
+
+<br>
+
+
+
+Let's apply this formula to `table4a`
+
+* We need a dataframe that we want to modify -> `table4a` 
+* We need to come up with the name of a new column in which the values of 1999 and 2000 will be stored -> `year`
+* We need to come up with the name of a new column in which all the case values will be stored -> `cases`
+* And finally, we need to tell R which columns in `table4a` we want to turn into long format (i.e. the columns of the 7 subscales) -> 1999 and 2000 (Note that "1999" and "2000" are non-syntactic names as they don't start with a letter. The solution is to surround them in backticks.)Make sure to surround the new column names with quotation marks. 
+
+
+```{r}
+pivot_longer(table4a, cols = `1999`:`2000` , names_to = "year", values_to = "cases")
+```
+
+
+```{block, type="task"}
+**Your turn**
+
+Look at `table4b`. There are two separate columns `1999` and `2000` with population values for Afghanistan, Brazil, and China. Use the `pivot_longer()` function on `table4b` to reshape it from wide format into long format.
+```
+
+`r hide("Solution")`
+```{r}
+pivot_longer(table4b, cols=`1999`:`2000`,  names_to ="year", values_to = "population")
+```
+`r unhide()`
+
+```{block, type="task"}
+**Your turn - Second example**
+
+Remember the sunshine and rain data from last week? Let's have a look at one of the datasets (your choice whether to look at `sun` or `rain`). The data for `year`is in a tidy format, but the seasonal data is spread over 4 columns (`win`, `spr`, `sum`, and `aut`) which is not tidy. Use `pivot_longer()` to reshape the data into a tidier format. Store the output in the `Global Environment` as an object called `sun_tidy` or `rain_tidy`. 
+```
+
+`r hide("Solution")`
+```{r}
+sun_tidy <- pivot_longer(sun, cols= win:aut, names_to = "season", values_to = "sun")
+head(sun_tidy)
+
+rain_tidy <- pivot_longer(rain, cols= win:aut, names_to = "season", values_to = "rain")
+head(rain_tidy)
 ```
 `r unhide()`
 
 
-## Practicing the Wikham Six
 
-The first part of todays class will be practicing the Wickham Six some more, as was mentioned before, the vast majority of your "data time" will be wrangling your data, and most of that can be done with these six functions, so it's good to practice with them. First you'll see an example of each function to refresh your memory. Then you will be asked to try for yourself, these will be a little more involved than last week to really test you. If you are stuggling you can check the solutions, but try yourself first, and answer the questions too, this will help you check your code is correct.
+### pivot_wider()
 
 
-### select()
-
-First up lets try to narrow down this big data set, by taking `MMA_Data`, and selecting only the variables; `ID`, `Height`, `Weight`, `BMI`, `Reach` and `Stance`. We will store this in `Example_1`.
+Now onto the reverse. `pivot_wider()` will spread the data from `long` into `wide format`. When you have observations that are scattered across multiple rows, you can use `pivot_wider()` to split those rows up into separate variables. Let's take a look at `table2`.
 
 ```{r}
-Example_1 <- select(MMA_Data, ID, Height, Weight:Reach, Stance)
-Example_1
+table2
 ```
+
+
+<center> <img src="images/tidy_2_1.png" > </center>
+
+`table2` has the variables `cases` and `population` stored in one column `type` and their respective values in `count`. However, `cases` and `population` are separate variables rather than values of `type`. So best to get them spread out into their own columns as shown in the image below.
+
+
+<center> <img src="images/tidy_2.png" > </center>
+
+
+Take a look how `pivot_wider()` achieves that.
+
+<br>
+
+<center> <img src="images/spread.png" > </center>
+
+<br>
+
+Let's apply the formula above to `table2`:
+
+* We need a dataframe that we want to modify -> `table2` 
+* We need to decide which of the columns in `table2` will become the new column headers -> `type`
+* We need to decide which of the columns in `table2` has all the data in it that will become the new cell values -> `count`
+
+When using `pivot_wider()`, make sure you do not surround the `names_from` and `values_from` arguments with quotation marks. They refer to existing columns rather than column names we have to create when using `pivot_longer()`
+
+
+```{r}
+pivot_wider(table2, names_from = type, values_from = count)
+```
+
+Voila, `cases` and `population` are in their own columns.
+
+Let me modify `table1` a tiny bit.
+
+```{r}
+table1_mod <- table1 %>% 
+  mutate(percent = cases/ population * 100) %>% 
+  pivot_longer(cols= cases:percent, names_to= "variable", values_to= "values")
+```
+
+
+```{r, echo=FALSE}
+knitr::kable(table1_mod)
+```
+
+
+The output in `values` looks a bit strange now. This is just because the column `values` holds very large and very small numbers. 
+
+
+```{block, type="task"}
+**Your turn**
+
+In the modified table above `table1_mod`, we added a `percent` column to see how much percentage of the population had Tuberculosis in 1999 and 2000 in each of the countries Afghanistan, Brazil, and China. But somehow, all numerical information has ended up in 1 column (values).
+
+Your task is to `pivot_wider` the data back out, so that cases, population, and percentage values are in their own columns, titled as `cases`, `population`, and `percent` respectively. Store the new object in the `Global Environment` as `table1_mod_corrected`. When you are done, `table1_mod_corrected` should look like this...
+
+```
+
+```{r, echo=FALSE}
+knitr::kable(pivot_wider(table1_mod, names_from = variable, values_from = values))
+```
+
+
+
+`r hide("Solution")`
+```{r}
+table1_mod_corrected <- pivot_wider(table1_mod, names_from = variable, values_from = values)
+```
+
+`r unhide()`
+
+
+
+
+```{block, type="task"}
+**Your turn - Second example**
+
+<center> <img src="images/sneaky_fox_untidy.png" > </center>
+
+A sneaky fox came to your house and messed up all your tidy data. Undo the works of the sneaky fox by reshaping the data in `sun_fail` and `rain_fail` into a tidier format. Store the tidier data in your `Global Environment` as `sun_outfoxed` and `rain_outfoxed`. 
+
+Your final datasets should have the columns `year`, `season`, and `sun` or `year`, `season`, and `rain` in exactly that order.
+
+```
+
+This is what the fox did:
+
+```{r sneaky_fox}
+sun_fail <- sun_tidy %>% 
+  mutate(n = 1:408) %>% 
+  pivot_longer(cols=c(year, sun), names_to = "col_names", values_to="values" )
+rain_fail <- rain_tidy %>% 
+  mutate(n = 1:616) %>% 
+  pivot_longer(cols=c(year, rain), names_to = "col_names", values_to="values")
+```
+
+
+
+`r hide("Solution")`
+```{r}
+sun_outfoxed <- pivot_wider(sun_fail, names_from = col_names, values_from = values) %>% 
+  select(year, season, sun)
+head(sun_outfoxed)
+
+rain_outfoxed <- pivot_wider(rain_fail, names_from = col_names, values_from = values) %>% 
+  select(year, season, rain)
+head(rain_outfoxed)
+```
+`r unhide()`
+
+
+
+## separate() and unite()
+
+`separate()` turns a single character column into multiple columns, whereas `unite()` combines the values of multiple columns into one column.
+
+### separate()
+
+Take a look at `table3`. 
+
+
+```{r}
+table3
+```
+
+In `table3`, two out of three principles of tidy data are violated. There are multiple values stored in column `rate` (rule 3) but these multiple values also belong to two different variables - `cases` and `population` respectively (rule 1).
+
+<center> <img src="images/tidy_3_1.png" > </center>
+
+
+Here, we would use `separate()` to split the column `rate` into two columns `cases` and `population`. 
+
+<center> <img src="images/tidy_3.png" > </center>
+
+The function `separate()` is structured like this:
+
+<br>
+
+<center> <img src="images/separate.png" > </center>
+
+<br>
+
+We would need
+
+* the data in which the column to separate is located -> `table3`,
+* the actual column we want to separate -> `rate`,
+* the into argument asking into how many columns we want to separate the old column and what we want to call these new columns -> `c("cases", "population")`, and
+* a separator argument -> `"/"`.
+
+
+```{r}
+separate(table3, rate, into = c("cases", "population"), sep = "/")
+```
+
+R has put all cell information before the `/` into a column we named `cases`, and everything after the `/` into the column we decided to call `population`. `/` will not appear in either column `cases` or `population`. The data is now in a tidy format.
 
 ```{block, type="info"}
-Notice, this could also have been written as follows;
-`Example_1 <- select(MMA_Data, ID, Height, Weight, BMI, Reach, Stance)`
+By the way, the separator argument `sep = ` can be any non-alphanumeric character, for example:
 
-We can use the `:` operator to sequence together columns that are next to each other in the original dataframe, this can save time but it is not necessary.
+* underscore ("_"), 
+* comma (","), 
+* semi-colon (";"),
+* colon (":"),
+* forward-slash ("/"),
+* space (" ") or 
+* nothing ("").
+
+But watch out! When the separator is a `full stop`, you would need to add a double backward slash in front of it (``sep = "\\\\."``).
 ```
 
+### Additional arguments for separate()
 
-<span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span>
+#### Retaining the original column
+
+If for some reason, you wanted to keep the original column, you can set an additional argument `remove` to `FALSE`.
+
+```{r}
+separate(table3, rate, into = c("cases", "population"), sep = "/", remove = FALSE)
+```
+
+#### Dropping parts of the original column
+
+What if we were just interested retaining part of the data in the cell, for example keeping the column `cases` but not `population`. The solution would be to work with an `NA` argument. Defining the new columns as `cases` and `NA` will keep everything before the separator in the column `cases`, and drops everything after the separator.
+
+```{r}
+separate(table3, rate, into = c("cases", NA), sep = "/")
+```
 
 ```{block, type="task"}
 **Your turn**
 
-Using `select()` keep everything from `Example_1` but except `Reach`, and store this in an object names `Q1`.
-
+Separate the column `rate` in `table3` to keep only the values after the separator in a column called `population`. Drop the values in front of the separator. Retain the column `rate` as well.
 ```
+
 
 `r hide("Solution")`
 ```{r}
-# Jaimie's solutions
-Q1 <- select(Example_1, -Reach)
-#OR
-Q1 <- select(Example_1, ID, Height, Weight, BMI, Stance)
+separate(table3, rate, into = c(NA, "population"), sep = "/", remove = FALSE)
 ```
 `r unhide()`
 
 
-### arrange()
+#### Separating by position
 
-Lets move on to `arrange()`; lets take the table `Example_1`, and arrange it first by `Weight`, then by `BMI`, we'll store this in `Example_2`.
+It is also possible to separate by position. `sep = 2` would split the column between the second and third character/ number etc.
+
+Let's try that the separation by position. We will keep 4 letters from each `country` name rather than the whole word, and drop the rest.
 
 ```{r}
-Example_2 <- arrange(Example_1, Weight, BMI)
-Example_2
+separate(table3, country, into = c("country", NA), sep = 4)
 ```
 
-<span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span>
 
-What is the height of the top entry in `Example_2`? `r fitb("69")`
+#### Separating into more than 2 columns
 
-```{block, type="task"}
-**Your turn**
+Special case. Let's modify `table3` a little bit by adding a new column with a value of 200 and unite that column with column `rate`.
 
-Using `arrange()`, take the table `Example_1` and arrange it first by `Reach` in *desceding* order, then by `Height` in *ascending* order. Store the result in `Q2`.
-
+```{r}
+table3_mod <- table3 %>% 
+  mutate(new = 200) %>% 
+  unite(rate, rate, new, sep = "/")
 ```
+
+Now column `rate` has 3 sets of numbers, separated by two `/`. If we define we want to split the data into 2 columns, the first 2 sets of numbers are kept, and the third one is dropped with a warning. The code is still executed but the warning indicates that it might not have gone as planned. Hence, it is always good to check that the data object in the `Global Environment` looks exactly as what you have intended.
+
+```{r}
+separate(table3_mod, rate, into = c("cases", "population"), sep = "/")
+```
+
+If we are separating the columns and wanted to keep all sets of numbers, one in each column, we would use an into argument that includes 3 new columns.
+
+```{r}
+separate(table3_mod, rate, into = c("cases", "population", "200"), sep = "/")
+```
+
+
+```{block, type="funfact"}
+Technically, you would not need a separator argument in the case above, as `separate()` splits the data whenever it detects a non-alphanumeric character (i.e. a character that isn't a number or letter). Saying that, the separator argument is needed when your column contains non-alphanumeric characters as part of your cell values.
+```
+
+If the values in `population` and `200` (separated by a `/`) were some sort of `ID_code`, **AND** we wanted to split the data into 2 columns, after the first `/` only, we would have to include an `extra` argument, and set it to `"merge"`.
+
+```{r}
+separate(table3_mod, rate, into = c("cases", "ID_code"), sep = "/", extra = "merge")
+```
+
+
+```{block, type="question"}
+There is still a tiny bit off in data above. Can you spot what it is? * Hint: Think about if you wanted to sum up all the TB cases occurred in the 3 countries within the years 1999, and 2000.
+```
+
 
 `r hide("Solution")`
-```{r}
-# Jaimie's solution
-Q2 <- arrange(Example_1, desc(Reach), Height)
-```
-`r unhide()`
-
-
-What is the `BMI` of the top entry in `Q2`? `r fitb("27.042")`
-
-
-
-### filter()
-
-Now onto `filter()` which has so many uses! Lets filter out all the athletes who are *over* 31 years of age
-```{r}
-Example_3 <- filter(MMA_Data, Age <=31)
-Example_3
-```
-
-
-<span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span>
-
-How many athletes (observations) are left in `Example_3`? `r fitb("97")`
-
-
-```{block, type="task"}
-**Your turn**
-
-Using `filter()`, take the original table `MMA_Data` and keep only those athletes in the 'Flyweight' and 'Lightweight' `WeightClasses` Store the result in `Q3`.
-
-```
-
-`r hide("Solution")`
-```{r}
-# Jaimie's solution
-Q3 <- filter(MMA_Data, WeightClass %in% c("Flyweight", "Lightweight"))
-```
-`r unhide()`
-
-How many athletes (observations) are left in `Q3`? `r fitb("50")`
-
-
-
-```{block, type="task"}
-**Your turn**
-
-Now try taking the original table `MMA_Data` and keep only those athletes from the "Welterweight" `WeightClass`, who are over 72 inches in `Height`. Store the result in `Q4`.
-Hint: remember they will need to match *both* conditions 
-```
-
-`r hide("Solution")`
-```{r}
-# Jaimie's solution
-Q4 <- filter(MMA_Data, WeightClass == "Welterweight", Height > 72)
-```
-`r unhide()`
-
-
-How many athletes (observations) are left in `Q4`? `r fitb("18")`
-
-```{block, type="task"}
-**Your turn**
-
-Now try taking the original table `MMA_Data` and keep only those athletes who have the "Orthodox" `Stance` *AND* have 27 or more total fights (`T_Fights`) *OR* 15 or more wins by submission (`W_by_Sub`). Store the result in `Q5`.
-- Hint - No matter what they need to have the `Orthodox` stance, regardless of the other conditions 
-```
-
-`r hide("Solution")`
-```{r}
-# Jaimie's solution
-Q5 <- filter(MMA_Data, Stance == "Orthodox" & (T_Fights >= 27 | W_by_Sub >= 15))
-#OR
-Q5 <- filter(MMA_Data, Stance == "Orthodox", (T_Fights >= 27 | W_by_Sub >= 15))
-```
-`r unhide()`
-
-`r hide("Explain This Answer")`
 ```{block, type="solved"}
-There is essentially 2 parts to this question; the first criteria is to find athletes who have the "orthodox" stance... that's the first requirement... then *if* they matched that criteria, we want to check, if they have *EITHER* 27 or more total fights *OR* 15 or more wins by submission, which is why we need to put the second "either/or" criteria in brackets, so R knows to treat them together.
-
-If you take the brackets out, it will treat the first two criteria as a joint criteria and the `|` "Or" operator creates the break. Meaning R thinks you are asking for; Athletes with the orthodox stance and 27 or more total fights... *OR* athletes with 15 or more wins by submission. Try running the code without the brackets and seeing what happens
-
-`Q5Alt <- filter(MMA_Data, Stance == "Orthodox" & T_Fights >= 27 | W_by_Sub >= 15)`
-
-Hopefully now you can understand the difference.
-
+The new columns `ID_code` and `cases` are `character` columns. Whilst this is fine for `ID_code`, it is less beneficial for `cases.` If we wanted to sum up the cases column, values would need to be `numerical`. We could use the converting function `as.integer()`.
 ```
+
+```{r}
+table3_mod %>% 
+  separate(rate, into = c("cases", "ID_code"), sep = "/", extra = "merge") %>% 
+  mutate(cases = as.integer(cases))
+```
+
 `r unhide()`
 
-How many athletes (observations) are left in `Q5`? `r fitb("44")`
+#### Converting data types
 
-
-
-
-
-### mutate()
-
-Moving on to mutate() now.
-
-Lets add a new column onto the table `Example_1`, that shows `Reach` but in meters rather than inches, and we'll call it `ReachM`. We can make this column with `mutate()` by converting the inches value in the original `Reach` column into centimeters, by multiplying (`*`) the value by `2.54` and then dividing (`/`) the result by `100`.
+The slightly quicker and perhaps more elegant solution would be to add another argument `convert` to `separate()` and set it to `TRUE`. This will convert `cases` to `integer` and leave `ID_code` as `character` due to the non-numerical `/`.
 
 ```{r}
-Example_4 <- mutate(Example_1, ReachM = (Reach*2.54)/100)
-Example_4
+table3_mod %>% 
+  separate(rate, into = c("cases", "ID_code"), sep = "/", extra = "merge", convert = TRUE)
 ```
 
 
-<span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span>
+### unite()
 
-```{block, type="task"}
-**Your turn**
+Take a look at `table5`. 
 
-Take the table `Example_1` and mutate a new column onto it called `BMI_Alt`, this time attempting to recalculate BMI using the Weight and Height variables. The calculation for BMI is; weight in kilograms devided by height in meters squared. Lets break down the steps, you will need to;
-- multiply `Weight` by 0.453 (to convert lbs to kgs)
-- divide that by...
-- `Height` multiplied 2.54 (to convert inches to cm), which you divide by 100 (to convert to m), which you then square
-Store the result in `Q5`.
-
-- Hint - the `^` symbol is for calculating "to the power of"
-```
-
-`r hide("Solution")`
 ```{r}
-# Jaimie's solution
-Q6 <- mutate(Example_1, BMI_Alt = (Weight*0.453)/(((Height*2.54)/100)^2))
-```
-`r unhide()`
-
-```{block, type="info"}
-Don't be worried if your new column is different by a few decimals (the original BMI was created with a slightly different calculation with different rounding). If they look approximately similar you have done it correctly.
+table5
 ```
 
 
+Here the values in column `year` are split into `century` and `year` which is not very useful. Best to merge the 2 columns together as shown in the image below.
 
-### group_by() and summarise()
+<center> <img src="images/tidy_5.png" > </center>
 
-Now let's brush up on group_by and summarise().
 
-Here we will take the original table `MMA_Data` and group that data by `WeightClass`.
-Then we will create `mean()` summary stats for: 
-Number of hits landed per minute (`TLpM`) and we'll call that column `MeanHit`, 
-Number of hits absorbed per minute (`AbpM`) and we'll call that column `MeanAbsorb`, 
-And average fight length (`Time_Avg`) and we'll call that column `MeanTime`.
+`unite()` (the inverse of separate) can help to combine the values of `century` and `year` into a single column. It is used less frequently than it's counterpart, but is still a useful function to know.
+
+The function `unite()` is structured like this:
+
+<br>
+
+<center> <img src="images/unite.png" > </center>
+
+<br>
+
+
+
+We would need the data `table5`, a new column we want to create `year`, the two columns we would like to combine (`century` and `year`), and define the separator as "nothing" since the default is sep = "_".
+
 ```{r}
-Example_5a <- group_by(MMA_Data, WeightClass)
-Example_5b <- summarise(Example_5a, MeanHit = mean(TLpM), MeanAbsorb = mean(AbpM), MeanTime = mean(Time_Avg))
-Example_5b
+unite(table5, year, century, year, sep = "")
 ```
 
-<span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span>
-
-Which weightclass has the highest Hit average? `r fitb("LightHeavyweight")` <br>
-Which weightclass has the lowest Absorbtion average? `r fitb("Flyweight")` <br>
-Which weightclass has the highest average time? `r fitb("Flyweight")` <br>
+Yay! The data of `table5` is in a tidier format now - at least for column `year`. Ah, but we didn't save the changes as an object in our `Global Environment`.
 
 
 ```{block, type="task"}
 **Your turn**
 
-Take the original table `MMA_Data` and group that data by `Stance` and `HeightClass` and store that in `Q7a`. 
-Then create summary stats for success rate (`Success`), you should have columns called;
-`MedSuccess` that shows the median success rate
-`MaxSuccess` that shows the maximum success rate
-`MinSuccess` that shows the minimum success rate
-`SDSuccess` that shows the standard deviation of success rate
-The resulting table should be stored in `Q7b`.
+Let's combine the two steps of tidying `table5` in a single pipe `%>%` - separate the `rate` column into `cases` and `population`, and unite the columns `year` and `century` into a new column `year`. Store the new object as `tb_cases` in the `Global Environment`. Make sure, the columns `cases` and `population` are `integer` values.
 ```
 
 `r hide("Solution")`
 ```{r}
-# Jaimie's solution
-Q7a <- group_by(MMA_Data, Stance, HeightClass)
-Q7b <- summarise(Q7a, MedSuccess = median(Success), MaxSuccess = max(Success), MinSuccess = min(Success), SDSuccess = sd(Success))
+tb_cases <- table5 %>% 
+  separate(rate, into = c("cases", "population"), sep = "/", convert = TRUE) %>% 
+  unite(year, century, year, sep = "")
+tb_cases
 ```
 `r unhide()`
-
-
-Which Stance/HeightClass combo has the highest median success rate? (enter your answers in the format Stance/HeightClass) `r fitb("Swithc/Tall")` <br>
-What is the minimum success rate of tall athletes with an orthodox stance? `r fitb("0.415")` <br>
-What is the standard deviation in success rate for short athletes with a southpaw stance? (write your answer to 3 decimal places) `r fitb("0.062")` <br>
-
-
-
-
-### Bringing it all together 
-
-<span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span>
-
-```{block, type="task"}
-**Your turn**
-This is another multi-part question...
-
-* Take the original table `MMA_Data`, and select just `ID`, `WeightClass`, `Stance`, `T_Wins`, `W_by_Decision`, `W_by_KO/TKO` and `W_by_Sub`. Store the result in `Q8a`.
-* Take `Q8a` and filter out all the athletes with the "Southpaw" `Stance`. Store the result in Q8b.
-* Take `Q8b` and mutate on a new column called `Perc_W_by_Dec` that shows the percentage of total wins (`T_Wins`) that are accounted for by decisions (`W_by_Decision`). Store the result in `Q8c`.
-* Take `Q8c` and group that data by `WeightClass`. Store the result in `Q8d`.
-* Take `Q8d` and create summary stats that show the mean of `Perc_W_by_Dec`. Store the result in `Q8e`.
-```
-
-`r hide("Solution")`
-```{r}
-# Jaimie's solution
-Q8a <- select(MMA_Data, ID, WeightClass, Stance, T_Wins, W_by_Decision, "W_by_KO/TKO", W_by_Sub)
-Q8b <- filter(Q8a, Stance != "Southpaw")
-Q8c <- mutate(Q8b, Perc_W_by_Dec = (W_by_Decision/T_Wins)*100)
-Q8d <- group_by(Q8c, WeightClass)
-Q8e <- summarise(Q8d, AvgPercDec = mean(Perc_W_by_Dec))
-```
-`r unhide()`
-
-Which weightclass has the lowest average percentage of wins by decision? `r fitb("Heavyweight")`
-
-
-
-## The pipe operator (%>%) {#pipes}
-
-As you may have noticed, your environment pane has become increasingly cluttered. Indeed, every time you introduced a new line of code, you created a uniquely-named object (unless your original object is overwritten). This can become confusing and time-consuming. One solution is the pipe operator (`%>%`) which aims to increase efficiency and improve the readability of your code. The pipe operator (`%>%`) read as **"and then"** allows you to chain functions together, eliminating the need to create intermediary objects. This creates a "pipeline", allowing the "flow" of data between lines of code, as the output of one function "flows" into the next function. There is no limit as to how many functions you can chain together in a single pipeline.
-
-For example, in order to `filter()`, `group_by()` and `summarise()` the data, you would have used the following code lines:
-
-```{r}
-Example_6a <- filter(MMA_Data, ReachClass == "Above")
-Example_6b <- group_by(Example_6a, WeightClass)
-Example_6c <- summarise(Example_6b, MeanSub = mean(SubAtt_Avg))
-Example_6c
-```
-
-However, utilisation of the pipe operator (`%>%`) can simplify this process and create only one object (`Example_7`) as shown:
-
-```{r}
-Example_7 <- MMA_Data %>%
-  filter(ReachClass == "Above") %>%
-  group_by(WeightClass) %>%
-  summarise(MeanSub = mean(SubAtt_Avg))
-Example_7
-```
-
-As you can see, `Example_7` produces the same output as `Example_6c`. So, pipes automatically take the output from one function and feed it directly to the next function. Without pipes, you needed to insert your chosen dataset as the first argument to every function. With pipes, you are only required to specify the original dataset (i.e  `MMA_Data`) once at the beginning of the pipeline, and removes the need to create unnecessary intermediary objects. You now no longer need the first argument of each of the subsequent functions anymore, because the pipe will know to look at the output from the previous step in the pipeline.
-
-
-```{block, type="task"}
-**Your turn**
-
-Amend all of your code from Question8 and turn it into a single pipeline
-Save this as an object called `Q9` to your `Global Environment`.
-```
-
-`r hide("Solution")`
-```{r}
-#Jaimie's solution
-Q9 <- MMA_Data %>%
-  select(ID, WeightClass, Stance, T_Wins, W_by_Decision, "W_by_KO/TKO", W_by_Sub) %>%
-  filter(Stance != "Southpaw") %>%
-  mutate(Perc_W_by_Dec = (W_by_Decision/T_Wins)*100) %>%
-  group_by(WeightClass) %>%
-  summarise(AvgPercDec = mean(Perc_W_by_Dec))
-Q9
-```
-`r unhide()`
-
-If done correct `Q9` should look identical to `Q8e`
-
-
-```{block, type="funfact"}
-
-Note that in the above code chunk, the data object has been on its own line in the code followed immediately by `%>%` before starting with the "functions". 
-
-The other option would have been to put the data object as the first argument within the first function. 
-
-The benefit of having the data on its own is that you can reorder functions easily or squeeze another one in (for example if you summarised something but forgot to group beforehand) without the need to "move" the data object into the new first argument of the pipeline. 
-
-```
-
-
-
-## Two-Table Verbs
-
-More often than not you will find yourself with data across multiple tables. In order to effectively combine multiple tables, `dplyr` provides a selection of **two-table verbs**. Today we will focus on two categories of two-table verbs - mutating join verbs and binding join verbs.
-
-
-
-### Bringing in new data
-
-First of all lets bring in some new data to look at these new functions.
-
-#### What's the data
-
-Source: Met Office National Climate Information Centre
-https://www.metoffice.gov.uk/research/climate/maps-and-data/uk-and-regional-series
-
-wos_seasonal_sun: Seasonal total duration of bright sunshine for Scotland W; Areal series, starting in 1919
-
-wos_monthly_sun: Monthly and annual total duration of bright sunshine for Scotland W; Areal series, starting in 1919
-
-wos_seasonal_rain: Seasonal total precipitation amount for Scotland W; Areal series, starting in 1862
-
-wos_monthly_rain: Monthly and annual total precipitation amount for Scotland W; Areal series, starting in 1862
-
-```{r}
-wos_seasonal_sun <- read_csv("wos_seasonal_sun.csv")
-
-wos_monthly_sun <- read_csv("wos_monthly_sun.csv")
-
-wos_seasonal_rain <- read_csv("wos_seasonal_rain.csv")
-
-wos_monthly_rain <- read_csv("wos_monthly_rain.csv")
-```
-
-
-###	Mutating Join Verbs
-
-Mutating join verbs combine the variables (columns) of two tables so that matching rows are together. There are 4 different types of mutating joins, namely `inner_join()`, `left_join()`, `right_join()`, and `full_join()`.
-
-Mutating joins have the following basic syntax:
-
-<center> <img src="images/join.png"> </center>
-
-To help you visualise what these joining functions are doing, we will use some simple diagrams, like the one below. Here `data1` (shown below in blue) represents our "left" dataframe (or table) and `data2` (shown below in green) represents our "right" dataframe.
-
-<center> <img src="images/join_tables.png" height="200"> </center>
-
-To make things nice and clear to see, lets simplify our data a litte.
-
-```{r}
-Summer_Rain <- wos_seasonal_rain %>% 
-  select(year, sum)
-
-Summer_Sun <- wos_seasonal_sun %>% 
-  select(year, sum)
-
-Summer_Rain
-Summer_Sun
-```
-
-```{block, type="info"}
-Now we have;
-* rain data for the summer months from 1862 to 2015 (`Summer_Rain`)
-* sunshine data for the summer months from 1919 to 2020 (`Summer_Sun`)
-Notice they have data from some of the same years, but also have data from years unique to each table
-```
-
-
-#### inner_join()
-
-`inner_join()` returns all rows from both tables for which the values in column specified in the `"by = "` statement overlap. 
-
-<center> <img src="images/inner_join1.png"> </center>
-
-Here we merge `Summer_Sun` and `Summer_Rain` with `inner_join()` specifying we want to "join by" the variable `year`. Becuase the remaining variable has the same name in both tables, R needs to distiguish them from each other, for that we use the `suffix = ` arguement, which allows us to specify what suffix to add to each column of the resulting table. If we do not spcify this, R will add a `.x` and `.y` suffix for us to the x (left) and y (right) table variables respectively.
-
-```{r}
-inner <- inner_join(Summer_Sun, Summer_Rain, by="year", suffix = c("_sun", "_rain"))
-inner
-```
-
-Using an inner join returns only 97 (1919 to 2015) rows of observations because these are the only years in `year` that are present in both the Sun (1919 to 2020) and the Rain (1862 to 2015) data tables. However, we are still merging both tibbles together, meaning that all columns from `Summer_Sun` and `Summer_Rain` are kept (in our case `sum`, with a suffix added to each to tell them appart). In this example, the years 1862 to 1918, are dropped becuase they are not present in the Sun data, and the years 2016 to 2020 are dropped becuase they are not present in the Rain data.
-
-```{block, type="funfact"}
-If you don't specify which variable to "join by", and omit the by statement, the R will joing by all columns in common... 
-
-Try it for yourself in the `Console` and see what happens
-```
-
-
-<span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span>
-
-How many rows (or observations) does `inner` have? `r fitb("97")` <br>
-How many columns (or variables) does `inner` have? `r fitb("3")` <br>
-
-
-
-#### left_join()
-
-`left_join()` retains the complete first (left) table and adds values from the second (right) table that have matching values in the column specified in the `"by ="` statement. Rows in the left table with no match in the right table will have missing values (`NA`) in the new columns. 
-
-
-<center> <img src="images/left_join1.png"> </center>
-
-Let's try this `left_join()` function for our simple example of `Summer_Sun` and `Summer_Rain` in R.
-
-```{r}
-left <- left_join(Summer_Sun, Summer_Rain, by="year", suffix = c("_sun", "_rain"))
-left
-```
-
-Here `Summer_Sun` is returned in full, and for every matching `year` in `Summer_Rain` the value is added. However, `Summer_Rain` does not have any value for the years 2016 to 2020, hence `NA` is added here to the column `sum_rain`.  
-
-<span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span>
-
-How many rows (or observations) does `left` have? `r fitb("102")` <br>
-How many columns (or variables) does `left` have? `r fitb("3")` <br>
-
-
-
-
-#### right_join()
-
-`right_join()` retains the complete second (right) table and adds values from the first (left) table that have matching values in the column specified in the by statement. Rows in the right table with no match in the left table will have missing values (`NA`) in the new columns.
-
-<center> <img src="images/right_join1.png"> </center>
-
-However, code-wise, you would still enter x as the first, and y as the second argument within `right_join()`.
-
-```{r}
-right <- right_join(Summer_Sun, Summer_Rain, by="year", suffix = c("_sun", "_rain"))
-right
-```
-Here `Summer_Rain` is returned in full, and for every matching `year` in `Summer_Sun` the value is added, for any row of `Summer_Rain` that does not have a mating value in `Summer_Sun`, `NA` is added. Notice the order of the rows, though!!! All the years of `Summer_Sun` come first before the extra rows from `Summer_Rain` are added at the bottom. That is due to the order of how they are entered into the `right_join()` function. The "left" data (first table) is still prioritised in terms of ordering observations!
-
-<span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span>
-
-How many rows (or observations) does `right` have? `r fitb("154")` <br>
-
-
-
-#### full_join()
-
-`full_join()` returns all rows and all columns from both dataframes. `NA` values fill unmatched rows. 
-
-<center> <img src="images/full_join1.png"> </center>
-
-
-```{r}
-full <- full_join(Summer_Sun, Summer_Rain, by="year", suffix = c("_sun", "_rain"))
-full
-```
-
-As you can see, all years from both tables are kept, and `NA` is used to fill the missing years (1862 to 1918 for `sum_sun`, and 2016 to 2020 for `sum_rain`). Again you can see the prioritization of the left (first) table in the arrangement of the years.
-
-
-<span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span>
-
-How many rows (or observations) does `full` have? `r fitb("159")` <br>
-
-
-### Mutating Join Summary
-
-| join function | Description  |
-|:----------|:---------------------------|
-| inner_join() | Includes all rows that are PRESENT IN BOTH the left and the right table  |
-| left_join() | Includes all rows from the left table (first data entered) |
-| left_join() | Includes all rows from the right table (second data entered) |
-|	full_join() | Includes all rows from both left and right tables |
-
-
-<span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span>
-
-```{block, type="task"}
-**Your turn**
-
-Join together `wos_seasonal_rain` and `wos_seasonal_sun` so that we keep all the rows from the `wos_seasonal_sun` table, add a useful suffix so you can differentiate between columns with the same name. Store the result in `Q10`.
-```
-
-`r hide("Solution")`
-```{r}
-#Jaimie's solution
-Q10 <- left_join(wos_seasonal_sun, wos_seasonal_rain, by = "year", suffix = c("_sun", "_rain"))
-#OR 
-Q10 <- right_join(wos_seasonal_rain, wos_seasonal_sun, by = "year", suffix = c("_rain", "_sun"))
-
-Q10
-```
-`r unhide()`
-
-
-###	Binding Join Verbs
-
-In contrast to mutating join verbs, binding join verbs simply combine tables without any need for matching. Dplyr provides `bind_rows()` and `bind_cols()` for combining tables by row and column respectively. When row binding, missing columns are replaced by `NA` values. When column binding, if the tables do not match by appropriate dimensions, an error will result. 
-
-
-#### bind_rows()
-
-`bind_rows()` is ideal when you have more entries of the same kind of data, i.e. new observations of the same variables. (For example; you have a new batch of participants answering the same questionnaire; or you have new air pollution data from a different geographic region... same variables - different observations)
-
-Lets split some data
-
-```{r}
-Sun_Season_1 <- wos_seasonal_sun %>%
-  filter(year >= 1970)
-
-Sun_Season_2 <- wos_seasonal_sun %>%
-  filter(year < 1970)
-```
-
-Now we have 2 indetical tables for seasonal sunshine in the west of Scotland, but for different sets of years. All the same variables, but totally different observations.
-
-We can easily join these together with `bind_rows` to create a complete history.
-```{r}
-Bind_1 <- bind_rows(Sun_Season_1, Sun_Season_2)
-Bind_1
-```
-`bind_rows()` takes the second table `Sun_Season_2` and puts it *directly underneath* the first table `Sun_Season_1`. 
-
-
-What happens if we attempt to bind tables with different dimensions
-```{r}
-Bind_2 <- bind_rows(Sun_Season_1, inner)
-Bind_2
-```
-Notice that the `bind_rows()` does not "care" if it duplicates rows, here we have repeat years. Also `bind_rows()` does not "care" that there are columns that do not match between the tables, here `NA` is added fill the missing space. 
-
-#### bind_cols()
-
-`bind_cols()` is similar to our mutating join verbs in that it creates a new table by joining columns (or variables) together. However, note that `bind_cols()` does not perform any kind of row-wise matching when joining tables.
-
-```{r}
-Bind_3 <- bind_cols(wos_monthly_sun, wos_seasonal_sun)
-```
-`bind_cols()`takes `wos_seasonal_sun` and puts it *right next* to `wos_monthly_sun`. Since the column name `year` is in both tables they get called `year..1` and `year...15` after their respective column number to differentiate them.
-
-
-
-What happens if we attempt to bind tables with different dimensions
-```{r, error=TRUE}
-Bind_4 <- bind_cols(Summer_Sun, Summer_Rain)
-```
-You simply get an error
-
-
-
-```{block, type="funfact"}
-By the way, you can merge as many data objects as you like with the binding functions, whereas in the join functions, you are limited to two. However, you could use a pipe to combine the merged dataframe with a third.
-
-example 1: bind_rows(data1, data2, data3) <br>
-example 2: full_join(data1, data2) %>% full_join(data3)
-```
-
-
-Just to further clarify the differences between `bind_cols()` and the mutating joing verbs, lets look at how they would deal with the same challenge
-
-First lets create a new table for winter sun data, but lets arrange it by "win", so that rather than being in order of `year`, it is in order of most sunshine. This will have the same dimensions as the Summer_Sun table but a totally different order
-
-```{r}
-Winter_Sun <- wos_seasonal_sun %>% 
-  select(year, win) %>%
-  arrange(desc(win))
-Winter_Sun
-```
-
-Now lets try joining Winter_Sun and Summer_Sun using the two different methods
-```{r}
-Comparison_1 <- bind_cols(Summer_Sun, Winter_Sun)
-Comparison_2 <- left_join(Summer_Sun, Winter_Sun, "year")
-
-Comparison_1
-Comparison_2
-```
 
 
 ```{block, type="info"}
-Using bind_cols() simply "copy and pasted" the two tables together, the fact that the rows were in different orders did not matter. On the other hand, using left_join() meant that R compared the content of "year" and matched them up, ignoring the fact that Winter_Sun was in a different arrangement.
+The year column is still a `character` column. In this case, it does not matter too much, as 1999 and 2000 are levels of the column `year` and very unlikely to be involved in any calculations. In case we are dealing with actual numerical value and have the need to convert the data type, we need to use the function `as.integer()` as unite does not have a `convert` argument available.
 ```
+
+```{r}
+tb_cases_converted <- tb_cases %>% 
+  mutate(year = as.integer(year))
+tb_cases_converted
+```
+
+
+### Additional arguments for unite()
+
+#### Retaining the original column
+
+Similarly to `separate()`, unite also comes with a remove statement, so if you wanted to keep the original columns before merging them together, you would code
+
+```{r}
+unite(table5, year_combined, century, year, sep = "", remove = FALSE)
+```
+
+#### Removing missing values before uniting columns
+
+`unite()` also comes with an `na.rm` statement that will remove missing values prior to uniting the values of a column (actually, the values have to be a "character" column). Let me modify `table5` a wee bit to make that point.
+
+```{r}
+table5_mod <- table5 %>% 
+  mutate(new = rep(c("200", NA), 3))
+
+table5_mod
+```
+
+If we wanted to combine the values of `rate` and `new`, we would code
+
+```{r}
+unite(table5_mod, rate, rate, new, sep = "/")
+```
+
+See how R adds the missing values onto rate, which we do not want. To avoid that happening, we can use the `na.rm` statement which removes missing values in columns of data type character before merging the columns.
+
+```{r}
+unite(table5_mod, rate, rate, new, sep = "/", na.rm = TRUE)
+```
+
+
+## Bonus materials: mutate row names from the `mtcars`
+
+Remember, in lecture 2 when we were talking about the `mtcars` dataset and how the car types were not in listed as a separate column but rather row names? Let's just read in the data and have another quick look to jog our memories...
+
+```{r}
+df_mtcars <- mtcars
+
+head(df_mtcars)
+```
+
+You can see much better what I'm talking about when you view your `df_mtcars`.
+
+
+Now, that we have learnt about the `mutate()` function, we can attempt to get all of these row names into a new column. All we have to do is combining a function called `rownames()` with `mutate()`. We also could use some more of these handy pipes `%>%` you learnt about last week.
+
+```{r}
+df_mtcars <- mtcars %>% 
+  mutate(Car_type = rownames(mtcars))
+```
+
+In this example, we have taken the dataset `mtcars`, then added a new column called `Car_type` with `mutate()`. The column `Car_type` should then hold all the values that were previously listed as the row names in the original `mtcars` data.
+
+```{r}
+head(df_mtcars)
+```
+
+
+```{block, type="question"}
+We can now look at the data `df_mtcars`, and see that the new column was added at the end of the dataset. What would we have to do to make `Car_type` the first column in the dataframe?
+```
+
+`r hide("Answer")`
+```{r}
+# We could use the fuction select()
+df_mtcars <- mtcars %>% 
+  mutate(Car_type = rownames(mtcars)) %>% 
+  select(Car_type, mpg:carb)
+
+head(df_mtcars)
+```
+`r unhide()`
 
 
 ## Additional information
 
-Garrick Aden-Buie created some amazing gganimation gif to illustrate how the joins work. Check it out! https://www.garrickadenbuie.com/project/tidyexplain/
+More information on stuff we covered today and beyond can be found here:
 
+* https://r4ds.had.co.nz "R 4 Data Science" by Garrett Grolemund and Hadley Wickham is the official guidebook for R
+* https://suzan.rbind.io/categories/tutorial/ She has some pretty cool tutorials on data wrangling
 
-## Summative Homework
-
-The second summative assignment is available on moodle now.
-
-Good luck.
-
-Check that your Rmd file knits into a html file before submitting. Upload your Rmd file (not the knitted html) to moodle. 

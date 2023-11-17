@@ -8,8 +8,6 @@
 4. create a data table from scratch
 5. import and store data
 
-This lesson is led by [Johanna Werner](https://www.psy.gla.ac.uk/otherstaff/?id=TJ001).
-
 
 ## Pre-Steps
 
@@ -639,7 +637,7 @@ Getting the data from the csv file into your `Global Environment` in R is by usi
 The data you just saw in the screenshot above are from `M&Ms colours by bag` (http://www.randomservices.org/random/data/index.html). The data table gives the color counts and net weight (in grams) for a sample of 30 bags of M&M's. The advertised net weight is 47.9 grams.
 
 ```{r}
-MM_data <- read_csv("MM_data.csv")
+MM_data <- read_csv("data/MM_data.csv")
 ```
 
 As you can see, R is giving you a bit of an output of what it has just done - parsed some columns. The data is stored as an object in your `Global Environment` now, and we could either `call the data` (by typing `MM_data` into the `Console`) or use `glimpse()` to have a look what the data actually looks like and what data types are in each column.
@@ -674,12 +672,5 @@ Always use read_csv() from the tidyverse package for reading in the data. There 
 
 ## Last point for today 
 
-Restart R and clear your workspace. Knit your `L2_stub`. If it knits, it is an indication that all your code chunks are running. This is important for most of the graded assessments in the future. If it runs on your computer, it will run on ours.
+Restart R and clear your workspace. Knit your `L2_stub`. If it knits, it is an indication that all your code chunks are running. This is important for reproducibility - if it runs on your computer, it will run on ours.
 
-## Summative Homework
-
-The first summative assessment is compiled of 11 questions from Lectures 1 and 2. You can download the files from moodle. The folder you download is a zip folder that needs to be unzipped before you can work with it. It contains the homework submission file labelled `GUID_L1L2.Rmd` and a data file called `TraitJudgementData.csv`.
-
-Good luck.
-
-Check that your Rmd file knits into a html file before submitting. Upload your Rmd file (not the knitted html) to moodle. 

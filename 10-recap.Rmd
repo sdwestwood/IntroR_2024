@@ -1,14 +1,6 @@
-# Recap: Before the final assessment
+# Recap: Putting it all together
 
-## Outline for today
-
-This lecture is structured a bit differently. First 10-15 min is time for you to ask any questions you have, clarify whatever you want to have clarified, etc. Then we will have an in-class practice exam that is structured fairly similar to the final summative homework assignment.
-
-This in-class practice exam is led by [Wilhelmiina Toivo](https://www.psy.gla.ac.uk/otherstaff/?id=TIWT1).
-
-
-
-## Lecture 10: Bringing your skills together
+## Bringing your skills together
 
 In this practice exam, you will use all the skills you have learnt to tidy up, summarise, and visualise an actual data set. These data are from an experiment where participants were asked to rate 240 words on a scale from 1-9, 1 being *not exciting at all* and 9 being *extremely exciting*. This dimension is called emotional arousal of language. The words are split into three conditions: HA = *High arousal*, LA = *Low arousal* and DI = *neutral distractor words*. Each of the words has their own item number ranging from 1-240.
 

@@ -8,7 +8,6 @@ By the end of this session you should be:
 2. Able to correct some of the more common errors found in R code.
 3. Know where to go online to find help and continue your coding journey on your own.
 
-This lesson is led by [Jaimie Torrance](https://www.psy.gla.ac.uk/otherstaff/?id=TJ001).
 
 ## Errors: How to avoid some and live through the rest
 
@@ -534,21 +533,5 @@ Learning to Google with appropriate levels of detail in your question is a skill
 ### Further Reading
 
 Look at the [appendices](#appendices) section of this site to see some further reading materials to expand on the knowledge you've gained in this course.
-
-## Formative Exercises
-
-Now that we have completed the stuff for the in-class, we can move on to the formative exercises. Try the first couple in class (time permitting) and discuss them with those sitting near you if you wish or Rebecca.
-
-Download the .zip folder `cars.zip` from Moodle. Extract the files and open the file `cars_formative.Rmd`. 
-
-In this file there are 6 error diagnosis and correction questions.
-
-When you are done there is a file called `cars_solutions.Rmd` in this same zip folder. Use this to check your answers. 
-
-If you have questions you can ask on the Moodle forum.
-
-
-
-
 
 

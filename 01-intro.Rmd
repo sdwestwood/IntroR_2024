@@ -8,8 +8,6 @@ By the end of this session you should be:
 2. Able to describe R and Studio, the coding environment and the associated file types.
 3. Able to install, load and describe the nature of R packages and describe the nature and use of functions in general.
 
-This lesson is led by [Courtney Taylor Browne Luka](https://www.gla.ac.uk/schools/psychologyneuroscience/staff/courtneytaylorbrowneluka/).
-
 ## Computer Literacy Basics
 
 In order to successfully navigate this course there are a number of things that you need to know about computers more generally. This section includes everything that you are *required* to know or learn. 
@@ -145,7 +143,7 @@ If the file extension on a file is incorrect it may not be recognised as a file 
 This is particularly an issue when you are downloading your files for class. As they are technically "plain text" files, some internet browsers will download them with the extension ".txt", or even add it on as a second one which doesn't work! Changing the extension to ".Rmd" or removing the extra added one will solve this issue.
 ```
 
-### .r Files
+### .R Files
 
 This is what we refer to as a script. It is designed to be read by R, not so much by humans. To create a new script go to File > New File > R Script. This is what will be brought up:
 
@@ -164,6 +162,8 @@ When you go to File > New file > R Markdown... you will be prompted to supply so
 When a new RMarkdown file is opened the file isn't empty. What you actually get is an example with a YAML header (at the top bordered with the dashes), some code chunks (in the shaded sections, more on these in a minute), text and some headers (the hashtagged blue text **outside** of chunks).
 
 I like to think of the way this file type is interpreted as being *like a script, but flipped*- the default interpretation of text aimed at humans. If we want **executable code** we need to prompt R to read the text in this way. This is done using "code chunks", or sometimes just called "chunks".
+
+One key difference between .R files and .Rmd files is the way they look for files (e.g. if you are loading in data). With .R files, they look for things by starting wherever the working directory is currently located, whereas .Rmd files look for things starting where that .Rmd file is currently located.
 
 <center> <img src="images/new_markdown.png"> </center> <br>
 
@@ -339,13 +339,6 @@ Once your function has taken the input and run the command on it, it will produc
 As we progress through this course, see if you can spot the functions, the arguments, the inputs and the outputs.
 
 
-## Formative Homework
-
-### Install R and RStudio on your personal computer
-
-If you haven't done so, please read the chapter [Assignment before starting the course](\@ref(#before)) and either install R and RStudio on your own computer, or familiarise yourself with the RStudio Cloud.
-
-
 ### Installing and Loading tidyverse
 
 Use the information in the section \@ref(install-tidyverse) above to install the tidyverse package on your RStudio installation.
@@ -359,5 +352,3 @@ Load tidyverse from the using the `library()` function in section \@ref(load-tid
 If you successfully load it you will see this printed in the console:
 
 <center><img src="images/tidyverse_success.png"></center>
-
-You will be using the tidyverse package in the next lesson, so don't worry if you struggle with this at the moment.

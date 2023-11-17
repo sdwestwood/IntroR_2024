@@ -1,4 +1,4 @@
-# Data Visualisation 1
+# Data Visualisation 1: Fundamentals
 
 This week we are moving on to plots. You have learned how to get your data into a usable format, so now it is time for you to learn how to visualise your data. Visualisations are important as they tell us how our data looks like; help us discover outlier variables, tells us about distribution abnormalities etc. Plots also help your reader to better understand the data that you are working with.
 
