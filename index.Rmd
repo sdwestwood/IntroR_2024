@@ -157,4 +157,4 @@ We also believe in the value of open educational materials. Your course fees con
 
 ## Acknowledgement {-}
 
-The materials were initially developed for the University of Glasgow Short Courses for the academic term 2019/20 by [Gaby Mahrholz](https://www.psy.gla.ac.uk/otherstaff/?id=GM005), [Kate Haining](https://www.psy.gla.ac.uk/otherstaff/?id=KH001), [Rebecca Lai](https://www.psy.gla.ac.uk/otherstaff/?id=RL003), [Greta Todorova](https://www.psy.gla.ac.uk/otherstaff/?id=GKT01), and [Wilhelmiina Toivo](https://www.psy.gla.ac.uk/otherstaff/?id=TIWT1), and modified for the academic term 2022/23 by the current tutors.
+The materials were initially developed for the University of Glasgow Short Courses for the academic term 2019/20 by [Gaby Mahrholz](https://www.psy.gla.ac.uk/otherstaff/?id=GM005), [Kate Haining](https://www.psy.gla.ac.uk/otherstaff/?id=KH001), [Rebecca Lai](https://www.psy.gla.ac.uk/otherstaff/?id=RL003), [Greta Todorova](https://www.psy.gla.ac.uk/otherstaff/?id=GKT01), and [Wilhelmiina Toivo](https://www.psy.gla.ac.uk/otherstaff/?id=TIWT1), and modified for the academic term 2023/24 by the current tutors.

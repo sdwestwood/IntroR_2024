@@ -12,7 +12,7 @@ The whole purpose of this lecture is to expose you to a couple of useful functio
 
 Before we can start to focus on some other functions that might come in handy for data manipulation, we need to make sure to load `tidyverse` into the library. 
 
-```{r L6, message=FALSE}
+```{r L5, message=FALSE}
 library(tidyverse)
 library(knitr)
 ```

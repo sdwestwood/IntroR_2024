@@ -2,7 +2,7 @@
 
 ## Intended Learning Outcomes {-}
 
-By the end of this session you should be:
+By the end of this chapter you should be:
 
 1. Familiar enough with a computer to open, save and access previously saved files.
 2. Able to describe R and Studio, the coding environment and the associated file types.
@@ -120,7 +120,7 @@ Files come in different types, and each different type comes with a different **
 
 ### .zip Files
 
-In this course we will often ask you to download a folder with multiple files and this will be stored on Moodle as a zip file. A zip file is a folder that contains files that have been compressed to make the file size smaller and enables you to download multiple files at once, however, before you use the files from a zip folder you first need to extract them.
+In this course we will sometimes ask you to download a folder with multiple files and this will be stored in the 'Files' section on teams as a zip file. A zip file is a folder that contains files that have been compressed to make the file size smaller and enables you to download multiple files at once, however, before you use the files from a zip folder you first need to extract them.
 
 1. Click on the link to download the compressed folder.
 2. Navigate to the zip file (probably in your downloads folder) and open it. You will see all the files it contains but don't use these - click "Extract all" on the top ribbon.
@@ -159,7 +159,7 @@ When you go to File > New file > R Markdown... you will be prompted to supply so
 
 <center> <img src="images/new_markdown_dialogue.png"> </center> <br>
 
-When a new RMarkdown file is opened the file isn't empty. What you actually get is an example with a YAML header (at the top bordered with the dashes), some code chunks (in the shaded sections, more on these in a minute), text and some headers (the hashtagged blue text **outside** of chunks).
+When a new RMarkdown file is opened the file isn't empty. What you actually get is an example with a YAML header (at the top bordered with the dashes), some code chunks (in the shaded sections, more on these in a minute), text and some headers (the blue text with the hashes (#) **outside** of chunks).
 
 I like to think of the way this file type is interpreted as being *like a script, but flipped*- the default interpretation of text aimed at humans. If we want **executable code** we need to prompt R to read the text in this way. This is done using "code chunks", or sometimes just called "chunks".
 

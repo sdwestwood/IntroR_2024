@@ -1,14 +1,14 @@
-# Assignment before starting the course {-#before}
+# Assignment before starting the course {-#before2}
 
 This assignment is an important one as it will enable you to complete your future assignments. It looks long, but it is mostly screenshots to guide you through the process of installing the required software, or a short guide on how to use RStudio Cloud.
 
-## Access to RStudio {#accessing}
+## Access to RStudio {#accessing2}
 
 Please ensure by the next class that you have access to the software so that you can practice using the formative assignments and complete the summative assignments when they are issued.
 
 The first summative assignment will be issued after class next week and you will be given one week to complete and submit it. 
 
-### Installing R and RStudio on Your Own Machine {#install}
+### Installing R and RStudio on Your Own Machine {#install2}
 
 Unfortunately this is not as simple as installing software normally is on your computer. There are two separate things that you will need to install.
 
@@ -127,23 +127,6 @@ If at any point you are struggling to access the required materials or software 
 We want you to do well and have a good experience learning with us, let us know if you are experiencing difficulty so that we may help you resolve it!
 ```
 
-#### Downloading Your Files from RStudio Cloud
-
-If you are using RStudio Cloud your files will be saved on the cloud, but you will need to download the .Rmd files that you have been working with (containing coursework etc) to upload them to the assignment submission pages on Moodle. 
-
-Here you can see the file `myfile.Rmd` that I have made on the cloud. To download it I select the checkbox next to the file and click on the "More" drop-down menu and click "export", as shown here:
-
-<center><img src="images/rstudio_cloud_download1.png"></center>
-
-I then get a dialogue box asking me if I want to name the file something different. I will stick with the original name, so I just click "Download":
-
-<center><img src="images/rstudio_cloud_download2.png"></center>
-
-Now I get a pop-up as I would when downloading any other file. To save the file ensure "Save File" is selected and click "OK":
-
-<center><img src="images/rstudio_cloud_download3.png"></center>
-
-The file will then be saved in the folder where your downloads are saved (usually the "Downloads" folder by default). You can then navigate to this file when browsing files to upload to Moodle.
 
 ## Maximising Reproducibility and Visibility
 

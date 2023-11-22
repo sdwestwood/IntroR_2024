@@ -2,11 +2,11 @@
 
 ## Intended Learning Outcomes {-}
 
-1. understand basic data types
-2. create and store vectors 
-3. convert data types into one another
-4. create a data table from scratch
-5. import and store data
+1. Understand basic data types
+2. Create and store vectors 
+3. Convert data types into one another
+4. Create a data table from scratch
+5. Import and store data
 
 
 ## Pre-Steps

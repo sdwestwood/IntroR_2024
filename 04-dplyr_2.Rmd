@@ -11,7 +11,7 @@
 
 All the functions for tidying data are within `tidyverse` so we need to make sure to load it into the library. Today's lecture will make use of built-in dataframes but for practice examples, we may want to load in the West of Scotland seasonal sunshine and rain data you encountered last week.
 
-```{r L5, message=FALSE, warning=FALSE}
+```{r L4, message=FALSE, warning=FALSE}
 library(tidyverse)
 sun <- read_csv("data/wos_seasonal_sun.csv")
 rain <- read_csv("data/wos_seasonal_rain.csv")

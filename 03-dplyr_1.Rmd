@@ -696,7 +696,7 @@ The benefit of having the data on its own is that you can reorder functions easi
 
 
 `r hide("Solution")`
-```{r L4, message=FALSE}
+```{r read_mma_data, message=FALSE}
 MMA_Data <- read_csv("data/CareerStats2.csv")
 ```
 `r unhide()`
