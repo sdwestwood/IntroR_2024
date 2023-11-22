@@ -1,0 +1,489 @@
+---
+title: "Introduction to R"
+author: "GUID"
+date: "05/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Data Transformation - Lecture 3
+
+
+## Data Wrangling
+
+Wickham 6 verbs:
+
+| dplyr function | description  |
+|:----------|:---------------------------|
+| select() | Include or exclude certain variables (columns)  |
+| arrange() | Reorder observations (rows) |
+| filter() | Include or exclude certain observations (rows) |
+|	mutate() | Create new variables (columns) and preserve existing ones |
+|	group_by() | Organise observations (rows) by variables (columns) |
+|	summarise() | Compute summary statistics for selected variables (columns) |
+
+
+## Pre-Steps
+
+Before we begin, we need to do some house-keeping. We have downloaded the folder we will be working with today, unzipped it, and made sure there were 2 files in it.
+
+You will also need to install a new package with the `install.packages()` function. Use this to install the package `"babynames"`.
+
+We have set the working directory.
+
+Let's load in all the packages we will need for today. Doing this step right in the beginning, will save us hassle later on.
+
+```{r}
+library(tidyverse)
+library(babynames)
+```
+
+### Read in the data
+
+Now, today we will work with two different datasets, one fairly simple dataset, and another more messy complex dataset later one.
+
+The first is a large dataset about babynames (big surprise!). The package you installed and loaded into the library is infact a readymade dataset, that can be read straight into the `Global Environment`. We will deal with the second dataset later.
+
+
+
+```{r}
+Name_Data <- babynames
+```
+
+
+
+### View the data
+
+Click on `Name_Data` in your `Global Environment` to open your data in a new tab on the `Source` pane or call the object in your `Console` (by typing the name of the object `Name_Data`) to check that the data was correctly imported into R.
+
+```{r}
+Name_Data
+```
+
+
+### Check data types
+
+Remember from last week, we can also use `glimpse()` to view the columns and their datatypes.
+
+```{r}
+glimpse(Name_Data)
+```
+
+`head()` would be helpful in displaying only the first 6 rows of the dataset, but remember not to get "tricked" by the number of observations shown in the output.
+
+```{r}
+head(Name_Data)
+```
+
+
+#### Question Time
+
+Fill in the answers in the empty fields/ dropdown boxes on the webpage. You are correct if they turn green. Or you can add answers below.
+
+How many rows (or observations) does `Name_Data` have? 
+How many columns (or variables) does `Name_Data` have? 
+
+
+
+## select()
+
+Selects columns. `select()` keeps what you specify, in the order you specify it, and drops all the rest.
+
+For example, if you wanted to keep all variables except from `prop`, you could type:
+
+```{r}
+select(Name_Data, year, sex, name, n)
+```
+
+Alternative 1: colon operator
+
+```{r}
+select(Name_Data, year:n)
+```
+
+Alternative 2: negative selection
+
+```{r}
+select(Name_Data, -prop)
+```
+
+"de-selecting" more than one variable.
+
+```{r}
+select(Name_Data, -prop, -sex)
+```
+
+
+"de-selecting" more than one variable (non-neighbour columns) - alternative solution.
+```{r}
+select(Name_Data, -c(sex, n, prop))
+```
+
+
+Remember, if you don't save this data to an object (e.g. the original dataframe `Name_Data` or under a new name), it won't be saved. We have not saved any of the previous tasks to the `Global Environment`, so there should still be only one babynames related object, e.g. the tibble named `Name_Data`.
+
+
+### Question Time
+
+Create a tibble called `Name_Short` that keeps all variables/columns from the data `Name_Data` except from `sex` and `n`. Your new object `Name_Short` should appear in your `Global Environment`.
+
+```{r}
+Name_Short <- NULL
+
+```
+
+
+
+## arrange()
+
+used for sorting observations (rows) in ascending (default) or descending order. 
+
+Sorting by `n`:
+
+```{r}
+Name_Arr <- arrange(Name_Data, n)
+Name_Arr
+```
+
+You can also arrange in descending order, by nesting the `desc()` function.
+
+```{r}
+Name_Arr2 <- arrange(Name_Data, desc(n))
+Name_Arr2
+```
+
+
+You can also sort by more than one column. For example, you could sort by `name` first, and then `n` second: 
+
+```{r}
+Name_Arr3 <- arrange(Name_Data, name, n)
+Name_Arr3
+```
+
+
+
+## filter()
+
+Used to include or exclude certain observations (rows)
+
+### Single criterion
+
+keep observations from your year of birth: 
+
+```{r}
+Name_MyYear <- filter(Name_Data, year == 1988)
+glimpse(Name_MyYear)
+```
+or keep observations of only popular names:
+
+```{r}
+Name_Pop <- filter(Name_Data, prop >= 0.07)
+glimpse(Name_Pop)
+```
+
+
+Questions:
+
+1. Notice how we saved the new data into different objects named `Name_MyYear` and `Name_Pop`. When using `filter()`, you should never replace/ overwrite your original data unless you know exactly what you are doing. What could be the consequences?
+
+2. By the way, what do symbols such `>` and `>=` remind you of? (hint: something we covered last week?)
+
+
+Type your answers here:
+
+
+
+
+Using `filter()` to keep data only from your name.
+
+```{r}
+Name_Me <- filter(Name_Data, name == "Jaimie")
+glimpse(Name_Me)
+```
+
+If you need to filter through many **different values from the same column**, you can use the match operator `%in%`. In this case we want to filter several different names:
+
+```{r}
+Name_J <- filter(Name_Data, name %in% c("Jaimie", "Jamie", "Jaime", "James", "Jayme"))
+glimpse(Name_J)
+```
+
+
+Using `filter()` to exclude certain observations.
+
+```{r}
+Name_J_Short <- filter(Name_J, name !="James")
+glimpse(Name_J_Short)
+```
+
+
+
+### Multiple criteria
+
+Filter with `AND` means all criteria listed have to be fulfilled.
+Filter with `OR` means either criterion must be fulfilled.
+
+For example, to filter rows containing only your name, of one sex, since your year of birth, you would code:
+
+```{r}
+Name_Specific <- filter(Name_Data, name == "Jaimie", year >= 1988, sex == "M")
+glimpse(Name_Specific)
+```
+
+Using the `&` gets the same result 
+
+```{r}
+Name_Specific2 <- filter(Name_Data, name == "Jaimie" & year >= 1988 & sex == "M")
+glimpse(Name_Specific)
+```
+
+
+
+If we wanted to filter the data `Name_Data` for either names with a very high count **OR** names that account for a very low proportion, we could use the logical operator `|` (OR).
+
+```{r}
+Data_Or <- filter(Name_Data, n > 90000 | prop < 2.27e-06)
+glimpse(Data_Or)
+```
+
+
+As you will have noticed, `Data_Or` has now observations for names that either have a count over 90,000 in a year, or account for a very small proportion in a year. In this instance these are very distinct groups, and no observation would meet both criteria, check for yourself:
+
+
+```{r}
+Data_Or2 <- filter(Name_Data, n > 90000 & prop < 2.27e-06)
+glimpse(Data_Or2)
+```
+
+
+Here we see `Data_Or2`, returns no observations. However sometimes, you might select multiple criteria, where some observations will only meet one, but other observations may meet both criteria (see below). So always keep in mind what exactly you want to find, and choose the best way to filter. 
+
+```{r}
+Data_Or3 <- filter(Name_Data, n > 90000 | prop > 0.05)
+glimpse(Data_Or3)
+
+Data_Or4 <- filter(Name_Data, n > 90000 & prop > 0.05)
+glimpse(Data_Or4)
+```
+
+
+### Question Time
+
+Fill in the answers in the empty fields/ dropdown boxes on the webpage. You are correct if they turn green. Or you can add answers below.
+
+* How many rows (or observations) does the object `Data_Or3` contain?
+* How many different female names are in `Data_Or4`?
+
+
+
+**Your turn**
+
+Make a tibble called `Name_Beat` that only shows data from `Name_Data` for the `names` John, Paul, George and Ringo, and just for `sex` males.
+
+```{r}
+Name_Beat <- NULL
+```
+
+We can even take a look at the change in representation of these names over time, with a simple plot - you will learn more about plots later on
+```{r}
+ggplot(Name_Beat, aes(year, prop, colour=name)) + geom_line()
+```
+
+
+
+## mutate()
+
+The `mutate()` function creates new variables (columns) onto the existing object. 
+
+For example, add a new column `Decade` onto `Name_Data` that shows us the relative decade each observation is taken from. Save this as a new object `Name_Ext` to the `Global Environment`.
+
+```{r}
+Name_Ext <- mutate(Name_Data, Decade = floor(year/10)*10)
+glimpse(Name_Ext)
+```
+
+
+Importantly, new variables will overwrite existing variables if column headings are identical. So if we wanted to halve the values in column `Decade` and store them in a column `Decade`, the original `Decade` would be overwritten. To demonstrate we will try doing this and stroring the output in a new object called `Name_Ext2`and save that to our `Global Environment`.
+
+```{r}
+Name_Ext2 <- mutate(Name_Ext, Decade = Decade/2)
+glimpse(Name_Ext2)
+```
+
+So now, `Name_Ext2` did not gain a column (it still contains 6 variables), and `Decade` now has (unhelpfully) half the numeric value of the decade. (As an aside you could prevent yourself from accidentally doing something like this by converting `Decade` from numeric double type data to character type data)
+
+
+
+The main take-away message here is to always check your data after manipulation if the outcome is really what you would expected. If you don't inspect and accidentally overwrite columns, you would not notice any difference.
+
+
+You can also use `mutate()` to drop columns you no longer need, as an alternative to the `select()` function.
+Drop column `Decade`:
+
+```{r}
+Name_Ext2 <- mutate(Name_Ext2, Decade = NULL)
+glimpse(Name_Ext2)
+```
+Although using `select()` is generally "cleaner".
+
+
+You can add more than one column within the same `mutate()` statement.
+
+Add two columns to `Name_Ext` and call it `Name_Ext3`.
+
+* Column 1 is called `MinName` and is of datatype `logical`. It contains a comparison of the value in `n` with the cut off count of 5 that allows inclusion in the dataset. Values of 5 should read `TRUE`, all other values `FALSE`.
+* Column 2 is called `"20thCent"` and is of datatype `logical`. It contains a comparison of the value in `years` ensuring the value is between 1900 and 1999. Values inside this range should read `TRUE`, all other values `FALSE`.
+
+```{r}
+Name_Ext3 <- mutate(Name_Ext, MinName = n == 5, "20thCent" = year >= 1900 & year <= 1999)
+glimpse(Name_Ext3)
+```
+* Why do we need to put `"20thCent"` inside quotation marks?
+
+
+
+**Your turn**
+
+* Add a new column to `Name_Ext3` that is called `Prcnt` that gives the percentage each name accounts for of total names that year. *Hint: `prop` is that same stat represented as a proportion. 
+
+
+```{r}
+Name_Ext4 <- NULL
+```
+
+
+
+At this point we are reaching the end of the usefulness of the Babynames dataset (there is only so much you can do with 5 basic variables), and this is a good time to bring in the second dataset we mentioned.
+
+The second dataset, is a set of career and performance statistics of MMA athletes. You need to read the file `CareerStats.csv` containing your data into your `Global Environment` using the function `read_csv()`. Remember to store your data in an appropriately named object (e.g. `MMA_Data`).  
+
+```{r}
+MMA_Data <- read_csv("CareerStats.csv")
+```
+As you can see this dataset has a lot more variables, which should make for more interesting ways of manipulating the data.
+
+
+## summarise() and group_by() 
+
+We compute summary statistics with the `summarise()` function. Use the help function to find out more about the kind of summary stats you can extract.
+
+Some of the most useful however are:
+`sum()` - sum total
+`n()` - count of observations 
+`n_distinct()` - count of distinct (unique) observations
+`mean()` - measure of central tendency; mean
+`median()` - measure of central tendency; median
+`sd()` - standard deviation
+`IQR()` - interquartile range
+`min()` - the maximum available value in observations
+`max()` - the minimum available value in observations
+
+
+Say you want to work out the average number of total fights (`T_Fights`) among the athletes and accompanying standard deviation for the entire sample:
+
+```{r}
+summarise(MMA_Data, Avg_Mean = mean(T_Fights), SD = sd(T_Fights))
+```
+ 
+ 
+Or what is the maximum and minimum hights for the entire sample?
+```{r}
+summarise(MMA_Data, Minimum = min(Height), Maximum = max(Height))
+```
+
+Or maybe we want to know how many different (distinct) weightclasses are there in our dataset?
+
+How would we check that?
+```{r}
+summarise(MMA_Data, WClasses = n_distinct(WeightClass))
+```
+
+
+Now that's all well and good, but in research we are most often interested in drawing comparisons and analysing differences (Between different groups of people, between different treatment types, between different countries etc.).
+
+`group_by()` splits data up into subsets, based on grouping variables you decide. Here we are grouping by weightclass, and saving this as a new object `MMA_G_Class`;
+
+```{r}
+MMA_G_Weight <- group_by(MMA_Data, WeightClass)
+```
+
+If you view the object `MMA_G_Class`, it will not look any different to the original dataset (`MMA_Data`). However, be aware that the underlying structure has changed. In fact, you could use `glimpse()` to double check this. 
+
+```{r}
+glimpse(MMA_G_Weight)
+```
+
+
+You can now feed this grouped dataset (`MMA_G_Class`) into the previous code line to obtain summary statistics by `WeightClass`. The code for finding summary statistics of average number of total fights, has been provided. Try to fill out the code for finding summary stats of minimum and maximum height by class:
+
+```{r}
+Sum_Fights <- summarise(MMA_G_Weight, Avg_Mean = mean(T_Fights), SD = sd(T_Fights))
+
+Sum_Height <- NULL
+```
+ 
+
+### Question Time
+
+Fill in the answers in the empty fields/ dropdown boxes on the webpage. You are correct if they turn green. Or you can add answers below.
+
+* Which weightclass has the highest maximum height? 
+
+
+Make sure when you use the `group_by()` function you are choosing a sensible grouping variable!!
+
+You might also want to calculate and display the number of individuals from your dataset that are in different groups. This can be achieved by adding the summary function `n()` once you have grouped your data. the function `n()`, simply counts the number of observations and takes no arguments. Here we will group by `Stance` and count the number of athelets in each category:
+
+```{r}
+MMA_G_Stance <- group_by(MMA_Data, Stance)
+
+Stance_Ns <- summarise(MMA_G_Stance, N = n())
+```
+
+### Question Time
+
+Fill in the answers in the empty fields/ dropdown boxes on the webpage. You are correct if they turn green. Or you can add answers below.
+
+* How many athletes in the dataset have a Southpaw stance?  
+* How many athletes in the dataset have an Orthodox stance?
+
+
+
+Add multiple grouping variables. For example grouping by `ReachClass` and `Stance`, and calculating the mean  and standard deviation of `TLpM`; ReachClass has 2 levels, and Stance has 3 levels (6 groups). 
+
+```{r}
+MMA_G_RS <- group_by(MMA_Data, ReachClass, Stance)
+MMA_LpM <- summarise(MMA_G_RS, Mean = mean(TLpM), SD = sd(TLpM))
+MMA_LpM
+```
+
+
+Remove missing values by adding the argument `na.rm = TRUE` to calculation functions like `mean()`, `median()` or `sd()`. For example, try the code line below:
+
+```{r}
+Weight_Reach <- summarise(MMA_G_Weight, Avg_Reach = mean(Reach))
+Weight_Reach
+```
+The code runs without error, however you will notice we have a few stats missing (`NA`). This is becuase we have a few missing observations in the `Reach` column, and R cannot calculate summary stats like mean, median, and sd, if observations are missing. To allow this, we can tell R to ignore any missing values by instructing R to remove any "NA's" from its calculation.
+
+```{r}
+Weight_Reach <- summarise(MMA_G_Weight, Avg_Reach = mean(Reach, na.rm = T))
+Weight_Reach
+```
+
+
+
+Finallyt, if you need to return the data to a non-grouped form, use the `ungroup()` function.
+
+```{r}
+MMA_Data <- group_by(MMA_Data, BMI)
+glimpse(MMA_Data)
+MMA_Data <- ungroup(MMA_Data)
+glimpse(MMA_Data)
+```
+
+

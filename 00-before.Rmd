@@ -145,4 +145,3 @@ Finally, go to RMarkdown and ensure that this option is unchecked:
 <center><img src="images/inline.png"></center>
 
 This meaning of the first part will be discussed in future lessons, and the second will mean that graphs that you make will be in the "Plots" tab to the right of the console. This means that code will not be obscured whenever you make a graph.
-

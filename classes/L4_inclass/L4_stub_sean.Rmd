@@ -1,0 +1,491 @@
+---
+title: "Introduction to R"
+author: "GUID"
+date: "12/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+
+# Data Transformation - Lecture 4
+
+
+##	Pre-Steps
+
+1. Make sure to download today's materials and save them to your desired working directory. Make sure you have all the correct files including the `L4_Stub` file, and the data files; `CareerStats2.csv`, `wos_seasonal_sun.csv`, `wos_seasonal_rain.csv`, `wos_monthly_sun.csv` and `wos_monthly_rain.csv`.
+2. Open the `L4_stub` file.
+3. Load `tidyverse` into the library.
+4. Read the data from `CareerStats2.csv` into your `Global Environment` as `MMA_Data`.
+
+
+### Load in your Libraries and read in your data
+
+```{r, message=FALSE}
+MMA_Data <- read_csv("CareerStats2.csv")
+```
+
+
+## Practicing the Wickham Six
+
+The first part of today's class will be practicing the Wickham Six some more. Much of your time will be spent wrangling data, and most of that can be done with these six functions, so it's good to practice with them. 
+
+
+### select()
+
+First up lets narrow down this big data set, by taking `MMA_Data`, and selecting only the variables; `ID`, `Height`, `Weight`, `BMI`, `Reach` and `Stance`.Example_1
+```{r}
+Example_1 <- select(MMA_Data, ID, Height, Weight:Reach, Stance)
+#OR
+Example_1 <- select(MMA_Data, ID, Height, Weight, BMI, Reach, Stance)
+```
+
+
+**Your turn**
+
+Using `select()` keep everything from `Example_1` except `Weight`.
+```{r}
+Q1 <- select(MMA_Data, -Weight)
+```
+
+**Question**
+Type your answer below
+* What is the name of the 4th column in Q1?
+Height Class
+
+### arrange()
+
+Lets move on to `arrange()`; lets take the table `Example_1`, and arrange it first by `Weight`, then by `BMI`.
+
+```{r}
+Example_2 <- arrange(Example_1, Weight, BMI)
+```
+
+
+**Your Turn**
+
+Using `arrange()`, take the table `Example_1` and arrange it first by `Reach` in *descending* order, then by `Height` in *ascending* order.
+
+```{r}
+Q2 <- arrange(Example_1,desc(Reach),Height)
+```
+
+**Question**
+Type your answer below
+* What is the BMI of the top entry in Q2?
+32.119
+
+### filter()
+
+Now onto *filter()* which has so many uses! Let's filter out all the athletes who are *over* 31 years of age
+```{r}
+Example_3 <- filter(MMA_Data, Age<=31)
+```
+
+**Question**
+Type your answer below
+* How many Athletes are left in Example_3?
+97
+
+
+**Your Turn**
+
+Using `filter()`, take the original table `MMA_Data` and keep only those athletes in the 'Flyweight' and 'Lightweight' `WeightClass`
+```{r}
+Q3 <- filter(MMA_Data, WeightClass %in% c('Flyweight','Lightweight'))
+```
+
+**Question**
+Type your answer below
+* How many athletes are left in Q3?
+50
+
+
+**Your Turn**
+
+Now try taking the original table `MMA_Data` and keep only those athletes from the "Welterweight" `WeightClass`, who are over 72 inches in `Height`.
+- Hint - remember they will need to match *both* conditions
+```{r}
+Q4 <- filter(MMA_Data, WeightClass=='Welterweight' & Height>72)
+```
+
+**Question**
+Type your answer below
+* How many athletes are left in Q4?
+32
+
+
+**Your Turn**
+
+Now try taking the original table `MMA_Data` and keep only those athletes who have the "Orthodox" `Stance` *AND* have 27 or more total fights (`T_Fights`) *OR* 15 or more wins by submission (`W_by_Sub`)
+- Hint - No matter what they need to have the `Orthodox` stance, regardless of the other conditions 
+```{r}
+Q5 <- NULL
+```
+
+**Question**
+Type your answer below
+* How many athletes are left in Q5?
+
+
+
+
+### mutate()
+
+Lets add a new column onto the table `Example_1`, that shows `Reach` but in meters rather than inches; we'll call it `ReachM`. We can make this column with `mutate()` by converting the inches value in the original `Reach` column into centimeters, by multiplying the value by 2.54 and then dividing the result by 100.
+
+```{r}
+Example_4 <- mutate(Example_1, ReachM = (Reach*2.54)/100)
+```
+
+
+**Your Turn**
+
+Take the table Example_1 and mutate a new column onto it, this time attempting to recalculate BMI using the Weight and Height variables. The calculation for BMI is: weight in kilograms divided by height in meters squared. Lets break down the steps, you will need to;
+- multiply `Weight` by 0.453 (to convert lbs to kg) 
+- multiply `Height` by 2.54 (to convert inches to cm)
+- divide `Height` in cm by 100 (to convert to m)
+- square `Height` in m
+- divide `Weight` in kg by squared height in m
+
+- Hint - the ^ symbol represents "to the power of"
+```{r}
+Q6 <- NULL
+```
+
+Don't be worried if your answers are different by a few decimals, the original BMI was created with a slightly different calculation with different rounding). If they look approximately similar you have done it correctly.
+
+
+
+### group_by() and summarise()
+
+Here we will take the original table `MMA_Data` and group that data by `WeightClass`. Then we will create `mean()` summary stats for: 
+
+- number of hits landed per minute (`TLpM`) and call that column `MeanHit`, 
+- number of hits absorbed per minute (`AbpM`) and call that column `MeanAbsorb`, 
+- average fight length (`Time_Avg`) and call that column `MeanTime`
+
+```{r}
+Example_5a <- group_by(MMA_Data, WeightClass)
+Example_5b <- summarise(Example_5a, MeanHit = mean(TLpM), MeanAbsorb = mean(AbpM), MeanTime = mean(Time_Avg))
+```
+
+**Question**
+Type your answers below
+* Which weightclass has the highest Hit average?
+* Which weightclass has the lowest Absorbtion average?
+* Which weightclass has the highest average time?
+
+
+
+**Your Turn**
+
+Take the original table `MMA_Data`, group the data by `Stance` and `HeightClass`, and store that in `Q7a`. 
+Then create a new table `Q7b` with summary stats for success rate (`Success`) with the following columns:
+-`MedSuccess` that shows the median success rate
+-`MaxSuccess` that shows the maximum success rate
+-`MinSuccess` that shows the minimum success rate
+-`SDSuccess` that shows the standard deviation of success rate
+
+
+```{r}
+Q7a <- NULL
+Q7b <- NULL
+
+```
+
+**Question**
+Type your answers below
+* Which Stance/HeightClass combo has the highest median success rate? (enter your answers in the format Stance/HeightClass)
+* What is the minimum success rate of tall athletes with an orthodox stance?
+* What is the standard deviation in success rate for short athletes with a southpaw stance?
+
+
+
+
+### Bringing it all together 
+
+**Your Turn**
+
+* Take the original table `MMA_Data` and select only `ID`, `WeightClass`, `Stance`, `T_Wins`, `W_by_Decision`, `W_by_KO/TKO` and `W_by_Sub`. Store the result in `Q8a`.
+* Take `Q8a` and filter out all the athletes with the "Southpaw" `Stance`. Store the result in Q8b.
+* Take `Q8b` and mutate on a new column called `Perc_W_by_Dec` that shows the percentage of total wins (`T_Wins`) that are accounted for by decisions (`W_by_Decision`). Store the result in `Q8c`.
+* Take `Q8c` and group that data by `WeightClass`. Store the result in `Q8d`.
+* Take `Q8d` and create summary stats that show the mean of `Perc_W_by_Dec`. Store the result in `Q8e`.
+
+```{r}
+Q8a <- NULL
+Q8b <- NULL
+Q8c <- NULL
+Q8d <- NULL
+Q8e <- NULL
+```
+
+**Question**
+Type your answer below
+* Which weightclass has the lowest average percentage of wins by decision?
+
+
+
+## The pipe operator (%>%)
+
+Pipes allow us to chain together lines of code and different functions into one cohesive "pipeline".
+
+For example, in order to `filter()`, `group_by()` and `summarise()` the data, you would have used the following code lines:
+
+```{r}
+Example_6a <- filter(MMA_Data, ReachClass == "Above")
+Example_6b <- group_by(Example_6a, WeightClass)
+Example_6c <- summarise(Example_6b, MeanSub = mean(SubAtt_Avg))
+Example_6c
+```
+
+However, the pipe operator (`%>%`) can simplify this process and create only one object (`Example_7`) as shown:
+
+```{r}
+Example_7 <- MMA_Data %>%
+  filter(ReachClass == "Above") %>%
+  group_by(WeightClass) %>%
+  summarise(MeanSub = mean(SubAtt_Avg))
+Example_7
+```
+
+Pipes take the output of one line and directly feed that into the first argument of the next line. As such, the pipe can be thought of as a kind of 'and then' operator: 
+
+*Take `MMA_data`, AND THEN retain rows where ReachClass is 'Above', AND THEN group by weight class, AND THEN produce a summary table with the mean of SubAtt_Avg.*
+
+
+
+**Your turn**
+
+Amend the your code from Q8 and turn it into a single pipeline
+Save this as an object called `Q9` to your `Global Environment`.
+```{r}
+Q9 <- NULL
+```
+If done correct `Q9` should look identical to `Q8e`.
+
+
+## Two-Table Verbs
+
+More often than not you will find yourself with data across multiple tables. In order to effectively combine multiple tables, `dplyr` provides a selection of **two-table verbs**. Today we will focus on two categories of two-table verbs - mutating join verbs and binding join verbs.
+
+
+### Bringing in new data
+
+First of all lets bring in some new data to look at these new functions.
+
+#### What's the data
+
+Source: Met Office National Climate Information Centre
+https://www.metoffice.gov.uk/research/climate/maps-and-data/uk-and-regional-series
+
+wos_seasonal_sun: Seasonal total duration of bright sunshine for Scotland; Areal series, starting in 1919
+
+wos_monthly_sun: Monthly and annual total duration of bright sunshine for Scotland; Areal series, starting in 1919
+
+wos_seasonal_rain: Seasonal total precipitation amount for Scotland; Areal series, starting in 1862
+
+wos_monthly_rain: Monthly and annual total precipitation amount for Scotland; Areal series, starting in 1862
+
+
+
+```{r, message=FALSE}
+wos_seasonal_sun <- read_csv("wos_seasonal_sun.csv")
+
+wos_monthly_sun <- read_csv("wos_monthly_sun.csv")
+
+wos_seasonal_rain <- read_csv("wos_seasonal_rain.csv")
+
+wos_monthly_rain <- read_csv("wos_monthly_rain.csv")
+```
+
+
+
+###	Mutating Join Verbs
+
+Joining verbs (sometimes called 'mutating join' verbs): `inner_join()`, `left_join()`, `right_join()`, and `full_join()`.
+
+Mutating joins have the following basic syntax:
+`join_verb(left.data, right.data, by = "common_variable", suffix = c(".leftSuffix", ".rightSuffix"))`
+
+First lets simplify the data for an easy example:
+
+```{r}
+Summer_Rain <- wos_seasonal_rain %>% 
+  select(year, sum)
+
+Summer_Sun <- wos_seasonal_sun %>% 
+  select(year, sum)
+```  
+
+Now we have;
+- rain data for the summer months from 1862 to 2015 (`Summer_Rain`)
+- sunshine data for the summer months from 1919 to 2020 (`Summer_Sun`)
+Notice they have data from some of the same years, but also have data from years unique to each table
+
+
+#### inner_join()
+
+`inner_join()` returns all rows from both tables for which the values in column specified in the `"by = "` argument overlap. Here we merge `Summer_Sun` and `Summer_Rain` with `inner_join()` specifying we want to "join by" the variable `year`. Because the remaining variable has the same name in both tables, R needs to distinguish them from each other, for that we use the `suffix = ` argument, which allows us to specify what suffix to add to each column of the resulting table. If we do not specify this, R will add a `.x` and `.y` suffix for us to the x (left) and y (right) table variables respectively.
+
+```{r}
+inner <- inner_join(Summer_Sun, Summer_Rain, by="year", suffix = c("_sun", "_rain"))
+```
+
+
+**Question**
+
+Fill in the answers in the empty fields/ dropdown boxes on the webpage. You are correct if they turn green. Or you can add answers below.
+
+* How many rows (or observations) does `inner` have? 
+* How many columns (or variables) does `inner` have?
+
+
+
+#### left_join()
+
+`left_join()` retains the complete first (left) table and adds values from the second (right) table that have matching values in the column specified in the `"by ="` argument. Rows in the left table with no match in the right table will have missing values (`NA`) in the added columns. 
+
+
+```{r}
+left <- left_join(Summer_Sun, Summer_Rain, by="year", suffix = c("_sun", "_rain"))
+```
+
+**Question**
+
+* How many rows (or observations) does `left` have? 
+* How many columns (or variables) does `left` have?
+
+
+
+#### right_join()
+
+`right_join()` retains the complete second (right) table and adds values from the first (left) table that have matching values in the column specified in the `by` argument. Rows in the right table with no match in the left table will have missing values (`NA`) in the added columns.
+
+
+```{r}
+right <- right_join(Summer_Sun, Summer_Rain, by="year", suffix = c("_sun", "_rain"))
+```
+
+**Question**
+
+* How many rows (or observations) does `right` have? 
+
+
+
+
+#### full_join()
+
+`full_join()` returns all rows and all columns from both dataframes. `NA` values fill unmatched rows. 
+
+```{r}
+full <- full_join(Summer_Sun, Summer_Rain, by="year", suffix = c("_sun", "_rain"))
+```
+
+**Question**
+
+Fill in the answers in the empty fields/ dropdown boxes on the webpage. You are correct if they turn green. Or you can add answers below.
+
+* How many rows (or observations) does `full` have? 
+* How many columns (or variables) does `full` have?
+
+
+### Join summary 
+
+`inner_join()` - Includes all rows that are present in BOTH the left and the right table
+`left_join()` - Includes all rows from the left table (first data entered)
+`right_join()` - Includes all rows from the right table (second data entered)
+`full_join()` - Includes all rows from both left and right tables
+
+
+**Your turn**
+
+Join together `wos_seasonal_rain` and `wos_seasonal_sun` so that we keep all the rows from the `wos_seasonal_sun` table, add a useful suffix so you can differentiate between columns with the same name. Store the result in `Q10`.
+
+```{r}
+Q10 <- NULL
+```
+
+
+
+###	Binding Join Verbs
+
+`bind_rows()` and `bind_cols()` for combining tables by row and column respectively. When row binding, missing columns are replaced by `NA` values. When column binding, if the tables do not match by appropriate dimensions, an error will result.
+
+
+#### bind_rows()
+
+`bind_rows()` is useful when you have more entries of the same kind of data, i.e. new observations of the same variables. (e.g. you have a new batch of participants answering the same questionnaire, or you have new air pollution data from a different geographic region... same variables, different observations).
+
+Lets split some data
+
+```{r}
+Sun_Season_1 <- wos_seasonal_sun %>%
+  filter(year >= 1970)
+
+Sun_Season_2 <- wos_seasonal_sun %>%
+  filter(year < 1970)
+```
+
+Now we have 2 indetical tables for seasonal sunshine in the west of Scotland, but for different sets of years.
+
+We can easily join these back together with `bind_rows`
+```{r}
+Bind_1 <- bind_rows(Sun_Season_1, Sun_Season_2)
+```
+
+`bind_rows()` takes the second table `Sun_Season_2` and puts it *directly underneath* the first table `Sun_Season_1`. 
+
+
+What happens if we attempt to bind tables with different dimensions?
+
+```{r}
+Bind_2 <- bind_rows(Sun_Season_1, inner)
+```
+
+Notice that the `bind_rows()` does not "care" if it duplicates rows, here we have repeat years. Also `bind_rows()` does not "care" that there are columns that do not match between the tables, here `NA` is added fill the missing space. 
+
+
+#### bind_cols()
+
+`bind_cols()` is similar to our mutating join verbs in that it creates a new table by joining columns (or variables) together. However, note that `bind_cols()` does not perform any kind of row-wise matching when joining tables.
+
+```{r, message=FALSE}
+Bind_3 <- bind_cols(wos_monthly_sun, wos_seasonal_sun)
+```
+
+`bind_cols()`takes `wos_seasonal_sun` and puts it *right next* to `wos_monthly_sun`. Since the column name `year` is in both tables they get called `year..1` and `year...15` after their respective column number to differentiate them.
+
+
+What happens if we attempt to bind tables with different dimensions?
+
+```{r}
+Bind_4 <- bind_cols(Summer_Sun, Summer_Rain)
+```
+
+You get an error!
+
+
+To further clarify the differences between `bind_cols()` and the mutating join verbs, lets look at how they would deal with the same challenge.
+
+```{r, message=FALSE}
+# First lets create a new table for Winter sun data, but lets arrange it by "win", so that rather than being in order of years, it is in order of most sunshine in winter. 
+Winter_Sun <- wos_seasonal_sun %>% 
+  select(year, win) %>%
+  arrange(desc(win))
+
+# Now lets try joining Winter_Sun and Summer_Sun using the two different methods
+Comparison_1 <- bind_cols(Summer_Sun, Winter_Sun)
+Comparison_2 <- left_join(Summer_Sun, Winter_Sun, "year")
+
+
+# Using bind_cols() simply "copy and pasted" the two tables together - the fact that the rows were in different orders did not matter. On the other hand, using left_join() meant that R compared the content of "year" and matched them up despite a different order in the two tables.
+```
+
+
+
+

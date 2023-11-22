@@ -29,13 +29,26 @@ Check the unzipped folder contains the `L2_stub.Rmd` and a data file called `MM_
 
 ### Setting the working directory
 
-It is always good practice to set your working directory to the folder you are working with. This can be done in 2 ways:
+If using .R scripts instead of .Rmd scripts, it is good practice to set your working directory to the folder you are working with. Firstly, there are two main ways you can view your current working directory: 
+
+1. Using the function `getwd()` in your console will print the path to your current working directory.
+
+2. You can also see the path to the working directory at the top of the console (circled in red below)
+
+<center><img src="images/getwd.png"></center>
+
+If you ever need to view the files in your current working directory, you can click on the small arrow circled in green!
+
+
+There are then several ways you can change your working directory:
 
 1. In the menu, go to **Session > Set Working Directory > Choose Directory** (Ctrl + Shift + H also works as key short cut in a Windows environment). Then select the folder containing the data file and click 'open'. You might not see any files in the folder you are selecting - that is fine.
 
 2. In the `Files pane`, you could navigate to today's folder, and once there click on **More > Set As Working Directory**. 
 
-Whichever way you prefer is fine. The files `L2_stub` and `MM_data.csv` should now be visible in the `Files pane`.
+3. In the console, you can use the `setwd()` function and provide the path to the directory you want. This can either be the absolute path e.g. `setwd("C:/Users/seanw/Documents")`, or a relative path where you specify the path from your current working directory. The image below shows first using the absolute path, then the relative path.
+
+<center><img src="images/setwd.png"></center>
 
 
 ### Load tidyverse into the library
@@ -670,7 +683,7 @@ Always use read_csv() from the tidyverse package for reading in the data. There 
 ```
 
 
-## Last point for today 
+## Last point for this chapter
 
 Restart R and clear your workspace. Knit your `L2_stub`. If it knits, it is an indication that all your code chunks are running. This is important for reproducibility - if it runs on your computer, it will run on ours.
 

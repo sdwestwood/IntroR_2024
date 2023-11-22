@@ -1,0 +1,448 @@
+---
+title: "L5_code"
+author: "SW"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+## Pre-steps
+
+Load `tidyverse` into the library.
+Load in the the data from "wos_seasonal_sun.csv" and "wos_seasonal_rain.csv" and store them as objects `sun` and `rain` in the `Global Environment`.
+
+```{r, message=FALSE}
+library(tidyverse)
+sun <- read_csv("wos_seasonal_sun.csv")
+rain <- read_csv("wos_seasonal_rain.csv")
+```
+
+We will also use some built-in datasets but we do not need to store them as objects in the `Global Environment`.
+
+
+
+
+## Tidy data
+
+There are three interrelated rules which make a dataset tidy:
+
+1. Each variable must have its own column.
+2. Each observation must have its own row.
+3. Each value must have its own cell.
+
+Most data is not in a tidy format. `pivot_wider()`, `pivot_longer`, `separate()` and `unite()` can help us achieve that.
+
+
+
+
+## Pivot Functions
+
+
+`table1` has a tidy structure.
+
+```{r}
+table1
+```
+
+`table4a` does not have a tidy structure. 
+
+```{r}
+table4a
+```
+
+Note down here why `table4a` is not tidy:
+
+
+
+### pivot_longer()
+
+The format of table4a is known as 'wide' format. This means that there is at least one variable with each value as a column header, instead of rows within it's own column. To convert from 'wide' to 'long' format, we need to rearrange the table such that these separate columns headers become rows in a new column, and we also need to add a new column to contain the values in the old cells. In this example,`table1` is a long version of `table4a` because the year values are contained in the `year` column instead of existing as separate columns, and the numbers that were contained in the cells are stored in the column called `cases`.
+
+
+We can use `pivot_longer()` to reshape `table 4a` from wide format to long format. 
+- The `data` argument specifies the relevant dataframe.
+- The `cols` argument specifies the old columns that are to be converted into rows for the new column. 
+- The `names_to` argument specifies the name of the new column that will contain the headers of the old columns. - The `values_to` argument specifies the name of the new column that will contain the values that existed in the old columns. 
+
+```{r}
+pivot_longer(data=table4a, cols=`1999`:`2000`, names_to="year", values_to="cases")
+```
+
+Attention: We need the backticks around 1999 and 2000 because they are column names that don't start with a letter.
+
+
+**Your turn**
+
+Look at `table4b`. 
+
+```{r}
+table4b
+```
+
+
+There are two separate columns `1999` and `2000` with population values for Afghanistan, Brazil, and China. Use the `pivot_longer()` function on `table4b` to reshape it from wide format into long format, this time naming the column with the values to be called `population`.
+
+
+```{r}
+table4b_long <- pivot_longer(table4b, `1999`:`2000`, names_to='year', values_to='population')
+
+```
+
+
+**Your turn - Example 2**
+
+Look object `sun`. The seasonal data is spread over 4 columns (`win`, `spr`, `sum`, and `aut`), which is not tidy. Use `pivot_longer()` to reshape the data into a tidier format. Store the output in the `Global Environment` as an object called `sun_tidy`.
+
+```{r}
+sun_tidy <- pivot_longer(sun, win:aut, names_to='season', values_to='sun')
+                         
+```
+
+
+
+
+### pivot_wider()
+
+`pivot_wider()` is the reverse of `pivot_longer()`.
+
+Let's take a look at `table2`.
+
+```{r}
+table2
+```
+
+`table2` is not in a tidy format either. 
+
+Note down here why `table2` is not in a tidy format:
+
+
+To convert this to wide format, we need `cases` and `population` to become their own columns containing the corresponding numbers from `count`. 
+
+We can use `pivot_wider()` to reshape `table2` from long to wide format.
+- The `data` argument specifies the relevant dataframe.
+- The `names_from` argument specifies the name of the old column that contains the header names for the new columns. 
+- The `values_from` argument specifies the name of the old column that contains the values for the new columns. 
+
+```{r}
+pivot_wider(data=table2, names_from='type', values_from='count')
+```
+
+Now `cases` and `population` are in their own columns.
+
+
+
+Let's modify `table1` for the next task.
+
+```{r}
+table1_mod <- table1 %>% 
+  mutate(percent = cases/population * 100) %>% 
+  pivot_longer(cases:percent, names_to='variable', values_to='values')
+  #gather(variable, values, cases:percent)
+
+table1_mod
+```
+
+
+**Your turn**
+
+In the modified table above `table1_mod`, we added a `percent` column to see how much percentage of the population had Tuberculosis in 1999 and 2000 in each of the countries Afghanistan, Brazil, and China. But somehow, all numerical information has ended up in 1 column (values).
+
+The output in `values` looks a bit strange now, but be assured the underlying information (the numbers for `cases`, `population`, and `percent`) is still present. If you want to check this, display the numeric value in column `values` as character.
+
+```{r}
+as.character(table1_mod$values)
+```
+
+Your task is to spread the data back out, so that cases, population, and percentage values are in their own columns, titled as `cases`, `population`, and `percent` respectively. Store the new object in the `Global Environment` as `table1_mod_corrected`.
+
+
+```{r}
+table1_mod_corrected <- pivot_wider(table1_mod, names_from = variable, values_from = values)
+table1_mod_corrected
+```
+
+
+**Your turn - Example 2**
+
+Here is another example of messed up data:
+
+```{r}
+#in case you didn't manage to get sun_tidy
+sun_tidy <- pivot_longer(sun, cols=win:aut, names_to='season', values_to='sun')
+
+sun_fail <- sun_tidy %>% 
+  mutate(n = 1:408) %>% 
+  pivot_longer(cols=c(year,sun), names_to="col_names", values_to="values") 
+sun_fail
+
+```
+
+
+Undo the messiness by reshaping the data in `sun_fail` into a tidier format. Store the tidy data in your `Global Environment` as `sun_retidy`. Your final dataset should have the columns `year`, `season`, and `sun` in *exactly* that order.
+
+
+```{r}
+sun_retidy <- sun_fail %>%
+  pivot_wider(names_from=col_names, values_from=values) %>%
+  select(year,season,sun)
+head(sun_retidy)
+```
+
+
+
+## separate() 
+
+Take a look at `table3`. 
+
+```{r}
+table3
+```
+
+In `table3`, two out of three principles of tidy data are violated. There are multiple values stored in column `rate` (rule 3) but these multiple values also belong to two different variables - `cases` and `population` respectively (rule 1).
+
+We would use `separate()` to split the column `rate` into two columns `cases` and `population`. 
+
+
+```{r}
+separate(data=table3, col=rate, into = c("cases", "population"), sep = "/")
+```
+
+
+### additional arguments for separate()
+
+
+#### Retaining the original column
+
+If for some reason, you wanted to keep the original column, you can set an additional argument `remove` to `FALSE`.
+
+```{r}
+separate(table3, rate, into = c("cases", "population"), sep = "/", remove = FALSE)
+```
+
+
+#### Dropping parts of the original column
+
+What if we were just interested retaining part of the data in the cell, for example keeping the column `cases` but not `population`. The solution would be to work with an `NA` argument. Defining the new columns as `cases` and `NA` will keep everything before the separator in the column `cases`, and drops everything after the separator.
+
+```{r}
+separate(table3, rate, into = c("cases", NA), sep = "/")
+```
+
+
+**Your turn**
+
+Separate the column `rate` in `table3` to keep only the values after the separator in a column called `population`. Drop the values in front of the separator. Retain the column `rate` as well.
+
+
+```{r}
+separate(data=table3, col=rate, into=c(NA,'population'), sep='/', remove=FALSE)
+```
+
+
+
+#### Separating by position
+
+It is also possible to separate by position. `sep = 2` would split the column between the second and third character/ number etc.
+
+Let's try that the separation by position. We will keep 4 letters from each `country` name rather than the whole word, and drop the rest.
+
+```{r}
+separate(table3, country, into = c("country", NA), sep = 4)
+```
+
+
+
+
+
+
+#### Separating into more than 2 columns
+
+Special case. Let's modify `table3` a little bit by adding a new column with a value of 200 and unite that column with column `rate`.
+
+```{r}
+table3_mod <- table3 %>% 
+  mutate(new = 200) %>% 
+  unite(rate, rate, new, sep = "/")
+```
+
+
+Now column `rate` has 3 sets of numbers, separated by two `/`. Defining 2 columns only will drop all information after the second `/` with a warning.
+
+```{r}
+separate(table3_mod, rate, into = c("cases", "population"), sep = "/")
+```
+
+
+
+If we are separating the columns and wanted to keep all sets of numbers, one in each column, we would use an into argument that includes 3 new columns.
+
+```{r}
+separate(table3_mod, rate, into = c("cases", "population", "200"), sep = "/")
+```
+
+
+
+If the values in `population` and `200` (separated by a `/`) were some sort of `ID_code`, **AND** we wanted to split the data into 2 columns, after the first `/` only, we would have to include an `extra` argument, and set it to `"merge"`.
+
+```{r}
+separate(table3_mod, rate, into = c("cases", "ID_code"), sep = "/", extra = "merge")
+```
+
+
+**Question Time**
+
+There is still something wrong in the data above. Can you spot what it is? * Hint: Think about if you wanted to sum up all the TB cases occurred in the 3 countries within the years 1999, and 2000.
+
+Answer:
+
+
+How would you fix that?
+
+```{r}
+table_9 <- table3_mod %>% 
+  separate(rate, into = c("cases", "ID_code"), sep = "/", extra = "merge") %>%
+  mutate(cases = as.integer(cases))
+
+```
+
+
+
+
+
+
+#### Converting data types
+
+The slightly quicker and perhaps more elegant solution would be to add another argument `convert` to `separate()` and set it to `TRUE`. This will convert `cases` to integer and leave `ID_code` as character due to the non-numerical `/`.
+
+```{r}
+table3_mod %>% 
+  separate(rate, into = c("cases", "ID_code"), sep = "/", extra = "merge", convert = TRUE)
+```
+
+
+### unite()
+
+Take a look at `table5`. 
+
+```{r}
+table5
+```
+
+
+Here the values in column `year` are split into `century` and `year` which is not very useful. Best to merge the 2 columns together.
+
+
+The `unite()` function is used to combine multiple columns into one, and takes the following arguments:
+- The `data` argument specifies the relevant dataframe.
+- The `col` argument specifies the name of the new column we want to create. 
+- The following series of arguments specify the names of columns that we want to combine into `col`.
+- the `sep` argument specifies what character string we will use to separate the values from different columns.
+
+
+We would need the data `table5`, a new column we want to create `year`, the two columns we would like to combine (`century` and `year`), and define the separator as "nothing" since the default is `sep = "_"`.
+
+```{r}
+unite(data=table5, col=year, century, year, sep = "")
+```
+
+The data of `table5` is in a tidier format now - at least for variable `year`.
+
+
+
+**Your turn**
+
+Let's combine the two steps of tidying `table5` in a single pipe `%>%`. Separate the `rate` column into `cases` and `population`, and unite the columns `year` and `century` into a new column `year`. Store the new object as `tb_cases` in the `Global Environment`. Make sure the columns `cases` and `population` are integer values.
+
+
+
+```{r}
+tb_cases <- table5 %>%
+  separate(col=rate, into=c('cases','population'), sep='/', convert=TRUE) %>%
+  unite(col=year, century, year, sep='') 
+
+tb_cases
+```
+
+
+`unite()` does not have a convert argument, so if we were to convert `year` into an `integer` variable, we would have to do that the "old-fashioned way".
+
+```{r}
+tb_cases_converted <- tb_cases %>% 
+  mutate(year = as.integer(year))
+tb_cases_converted
+```
+
+
+### Additional arguments for unite()
+
+#### Retaining the original column
+
+Similarly to `separate()`, unite also comes with a remove statement, so if you wanted to keep the original columns before merging them together, you would code
+
+```{r}
+unite(table5, year_combined, century, year, sep = "", remove = FALSE)
+```
+
+
+#### Removing missing values before uniting columns
+
+`unite()` also comes with an `na.rm` statement that will remove missing values prior to uniting the values of a column (the values have to be type "character"). Let's modify `table5` to make that point.
+
+```{r}
+table5_mod <- table5 %>% 
+  mutate(new = rep(c("200", NA), 3))
+
+table5_mod
+```
+
+If we wanted to combine the values of `rate` and `new` in a new column called `rate`, we would code:
+
+```{r}
+unite(table5_mod, rate, rate, new, sep = "/")
+```
+
+See how R adds the missing values onto rate, which we do not want. To avoid that happening, we can use the `na.rm` statement which removes missing values in columns of data type character before merging the columns.
+
+```{r}
+unite(table5_mod, rate, rate, new, sep = "/", na.rm = TRUE)
+```
+
+
+
+
+## Bonus materials: mutate row names from the `mtcars`
+
+Lets look at the built-in dataset `mtcars` and notice how the car types were not listed as a separate column but rather row names? 
+
+```{r}
+mtcars
+```
+
+
+
+Now, that we have learnt about the `mutate()` function, we can attempt to get all of these row names into a new column. All we have to do is combining a function called `rownames()` with `mutate()`. We also could use some more of these handy pipes `%>%` you learnt about last week.
+
+```{r}
+df_mtcars <- mtcars %>% 
+  mutate(Car_type = rownames(mtcars))
+
+head(df_mtcars)
+```
+
+
+
+
+We can now look at the data `df_mtcars`, and see that the new column was added at the end of the dataset. What would we have to do to make `Car_type` the first column in the dataframe?
+
+
+```{r}
+df_mtcars <- select(df_mtcars, Car_type, mpg:carb)
+df_mtcars
+```
+
+
+
