@@ -737,7 +737,8 @@ wick6pipe <- MMA_Data %>%
   filter(Stance != "Orthodox") %>%
   mutate(Rank = 1:nrow(wick6c), .before = 1) %>%
   group_by(WeightClass) %>%
-  summarise(wick6e, WinRate_Average = mean(WinRate))
+  summarise(WinRate_Average = mean(WinRate))
+wick6pipe
 ```
 `r unhide()`
 
@@ -1003,13 +1004,13 @@ Create summary stats for success rate (`Success`), you should have columns calle
 `MaxSuccess` that shows the maximum success rate
 `MinSuccess` that shows the minimum success rate
 `SDSuccess` that shows the standard deviation of success rate
-The resulting table should be stored in `Q7`.
+The resulting table should be stored in `Example_6`.
 ```
 
 `r hide("Solution")`
 ```{r}
 # Sean's solution
-Q7 <- MMA_Data %>%
+Example_6 <- MMA_Data %>%
   group_by(Stance, HeightClass) %>%
   summarise(MedSuccess = median(Success), 
             MaxSuccess = max(Success), 
@@ -1039,13 +1040,13 @@ In one continuous pipe chain:
 * Group the data by `WeightClass`
 * Create summary stats that show the mean of `Perc_W_by_Dec`
 
-Store the result in a variable called `Q8`.
+Store the result in a variable called `Example_7`.
 ```
 
 `r hide("Solution")`
 ```{r}
 # Sean's solution
-Q8 <- MMA_Data %>% 
+Example_7 <- MMA_Data %>% 
   select(ID, WeightClass, Stance, T_Wins, W_by_Decision:W_by_Sub) %>%
   filter(Stance != "Southpaw") %>%
   mutate(Perc_W_by_Dec = (W_by_Decision/T_Wins)*100) %>%
