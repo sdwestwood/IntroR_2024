@@ -15,40 +15,39 @@ Before we begin, we need to do some house-keeping.
 
 ### Downloading materials
 
-First, we need to download the materials we are working with today. You can find them on moodle. It's a zip folder that contains an Rmd file called `L2_stub` and a data file in .csv format for later. `L2_stub` has all the code chunks listed for today's lesson. You are more than welcome to add notes and comments to the Rmd (white chunks), however there is no need to copy any code.
+First, we need to download the materials we are working with in this chapter. It's a .Rmd file called `L2_data`, and a zip folder that contains all of the data we will be using in this course in `.csv` format. `L2_data` has all the code chunks needed for today's lesson. You are more than welcome to add notes and comments to the Rmd, however there is no need to copy any code.
 
 
-### Unzipping the zip folder
+### Creating an R Project
 
-The folder we have downloaded is a zip folder. R cannot handle zip folders very well, so the folder needs to be unzipped. Right-mouseclick on the zipped folder, then choose `Extract All...`.
+Next, we are going to create a project folder where we will store all of our scripts, data, and everything else associated with the course. To do this, we first need to select 'New Project' from the file menu in RStudio:
 
-Copy and paste/ move the folder to your M drive (or somewhere that makes sense to you - and where you can find it again - if you are using your own computer).
+<center> <img src="images/newproj.png"> </center>
 
-Check the unzipped folder contains the `L2_stub.Rmd` and a data file called `MM_data.csv`.
+Then we will select the 'New Directory' option: 
+
+<center> <img src="images/proj_dir.png"> </center>
+
+Followed by the 'New Project' option: 
+
+<center> <img src="images/proj_newproj.png"> </center>
+
+Now we can choose a name for our new project folder (e.g. IntroR), and select 'Browse' to choose a location for the new folder. It is important to choose a location on your computer that is easy to access and well-suited for storing files (e.g. Documents, OneDrive, etc.). I would not typically recommend choosing the Desktop for this!
+
+<center> <img src="images/proj_choose.png"> </center>
+
+Finally it is just a case of clicking 'Create Project', and a new folder should appear containing a .RProj file. The R Project file will help us keep everything organised - it automatically sets the working directory and files pane to the project home folder, and you can very easily pick up where you left off by opening the project either from within R (e.g. File -> Recent Projects) or by clicking on the .RProj file in your project folder. 
 
 
-### Setting the working directory
+### Moving the downloaded materials into our project folder
 
-If using .R scripts instead of .Rmd scripts, it is good practice to set your working directory to the folder you are working with. Firstly, there are two main ways you can view your current working directory: 
+First move the 'L2_data.Rmd' file into the project folder we just created. 
 
-1. Using the function `getwd()` in your console will print the path to your current working directory.
+The data folder we have downloaded is a zip folder. Right-mouseclick on the zip folder, then choose `Extract All...`.
 
-2. You can also see the path to the working directory at the top of the console (circled in red below)
+Extract the contents to the project folder that you just created in the previous step. This should create a sub-folder called 'data' containing a series of .csv files. This is where we will access files from throughout the course.
 
-<center><img src="images/getwd.png"></center>
-
-If you ever need to view the files in your current working directory, you can click on the small arrow circled in green!
-
-
-There are then several ways you can change your working directory:
-
-1. In the menu, go to **Session > Set Working Directory > Choose Directory** (Ctrl + Shift + H also works as key short cut in a Windows environment). Then select the folder containing the data file and click 'open'. You might not see any files in the folder you are selecting - that is fine.
-
-2. In the `Files pane`, you could navigate to today's folder, and once there click on **More > Set As Working Directory**. 
-
-3. In the console, you can use the `setwd()` function and provide the path to the directory you want. This can either be the absolute path e.g. `setwd("C:/Users/seanw/Documents")`, or a relative path where you specify the path from your current working directory. The image below shows first using the absolute path, then the relative path.
-
-<center><img src="images/setwd.png"></center>
+Your project folder should now contain the .RProj file, a .Rmd file called 'L2_data', and a folder called 'data' containing a bunch of .csv files. If this seems to have worked, you are ready to open up the L2_data script and begin working on this chapter!
 
 
 ### Load tidyverse into the library
@@ -60,13 +59,9 @@ library(tidyverse)
 ```
 
 
-
-Yay, with that out of the way, we can begin Lesson 2.
-
-
 ## Basic data types
 
-There are plenty data types, however for our purposes we will be focussing on:
+There are plenty data types, however for our purposes we will be focusing on:
 
 | data type | description                | example                  |
 |:----------|:---------------------------|:--------------|
@@ -390,7 +385,6 @@ friends
 
 friends <- c("Rebecca", friends)
 friends
-
 ```
 
 
@@ -475,9 +469,6 @@ Now that you have learnt how to create vectors, we can try and combine them into
 Remember the Built-in Constants we were talking about earlier?
 
 ```{r}
-# Remember to load tidyverse into your script at least once (usually at the beginning)
-library(tidyverse)
-
 tibble_year <- tibble(month = month.name,
                       abb_month = month.abb,
                       month_num = 1:12,
@@ -525,24 +516,24 @@ If I were a mean person, and had recoded month_num = as.character(1:12) instead,
 
 **Your turn**
 
-Make a tibble called `mydata` with 5 columns and 10 rows:
+Make a tibble called `mydata` with 5 columns and 6 rows:
 
-* column 1 is called `PP_ID` and contains participant numbers 1 to 10. Make sure this data type is `integer`.
+* column 1 is called `PP_ID` and contains participant numbers 1 to 6. Make sure this data type is `integer`.
 * column 2 is called `PP_Age` and and contains the age of the participant. Make sure this data type is `double`.
 * column 3 is called `PP_Sex` and contains the sex of the participant. Even PP_IDs are male, odd PP_IDs are female participants.
 * column 4 is called `PP_Country` and contains the country participants were born in. Surprise, surprise - they were all born in Scotland!!!
-* column 5 is called `PP_Consent` and is an overview whether participants have given their consent to participate in an experiment (TRUE) or not (FALSE). Participants 1-9 have given their consent, participant 10 has not.
+* column 5 is called `PP_Consent` and is an overview whether participants have given their consent to participate in an experiment (TRUE) or not (FALSE). Participants 1-5 have given their consent, participant 6 has not.
 ```
 
 
 `r hide("Solution")`
 ```{r, eval = FALSE}
 # Gaby's solution:
-mydata <- tibble(PP_ID = 1:10,
-                 PP_Age = c(22, 21, 24, 36, 33, 25, 21, 31, 28, 35),
-                 PP_Sex = rep(c("Female", "Male"), 5),
+mydata <- tibble(PP_ID = 1:6,
+                 PP_Age = c(22, 21, 24, 36, 33, 25),
+                 PP_Sex = rep(c("Female", "Male"), 3),
                  PP_Country = "Scotland",
-                 PP_Consent = c(rep(TRUE, 9), FALSE))
+                 PP_Consent = c(rep(TRUE, 5), FALSE))
 ```
 
 ```{block, type="info"}
@@ -601,7 +592,6 @@ Adding the rownames as a separate column would be rather tricky at this stage in
 Another interesting dataset is called `starwars`. It can be found in the package `dplyr` which is part of `tidyverse`. So, as long as you have `tidyverse` loaded into your library, `starwars` should be available to you.
 
 ```{r}
-library(tidyverse) # if you have already done this in your Rmd, this step is superfluous
 starwars
 ```
 
@@ -685,5 +675,5 @@ Always use read_csv() from the tidyverse package for reading in the data. There 
 
 ## Last point for this chapter
 
-Restart R and clear your workspace. Knit your `L2_stub`. If it knits, it is an indication that all your code chunks are running. This is important for reproducibility - if it runs on your computer, it will run on ours.
+Got to the 'Session' tab at the top of RStudio and from here, restart R and clear your workspace. Knit your `L2_data` file. If it knits, it is an indication that all your code chunks are running. This is important for reproducibility - if it runs on your computer, it will run on ours.
 

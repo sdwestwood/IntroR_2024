@@ -96,6 +96,30 @@ Opening a new file allows you to write code that can be saved, amended, shared e
 
 R can handle a lot of different files types, we will only focus on the two types. These are .r and .Rmd files. Both are saved as plain text files. Many of the files R uses are plain text files at their core. What changes is how R interprets the files, and the types of outputs that you can get from them.
 
+### Setting the working directory
+
+If using .R scripts instead of .Rmd scripts, it is good practice to set your working directory to the folder you are working with. Firstly, there are two main ways you can view your current working directory: 
+
+1. Using the function `getwd()` in your console will print the path to your current working directory.
+
+2. You can also see the path to the working directory at the top of the console (circled in red below)
+
+<center><img src="images/getwd.png"></center>
+
+If you ever need to view the files in your current working directory, you can click on the small arrow circled in green!
+
+
+There are then several ways you can change your working directory:
+
+1. In the menu, go to **Session > Set Working Directory > Choose Directory** (Ctrl + Shift + H also works as key short cut in a Windows environment). Then select the folder containing the data file and click 'open'. You might not see any files in the folder you are selecting - that is fine.
+
+2. In the `Files pane`, you could navigate to today's folder, and once there click on **More > Set As Working Directory**. 
+
+3. In the console, you can use the `setwd()` function and provide the path to the directory you want. This can either be the absolute path e.g. `setwd("C:/Users/seanw/Documents")`, or a relative path where you specify the path from your current working directory. The image below shows first using the absolute path, then the relative path.
+
+<center><img src="images/setwd.png"></center>
+
+
 ### File Structure/Directories
 
 Your files should be stored in something called **"directories"**. This is the technical name for a folder. It is a storage space on your computer. Here you can see all of the files contained within the folder for this course document in the **"File Explorer"**, the program used to view files and folders in Windows:
@@ -186,14 +210,14 @@ Hashtags used inside of code chunks don't result in headers, but rather are igno
 
 ## Comments
 
-Comments can- and should- be used throughout both .r and .Rmd file types. These are anything written *after* a hashtag symbol (and, if using a .Rmd file, within a code chunk). This symbol instructs the computer to disregard this text, letting it know that this is not for it to interpret as executable code but rather it is something for the human user to read and interpret.
+Comments can- and should- be used throughout both .r and .Rmd file types. These are anything written *after* a hash symbol (and, if using a .Rmd file, within a code chunk). This symbol instructs the computer to disregard this text, letting it know that this is not for it to interpret as executable code but rather it is something for the human user to read and interpret.
 
 These are handy for letting others know what each piece of code was written to do, or to inform your future self of what you were doing.
 
 Make use of comments in the code we write in class and let this function as your class-notes.
 
 ```{r comment_example}
-# this is what a comment looks like. Anything AFTER a hashtag.
+# this is what a comment looks like. Anything AFTER a hash.
 # R doesn't "speak" natural languages so it would not be able 
 # to understand any of this and would give errors!
 
