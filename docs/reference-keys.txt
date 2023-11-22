@@ -1,5 +1,5 @@
-accessing2
-install2
+accessing
+install
 first-install-r
 second-install-rstudio
 opening-rstudio
