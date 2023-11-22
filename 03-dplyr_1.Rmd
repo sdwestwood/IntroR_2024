@@ -142,15 +142,23 @@ We also have the option of "de-selecting" more than one variable. By including t
 select(Name_Data, -prop, -sex)
 ```
 
+Finally, we can change the order of our resulting columns by simply changing the order that we list them in. We could reverse the order of our first 3 columns like so: 
+
+```{r}
+select(Name_Data, name, sex, year)
+```
+
 
 ```{block, type="funfact"}
 We can also use `select()` in combination with the `c()` function. Remember, `c()`is "hugging things together". We would put a single `minus` in front of the c rather than each of the column. This will read as exclude every column listed within the brackets.
 
-select(Name_Data, -c(sex, n, prop))
+`select(Name_Data, -c(sex, n, prop))`
 ```
 
 
 Remember, if you don't save this data to an object (e.g. the original dataframe `Name_Data` or under a new name), it won't be saved. We have not saved any of the previous tasks to the `Global Environment`, so there should still be only one babynames related object, e.g. the tibble named `Name_Data`.
+
+
 
 
 <span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span>
@@ -184,42 +192,36 @@ While it works code-wise, and seems a much quicker approach, it is a very bad id
 ```
 `r unhide()`
 
+### Renaming Columns
 
-## rename()
+#### Using select()
 
-`rename()` is a very useful function if we wanted to change column names. All available column are retained, so nothing is lost. If you had 5 variables in a tibble, and wanted to change the name of one of them, your output would be 5 columns in total - one column with a changed name and 4 columns with the previous names. The `rename()` function follows a very simple pattern of
+One useful feature of the `select()` function is the ability to rename columns as you select them using the = operator. The structure of this works like so: 
+
+```{r, eval=FALSE}
+select(data, new_column_name = old_column_name)
+```
+
+To provide an example with our `Name_Data` variable, let's say we want to keep only our `year`, `name`, and `n` columns, but we want the `n` column to instead be called `count`. We could achieve this in a single step like so:
+
+```{r}
+select(Name_Data, year, name, count = n)
+```
+
+
+#### Using rename()
+
+`rename()` is a nice alternative if we do not want to remove any columns. If you had 5 variables in a tibble, and wanted to change the name of one of them, your output would be 5 columns in total - one column with a changed name and 4 columns with the previous names. The `rename()` function follows the same renaming pattern as `select()`:
 
 ```{r, eval=FALSE}
 rename(data, new_column_name = old_column_name)
 ```
 
-You can rename multiple column headers by including more arguments, separating them with a comma. Let's take a look at a simple example in `table1`.
+Let's say we wanted to retain all columns in `Name_Data`, but change `n` to be called `count` and `prop` to be called `proportion`:
 
 ```{r}
-# table1
+rename(Name_Data, count = n, proportion = prop)
 ```
-
-If we wanted to change the column headers of `country` to `Country` and `population` to `Population`, and keep the columns `year` and `cases` as they are, we would code
-
-```{r}
-# rename(table1, Country = country,
-#        Population = population)
-```
-
-If you want to select a few columns and rename them in the process, you could use `select()`. The structure is the same as with `rename()`, the only difference is that the new data only retains the columns mentioned explicitly within `select()`.
-
-```{r, eval=FALSE}
-# select(data, new_column_name = old_column_name)
-```
-
-Modifying the `rename()` example from above would lead to selecting **only** the columns `country` and `population` from `table1` and renaming them as `Country` and `Population` at the same time.
-
-```{r}
-# select(table1, Country = country,
-#        Population = population)
-```
-
-
 
 ## arrange()
 
@@ -449,29 +451,62 @@ Add two columns to `Name_Ext` and call it `Name_Ext3`.
 
 ```{r}
 Name_Ext3 <- mutate(Name_Ext, MinName = n == 5, "20thCent" = year >= 1900 & year <= 1999)
-glimpse(Name_Ext3)
+head(Name_Ext3)
 ```
 
 ```{block, type="solved"}
 You may have noticed we needed to put the name of our new column `"20thCent"` inside quotation marks. This is because that name would begin with numeric values which R will interpret as numeric values to be evaluated as code by default, which will then break our code. By placeing the name within quotation marks this tells R to treat this as a standard character string instead. It is always best to avoid creating variables with names that start with a number for this reason, but if it is necessary this is how you can work around it.
 ```
 
+We can also specify where we want our new column to go by specifying which existing column we want it to go `.before` or `.after`. For example, we could create a new column in `Name_Data` that has the total number expressed in thousands and rounded to the nearest hundred, and we could put this just after the `n` column: 
 
+```{r}
+Name_After <- mutate(Name_Data, thousands = paste0(as.character(round(n/1000,1)),'k'), .after = n)
+head(Name_After)
+```
+
+Here the `paste0` function pastes two character strings together with 0 spaces in between. We could also specify a numeric column position rather than a name to determine where we want `mutate()` to put a new column. Let's add a column that tells us the century just before the year column: 
+
+```{r}
+Name_Before <- mutate(Name_Data, century = paste0(as.character(floor(year/100)+1),'th'), .before = 1)
+head(Name_Before)
+```
+
+```{block, type="funfact"}
+You might have realised that we would run into a problem in the `Name_Before` example whereby we would have 19th, 20th, and **21th** centuries! To do this properly, we would need some way to tell R to paste 'st', 'nd', or 'rd' **IF** the number ends in in 1, 2, or 3, **ELSE** paste 'th'. 
+
+You will have to stay tuned for Chapter 5 to find out more!!
+```
+
+
+<span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span>
 
 ```{block, type="task"}
 **Your turn**
 
-* Add a new column to `Name_Ext3` that is called `Prcnt` that gives the percentage each name accounts for of total names that year. *Hint: `prop` is that same stat represented as a proportion. 
+* Add a new column to `Name_Data` that is called `prcnt` and is position *to the left* of `prop` that gives the percentage each name accounts for of total names that year. *Hint: `prop` (proportion) is like a percentage represented out of 1 instead of out of 100! 
 
 ```
 
 
 `r hide("Solution")`
 ```{r}
-Name_Ext4 <- mutate(Name_Ext3, Prcnt = prop * 100)
-glimpse(Name_Ext4)
+# Sean's solutions
+Name_Ext4 <- mutate(Name_Data, prcnt = prop * 100, .before = prop)
+# or
+Name_Ext4 <- mutate(Name_Data, prcnt = prop * 100, .before = ncol(Name_Data))
+# or
+Name_Ext4 <- mutate(Name_Data, prcnt = prop * 100, .before = 5)
+# or
+Name_Ext4 <- mutate(Name_Data, prcnt = prop * 100, .after = 4)
+# or
+Name_Ext4 <- mutate(Name_Data, prcnt = prop * 100, .after = n)
+
+head(Name_Ext4)
 ```
 `r unhide()`
+
+
 
 ### Read in second dataset
 
@@ -558,14 +593,6 @@ Sum_Fights <- summarise(MMA_G_Weight, Avg_Mean = mean(T_Fights), SD = sd(T_Fight
 Which weightclass has the highest maximum height?  `r fitb("Heavyweight")`
 
 
-```{block, type="task"}
-**Your turn**
-
-* Try to fill out the code for finding summary stats of minimum and maximum height by `WeightClass`:
-
-```
-
-
 `r hide("Solution")`
 ```{r}
 Sum_Height <- summarise(MMA_G_Weight, Minimum = min(Height), Maximum = max(Height))
@@ -631,53 +658,90 @@ glimpse(MMA_Data)
 ```
 
 
+### Bringing it together
+
+Let's finish this section with an exercise that combines all of the Wickham Six functions. 
+
+<span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span>
+
+```{block, type="task"}
+**Your turn**
+
+* Rename the column `Success` to be called `WinRate`, and keep only the following columns in this specific order:
+`WinRate`, `Stance`, `WeightClass`
+Save the output as `wick6a`.
+* Arrange the data in `wick6a` such that those with the highest `WinRate` are at the top and those with the lowest `WinRate` are at the bottom.
+Save the output as `wick6b`.
+* Remove all rows in `Wick6b` where the fighter stance is `Orthodox`.
+Save the output as `wick6c`.
+* Add a column to `wick6c` in the first position (leftmost) called `Rank` which contains the number 1 for the highest winrate fighter, 2 for the second highest, and so on. 
+Save the output as `wick6d`.
+* Group `wick6d` by `WeightClass`. 
+Save the output as `wick6e`.
+* Create a summary of `wick6e` that shows the mean winrate for each weight class in a column called `WinRate_Average`. 
+Save the output as `wick6f`.
+
+```
+
+`r hide("Solution")`
+```{r}
+#Sean's solution
+wick6a <- select(MMA_Data, WinRate = Success, Stance, WeightClass)
+wick6b <- arrange(wick6a, desc(WinRate))
+wick6c <- filter(wick6b, Stance != "Orthodox")
+wick6d <- mutate(wick6c, Rank = 1:nrow(wick6c), .before = 1)
+wick6e <- group_by(wick6d, WeightClass)
+wick6f <- summarise(wick6e, WinRate_Average = mean(WinRate))
+wick6f
+```
+
 ## The pipe operator (%>%) {#pipes}
 
-As you may have noticed, your environment pane has become increasingly cluttered. Indeed, every time you introduced a new line of code, you created a uniquely-named object (unless your original object is overwritten). This can become confusing and time-consuming. One solution is the pipe operator (`%>%`) which aims to increase efficiency and improve the readability of your code. The pipe operator (`%>%`) read as **"and then"** allows you to chain functions together, eliminating the need to create intermediary objects. This creates a "pipeline", allowing the "flow" of data between lines of code, as the output of one function "flows" into the next function. There is no limit as to how many functions you can chain together in a single pipeline.
+As you may have noticed, your environment pane has become increasingly cluttered. Indeed, every time you introduced a new line of code, you created a uniquely-named object (unless your original object is overwritten). This can become confusing and time-consuming. One solution is the pipe operator (`%>%`) which aims to increase efficiency and improve the readability of your code. The pipe operator (`%>%`) can be read as **"and then"**, and it allows you to chain functions together, eliminating the need to create intermediary objects. This creates a "pipeline", allowing the "flow" of data between lines of code, as the output of one function "flows" into the next function. There is no limit as to how many functions you can chain together in a single pipeline.
 
-For example, in order to `filter()`, `group_by()` and `summarise()` the data, you would have used the following code lines:
-
-```{r}
-Example_6a <- filter(MMA_Data, ReachClass == "Above")
-Example_6b <- group_by(Example_6a, WeightClass)
-Example_6c <- summarise(Example_6b, MeanSub = mean(SubAtt_Avg))
-Example_6c
-```
-
-However, utilisation of the pipe operator (`%>%`) can simplify this process and create only one object (`Example_7`) as shown:
+For example, in order to `select()`, `arrange()` and `filter()` the data in the previous exercise, you had to do something like this:
 
 ```{r}
-Example_7 <- MMA_Data %>%
-  filter(ReachClass == "Above") %>%
-  group_by(WeightClass) %>%
-  summarise(MeanSub = mean(SubAtt_Avg))
-Example_7
+wick6a <- select(MMA_Data, WinRate = Success, Stance, WeightClass)
+wick6b <- arrange(wick6a, desc(WinRate))
+wick6c <- filter(wick6b, Stance != "Orthodox")
+head(wick6c)
 ```
 
-As you can see, `Example_7` produces the same output as `Example_6c`. So, pipes automatically take the output from one function and feed it directly to the next function. Without pipes, you needed to insert your chosen dataset as the first argument to every function. With pipes, you are only required to specify the original dataset (i.e  `MMA_Data`) once at the beginning of the pipeline, and removes the need to create unnecessary intermediary objects. You now no longer need the first argument of each of the subsequent functions anymore, because the pipe will know to look at the output from the previous step in the pipeline.
+However, utilisation of the pipe operator (`%>%`) can simplify this process and create only one object as shown:
+
+```{r}
+wick6_onestep <- MMA_Data %>%
+  select(WinRate = Success, Stance, WeightClass) %>%
+  arrange(desc(WinRate)) %>%
+  filter(Stance != "Orthodox")
+head(wick6_onestep)
+```
+
+As you can see, `wick6_onestep` produces the same output as `wick6c`. So, how does it work? Well, pipes automatically take the output from one function and feed it directly into the **first argument of the next function**. Without pipes, you needed to insert your chosen dataset as the first argument to every function. With pipes, you are only required to specify the original dataset (i.e  `MMA_Data`) once at the beginning of the pipeline, and removes the need to create unnecessary intermediary objects. You now no longer need the first argument of each of the subsequent functions anymore, because the pipe will know to look at the output from the previous step in the pipeline.
 
 
 ```{block, type="task"}
 **Your turn**
 
-Amend all of your code from Question8 and turn it into a single pipeline
-Save this as an object called `Q9` to your `Global Environment`.
+Amend all of your code from the wick6 question and turn it into a single pipeline
+Save this as an object called `wick6pipe` to your `Global Environment`.
 ```
 
 `r hide("Solution")`
 ```{r}
-#Jaimie's solution
-Q9 <- MMA_Data %>%
-  select(ID, WeightClass, Stance, T_Wins, W_by_Decision, "W_by_KO/TKO", W_by_Sub) %>%
-  filter(Stance != "Southpaw") %>%
-  mutate(Perc_W_by_Dec = (W_by_Decision/T_Wins)*100) %>%
+# Sean's solution
+wick6pipe <- MMA_Data %>%
+  select(WinRate = Success, Stance, WeightClass) %>%
+  arrange(desc(WinRate)) %>%
+  filter(Stance != "Orthodox") %>%
+  mutate(Rank = 1:nrow(wick6c), .before = 1) %>%
   group_by(WeightClass) %>%
-  summarise(AvgPercDec = mean(Perc_W_by_Dec))
-Q9
+  summarise(wick6e, WinRate_Average = mean(WinRate))
 ```
 `r unhide()`
 
-If done correct `Q9` should look identical to `Q8e`
+If done correct `wick6pipe` should look identical to `wick6f`
 
 
 ```{block, type="funfact"}
@@ -691,7 +755,7 @@ The benefit of having the data on its own is that you can reorder functions easi
 ```
 
 
-## Pipes with the Wickham Six
+## Pipe Practice with the Wickham Six
 
 The next part of this chapter will focus on practicing the Wickham Six functions, but this time we will be implementing piped solutions. 
 
@@ -705,7 +769,7 @@ Example_1
 ```
 
 ```{block, type="info"}
-Notice, this could also have been written as follows;
+Remember, this could also have been written as follows;
 `Example_1 <- MMA_Data %>% select(ID, Height, Weight, BMI, Reach, Stance)`
 
 We can use the `:` operator to sequence together columns that are next to each other in the original dataframe, this can save time but it is not necessary.
@@ -717,7 +781,7 @@ We can use the `:` operator to sequence together columns that are next to each o
 ```{block, type="task"}
 **Your turn**
 
-Using `select()` keep everything from `Example_1` but except `Reach`, and store this in an object names `Q1`.
+Using `select()` keep everything from `Example_1` except `Reach`, and store this in an object names `Q1`.
 
 ```
 
@@ -751,9 +815,10 @@ What is the height of the top entry in `Example_2`? `r fitb("69")`
 
 In one continuous pipe chain:
 
-Take `MMA_Data` and select only the variables; `ID`, `Height`, `Weight`, `BMI`, `Reach` and `Stance` 
+Take `MMA_Data`, rename the `Height` column so that it is called `Tallness`, and keep only the following columns IN THIS EXACT ORDER:
+`ID`, `Weight`, `BMI`, `Reach`, `Stance`, `Tallness`
 AND THEN
-use the arrange() function to sort first by `Reach` in *desceding* order, then by `Height` in *ascending* order. 
+use the arrange() function to sort first by `Reach` in *desceding* order, then by `Tallness` in *ascending* order. 
 
 Store the result in `Q2`.
 ```
@@ -762,8 +827,8 @@ Store the result in `Q2`.
 ```{r}
 # Sean's solution
 Q2 <- MMA_Data %>% 
-  select(ID, Height, Weight:Reach, Stance) %>% 
-  arrange(desc(Reach), Height)
+  select(ID, Weight:Reach, Stance, Tallness=Height) %>% 
+  arrange(desc(Reach), Tallness)
 ```
 `r unhide()`
 

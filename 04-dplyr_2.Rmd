@@ -1,4 +1,4 @@
-# Tidy Data 1: Principles and Pivot Functions
+# Tidy Data 1: Principles and Pivots
 
 ## Intended Learning Outcomes {-}
 

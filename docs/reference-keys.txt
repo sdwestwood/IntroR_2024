@@ -172,3 +172,9 @@ saving-plots
 summative-homework
 mutating-join-verbs
 binding-join-verbs
+tidy-data-1-principles-and-pivots
+renaming-columns
+using-select
+using-rename
+bringing-it-together
+pipe-practice-with-the-wickham-six

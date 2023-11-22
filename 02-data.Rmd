@@ -90,7 +90,7 @@ cat(direct_quote)
 
 ```{block, type="info"}
 
-You can check the data type using the `typeof()` function. If you want to know which class they belong to, you can use the `class()` function.
+You can check the data type using the `typeof()` function. If you want to know which class they belong to, you can use the `typeof()` function.
 
 ```
 
@@ -161,13 +161,13 @@ Note that it works with character strings as well. (Not really important for thi
 Run the following examples in your Console and select from the drop down menu what data type they belong to:
 
 
-* class(1): `r mcq(c("character", answer = "double", "integer", "logical", "Error message"))`
-* class(1L): `r mcq(c("character", "double", answer = "integer", "logical", "Error message"))`
-* class(1.0): `r mcq(c("character", answer = "double", "integer", "logical", "Error message"))`
-* class("1"): `r mcq(c(answer = "character", "double", "integer", "logical", "Error message"))`
-* class(1L == 2L): `r mcq(c("character", "double", "integer", answer = "logical", "Error message"))`
-* class(1L <= 2L): `r mcq(c("character", "double", "integer", answer = "logical", "Error message"))`
-* class(1L <= 2L, "1"): `r mcq(c("character", "double", "integer", "logical", answer = "Error message"))`
+* typeof(1): `r mcq(c("character", answer = "double", "integer", "logical", "Error message"))`
+* typeof(1L): `r mcq(c("character", "double", answer = "integer", "logical", "Error message"))`
+* typeof(1.0): `r mcq(c("character", answer = "double", "integer", "logical", "Error message"))`
+* typeof("1"): `r mcq(c(answer = "character", "double", "integer", "logical", "Error message"))`
+* typeof(1L == 2L): `r mcq(c("character", "double", "integer", answer = "logical", "Error message"))`
+* typeof(1L <= 2L): `r mcq(c("character", "double", "integer", answer = "logical", "Error message"))`
+* typeof(1L <= 2L, "1"): `r mcq(c("character", "double", "integer", "logical", answer = "Error message"))`
 
 
 `r hide("Explain this - why is 1 not an integer?")`
