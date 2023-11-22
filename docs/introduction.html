@@ -5,25 +5,25 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 1 Introduction | Introduction to R</title>
-  <meta name="description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2022." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2022/2023." />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 1 Introduction | Introduction to R" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2022." />
+  <meta property="og:description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2022/2023." />
   
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 1 Introduction | Introduction to R" />
   
-  <meta name="twitter:description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2022." />
+  <meta name="twitter:description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2022/2023." />
   
 
-<meta name="author" content="Gaby Mahrholz, Greta Todorova, Wilhelmiina Toivo, and Jaimie Torrance, updated by Johanna Werner in 2022" />
+<meta name="author" content="Gaby Mahrholz, Greta Todorova, Wilhelmiina Toivo, and Jaimie Torrance, updated by Johanna Werner in 2022 and Sean Westwood in 2023" />
 
 
-<meta name="date" content="2023-04-03" />
+<meta name="date" content="2023-11-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -92,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -119,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
@@ -198,7 +202,7 @@ div.csl-indent {
 <li class="chapter" data-level="1.3.2" data-path="introduction.html"><a href="introduction.html#file-extensions"><i class="fa fa-check"></i><b>1.3.2</b> File Extensions</a></li>
 <li class="chapter" data-level="1.3.3" data-path="introduction.html"><a href="introduction.html#zip-files"><i class="fa fa-check"></i><b>1.3.3</b> .zip Files</a></li>
 <li class="chapter" data-level="1.3.4" data-path="introduction.html"><a href="introduction.html#rstudio-specific-files"><i class="fa fa-check"></i><b>1.3.4</b> RStudio Specific Files</a></li>
-<li class="chapter" data-level="1.3.5" data-path="introduction.html"><a href="introduction.html#r-files"><i class="fa fa-check"></i><b>1.3.5</b> .r Files</a></li>
+<li class="chapter" data-level="1.3.5" data-path="introduction.html"><a href="introduction.html#r-files"><i class="fa fa-check"></i><b>1.3.5</b> .R Files</a></li>
 <li class="chapter" data-level="1.3.6" data-path="introduction.html"><a href="introduction.html#rmd-files"><i class="fa fa-check"></i><b>1.3.6</b> .Rmd files</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#comments"><i class="fa fa-check"></i><b>1.4</b> Comments</a></li>
@@ -217,11 +221,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="1.8.1" data-path="introduction.html"><a href="introduction.html#what-is-a-function"><i class="fa fa-check"></i><b>1.8.1</b> What is a function?</a></li>
 <li class="chapter" data-level="1.8.2" data-path="introduction.html"><a href="introduction.html#the-anatomy-of-a-function-names-and-arguments"><i class="fa fa-check"></i><b>1.8.2</b> The Anatomy of a Function: names and arguments</a></li>
-</ul></li>
-<li class="chapter" data-level="1.9" data-path="introduction.html"><a href="introduction.html#formative-homework"><i class="fa fa-check"></i><b>1.9</b> Formative Homework</a>
-<ul>
-<li class="chapter" data-level="1.9.1" data-path="introduction.html"><a href="introduction.html#install-r-and-rstudio-on-your-personal-computer"><i class="fa fa-check"></i><b>1.9.1</b> Install R and RStudio on your personal computer</a></li>
-<li class="chapter" data-level="1.9.2" data-path="introduction.html"><a href="introduction.html#installing-and-loading-tidyverse"><i class="fa fa-check"></i><b>1.9.2</b> Installing and Loading tidyverse</a></li>
+<li class="chapter" data-level="1.8.3" data-path="introduction.html"><a href="introduction.html#installing-and-loading-tidyverse"><i class="fa fa-check"></i><b>1.8.3</b> Installing and Loading tidyverse</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introduction-to-data.html"><a href="introduction-to-data.html"><i class="fa fa-check"></i><b>2</b> Introduction to Data</a>
@@ -257,213 +257,105 @@ div.csl-indent {
 <li class="chapter" data-level="2.5.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#from-existing-data-files"><i class="fa fa-check"></i><b>2.5.2</b> from existing data files</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="introduction-to-data.html"><a href="introduction-to-data.html#last-point-for-today"><i class="fa fa-check"></i><b>2.6</b> Last point for today</a></li>
-<li class="chapter" data-level="2.7" data-path="introduction-to-data.html"><a href="introduction-to-data.html#summative-homework"><i class="fa fa-check"></i><b>2.7</b> Summative Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html"><i class="fa fa-check"></i><b>3</b> Data Transformation 1: Basic One Table Verbs</a>
+<li class="chapter" data-level="3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html"><i class="fa fa-check"></i><b>3</b> Basic Data Manipulation</a>
 <ul>
-<li class="chapter" data-level="" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#intended-learning-outcomes-3"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
-<li class="chapter" data-level="3.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#data-wrangling"><i class="fa fa-check"></i><b>3.1</b> Data Wrangling</a></li>
-<li class="chapter" data-level="3.2" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#pre-steps-1"><i class="fa fa-check"></i><b>3.2</b> Pre-Steps</a>
+<li class="chapter" data-level="" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#intended-learning-outcomes-3"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="3.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#data-wrangling"><i class="fa fa-check"></i><b>3.1</b> Data Wrangling</a></li>
+<li class="chapter" data-level="3.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#pre-steps-1"><i class="fa fa-check"></i><b>3.2</b> Pre-Steps</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#downloading-materials-1"><i class="fa fa-check"></i><b>3.2.1</b> Downloading materials</a></li>
-<li class="chapter" data-level="3.2.2" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#unzipping-the-zip-folder-1"><i class="fa fa-check"></i><b>3.2.2</b> Unzipping the zip folder</a></li>
-<li class="chapter" data-level="3.2.3" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#setting-the-working-directory-1"><i class="fa fa-check"></i><b>3.2.3</b> Setting the working directory</a></li>
-<li class="chapter" data-level="3.2.4" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#loading-in-the-required-packages-into-the-library"><i class="fa fa-check"></i><b>3.2.4</b> Loading in the required packages into the library</a></li>
-<li class="chapter" data-level="3.2.5" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#read-in-the-data"><i class="fa fa-check"></i><b>3.2.5</b> Read in the data</a></li>
-<li class="chapter" data-level="3.2.6" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#view-the-data"><i class="fa fa-check"></i><b>3.2.6</b> View the data</a></li>
+<li class="chapter" data-level="3.2.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#downloading-materials-1"><i class="fa fa-check"></i><b>3.2.1</b> Downloading materials</a></li>
+<li class="chapter" data-level="3.2.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#unzipping-the-zip-folder-1"><i class="fa fa-check"></i><b>3.2.2</b> Unzipping the zip folder</a></li>
+<li class="chapter" data-level="3.2.3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#setting-the-working-directory-1"><i class="fa fa-check"></i><b>3.2.3</b> Setting the working directory</a></li>
+<li class="chapter" data-level="3.2.4" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#loading-in-the-required-packages-into-the-library"><i class="fa fa-check"></i><b>3.2.4</b> Loading in the required packages into the library</a></li>
+<li class="chapter" data-level="3.2.5" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#read-in-the-data"><i class="fa fa-check"></i><b>3.2.5</b> Read in the data</a></li>
+<li class="chapter" data-level="3.2.6" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#view-the-data"><i class="fa fa-check"></i><b>3.2.6</b> View the data</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#select"><i class="fa fa-check"></i><b>3.3</b> select()</a></li>
-<li class="chapter" data-level="3.4" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#arrange"><i class="fa fa-check"></i><b>3.4</b> arrange()</a></li>
-<li class="chapter" data-level="3.5" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#filter"><i class="fa fa-check"></i><b>3.5</b> filter()</a>
+<li class="chapter" data-level="3.3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#select"><i class="fa fa-check"></i><b>3.3</b> select()</a></li>
+<li class="chapter" data-level="3.4" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#rename"><i class="fa fa-check"></i><b>3.4</b> rename()</a></li>
+<li class="chapter" data-level="3.5" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#arrange"><i class="fa fa-check"></i><b>3.5</b> arrange()</a></li>
+<li class="chapter" data-level="3.6" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#filter"><i class="fa fa-check"></i><b>3.6</b> filter()</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#single-criterion"><i class="fa fa-check"></i><b>3.5.1</b> Single criterion</a></li>
-<li class="chapter" data-level="3.5.2" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#multiple-criteria"><i class="fa fa-check"></i><b>3.5.2</b> Multiple criteria</a></li>
+<li class="chapter" data-level="3.6.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#single-criterion"><i class="fa fa-check"></i><b>3.6.1</b> Single criterion</a></li>
+<li class="chapter" data-level="3.6.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#multiple-criteria"><i class="fa fa-check"></i><b>3.6.2</b> Multiple criteria</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#mutate"><i class="fa fa-check"></i><b>3.6</b> mutate()</a>
+<li class="chapter" data-level="3.7" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#mutate"><i class="fa fa-check"></i><b>3.7</b> mutate()</a>
 <ul>
-<li class="chapter" data-level="3.6.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#read-in-second-dataset"><i class="fa fa-check"></i><b>3.6.1</b> Read in second dataset</a></li>
+<li class="chapter" data-level="3.7.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#read-in-second-dataset"><i class="fa fa-check"></i><b>3.7.1</b> Read in second dataset</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#summarise"><i class="fa fa-check"></i><b>3.7</b> summarise()</a></li>
-<li class="chapter" data-level="3.8" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#adding-group_by"><i class="fa fa-check"></i><b>3.8</b> Adding group_by()</a></li>
-<li class="chapter" data-level="3.9" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#formative-homework-1"><i class="fa fa-check"></i><b>3.9</b> Formative Homework</a>
+<li class="chapter" data-level="3.8" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#summarise"><i class="fa fa-check"></i><b>3.8</b> summarise()</a></li>
+<li class="chapter" data-level="3.9" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#adding-group_by"><i class="fa fa-check"></i><b>3.9</b> Adding group_by()</a></li>
+<li class="chapter" data-level="3.10" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#pipes"><i class="fa fa-check"></i><b>3.10</b> The pipe operator (%&gt;%)</a></li>
+<li class="chapter" data-level="3.11" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#practicing-the-wickham-six"><i class="fa fa-check"></i><b>3.11</b> Practicing the Wickham Six</a>
 <ul>
-<li class="chapter" data-level="3.9.1" data-path="data-transformation-1-basic-one-table-verbs.html"><a href="data-transformation-1-basic-one-table-verbs.html#brief-introduction-to-the-homework-data"><i class="fa fa-check"></i><b>3.9.1</b> Brief introduction to the homework data</a></li>
+<li class="chapter" data-level="3.11.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#select-1"><i class="fa fa-check"></i><b>3.11.1</b> select()</a></li>
+<li class="chapter" data-level="3.11.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#arrange-1"><i class="fa fa-check"></i><b>3.11.2</b> arrange()</a></li>
+<li class="chapter" data-level="3.11.3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#filter-1"><i class="fa fa-check"></i><b>3.11.3</b> filter()</a></li>
+<li class="chapter" data-level="3.11.4" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#mutate-1"><i class="fa fa-check"></i><b>3.11.4</b> mutate()</a></li>
+<li class="chapter" data-level="3.11.5" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#group_by-and-summarise"><i class="fa fa-check"></i><b>3.11.5</b> group_by() and summarise()</a></li>
+<li class="chapter" data-level="3.11.6" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#bringing-it-all-together"><i class="fa fa-check"></i><b>3.11.6</b> Bringing it all together</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html"><i class="fa fa-check"></i><b>4</b> Data Transformation 2: More One and Two Table Verbs</a>
+<li class="chapter" data-level="4" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html"><i class="fa fa-check"></i><b>4</b> Tidy Data 1: Principles and Pivot Functions</a>
 <ul>
-<li class="chapter" data-level="" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#intended-learning-outcomes-4"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
-<li class="chapter" data-level="4.1" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#practicing-the-wikham-six"><i class="fa fa-check"></i><b>4.1</b> Practicing the Wikham Six</a>
+<li class="chapter" data-level="" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html#intended-learning-outcomes-4"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="4.1" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html#pre-steps-2"><i class="fa fa-check"></i><b>4.1</b> Pre-steps</a></li>
+<li class="chapter" data-level="4.2" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html#tidy-data"><i class="fa fa-check"></i><b>4.2</b> Tidy data</a></li>
+<li class="chapter" data-level="4.3" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html#pivot_longer-and-pivot_wider"><i class="fa fa-check"></i><b>4.3</b> pivot_longer() and pivot_wider()</a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#select-1"><i class="fa fa-check"></i><b>4.1.1</b> select()</a></li>
-<li class="chapter" data-level="4.1.2" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#arrange-1"><i class="fa fa-check"></i><b>4.1.2</b> arrange()</a></li>
-<li class="chapter" data-level="4.1.3" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#filter-1"><i class="fa fa-check"></i><b>4.1.3</b> filter()</a></li>
-<li class="chapter" data-level="4.1.4" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#mutate-1"><i class="fa fa-check"></i><b>4.1.4</b> mutate()</a></li>
-<li class="chapter" data-level="4.1.5" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#group_by-and-summarise"><i class="fa fa-check"></i><b>4.1.5</b> group_by() and summarise()</a></li>
-<li class="chapter" data-level="4.1.6" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#bringing-it-all-together"><i class="fa fa-check"></i><b>4.1.6</b> Bringing it all together</a></li>
+<li class="chapter" data-level="4.3.1" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html#pivot_longer"><i class="fa fa-check"></i><b>4.3.1</b> pivot_longer()</a></li>
+<li class="chapter" data-level="4.3.2" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html#pivot_wider"><i class="fa fa-check"></i><b>4.3.2</b> pivot_wider()</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#pipes"><i class="fa fa-check"></i><b>4.2</b> The pipe operator (%&gt;%)</a></li>
-<li class="chapter" data-level="4.3" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#two-table-verbs"><i class="fa fa-check"></i><b>4.3</b> Two-Table Verbs</a>
+<li class="chapter" data-level="4.4" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html#separate-and-unite"><i class="fa fa-check"></i><b>4.4</b> separate() and unite()</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#bringing-in-new-data"><i class="fa fa-check"></i><b>4.3.1</b> Bringing in new data</a></li>
-<li class="chapter" data-level="4.3.2" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#mutating-join-summary"><i class="fa fa-check"></i><b>4.3.2</b> Mutating Join Summary</a></li>
+<li class="chapter" data-level="4.4.1" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html#separate"><i class="fa fa-check"></i><b>4.4.1</b> separate()</a></li>
+<li class="chapter" data-level="4.4.2" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html#additional-arguments-for-separate"><i class="fa fa-check"></i><b>4.4.2</b> Additional arguments for separate()</a></li>
+<li class="chapter" data-level="4.4.3" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html#unite"><i class="fa fa-check"></i><b>4.4.3</b> unite()</a></li>
+<li class="chapter" data-level="4.4.4" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html#additional-arguments-for-unite"><i class="fa fa-check"></i><b>4.4.4</b> Additional arguments for unite()</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#additional-information"><i class="fa fa-check"></i><b>4.4</b> Additional information</a></li>
-<li class="chapter" data-level="4.5" data-path="data-transformation-2-more-one-and-two-table-verbs.html"><a href="data-transformation-2-more-one-and-two-table-verbs.html#summative-homework-1"><i class="fa fa-check"></i><b>4.5</b> Summative Homework</a></li>
+<li class="chapter" data-level="4.5" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html#bonus-materials-mutate-row-names-from-the-mtcars"><i class="fa fa-check"></i><b>4.5</b> Bonus materials: mutate row names from the <code>mtcars</code></a></li>
+<li class="chapter" data-level="4.6" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html#additional-information"><i class="fa fa-check"></i><b>4.6</b> Additional information</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html"><i class="fa fa-check"></i><b>5</b> Data Transformation 3: Tidy Data</a>
+<li class="chapter" data-level="5" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html"><i class="fa fa-check"></i><b>5</b> Tidy Data 2: Cell Manipulation</a>
 <ul>
-<li class="chapter" data-level="" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#intended-learning-outcomes-5"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
-<li class="chapter" data-level="5.1" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#pre-steps-2"><i class="fa fa-check"></i><b>5.1</b> Pre-steps</a></li>
-<li class="chapter" data-level="5.2" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#tidy-data"><i class="fa fa-check"></i><b>5.2</b> Tidy data</a></li>
-<li class="chapter" data-level="5.3" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#pivot_longer-and-pivot_wider"><i class="fa fa-check"></i><b>5.3</b> pivot_longer() and pivot_wider()</a>
+<li class="chapter" data-level="" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html#intended-learning-outcomes-5"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="5.1" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html#pre-steps-3"><i class="fa fa-check"></i><b>5.1</b> Pre-steps</a></li>
+<li class="chapter" data-level="5.2" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html#conditional-statements"><i class="fa fa-check"></i><b>5.2</b> Conditional statements</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#pivot_longer"><i class="fa fa-check"></i><b>5.3.1</b> pivot_longer()</a></li>
-<li class="chapter" data-level="5.3.2" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#pivot_wider"><i class="fa fa-check"></i><b>5.3.2</b> pivot_wider()</a></li>
+<li class="chapter" data-level="5.2.1" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html#recode"><i class="fa fa-check"></i><b>5.2.1</b> recode()</a></li>
+<li class="chapter" data-level="5.2.2" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html#ifelse"><i class="fa fa-check"></i><b>5.2.2</b> ifelse()</a></li>
+<li class="chapter" data-level="5.2.3" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html#case_when"><i class="fa fa-check"></i><b>5.2.3</b> case_when()</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#separate-and-unite"><i class="fa fa-check"></i><b>5.4</b> separate() and unite()</a>
+<li class="chapter" data-level="5.3" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html#distinct"><i class="fa fa-check"></i><b>5.3</b> distinct()</a></li>
+<li class="chapter" data-level="5.4" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html#recap"><i class="fa fa-check"></i><b>5.4</b> Recap</a>
 <ul>
-<li class="chapter" data-level="5.4.1" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#separate"><i class="fa fa-check"></i><b>5.4.1</b> separate()</a></li>
-<li class="chapter" data-level="5.4.2" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#additional-arguments-for-separate"><i class="fa fa-check"></i><b>5.4.2</b> additional arguments for separate()</a></li>
-<li class="chapter" data-level="5.4.3" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#unite"><i class="fa fa-check"></i><b>5.4.3</b> unite()</a></li>
-<li class="chapter" data-level="5.4.4" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#additional-arguments-for-unite"><i class="fa fa-check"></i><b>5.4.4</b> additional arguments for unite()</a></li>
+<li class="chapter" data-level="5.4.1" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html#question-1"><i class="fa fa-check"></i><b>5.4.1</b> Question 1</a></li>
+<li class="chapter" data-level="5.4.2" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html#question-2"><i class="fa fa-check"></i><b>5.4.2</b> Question 2</a></li>
+<li class="chapter" data-level="5.4.3" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html#question-3"><i class="fa fa-check"></i><b>5.4.3</b> Question 3</a></li>
+<li class="chapter" data-level="5.4.4" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html#question-4"><i class="fa fa-check"></i><b>5.4.4</b> Question 4</a></li>
+<li class="chapter" data-level="5.4.5" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html#question-5"><i class="fa fa-check"></i><b>5.4.5</b> Question 5</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#bonus-materials-mutate-row-names-from-the-mtcars"><i class="fa fa-check"></i><b>5.5</b> Bonus materials: mutate row names from the <code>mtcars</code></a></li>
-<li class="chapter" data-level="5.6" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#additional-information-1"><i class="fa fa-check"></i><b>5.6</b> Additional information</a></li>
-<li class="chapter" data-level="5.7" data-path="data-transformation-3-tidy-data.html"><a href="data-transformation-3-tidy-data.html#formative-homework-2"><i class="fa fa-check"></i><b>5.7</b> Formative Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html"><i class="fa fa-check"></i><b>6</b> Data Transformation 4: Fine-tuned Data Manipulation</a>
+<li class="chapter" data-level="6" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html"><i class="fa fa-check"></i><b>6</b> Tidy Data 3: Joins</a>
 <ul>
-<li class="chapter" data-level="" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#intended-learning-outcomes-6"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
-<li class="chapter" data-level="6.1" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#pre-steps-3"><i class="fa fa-check"></i><b>6.1</b> Pre-steps</a></li>
-<li class="chapter" data-level="6.2" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#rename"><i class="fa fa-check"></i><b>6.2</b> rename()</a></li>
-<li class="chapter" data-level="6.3" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#conditional-statements"><i class="fa fa-check"></i><b>6.3</b> Conditional statements</a>
+<li class="chapter" data-level="" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#intended-learning-outcomes-6"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="6.1" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#pre-steps-4"><i class="fa fa-check"></i><b>6.1</b> Pre-steps</a></li>
+<li class="chapter" data-level="6.2" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#two-table-verbs"><i class="fa fa-check"></i><b>6.2</b> Two-Table Verbs</a>
 <ul>
-<li class="chapter" data-level="6.3.1" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#recode"><i class="fa fa-check"></i><b>6.3.1</b> recode()</a></li>
-<li class="chapter" data-level="6.3.2" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#ifelse"><i class="fa fa-check"></i><b>6.3.2</b> ifelse()</a></li>
-<li class="chapter" data-level="6.3.3" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#case_when"><i class="fa fa-check"></i><b>6.3.3</b> case_when()</a></li>
+<li class="chapter" data-level="6.2.1" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#bringing-in-new-data"><i class="fa fa-check"></i><b>6.2.1</b> Bringing in new data</a></li>
+<li class="chapter" data-level="6.2.2" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#mutating-join-summary"><i class="fa fa-check"></i><b>6.2.2</b> Mutating Join Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#distinct"><i class="fa fa-check"></i><b>6.4</b> distinct()</a></li>
-<li class="chapter" data-level="6.5" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#recap"><i class="fa fa-check"></i><b>6.5</b> Recap</a>
-<ul>
-<li class="chapter" data-level="6.5.1" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-1"><i class="fa fa-check"></i><b>6.5.1</b> Question 1</a></li>
-<li class="chapter" data-level="6.5.2" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-2"><i class="fa fa-check"></i><b>6.5.2</b> Question 2</a></li>
-<li class="chapter" data-level="6.5.3" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-3"><i class="fa fa-check"></i><b>6.5.3</b> Question 3</a></li>
-<li class="chapter" data-level="6.5.4" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-4"><i class="fa fa-check"></i><b>6.5.4</b> Question 4</a></li>
-<li class="chapter" data-level="6.5.5" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#question-5"><i class="fa fa-check"></i><b>6.5.5</b> Question 5</a></li>
-</ul></li>
-<li class="chapter" data-level="6.6" data-path="data-transformation-4-fine-tuned-data-manipulation.html"><a href="data-transformation-4-fine-tuned-data-manipulation.html#summative-homework-2"><i class="fa fa-check"></i><b>6.6</b> Summative Homework</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html"><i class="fa fa-check"></i><b>7</b> Data Visualisation 1</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#pre-class-activities"><i class="fa fa-check"></i><b>7.1</b> Pre-class Activities</a></li>
-<li class="chapter" data-level="" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#intended-learning-outcomes-7"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
-<li class="chapter" data-level="7.2" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#pre-steps-4"><i class="fa fa-check"></i><b>7.2</b> Pre-steps</a></li>
-<li class="chapter" data-level="7.3" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#introduction-to-the-data"><i class="fa fa-check"></i><b>7.3</b> Introduction to the data</a></li>
-<li class="chapter" data-level="7.4" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#some-warm-up-tasks"><i class="fa fa-check"></i><b>7.4</b> Some warm-up tasks</a></li>
-<li class="chapter" data-level="7.5" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#the-package-ggplot2"><i class="fa fa-check"></i><b>7.5</b> The package GGPLOT2</a></li>
-<li class="chapter" data-level="7.6" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#layering"><i class="fa fa-check"></i><b>7.6</b> Layering</a>
-<ul>
-<li class="chapter" data-level="7.6.1" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#layer-1"><i class="fa fa-check"></i><b>7.6.1</b> Layer 1</a></li>
-<li class="chapter" data-level="7.6.2" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#layer-2-and-onward"><i class="fa fa-check"></i><b>7.6.2</b> Layer 2 and onward</a></li>
-</ul></li>
-<li class="chapter" data-level="7.7" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#how-do-we-choose-the-type-of-plot"><i class="fa fa-check"></i><b>7.7</b> How do we choose the type of plot?</a>
-<ul>
-<li class="chapter" data-level="7.7.1" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#data-format"><i class="fa fa-check"></i><b>7.7.1</b> Data format</a></li>
-<li class="chapter" data-level="7.7.2" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#number-of-variables"><i class="fa fa-check"></i><b>7.7.2</b> Number of variables</a></li>
-<li class="chapter" data-level="7.7.3" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#types-of-plots"><i class="fa fa-check"></i><b>7.7.3</b> Types of plots</a></li>
-<li class="chapter" data-level="7.7.4" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#groupings"><i class="fa fa-check"></i><b>7.7.4</b> Groupings</a></li>
-</ul></li>
-<li class="chapter" data-level="7.8" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#now-lets-have-a-look-at-different-plots-with-more-complexity"><i class="fa fa-check"></i><b>7.8</b> Now let’s have a look at different plots with more complexity</a></li>
-<li class="chapter" data-level="7.9" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#other-plots"><i class="fa fa-check"></i><b>7.9</b> Other plots</a></li>
-<li class="chapter" data-level="7.10" data-path="data-visualisation-1.html"><a href="data-visualisation-1.html#formative-homework-3"><i class="fa fa-check"></i><b>7.10</b> Formative Homework</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html"><i class="fa fa-check"></i><b>8</b> Data Visualisation 2</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#additional-resources"><i class="fa fa-check"></i><b>8.1</b> Additional Resources</a></li>
-<li class="chapter" data-level="" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#intended-learning-outcomes-8"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
-<li class="chapter" data-level="8.2" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#pre-steps-5"><i class="fa fa-check"></i><b>8.2</b> Pre-steps</a></li>
-<li class="chapter" data-level="8.3" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#re-introduction-to-the-data"><i class="fa fa-check"></i><b>8.3</b> Re-introduction to the data</a></li>
-<li class="chapter" data-level="8.4" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#create-multiple-plots-in-one"><i class="fa fa-check"></i><b>8.4</b> Create multiple plots in one</a>
-<ul>
-<li class="chapter" data-level="8.4.1" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#select-the-data-beforehand-and-create-different-plots."><i class="fa fa-check"></i><b>8.4.1</b> Select the data beforehand and create different plots.</a></li>
-<li class="chapter" data-level="8.4.2" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#facets"><i class="fa fa-check"></i><b>8.4.2</b> Facets</a></li>
-</ul></li>
-<li class="chapter" data-level="8.5" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#global-and-local-aesthetics"><i class="fa fa-check"></i><b>8.5</b> Global and Local aesthetics</a></li>
-<li class="chapter" data-level="8.6" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#themes-making-your-plots-pretty-looking-the-way-you-want-them-to"><i class="fa fa-check"></i><b>8.6</b> Themes: Making your plots pretty: looking the way you want them to</a>
-<ul>
-<li class="chapter" data-level="8.6.1" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#ready-made-themes"><i class="fa fa-check"></i><b>8.6.1</b> Ready-made themes</a></li>
-<li class="chapter" data-level="8.6.2" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#adding-axes-titles-and-headings"><i class="fa fa-check"></i><b>8.6.2</b> Adding axes titles and headings</a></li>
-</ul></li>
-<li class="chapter" data-level="8.7" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#changing-colours"><i class="fa fa-check"></i><b>8.7</b> Changing colours</a></li>
-<li class="chapter" data-level="8.8" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#legends"><i class="fa fa-check"></i><b>8.8</b> Legends</a></li>
-<li class="chapter" data-level="8.9" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#changing-axes-ticks"><i class="fa fa-check"></i><b>8.9</b> Changing axes ticks</a></li>
-<li class="chapter" data-level="8.10" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#saving-plots"><i class="fa fa-check"></i><b>8.10</b> Saving plots</a></li>
-<li class="chapter" data-level="8.11" data-path="data-visualisation-2.html"><a href="data-visualisation-2.html#summative-homework-3"><i class="fa fa-check"></i><b>8.11</b> Summative Homework</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="errors.html"><a href="errors.html"><i class="fa fa-check"></i><b>9</b> Errors</a>
-<ul>
-<li class="chapter" data-level="" data-path="errors.html"><a href="errors.html#intended-learning-outcomes-9"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
-<li class="chapter" data-level="9.1" data-path="errors.html"><a href="errors.html#errors-how-to-avoid-some-and-live-through-the-rest"><i class="fa fa-check"></i><b>9.1</b> Errors: How to avoid some and live through the rest</a></li>
-<li class="chapter" data-level="9.2" data-path="errors.html"><a href="errors.html#debugging"><i class="fa fa-check"></i><b>9.2</b> Debugging</a>
-<ul>
-<li class="chapter" data-level="9.2.1" data-path="errors.html"><a href="errors.html#messages-from-r"><i class="fa fa-check"></i><b>9.2.1</b> Messages from R</a></li>
-<li class="chapter" data-level="9.2.2" data-path="errors.html"><a href="errors.html#error-messages"><i class="fa fa-check"></i><b>9.2.2</b> Error Messages</a></li>
-<li class="chapter" data-level="9.2.3" data-path="errors.html"><a href="errors.html#multiple-errors"><i class="fa fa-check"></i><b>9.2.3</b> Multiple Errors</a></li>
-<li class="chapter" data-level="9.2.4" data-path="errors.html"><a href="errors.html#finding-errors-in-longer-code-segments"><i class="fa fa-check"></i><b>9.2.4</b> Finding errors in longer code segments</a></li>
-<li class="chapter" data-level="9.2.5" data-path="errors.html"><a href="errors.html#warning-messages"><i class="fa fa-check"></i><b>9.2.5</b> Warning Messages</a></li>
-<li class="chapter" data-level="9.2.6" data-path="errors.html"><a href="errors.html#other-messages"><i class="fa fa-check"></i><b>9.2.6</b> Other Messages</a></li>
-</ul></li>
-<li class="chapter" data-level="9.3" data-path="errors.html"><a href="errors.html#searching-for-help-online"><i class="fa fa-check"></i><b>9.3</b> Searching for Help Online</a>
-<ul>
-<li class="chapter" data-level="9.3.1" data-path="errors.html"><a href="errors.html#googling-it"><i class="fa fa-check"></i><b>9.3.1</b> Googling It</a></li>
-<li class="chapter" data-level="9.3.2" data-path="errors.html"><a href="errors.html#stack-overflow"><i class="fa fa-check"></i><b>9.3.2</b> Stack Overflow</a></li>
-<li class="chapter" data-level="9.3.3" data-path="errors.html"><a href="errors.html#youtube"><i class="fa fa-check"></i><b>9.3.3</b> YouTube</a></li>
-<li class="chapter" data-level="9.3.4" data-path="errors.html"><a href="errors.html#further-reading"><i class="fa fa-check"></i><b>9.3.4</b> Further Reading</a></li>
-</ul></li>
-<li class="chapter" data-level="9.4" data-path="errors.html"><a href="errors.html#formative-exercises"><i class="fa fa-check"></i><b>9.4</b> Formative Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html"><i class="fa fa-check"></i><b>10</b> Recap: Before the final assessment</a>
-<ul>
-<li class="chapter" data-level="10.1" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#outline-for-today"><i class="fa fa-check"></i><b>10.1</b> Outline for today</a></li>
-<li class="chapter" data-level="10.2" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#lecture-10-bringing-your-skills-together"><i class="fa fa-check"></i><b>10.2</b> Lecture 10: Bringing your skills together</a>
-<ul>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-1-1"><i class="fa fa-check"></i>Question 1</a></li>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-2-1"><i class="fa fa-check"></i>Question 2</a></li>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-3-1"><i class="fa fa-check"></i>Question 3</a></li>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-4-1"><i class="fa fa-check"></i>Question 4</a></li>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-5-1"><i class="fa fa-check"></i>Question 5</a></li>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-6"><i class="fa fa-check"></i>Question 6</a></li>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-7"><i class="fa fa-check"></i>Question 7</a></li>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-8"><i class="fa fa-check"></i>Question 8</a></li>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-9"><i class="fa fa-check"></i>Question 9</a></li>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-10"><i class="fa fa-check"></i>Question 10</a></li>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-11"><i class="fa fa-check"></i>Question 11</a></li>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-12-bonus"><i class="fa fa-check"></i>Question 12 (Bonus)</a></li>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-13-bonus"><i class="fa fa-check"></i>Question 13 (Bonus)</a></li>
-<li class="chapter" data-level="" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#question-14-bonus"><i class="fa fa-check"></i>Question 14 (Bonus)</a></li>
-</ul></li>
-<li class="chapter" data-level="10.3" data-path="recap-before-the-final-assessment.html"><a href="recap-before-the-final-assessment.html#solutions"><i class="fa fa-check"></i><b>10.3</b> Solutions</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html"><i class="fa fa-check"></i>Appendices</a>
-<ul>
-<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#changing-the-appearance-of-rmarkdown"><i class="fa fa-check"></i>Changing the Appearance of RMarkdown</a></li>
-<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#source-materials"><i class="fa fa-check"></i>Source Materials</a></li>
-<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#further-reading-1"><i class="fa fa-check"></i>Further Reading</a>
-<ul>
-<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#statistics"><i class="fa fa-check"></i>Statistics</a></li>
-<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#more-advanced-use-of-r"><i class="fa fa-check"></i>More Advanced Use of R</a></li>
-</ul></li>
+<li class="chapter" data-level="6.3" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#additional-information-1"><i class="fa fa-check"></i><b>6.3</b> Additional information</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="before.html"><a href="before.html#before"><i class="fa fa-check"></i>Assignment before starting the course</a>
 <ul>
-<li class="chapter" data-level="10.4" data-path="before.html"><a href="before.html#accessing"><i class="fa fa-check"></i><b>10.4</b> Access to RStudio</a>
+<li class="chapter" data-level="6.4" data-path="before.html"><a href="before.html#accessing"><i class="fa fa-check"></i><b>6.4</b> Access to RStudio</a>
 <ul>
-<li class="chapter" data-level="10.4.1" data-path="before.html"><a href="before.html#install"><i class="fa fa-check"></i><b>10.4.1</b> Installing R and RStudio on Your Own Machine</a></li>
-<li class="chapter" data-level="10.4.2" data-path="before.html"><a href="before.html#accessing-rstudio-on-university-computers-1"><i class="fa fa-check"></i><b>10.4.2</b> Accessing RStudio on University Computers</a></li>
-<li class="chapter" data-level="10.4.3" data-path="before.html"><a href="before.html#using-rstudio-cloud-1"><i class="fa fa-check"></i><b>10.4.3</b> Using RStudio Cloud</a></li>
+<li class="chapter" data-level="6.4.1" data-path="before.html"><a href="before.html#install"><i class="fa fa-check"></i><b>6.4.1</b> Installing R and RStudio on Your Own Machine</a></li>
+<li class="chapter" data-level="6.4.2" data-path="before.html"><a href="before.html#accessing-rstudio-on-university-computers-1"><i class="fa fa-check"></i><b>6.4.2</b> Accessing RStudio on University Computers</a></li>
+<li class="chapter" data-level="6.4.3" data-path="before.html"><a href="before.html#using-rstudio-cloud-1"><i class="fa fa-check"></i><b>6.4.3</b> Using RStudio Cloud</a></li>
 </ul></li>
-<li class="chapter" data-level="10.5" data-path="before.html"><a href="before.html#maximising-reproducibility-and-visibility-1"><i class="fa fa-check"></i><b>10.5</b> Maximising Reproducibility and Visibility</a></li>
+<li class="chapter" data-level="6.5" data-path="before.html"><a href="before.html#maximising-reproducibility-and-visibility-1"><i class="fa fa-check"></i><b>6.5</b> Maximising Reproducibility and Visibility</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
@@ -498,7 +390,6 @@ div.csl-indent {
 <li>Able to describe R and Studio, the coding environment and the associated file types.</li>
 <li>Able to install, load and describe the nature of R packages and describe the nature and use of functions in general.</li>
 </ol>
-<p>This lesson is led by <a href="https://www.gla.ac.uk/schools/psychologyneuroscience/staff/courtneytaylorbrowneluka/">Courtney Taylor Browne Luka</a>.</p>
 </div>
 <div id="computer-literacy-basics" class="section level2 hasAnchor" number="1.1">
 <h2><span class="header-section-number">1.1</span> Computer Literacy Basics<a href="introduction.html#computer-literacy-basics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -512,7 +403,7 @@ div.csl-indent {
 <p>Are they different? Yes! Is this important? Yes!</p>
 <div id="r" class="section level3 hasAnchor" number="1.2.1">
 <h3><span class="header-section-number">1.2.1</span> R<a href="introduction.html#r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="images/Rlogo.png" height="50" width="50" alt="R Commander Logo" align="right" style="margin:10px 10px"></p>
+<p><img src="images/rlogo.png" height="50" width="50" alt="R Commander Logo" align="right" style="margin:10px 10px"></p>
 <p>R is a programming language and completely free software, and it is widely used for data analysis. It is a stand-alone program and can be run on it’s own without R Studio, but it’s not particularly user friendly.</p>
 <center>
 <img src="images/commander.png" alt="R Commander" style="margin:10px 10px">
@@ -614,7 +505,7 @@ div.csl-indent {
 <figure>
 <img src="images/zipping.gif">
 <figcaption>
-Adapted from Level 1 Data Skills, <span class="citation">(<a href="#ref-l1book" role="doc-biblioref">Nordmann and Woods 2019</a>)</span>.
+Adapted from Level 1 Data Skills, <span class="citation">(<a href="#ref-l1book">Nordmann and Woods 2019</a>)</span>.
 </figcaption>
 </figure>
 </center>
@@ -643,7 +534,7 @@ removing the extra added one will solve this issue.
 </div>
 </div>
 <div id="r-files" class="section level3 hasAnchor" number="1.3.5">
-<h3><span class="header-section-number">1.3.5</span> .r Files<a href="introduction.html#r-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">1.3.5</span> .R Files<a href="introduction.html#r-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This is what we refer to as a script. It is designed to be read by R, not so much by humans. To create a new script go to File &gt; New File &gt; R Script. This is what will be brought up:</p>
 <center>
 <img src="images/new_script.png">
@@ -661,6 +552,7 @@ removing the extra added one will solve this issue.
 <p><br></p>
 <p>When a new RMarkdown file is opened the file isn’t empty. What you actually get is an example with a YAML header (at the top bordered with the dashes), some code chunks (in the shaded sections, more on these in a minute), text and some headers (the hashtagged blue text <strong>outside</strong> of chunks).</p>
 <p>I like to think of the way this file type is interpreted as being <em>like a script, but flipped</em>- the default interpretation of text aimed at humans. If we want <strong>executable code</strong> we need to prompt R to read the text in this way. This is done using “code chunks”, or sometimes just called “chunks”.</p>
+<p>One key difference between .R files and .Rmd files is the way they look for files (e.g. if you are loading in data). With .R files, they look for things by starting wherever the working directory is currently located, whereas .Rmd files look for things starting where that .Rmd file is currently located.</p>
 <center>
 <img src="images/new_markdown.png">
 </center>
@@ -696,13 +588,13 @@ be affected.
 <p>Comments can- and should- be used throughout both .r and .Rmd file types. These are anything written <em>after</em> a hashtag symbol (and, if using a .Rmd file, within a code chunk). This symbol instructs the computer to disregard this text, letting it know that this is not for it to interpret as executable code but rather it is something for the human user to read and interpret.</p>
 <p>These are handy for letting others know what each piece of code was written to do, or to inform your future self of what you were doing.</p>
 <p>Make use of comments in the code we write in class and let this function as your class-notes.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="introduction.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this is what a comment looks like. Anything AFTER a hashtag.</span></span>
-<span id="cb1-2"><a href="introduction.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># R doesn&#39;t &quot;speak&quot; natural languages so it would not be able </span></span>
-<span id="cb1-3"><a href="introduction.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># to understand any of this and would give errors!</span></span>
-<span id="cb1-4"><a href="introduction.html#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="introduction.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># comments are for humans. You can use them to put notes in scripts to</span></span>
-<span id="cb1-6"><a href="introduction.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># remind yourself of what is happening, or to inform people with whom</span></span>
-<span id="cb1-7"><a href="introduction.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># you have shared your code.</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="introduction.html#cb1-1" tabindex="-1"></a><span class="co"># this is what a comment looks like. Anything AFTER a hashtag.</span></span>
+<span id="cb1-2"><a href="introduction.html#cb1-2" tabindex="-1"></a><span class="co"># R doesn&#39;t &quot;speak&quot; natural languages so it would not be able </span></span>
+<span id="cb1-3"><a href="introduction.html#cb1-3" tabindex="-1"></a><span class="co"># to understand any of this and would give errors!</span></span>
+<span id="cb1-4"><a href="introduction.html#cb1-4" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="introduction.html#cb1-5" tabindex="-1"></a><span class="co"># comments are for humans. You can use them to put notes in scripts to</span></span>
+<span id="cb1-6"><a href="introduction.html#cb1-6" tabindex="-1"></a><span class="co"># remind yourself of what is happening, or to inform people with whom</span></span>
+<span id="cb1-7"><a href="introduction.html#cb1-7" tabindex="-1"></a><span class="co"># you have shared your code.</span></span></code></pre></div>
 </div>
 <div id="saving-your-file" class="section level2 hasAnchor" number="1.5">
 <h2><span class="header-section-number">1.5</span> Saving your file<a href="introduction.html#saving-your-file" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -780,7 +672,7 @@ installation.
 <img src="images/console.png" alt="The Console" style="margin:10px 10px">
 </center>
 <p>Types the following in and then hit “enter”:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="introduction.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="introduction.html#cb2-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
 <p>Note that the name of the package is in quotation marks when used here. This is not always the case!</p>
 <p>The console will then fill with a lot of text showing you what is being done. It is not necessary to understand all of this.</p>
 <p>Look out for this message being printed in the console</p>
@@ -798,7 +690,7 @@ installation.
 <p>Now that we have installed tidyverse it is on our machine but it is not ready to use yet!</p>
 <p>It is easier to understand if you think about it like this: if you install Instagram on your phone you only do it once and you have to open the app each time you want to use it.</p>
 <p>Similarly, once tidyverse is installed it is on your computer until you remove it. If you want to use it you need to “open it”. This is done by using another <strong>function</strong>, <code>library()</code>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="introduction.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="introduction.html#cb3-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <p>This must be done before you use tidyverse. We normally do this in the first chunk in the document, essentially gathering our tools before we start working.</p>
 <p>If you want to load other packages you would reuse the <strong>function</strong> <code>library()</code>, replacing “tidyverse” with the name of the package you want to load.</p>
 </div>
@@ -814,7 +706,7 @@ installation.
 <div id="the-anatomy-of-a-function-names-and-arguments" class="section level3 hasAnchor" number="1.8.2">
 <h3><span class="header-section-number">1.8.2</span> The Anatomy of a Function: names and arguments<a href="introduction.html#the-anatomy-of-a-function-names-and-arguments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Functions are made up of elements. See the code chunk below:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="introduction.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">function_name</span>(argument1, argument2, etc...)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="introduction.html#cb4-1" tabindex="-1"></a><span class="fu">function_name</span>(argument1, argument2, etc...)</span></code></pre></div>
 <p>The part outside of the brackets is the <strong>name of the function</strong>. This tells R exactly what to do- the action to be performed. The parts inside the brackets are called <strong>arguments</strong>… these provide information to R on what to perform the actions on (and input) and can provide information on slight changes to the actions.</p>
 <div class="info">
 <p>
@@ -831,15 +723,8 @@ a different package?
 <p>Once your function has taken the input and run the command on it, it will produce an output.</p>
 <p>As we progress through this course, see if you can spot the functions, the arguments, the inputs and the outputs.</p>
 </div>
-</div>
-<div id="formative-homework" class="section level2 hasAnchor" number="1.9">
-<h2><span class="header-section-number">1.9</span> Formative Homework<a href="introduction.html#formative-homework" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="install-r-and-rstudio-on-your-personal-computer" class="section level3 hasAnchor" number="1.9.1">
-<h3><span class="header-section-number">1.9.1</span> Install R and RStudio on your personal computer<a href="introduction.html#install-r-and-rstudio-on-your-personal-computer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>If you haven’t done so, please read the chapter <a href="@ref(#before)">Assignment before starting the course</a> and either install R and RStudio on your own computer, or familiarise yourself with the RStudio Cloud.</p>
-</div>
-<div id="installing-and-loading-tidyverse" class="section level3 hasAnchor" number="1.9.2">
-<h3><span class="header-section-number">1.9.2</span> Installing and Loading tidyverse<a href="introduction.html#installing-and-loading-tidyverse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="installing-and-loading-tidyverse" class="section level3 hasAnchor" number="1.8.3">
+<h3><span class="header-section-number">1.8.3</span> Installing and Loading tidyverse<a href="introduction.html#installing-and-loading-tidyverse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Use the information in the section <a href="introduction.html#install-tidyverse">1.7.1.1</a> above to install the tidyverse package on your RStudio installation.</p>
 <div class="info">
 <p>
@@ -854,7 +739,6 @@ required.
 <center>
 <img src="images/tidyverse_success.png">
 </center>
-<p>You will be using the tidyverse package in the next lesson, so don’t worry if you struggle with this at the moment.</p>
 
 </div>
 </div>

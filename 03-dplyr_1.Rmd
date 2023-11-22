@@ -184,6 +184,43 @@ While it works code-wise, and seems a much quicker approach, it is a very bad id
 ```
 `r unhide()`
 
+
+## rename()
+
+`rename()` is a very useful function if we wanted to change column names. All available column are retained, so nothing is lost. If you had 5 variables in a tibble, and wanted to change the name of one of them, your output would be 5 columns in total - one column with a changed name and 4 columns with the previous names. The `rename()` function follows a very simple pattern of
+
+```{r, eval=FALSE}
+rename(data, new_column_name = old_column_name)
+```
+
+You can rename multiple column headers by including more arguments, separating them with a comma. Let's take a look at a simple example in `table1`.
+
+```{r}
+# table1
+```
+
+If we wanted to change the column headers of `country` to `Country` and `population` to `Population`, and keep the columns `year` and `cases` as they are, we would code
+
+```{r}
+# rename(table1, Country = country,
+#        Population = population)
+```
+
+If you want to select a few columns and rename them in the process, you could use `select()`. The structure is the same as with `rename()`, the only difference is that the new data only retains the columns mentioned explicitly within `select()`.
+
+```{r, eval=FALSE}
+# select(data, new_column_name = old_column_name)
+```
+
+Modifying the `rename()` example from above would lead to selecting **only** the columns `country` and `population` from `table1` and renaming them as `Country` and `Population` at the same time.
+
+```{r}
+# select(table1, Country = country,
+#        Population = population)
+```
+
+
+
 ## arrange()
 
 The `arrange()` function can reorder observations (rows) in ascending (default) or descending order. The first argument to this function is again an object (in this case the tibble `Name_Data`), and the subsequent arguments are the variables (columns) you want to sort by. For example, if you wanted to sort by `n` in **ascending** order (which is the default in `arrange()`) you would type:
@@ -365,68 +402,6 @@ ggplot(Name_Beat, aes(year, prop, colour=name)) + geom_line()
 `r unhide()`
 
 
-## The pipe operator (%>%) {#pipes}
-
-As you may have noticed, your environment pane has become increasingly cluttered. Indeed, every time you introduced a new line of code, you created a uniquely-named object (unless your original object is overwritten). This can become confusing and time-consuming. One solution is the pipe operator (`%>%`) which aims to increase efficiency and improve the readability of your code. The pipe operator (`%>%`) read as **"and then"** allows you to chain functions together, eliminating the need to create intermediary objects. This creates a "pipeline", allowing the "flow" of data between lines of code, as the output of one function "flows" into the next function. There is no limit as to how many functions you can chain together in a single pipeline.
-
-For example, in order to `filter()`, `group_by()` and `summarise()` the data, you would have used the following code lines:
-
-```{r}
-Example_6a <- filter(MMA_Data, ReachClass == "Above")
-Example_6b <- group_by(Example_6a, WeightClass)
-Example_6c <- summarise(Example_6b, MeanSub = mean(SubAtt_Avg))
-Example_6c
-```
-
-However, utilisation of the pipe operator (`%>%`) can simplify this process and create only one object (`Example_7`) as shown:
-
-```{r}
-Example_7 <- MMA_Data %>%
-  filter(ReachClass == "Above") %>%
-  group_by(WeightClass) %>%
-  summarise(MeanSub = mean(SubAtt_Avg))
-Example_7
-```
-
-As you can see, `Example_7` produces the same output as `Example_6c`. So, pipes automatically take the output from one function and feed it directly to the next function. Without pipes, you needed to insert your chosen dataset as the first argument to every function. With pipes, you are only required to specify the original dataset (i.e  `MMA_Data`) once at the beginning of the pipeline, and removes the need to create unnecessary intermediary objects. You now no longer need the first argument of each of the subsequent functions anymore, because the pipe will know to look at the output from the previous step in the pipeline.
-
-
-```{block, type="task"}
-**Your turn**
-
-Amend all of your code from Question8 and turn it into a single pipeline
-Save this as an object called `Q9` to your `Global Environment`.
-```
-
-`r hide("Solution")`
-```{r}
-#Jaimie's solution
-Q9 <- MMA_Data %>%
-  select(ID, WeightClass, Stance, T_Wins, W_by_Decision, "W_by_KO/TKO", W_by_Sub) %>%
-  filter(Stance != "Southpaw") %>%
-  mutate(Perc_W_by_Dec = (W_by_Decision/T_Wins)*100) %>%
-  group_by(WeightClass) %>%
-  summarise(AvgPercDec = mean(Perc_W_by_Dec))
-Q9
-```
-`r unhide()`
-
-If done correct `Q9` should look identical to `Q8e`
-
-
-```{block, type="funfact"}
-
-Note that in the above code chunk, the data object has been on its own line in the code followed immediately by `%>%` before starting with the "functions". 
-
-The other option would have been to put the data object as the first argument within the first function. 
-
-The benefit of having the data on its own is that you can reorder functions easily or squeeze another one in (for example if you summarised something but forgot to group beforehand) without the need to "move" the data object into the new first argument of the pipeline. 
-
-```
-
-
-
-
 ## mutate()
 
 The `mutate()` function creates new variables (columns) onto the existing object. The first argument to this function is an object from your `Global Environment` (for example `Name_Data`) and the subsequent argument is the new column name and what you want it to contain. The following image was downloaded from https://www.sharpsightlabs.com/blog/mutate-in-r/
@@ -505,7 +480,7 @@ At this point we are reaching the end of the usefulness of the Babynames dataset
 The second dataset, is a set of career and performance statistics of MMA athletes. You need to read the file `CareerStats.csv` containing your data into your `Global Environment` using the function `read_csv()`. Remember to store your data in an appropriately named object (e.g. `MMA_Data`). 
 
 ```{r}
-MMA_Data <- read_csv("CareerStats.csv")
+MMA_Data <- read_csv("data/CareerStats.csv")
 ```
 
 ```{block, type="info"}
@@ -656,61 +631,78 @@ glimpse(MMA_Data)
 ```
 
 
-## rename()
+## The pipe operator (%>%) {#pipes}
 
-`rename()` is a very useful function if we wanted to change column names. All available column are retained, so nothing is lost. If you had 5 variables in a tibble, and wanted to change the name of one of them, your output would be 5 columns in total - one column with a changed name and 4 columns with the previous names. The `rename()` function follows a very simple pattern of
+As you may have noticed, your environment pane has become increasingly cluttered. Indeed, every time you introduced a new line of code, you created a uniquely-named object (unless your original object is overwritten). This can become confusing and time-consuming. One solution is the pipe operator (`%>%`) which aims to increase efficiency and improve the readability of your code. The pipe operator (`%>%`) read as **"and then"** allows you to chain functions together, eliminating the need to create intermediary objects. This creates a "pipeline", allowing the "flow" of data between lines of code, as the output of one function "flows" into the next function. There is no limit as to how many functions you can chain together in a single pipeline.
 
-```{r, eval=FALSE}
-rename(data, new_column_name = old_column_name)
-```
-
-You can rename multiple column headers by including more arguments, separating them with a comma. Let's take a look at a simple example in `table1`.
+For example, in order to `filter()`, `group_by()` and `summarise()` the data, you would have used the following code lines:
 
 ```{r}
-table1
+Example_6a <- filter(MMA_Data, ReachClass == "Above")
+Example_6b <- group_by(Example_6a, WeightClass)
+Example_6c <- summarise(Example_6b, MeanSub = mean(SubAtt_Avg))
+Example_6c
 ```
 
-If we wanted to change the column headers of `country` to `Country` and `population` to `Population`, and keep the columns `year` and `cases` as they are, we would code
+However, utilisation of the pipe operator (`%>%`) can simplify this process and create only one object (`Example_7`) as shown:
 
 ```{r}
-rename(table1, Country = country,
-       Population = population)
+Example_7 <- MMA_Data %>%
+  filter(ReachClass == "Above") %>%
+  group_by(WeightClass) %>%
+  summarise(MeanSub = mean(SubAtt_Avg))
+Example_7
 ```
 
-If you want to select a few columns and rename them in the process, you could use `select()`. The structure is the same as with `rename()`, the only difference is that the new data only retains the columns mentioned explicitly within `select()`.
+As you can see, `Example_7` produces the same output as `Example_6c`. So, pipes automatically take the output from one function and feed it directly to the next function. Without pipes, you needed to insert your chosen dataset as the first argument to every function. With pipes, you are only required to specify the original dataset (i.e  `MMA_Data`) once at the beginning of the pipeline, and removes the need to create unnecessary intermediary objects. You now no longer need the first argument of each of the subsequent functions anymore, because the pipe will know to look at the output from the previous step in the pipeline.
 
-```{r, eval=FALSE}
-select(data, new_column_name = old_column_name)
+
+```{block, type="task"}
+**Your turn**
+
+Amend all of your code from Question8 and turn it into a single pipeline
+Save this as an object called `Q9` to your `Global Environment`.
 ```
 
-Modifying the `rename()` example from above would lead to selecting **only** the columns `country` and `population` from `table1` and renaming them as `Country` and `Population` at the same time.
-
+`r hide("Solution")`
 ```{r}
-select(table1, Country = country,
-       Population = population)
+#Jaimie's solution
+Q9 <- MMA_Data %>%
+  select(ID, WeightClass, Stance, T_Wins, W_by_Decision, "W_by_KO/TKO", W_by_Sub) %>%
+  filter(Stance != "Southpaw") %>%
+  mutate(Perc_W_by_Dec = (W_by_Decision/T_Wins)*100) %>%
+  group_by(WeightClass) %>%
+  summarise(AvgPercDec = mean(Perc_W_by_Dec))
+Q9
 ```
+`r unhide()`
 
+If done correct `Q9` should look identical to `Q8e`
+
+
+```{block, type="funfact"}
+
+Note that in the above code chunk, the data object has been on its own line in the code followed immediately by `%>%` before starting with the "functions". 
+
+The other option would have been to put the data object as the first argument within the first function. 
+
+The benefit of having the data on its own is that you can reorder functions easily or squeeze another one in (for example if you summarised something but forgot to group beforehand) without the need to "move" the data object into the new first argument of the pipeline. 
+
+```
 
 
 
 ############# merging materials from next week #######################
-##	Pre-Steps
-
-1. Make sure to download todays materials and save them to your desired working directory. Make sure you have all the correct files including the `L4_Stub` file, and the data files; `CareerStats2.csv`, `wos_seasonal_sun.csv`, `wos_seasonal_rain.csv`, `wos_monthly_sun.csv` and `wos_monthly_rain.csv`.
-2. Open the `L4_stub` file.
-3. Load `tidyverse` into the library.
-4. Read the data from `CareerStats2.csv` into your `Global Environment` as `MMA_Data`.
 
 
 `r hide("Solution")`
 ```{r L4, message=FALSE}
-library(tidyverse)
-MMA_Data <- read_csv("CareerStats2.csv")
+MMA_Data <- read_csv("data/CareerStats2.csv")
 ```
 `r unhide()`
 
 
-## Practicing the Wikham Six
+## Practicing the Wickham Six
 
 The first part of todays class will be practicing the Wickham Six some more, as was mentioned before, the vast majority of your "data time" will be wrangling your data, and most of that can be done with these six functions, so it's good to practice with them. First you'll see an example of each function to refresh your memory. Then you will be asked to try for yourself, these will be a little more involved than last week to really test you. If you are stuggling you can check the solutions, but try yourself first, and answer the questions too, this will help you check your code is correct.
 

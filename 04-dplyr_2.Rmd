@@ -13,8 +13,8 @@ All the functions for tidying data are within `tidyverse` so we need to make sur
 
 ```{r L5, message=FALSE, warning=FALSE}
 library(tidyverse)
-sun <- read_csv("wos_seasonal_sun.csv")
-rain <- read_csv("wos_seasonal_rain.csv")
+sun <- read_csv("data/wos_seasonal_sun.csv")
+rain <- read_csv("data/wos_seasonal_rain.csv")
 ```
 
 

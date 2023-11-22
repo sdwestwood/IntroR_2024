@@ -2,12 +2,19 @@
 
 ## Intended Learning Outcomes {-}
 
-The whole purpose of the next two lecture is to tidy up dataframe and expose you to a bunch of useful functions that would make your daily life easier when dealing with your own data. By the end of today, you will know
+The whole purpose of the next two lecture is to tidy up dataframe and expose you to a bunch of useful functions that would make your daily life easier when dealing with your own data. By the end of today, you will know:
 
 1. How to rearrange data from long format into to wide format and vice versa
 2. How to combine and separate columns
 
-This lesson is led by Sean Westwood.
+
+## Pre-steps
+
+Before we can start to focus on some other functions that might come in handy for data manipulation, we need to make sure to load `tidyverse` into the library. 
+
+```{r L6, message=FALSE}
+library(tidyverse)
+```
 
 
 ## Two-Table Verbs
@@ -34,13 +41,13 @@ wos_seasonal_rain: Seasonal total precipitation amount for Scotland W; Areal ser
 wos_monthly_rain: Monthly and annual total precipitation amount for Scotland W; Areal series, starting in 1862
 
 ```{r}
-wos_seasonal_sun <- read_csv("wos_seasonal_sun.csv")
+wos_seasonal_sun <- read_csv("data/wos_seasonal_sun.csv")
 
-wos_monthly_sun <- read_csv("wos_monthly_sun.csv")
+wos_monthly_sun <- read_csv("data/wos_monthly_sun.csv")
 
-wos_seasonal_rain <- read_csv("wos_seasonal_rain.csv")
+wos_seasonal_rain <- read_csv("data/wos_seasonal_rain.csv")
 
-wos_monthly_rain <- read_csv("wos_monthly_rain.csv")
+wos_monthly_rain <- read_csv("data/wos_monthly_rain.csv")
 ```
 
 

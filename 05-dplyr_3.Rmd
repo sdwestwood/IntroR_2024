@@ -14,6 +14,7 @@ Before we can start to focus on some other functions that might come in handy fo
 
 ```{r L6, message=FALSE}
 library(tidyverse)
+library(knitr)
 ```
 
 
