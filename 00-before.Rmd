@@ -1,14 +1,14 @@
-# Assignment before starting the course {-#before2}
+# Assignment before starting the course {-#before}
 
 This assignment is an important one as it will enable you to complete your future assignments. It looks long, but it is mostly screenshots to guide you through the process of installing the required software, or a short guide on how to use RStudio Cloud.
 
-## Access to RStudio {#accessing2}
+## Access to RStudio {#accessing}
 
 Please ensure by the next class that you have access to the software so that you can practice using the formative assignments and complete the summative assignments when they are issued.
 
 The first summative assignment will be issued after class next week and you will be given one week to complete and submit it. 
 
-### Installing R and RStudio on Your Own Machine {#install2}
+### Installing R and RStudio on Your Own Machine {#install}
 
 Unfortunately this is not as simple as installing software normally is on your computer. There are two separate things that you will need to install.
 
