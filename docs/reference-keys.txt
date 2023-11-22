@@ -130,12 +130,3 @@ mutating-join-summary
 bind_rows
 bind_cols
 additional-information-1
-accessing
-install
-first-install-r-1
-second-install-rstudio-1
-opening-rstudio-1
-accessing-rstudio-on-university-computers-1
-using-rstudio-cloud-1
-downloading-your-files-from-rstudio-cloud
-maximising-reproducibility-and-visibility-1
