@@ -691,10 +691,6 @@ The benefit of having the data on its own is that you can reorder functions easi
 ```
 
 
-
-############# merging materials from next week #######################
-
-
 ## Pipes with the Wickham Six
 
 The next part of this chapter will focus on practicing the Wickham Six functions, but this time we will be implementing piped solutions. 
@@ -837,7 +833,7 @@ Keep only those athletes who have the "Orthodox" `Stance` *AND* have 27 or more 
 
 `r hide("Solution")`
 ```{r}
-# Jaimie's solution
+# Sean's solution
 Q5 <- MMA_Data %>%
   select(Stance, T_Fights, W_by_Sub) %>%
   filter(Stance == "Orthodox" & (T_Fights >= 27 | W_by_Sub >= 15))
@@ -871,7 +867,7 @@ Moving on to mutate() now.
 Lets add a new column onto the table `Example_1`, that shows `Reach` but in meters rather than inches, and we'll call it `ReachM`. We can make this column with `mutate()` by converting the inches value in the original `Reach` column into centimeters, by multiplying (`*`) the value by `2.54` and then dividing (`/`) the result by `100`.
 
 ```{r}
-Example_4 <- mutate(Example_1, ReachM = (Reach*2.54)/100)
+Example_4 <- Example_1 %>% mutate(ReachM = (Reach*2.54)/100)
 Example_4
 ```
 
@@ -892,8 +888,8 @@ Store the result in `Q5`.
 
 `r hide("Solution")`
 ```{r}
-# Jaimie's solution
-Q6 <- mutate(Example_1, BMI_Alt = (Weight*0.453)/(((Height*2.54)/100)^2))
+# Sean's solution
+Q6 <- Example_1 %>% mutate(BMI_Alt = (Weight*0.453)/(((Height*2.54)/100)^2))
 ```
 `r unhide()`
 
@@ -913,9 +909,14 @@ Number of hits landed per minute (`TLpM`) and we'll call that column `MeanHit`,
 Number of hits absorbed per minute (`AbpM`) and we'll call that column `MeanAbsorb`, 
 And average fight length (`Time_Avg`) and we'll call that column `MeanTime`.
 ```{r}
-Example_5a <- group_by(MMA_Data, WeightClass)
-Example_5b <- summarise(Example_5a, MeanHit = mean(TLpM), MeanAbsorb = mean(AbpM), MeanTime = mean(Time_Avg))
-Example_5b
+Example_5 <- MMA_Data %>% 
+  group_by(WeightClass) %>%
+  summarise(MeanHit = mean(TLpM), MeanAbsorb = mean(AbpM), MeanTime = mean(Time_Avg))
+
+# OR
+
+Example_5 <- group_by(MMA_Data, WeightClass) %>% # we could skip the first pipe if we wanted
+  summarise(MeanHit = mean(TLpM), MeanAbsorb = mean(AbpM), MeanTime = mean(Time_Avg))
 ```
 
 <span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span>
@@ -928,20 +929,27 @@ Which weightclass has the highest average time? `r fitb("Flyweight")` <br>
 ```{block, type="task"}
 **Your turn**
 
-Take the original table `MMA_Data` and group that data by `Stance` and `HeightClass` and store that in `Q7a`. 
-Then create summary stats for success rate (`Success`), you should have columns called;
+In one continuous pipe chain:
+
+Take the original table `MMA_Data` and group that data by `Stance` and `HeightClass`
+AND THEN
+Create summary stats for success rate (`Success`), you should have columns called;
 `MedSuccess` that shows the median success rate
 `MaxSuccess` that shows the maximum success rate
 `MinSuccess` that shows the minimum success rate
 `SDSuccess` that shows the standard deviation of success rate
-The resulting table should be stored in `Q7b`.
+The resulting table should be stored in `Q7`.
 ```
 
 `r hide("Solution")`
 ```{r}
-# Jaimie's solution
-Q7a <- group_by(MMA_Data, Stance, HeightClass)
-Q7b <- summarise(Q7a, MedSuccess = median(Success), MaxSuccess = max(Success), MinSuccess = min(Success), SDSuccess = sd(Success))
+# Sean's solution
+Q7 <- MMA_Data %>%
+  group_by(Stance, HeightClass) %>%
+  summarise(MedSuccess = median(Success), 
+            MaxSuccess = max(Success), 
+            MinSuccess = min(Success), 
+            SDSuccess = sd(Success))
 ```
 `r unhide()`
 
@@ -951,31 +959,33 @@ What is the minimum success rate of tall athletes with an orthodox stance? `r fi
 What is the standard deviation in success rate for short athletes with a southpaw stance? (write your answer to 3 decimal places) `r fitb("0.062")` <br>
 
 
-
-
 ### Bringing it all together 
 
 <span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span>
 
 ```{block, type="task"}
 **Your turn**
-This is another multi-part question...
 
-* Take the original table `MMA_Data`, and select just `ID`, `WeightClass`, `Stance`, `T_Wins`, `W_by_Decision`, `W_by_KO/TKO` and `W_by_Sub`. Store the result in `Q8a`.
-* Take `Q8a` and filter out all the athletes with the "Southpaw" `Stance`. Store the result in Q8b.
-* Take `Q8b` and mutate on a new column called `Perc_W_by_Dec` that shows the percentage of total wins (`T_Wins`) that are accounted for by decisions (`W_by_Decision`). Store the result in `Q8c`.
-* Take `Q8c` and group that data by `WeightClass`. Store the result in `Q8d`.
-* Take `Q8d` and create summary stats that show the mean of `Perc_W_by_Dec`. Store the result in `Q8e`.
+In one continuous pipe chain:
+
+* Take the original table `MMA_Data`, and select only `ID`, `WeightClass`, `Stance`, `T_Wins`, `W_by_Decision`, `W_by_KO/TKO` and `W_by_Sub`
+* Filter out all the athletes with the "Southpaw" `Stance`
+* Add on a new column called `Perc_W_by_Dec` that shows the percentage of total wins (`T_Wins`) that are accounted for by decisions (`W_by_Decision`)
+* Group the data by `WeightClass`
+* Create summary stats that show the mean of `Perc_W_by_Dec`
+
+Store the result in a variable called `Q8`.
 ```
 
 `r hide("Solution")`
 ```{r}
-# Jaimie's solution
-Q8a <- select(MMA_Data, ID, WeightClass, Stance, T_Wins, W_by_Decision, "W_by_KO/TKO", W_by_Sub)
-Q8b <- filter(Q8a, Stance != "Southpaw")
-Q8c <- mutate(Q8b, Perc_W_by_Dec = (W_by_Decision/T_Wins)*100)
-Q8d <- group_by(Q8c, WeightClass)
-Q8e <- summarise(Q8d, AvgPercDec = mean(Perc_W_by_Dec))
+# Sean's solution
+Q8 <- MMA_Data %>% 
+  select(ID, WeightClass, Stance, T_Wins, W_by_Decision:W_by_Sub) %>%
+  filter(Stance != "Southpaw") %>%
+  mutate(Perc_W_by_Dec = (W_by_Decision/T_Wins)*100) %>%
+  group_by(WeightClass) %>%
+  summarise(AvgPercDec = mean(Perc_W_by_Dec))
 ```
 `r unhide()`
 

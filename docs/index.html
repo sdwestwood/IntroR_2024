@@ -5,19 +5,19 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Introduction to R</title>
-  <meta name="description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2022/2023." />
+  <meta name="description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2023/2024." />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Introduction to R" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2022/2023." />
+  <meta property="og:description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2023/2024." />
   
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Introduction to R" />
   
-  <meta name="twitter:description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2022/2023." />
+  <meta name="twitter:description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2023/2024." />
   
 
 <meta name="author" content="Gaby Mahrholz, Greta Todorova, Wilhelmiina Toivo, and Jaimie Torrance, updated by Johanna Werner in 2022 and Sean Westwood in 2023" />
@@ -31,7 +31,7 @@
   
   
 
-<link rel="next" href="before2.html"/>
+<link rel="next" href="before.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -54,96 +54,10 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-</style>
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -166,26 +80,18 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#intended-learning-outcomes"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-will-i-need-to-complete-this-course"><i class="fa fa-check"></i>What will I need to complete this course?</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-assessments"><i class="fa fa-check"></i>About the Assessments</a>
-<ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#formative-assessments"><i class="fa fa-check"></i>Formative Assessments</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#summative-assessments"><i class="fa fa-check"></i>Summative Assessments</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#late-submissions-extensions"><i class="fa fa-check"></i>Late submissions &amp; extensions</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-submit-your-assessments"><i class="fa fa-check"></i>How to Submit Your Assessments</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#assistance"><i class="fa fa-check"></i>Assistance</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-are-these-materials-open"><i class="fa fa-check"></i>Why are these materials open?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgement"><i class="fa fa-check"></i>Acknowledgement</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="before2.html"><a href="before2.html"><i class="fa fa-check"></i>Assignment before starting the course</a>
+<li class="chapter" data-level="" data-path="before.html"><a href="before.html"><i class="fa fa-check"></i>Assignment before starting the course</a>
 <ul>
-<li class="chapter" data-level="0.1" data-path="before2.html"><a href="before2.html#accessing2"><i class="fa fa-check"></i><b>0.1</b> Access to RStudio</a>
+<li class="chapter" data-level="0.1" data-path="before.html"><a href="before.html#accessing"><i class="fa fa-check"></i><b>0.1</b> Access to RStudio</a>
 <ul>
-<li class="chapter" data-level="0.1.1" data-path="before2.html"><a href="before2.html#install2"><i class="fa fa-check"></i><b>0.1.1</b> Installing R and RStudio on Your Own Machine</a></li>
-<li class="chapter" data-level="0.1.2" data-path="before2.html"><a href="before2.html#accessing-rstudio-on-university-computers"><i class="fa fa-check"></i><b>0.1.2</b> Accessing RStudio on University Computers</a></li>
-<li class="chapter" data-level="0.1.3" data-path="before2.html"><a href="before2.html#using-rstudio-cloud"><i class="fa fa-check"></i><b>0.1.3</b> Using RStudio Cloud</a></li>
+<li class="chapter" data-level="0.1.1" data-path="before.html"><a href="before.html#install"><i class="fa fa-check"></i><b>0.1.1</b> Installing R and RStudio on Your Own Machine</a></li>
+<li class="chapter" data-level="0.1.2" data-path="before.html"><a href="before.html#accessing-rstudio-on-university-computers"><i class="fa fa-check"></i><b>0.1.2</b> Accessing RStudio on University Computers</a></li>
+<li class="chapter" data-level="0.1.3" data-path="before.html"><a href="before.html#using-rstudio-cloud"><i class="fa fa-check"></i><b>0.1.3</b> Using RStudio Cloud</a></li>
 </ul></li>
-<li class="chapter" data-level="0.2" data-path="before2.html"><a href="before2.html#maximising-reproducibility-and-visibility"><i class="fa fa-check"></i><b>0.2</b> Maximising Reproducibility and Visibility</a></li>
+<li class="chapter" data-level="0.2" data-path="before.html"><a href="before.html#maximising-reproducibility-and-visibility"><i class="fa fa-check"></i><b>0.2</b> Maximising Reproducibility and Visibility</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
@@ -256,7 +162,7 @@ div.csl-indent {
 <li class="chapter" data-level="2.5.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#from-pre-existing-databases"><i class="fa fa-check"></i><b>2.5.1</b> from pre-existing databases</a></li>
 <li class="chapter" data-level="2.5.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#from-existing-data-files"><i class="fa fa-check"></i><b>2.5.2</b> from existing data files</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="introduction-to-data.html"><a href="introduction-to-data.html#last-point-for-today"><i class="fa fa-check"></i><b>2.6</b> Last point for today</a></li>
+<li class="chapter" data-level="2.6" data-path="introduction-to-data.html"><a href="introduction-to-data.html#last-point-for-this-chapter"><i class="fa fa-check"></i><b>2.6</b> Last point for this chapter</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html"><i class="fa fa-check"></i><b>3</b> Basic Data Manipulation</a>
 <ul>
@@ -343,21 +249,9 @@ div.csl-indent {
 <li class="chapter" data-level="6.2" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#two-table-verbs"><i class="fa fa-check"></i><b>6.2</b> Two-Table Verbs</a>
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#bringing-in-new-data"><i class="fa fa-check"></i><b>6.2.1</b> Bringing in new data</a></li>
-<li class="chapter" data-level="6.2.2" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#mutating-join-verbs"><i class="fa fa-check"></i><b>6.2.2</b> Mutating Join Verbs</a></li>
-<li class="chapter" data-level="6.2.3" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#mutating-join-summary"><i class="fa fa-check"></i><b>6.2.3</b> Mutating Join Summary</a></li>
-<li class="chapter" data-level="6.2.4" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#binding-join-verbs"><i class="fa fa-check"></i><b>6.2.4</b> Binding Join Verbs</a></li>
+<li class="chapter" data-level="6.2.2" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#mutating-join-summary"><i class="fa fa-check"></i><b>6.2.2</b> Mutating Join Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#additional-information-1"><i class="fa fa-check"></i><b>6.3</b> Additional information</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="before.html"><a href="before.html"><i class="fa fa-check"></i>Assignment before starting the course</a>
-<ul>
-<li class="chapter" data-level="6.4" data-path="before.html"><a href="before.html#accessing"><i class="fa fa-check"></i><b>6.4</b> Access to RStudio</a>
-<ul>
-<li class="chapter" data-level="6.4.1" data-path="before.html"><a href="before.html#install"><i class="fa fa-check"></i><b>6.4.1</b> Installing R and RStudio on Your Own Machine</a></li>
-<li class="chapter" data-level="6.4.2" data-path="before.html"><a href="before.html#accessing-rstudio-on-university-computers-1"><i class="fa fa-check"></i><b>6.4.2</b> Accessing RStudio on University Computers</a></li>
-<li class="chapter" data-level="6.4.3" data-path="before.html"><a href="before.html#using-rstudio-cloud-1"><i class="fa fa-check"></i><b>6.4.3</b> Using RStudio Cloud</a></li>
-</ul></li>
-<li class="chapter" data-level="6.5" data-path="before.html"><a href="before.html#maximising-reproducibility-and-visibility-1"><i class="fa fa-check"></i><b>6.5</b> Maximising Reproducibility and Visibility</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
@@ -417,127 +311,14 @@ easily as possible.
 </p>
 </div>
 </div>
-<div id="about-the-assessments" class="section level2 unnumbered hasAnchor">
-<h2>About the Assessments<a href="index.html#about-the-assessments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="formative-assessments" class="section level3 unnumbered hasAnchor">
-<h3>Formative Assessments<a href="index.html#formative-assessments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>These assessments allow you to revise the concepts that you have learned in class. They do not count towards the course grade and, although we encourage you to, there is no requirement to complete them.</p>
-<p>These may take the form of coding assessments and/or multiple choice questions (MCQs) that will be delivered in the same format as the summative assessments - a downloadable file that you fill in the blanks of.</p>
-<p>The answers for each of the formative assessments will be available at 5pm one week after the assessment is posted.</p>
-<div class="info">
-<p>
-If you encounter something in the formative assessments that you want
-to ask a question about, then please use the Teams channel.
-</p>
-</div>
-</div>
-<div id="summative-assessments" class="section level3 unnumbered hasAnchor">
-<h3>Summative Assessments<a href="index.html#summative-assessments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>These are the assessments that count towards your course grade</strong>.</p>
-<p>There will be 5 take-home exercises to complete as you progress through this course. They will be evenly spaced across the entire 10-week span, occurring every two weeks (after L2, L4, L6, L8, and L10). You will have one week from the time of the release of each assessment to submit your answer(s). The solutions of the summative assessments will be released with the grades and feedback (see schedule below), however, we can release solutions earlier once everyone has submitted or we have information that someone is not submitting their assessment for a particular week. So please let us know if you are not planning to submit a specific assessment.</p>
-<p>For the summative assessments, we ask you to <strong>complete .Rmd files</strong> (either by answering multiple choice questions, producing code or explaining what a code chunk does), and upload them to Moodle in the assessment submission section. The .Rmd files and data for specific assessments will be provided in a <strong>zip folder within each lecture tile</strong> you are asked to download and unzip before you start an assessment. The folder you download will also contain a questions file. It is strongly recommended to <strong>read the questions file in combination with the .Rmd</strong>, as they might provide additional information (such as giving you hints what output to expect, or what a graph may look like etc.).</p>
-<div class="warning">
-<p>
-Summative assessments will be due <strong>ONE HOUR before the start
-of the next class</strong> the following week (see schedule below for
-specific dates).
-</p>
-<p>
-We recommend that you start these early and, if required, seek
-assistance from the staff as early as possible. Please make use of the
-Teams channel if you are struggling or have questions! Remember you are
-not allowed to post any code on Teams.
-</p>
-</div>
-<div id="schedule-of-summative-assessments" class="section level4 unnumbered hasAnchor">
-<h4>Schedule of summative assessments<a href="index.html#schedule-of-summative-assessments" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<table>
-<colgroup>
-<col width="18%" />
-<col width="25%" />
-<col width="18%" />
-<col width="13%" />
-<col width="24%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Summative assessment</th>
-<th align="left">Assesses ILOs from lectures</th>
-<th align="left">Assessment released</th>
-<th align="left">Submission due</th>
-<th align="left">Grades &amp; Feedback released</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">1 (week 2)</td>
-<td align="left">1 and 2</td>
-<td align="left">13/04 at 7pm</td>
-<td align="left">20/04 at 7pm</td>
-<td align="left">27/04 at 7pm</td>
-</tr>
-<tr class="even">
-<td align="left">2 (week 4)</td>
-<td align="left">3 and 4</td>
-<td align="left">27/04 at 7pm</td>
-<td align="left">04/05 at 7pm</td>
-<td align="left">11/05 at 7pm</td>
-</tr>
-<tr class="odd">
-<td align="left">3 (week 6)</td>
-<td align="left">5 and 6</td>
-<td align="left">11/05 at 7pm</td>
-<td align="left">18/05 at 7pm</td>
-<td align="left">25/05 at 7pm</td>
-</tr>
-<tr class="even">
-<td align="left">4 (week 8)</td>
-<td align="left">7 and 8</td>
-<td align="left">25/05 at 7pm</td>
-<td align="left">01/06 at 7pm</td>
-<td align="left">08/06 at 7pm</td>
-</tr>
-<tr class="odd">
-<td align="left">5 (week 10)</td>
-<td align="left">1-10</td>
-<td align="left">08/06 at 7pm</td>
-<td align="left">15/06 at 7pm</td>
-<td align="left">22/06 at 7pm</td>
-</tr>
-</tbody>
-</table>
-<p><br>
-Keep in mind that the column <code>Assesses ILOs from lectures</code> means that the assessment will test you predominantly on skills gained within the lectures listed (e.g. for week 4 that means lectures 3 and 4), however you will also need to use knowledge from previous lessons as your learning is supposed to be cumulative (e.g. basic knowledge from lectures 1 and 2).</p>
-<p>We will never ask you to memorise any code as this is not how people produce code in reality. You may use notes and resources you complete in class to do these assessments and consult online resources to help you. You can work together to complete these tasks, but remember that grades are given on an individual basis and that <strong>you must not plagiarise</strong> the work of others.</p>
-<p><strong>For the purposes of your final grade, only 4 of these assessments will be counted and each will be worth 25%</strong>. The lowest score out of the 5 assessments will be dropped and not taken into account when calculating your final grade. We encourage you to complete all 5 assessments. You must complete at least 75% (= 3 summative assessments) to be eligible for course credits.</p>
-</div>
-</div>
-<div id="late-submissions-extensions" class="section level3 unnumbered hasAnchor">
-<h3>Late submissions &amp; extensions<a href="index.html#late-submissions-extensions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>There will be penalties for late submissions. Your work will be assessed in the usual way, and the primary grade and secondary band will be adjusted to include reductions by two secondary bands for each working day (or part of a working day) the work was submitted late. For example, for submitting an assessment 6 hours after deadline with an assessed grade (had it been submitted on time) of A5, a penalty of 2 secondary bands reduction would result in a final grade of B2.</p>
-<p>You can apply for extensions for up to 5 working days. In that case, no grade points will be taken off your final grade for submitting after the official deadline. Please email the tutor who delivered the corresponding lesson (either <a href="mailto:sean.westwood@glasgow.ac.uk" class="email">sean.westwood@glasgow.ac.uk</a> or <a href="mailto:courtney.taylorbrowneluka@glasgow.ac.uk" class="email">courtney.taylorbrowneluka@glasgow.ac.uk</a>) if you find yourself struggling to submit on time. We are here for you.</p>
-<p>For extensions after 5 working days, you have to submit a good cause form. If an extension for good cause has been granted, and the extension is past the date that solutions for the assessment have been released, an alternative assessment will be provided.</p>
-<p>Any blank document, or document that was submitted in a format other than an R Markdown file ending in .Rmd, will be considered as not submitted.</p>
-</div>
-<div id="how-to-submit-your-assessments" class="section level3 unnumbered hasAnchor">
-<h3>How to Submit Your Assessments<a href="index.html#how-to-submit-your-assessments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>An .Rmd file to complete each summative assessment will be provided to you. In this file, you will be provided with code chunks in which to type your answers.</p>
-<p>Once you have provided code in all of the appropriate slots, you will then upload this file to the Assessment Submission section on Moodle.</p>
-<p>Formative assessments are not to be uploaded to Moodle. You will be provided an answer key to which you can compare your own answers. If you have questions about either your own answers or those provided by the tutors, please ask about it on the appropriate Teams channel.</p>
-</div>
-</div>
-<div id="assistance" class="section level2 unnumbered hasAnchor">
-<h2>Assistance<a href="index.html#assistance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>You can ask questions on the Microsoft Teams channel that accompanies this course. We ask that you do not post solutions to assessments here and any solutions posted will be removed.</p>
-</div>
 <div id="why-are-these-materials-open" class="section level2 unnumbered hasAnchor">
 <h2>Why are these materials open?<a href="index.html#why-are-these-materials-open" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>These materials have been adapted from various sources. Some of these materials have been Open Educational Materials with CC-BY-SA licenses. This means that any materials that use them must also be made open (SA means “share alike”).</p>
-<p>We also believe in the value of open educational materials. Your course fees contribute to the development of this course, but also to providing you with lectures, supporting staff and certification and credits at the end of the course.</p>
+<p>We also believe in the value of open educational materials. Your course fees contribute to the development of this course, but also to providing you with in-person classes and supporting staff.</p>
 </div>
 <div id="acknowledgement" class="section level2 unnumbered hasAnchor">
 <h2>Acknowledgement<a href="index.html#acknowledgement" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The materials were initially developed for the University of Glasgow Short Courses for the academic term 2019/20 by <a href="https://www.psy.gla.ac.uk/otherstaff/?id=GM005">Gaby Mahrholz</a>, <a href="https://www.psy.gla.ac.uk/otherstaff/?id=KH001">Kate Haining</a>, <a href="https://www.psy.gla.ac.uk/otherstaff/?id=RL003">Rebecca Lai</a>, <a href="https://www.psy.gla.ac.uk/otherstaff/?id=GKT01">Greta Todorova</a>, and <a href="https://www.psy.gla.ac.uk/otherstaff/?id=TIWT1">Wilhelmiina Toivo</a>, and modified for the academic term 2023/24 by the current tutors.</p>
+<p>The materials were initially developed for the University of Glasgow Short Courses for the academic term 2019/20 by <a href="https://www.psy.gla.ac.uk/otherstaff/?id=GM005">Gaby Mahrholz</a>, <a href="https://www.psy.gla.ac.uk/otherstaff/?id=KH001">Kate Haining</a>, <a href="https://www.psy.gla.ac.uk/otherstaff/?id=RL003">Rebecca Lai</a>, <a href="https://www.psy.gla.ac.uk/otherstaff/?id=GKT01">Greta Todorova</a>, and <a href="https://www.psy.gla.ac.uk/otherstaff/?id=TIWT1">Wilhelmiina Toivo</a>, and modified for the academic term 2023/24 by <a href="https://www.gla.ac.uk/schools/psychologyneuroscience/staff/seanwestwood/">Sean Westwood</a></p>
 
 </div>
 </div>
@@ -719,7 +500,7 @@ window.onload = function() {
         </div>
       </div>
 
-<a href="before2.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="before.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

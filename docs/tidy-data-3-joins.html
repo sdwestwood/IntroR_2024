@@ -5,19 +5,19 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Tidy Data 3: Joins | Introduction to R</title>
-  <meta name="description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2022/2023." />
+  <meta name="description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2023/2024." />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Tidy Data 3: Joins | Introduction to R" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2022/2023." />
+  <meta property="og:description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2023/2024." />
   
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 6 Tidy Data 3: Joins | Introduction to R" />
   
-  <meta name="twitter:description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2022/2023." />
+  <meta name="twitter:description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2023/2024." />
   
 
 <meta name="author" content="Gaby Mahrholz, Greta Todorova, Wilhelmiina Toivo, and Jaimie Torrance, updated by Johanna Werner in 2022 and Sean Westwood in 2023" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="tidy-data-2-cell-manipulation.html"/>
-<link rel="next" href="before.html"/>
+<link rel="next" href="data-visualisation-1-fundamentals.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -123,28 +123,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -166,26 +144,18 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#intended-learning-outcomes"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-will-i-need-to-complete-this-course"><i class="fa fa-check"></i>What will I need to complete this course?</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-assessments"><i class="fa fa-check"></i>About the Assessments</a>
-<ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#formative-assessments"><i class="fa fa-check"></i>Formative Assessments</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#summative-assessments"><i class="fa fa-check"></i>Summative Assessments</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#late-submissions-extensions"><i class="fa fa-check"></i>Late submissions &amp; extensions</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-submit-your-assessments"><i class="fa fa-check"></i>How to Submit Your Assessments</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#assistance"><i class="fa fa-check"></i>Assistance</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-are-these-materials-open"><i class="fa fa-check"></i>Why are these materials open?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgement"><i class="fa fa-check"></i>Acknowledgement</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="before2.html"><a href="before2.html"><i class="fa fa-check"></i>Assignment before starting the course</a>
+<li class="chapter" data-level="" data-path="before.html"><a href="before.html"><i class="fa fa-check"></i>Assignment before starting the course</a>
 <ul>
-<li class="chapter" data-level="0.1" data-path="before2.html"><a href="before2.html#accessing2"><i class="fa fa-check"></i><b>0.1</b> Access to RStudio</a>
+<li class="chapter" data-level="0.1" data-path="before.html"><a href="before.html#accessing"><i class="fa fa-check"></i><b>0.1</b> Access to RStudio</a>
 <ul>
-<li class="chapter" data-level="0.1.1" data-path="before2.html"><a href="before2.html#install2"><i class="fa fa-check"></i><b>0.1.1</b> Installing R and RStudio on Your Own Machine</a></li>
-<li class="chapter" data-level="0.1.2" data-path="before2.html"><a href="before2.html#accessing-rstudio-on-university-computers"><i class="fa fa-check"></i><b>0.1.2</b> Accessing RStudio on University Computers</a></li>
-<li class="chapter" data-level="0.1.3" data-path="before2.html"><a href="before2.html#using-rstudio-cloud"><i class="fa fa-check"></i><b>0.1.3</b> Using RStudio Cloud</a></li>
+<li class="chapter" data-level="0.1.1" data-path="before.html"><a href="before.html#install"><i class="fa fa-check"></i><b>0.1.1</b> Installing R and RStudio on Your Own Machine</a></li>
+<li class="chapter" data-level="0.1.2" data-path="before.html"><a href="before.html#accessing-rstudio-on-university-computers"><i class="fa fa-check"></i><b>0.1.2</b> Accessing RStudio on University Computers</a></li>
+<li class="chapter" data-level="0.1.3" data-path="before.html"><a href="before.html#using-rstudio-cloud"><i class="fa fa-check"></i><b>0.1.3</b> Using RStudio Cloud</a></li>
 </ul></li>
-<li class="chapter" data-level="0.2" data-path="before2.html"><a href="before2.html#maximising-reproducibility-and-visibility"><i class="fa fa-check"></i><b>0.2</b> Maximising Reproducibility and Visibility</a></li>
+<li class="chapter" data-level="0.2" data-path="before.html"><a href="before.html#maximising-reproducibility-and-visibility"><i class="fa fa-check"></i><b>0.2</b> Maximising Reproducibility and Visibility</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
@@ -198,12 +168,13 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#r-r-studio-and-associated-file-types"><i class="fa fa-check"></i><b>1.3</b> R, R Studio and Associated File Types</a>
 <ul>
-<li class="chapter" data-level="1.3.1" data-path="introduction.html"><a href="introduction.html#file-structuredirectories"><i class="fa fa-check"></i><b>1.3.1</b> File Structure/Directories</a></li>
-<li class="chapter" data-level="1.3.2" data-path="introduction.html"><a href="introduction.html#file-extensions"><i class="fa fa-check"></i><b>1.3.2</b> File Extensions</a></li>
-<li class="chapter" data-level="1.3.3" data-path="introduction.html"><a href="introduction.html#zip-files"><i class="fa fa-check"></i><b>1.3.3</b> .zip Files</a></li>
-<li class="chapter" data-level="1.3.4" data-path="introduction.html"><a href="introduction.html#rstudio-specific-files"><i class="fa fa-check"></i><b>1.3.4</b> RStudio Specific Files</a></li>
-<li class="chapter" data-level="1.3.5" data-path="introduction.html"><a href="introduction.html#r-files"><i class="fa fa-check"></i><b>1.3.5</b> .R Files</a></li>
-<li class="chapter" data-level="1.3.6" data-path="introduction.html"><a href="introduction.html#rmd-files"><i class="fa fa-check"></i><b>1.3.6</b> .Rmd files</a></li>
+<li class="chapter" data-level="1.3.1" data-path="introduction.html"><a href="introduction.html#setting-the-working-directory"><i class="fa fa-check"></i><b>1.3.1</b> Setting the working directory</a></li>
+<li class="chapter" data-level="1.3.2" data-path="introduction.html"><a href="introduction.html#file-structuredirectories"><i class="fa fa-check"></i><b>1.3.2</b> File Structure/Directories</a></li>
+<li class="chapter" data-level="1.3.3" data-path="introduction.html"><a href="introduction.html#file-extensions"><i class="fa fa-check"></i><b>1.3.3</b> File Extensions</a></li>
+<li class="chapter" data-level="1.3.4" data-path="introduction.html"><a href="introduction.html#zip-files"><i class="fa fa-check"></i><b>1.3.4</b> .zip Files</a></li>
+<li class="chapter" data-level="1.3.5" data-path="introduction.html"><a href="introduction.html#rstudio-specific-files"><i class="fa fa-check"></i><b>1.3.5</b> RStudio Specific Files</a></li>
+<li class="chapter" data-level="1.3.6" data-path="introduction.html"><a href="introduction.html#r-files"><i class="fa fa-check"></i><b>1.3.6</b> .R Files</a></li>
+<li class="chapter" data-level="1.3.7" data-path="introduction.html"><a href="introduction.html#rmd-files"><i class="fa fa-check"></i><b>1.3.7</b> .Rmd files</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#comments"><i class="fa fa-check"></i><b>1.4</b> Comments</a></li>
 <li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#saving-your-file"><i class="fa fa-check"></i><b>1.5</b> Saving your file</a></li>
@@ -230,8 +201,8 @@ div.csl-indent {
 <li class="chapter" data-level="2.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#pre-steps"><i class="fa fa-check"></i><b>2.1</b> Pre-Steps</a>
 <ul>
 <li class="chapter" data-level="2.1.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#downloading-materials"><i class="fa fa-check"></i><b>2.1.1</b> Downloading materials</a></li>
-<li class="chapter" data-level="2.1.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#unzipping-the-zip-folder"><i class="fa fa-check"></i><b>2.1.2</b> Unzipping the zip folder</a></li>
-<li class="chapter" data-level="2.1.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#setting-the-working-directory"><i class="fa fa-check"></i><b>2.1.3</b> Setting the working directory</a></li>
+<li class="chapter" data-level="2.1.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#creating-an-r-project"><i class="fa fa-check"></i><b>2.1.2</b> Creating an R Project</a></li>
+<li class="chapter" data-level="2.1.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#moving-the-downloaded-materials-into-our-project-folder"><i class="fa fa-check"></i><b>2.1.3</b> Moving the downloaded materials into our project folder</a></li>
 <li class="chapter" data-level="2.1.4" data-path="introduction-to-data.html"><a href="introduction-to-data.html#load-tidyverse-into-the-library"><i class="fa fa-check"></i><b>2.1.4</b> Load tidyverse into the library</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#basic-data-types"><i class="fa fa-check"></i><b>2.2</b> Basic data types</a>
@@ -256,7 +227,7 @@ div.csl-indent {
 <li class="chapter" data-level="2.5.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#from-pre-existing-databases"><i class="fa fa-check"></i><b>2.5.1</b> from pre-existing databases</a></li>
 <li class="chapter" data-level="2.5.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#from-existing-data-files"><i class="fa fa-check"></i><b>2.5.2</b> from existing data files</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="introduction-to-data.html"><a href="introduction-to-data.html#last-point-for-today"><i class="fa fa-check"></i><b>2.6</b> Last point for today</a></li>
+<li class="chapter" data-level="2.6" data-path="introduction-to-data.html"><a href="introduction-to-data.html#last-point-for-this-chapter"><i class="fa fa-check"></i><b>2.6</b> Last point for this chapter</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html"><i class="fa fa-check"></i><b>3</b> Basic Data Manipulation</a>
 <ul>
@@ -265,7 +236,7 @@ div.csl-indent {
 <li class="chapter" data-level="3.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#pre-steps-1"><i class="fa fa-check"></i><b>3.2</b> Pre-Steps</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#downloading-materials-1"><i class="fa fa-check"></i><b>3.2.1</b> Downloading materials</a></li>
-<li class="chapter" data-level="3.2.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#unzipping-the-zip-folder-1"><i class="fa fa-check"></i><b>3.2.2</b> Unzipping the zip folder</a></li>
+<li class="chapter" data-level="3.2.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#unzipping-the-zip-folder"><i class="fa fa-check"></i><b>3.2.2</b> Unzipping the zip folder</a></li>
 <li class="chapter" data-level="3.2.3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#setting-the-working-directory-1"><i class="fa fa-check"></i><b>3.2.3</b> Setting the working directory</a></li>
 <li class="chapter" data-level="3.2.4" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#loading-in-the-required-packages-into-the-library"><i class="fa fa-check"></i><b>3.2.4</b> Loading in the required packages into the library</a></li>
 <li class="chapter" data-level="3.2.5" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#read-in-the-data"><i class="fa fa-check"></i><b>3.2.5</b> Read in the data</a></li>
@@ -286,7 +257,7 @@ div.csl-indent {
 <li class="chapter" data-level="3.8" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#summarise"><i class="fa fa-check"></i><b>3.8</b> summarise()</a></li>
 <li class="chapter" data-level="3.9" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#adding-group_by"><i class="fa fa-check"></i><b>3.9</b> Adding group_by()</a></li>
 <li class="chapter" data-level="3.10" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#pipes"><i class="fa fa-check"></i><b>3.10</b> The pipe operator (%&gt;%)</a></li>
-<li class="chapter" data-level="3.11" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#practicing-the-wickham-six"><i class="fa fa-check"></i><b>3.11</b> Practicing the Wickham Six</a>
+<li class="chapter" data-level="3.11" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#pipes-with-the-wickham-six"><i class="fa fa-check"></i><b>3.11</b> Pipes with the Wickham Six</a>
 <ul>
 <li class="chapter" data-level="3.11.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#select-1"><i class="fa fa-check"></i><b>3.11.1</b> select()</a></li>
 <li class="chapter" data-level="3.11.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#arrange-1"><i class="fa fa-check"></i><b>3.11.2</b> arrange()</a></li>
@@ -349,15 +320,52 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#additional-information-1"><i class="fa fa-check"></i><b>6.3</b> Additional information</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="before.html"><a href="before.html"><i class="fa fa-check"></i>Assignment before starting the course</a>
+<li class="chapter" data-level="7" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html"><i class="fa fa-check"></i><b>7</b> Data Visualisation 1: Fundamentals</a>
 <ul>
-<li class="chapter" data-level="6.4" data-path="before.html"><a href="before.html#accessing"><i class="fa fa-check"></i><b>6.4</b> Access to RStudio</a>
+<li class="chapter" data-level="7.1" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#pre-class-activities"><i class="fa fa-check"></i><b>7.1</b> Pre-class Activities</a></li>
+<li class="chapter" data-level="" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#intended-learning-outcomes-7"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="7.2" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#pre-steps-5"><i class="fa fa-check"></i><b>7.2</b> Pre-steps</a></li>
+<li class="chapter" data-level="7.3" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#introduction-to-the-data"><i class="fa fa-check"></i><b>7.3</b> Introduction to the data</a></li>
+<li class="chapter" data-level="7.4" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#some-warm-up-tasks"><i class="fa fa-check"></i><b>7.4</b> Some warm-up tasks</a></li>
+<li class="chapter" data-level="7.5" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#the-package-ggplot2"><i class="fa fa-check"></i><b>7.5</b> The package GGPLOT2</a></li>
+<li class="chapter" data-level="7.6" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#layering"><i class="fa fa-check"></i><b>7.6</b> Layering</a>
 <ul>
-<li class="chapter" data-level="6.4.1" data-path="before.html"><a href="before.html#install"><i class="fa fa-check"></i><b>6.4.1</b> Installing R and RStudio on Your Own Machine</a></li>
-<li class="chapter" data-level="6.4.2" data-path="before.html"><a href="before.html#accessing-rstudio-on-university-computers-1"><i class="fa fa-check"></i><b>6.4.2</b> Accessing RStudio on University Computers</a></li>
-<li class="chapter" data-level="6.4.3" data-path="before.html"><a href="before.html#using-rstudio-cloud-1"><i class="fa fa-check"></i><b>6.4.3</b> Using RStudio Cloud</a></li>
+<li class="chapter" data-level="7.6.1" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#layer-1"><i class="fa fa-check"></i><b>7.6.1</b> Layer 1</a></li>
+<li class="chapter" data-level="7.6.2" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#layer-2-and-onward"><i class="fa fa-check"></i><b>7.6.2</b> Layer 2 and onward</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="before.html"><a href="before.html#maximising-reproducibility-and-visibility-1"><i class="fa fa-check"></i><b>6.5</b> Maximising Reproducibility and Visibility</a></li>
+<li class="chapter" data-level="7.7" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#how-do-we-choose-the-type-of-plot"><i class="fa fa-check"></i><b>7.7</b> How do we choose the type of plot?</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#data-format"><i class="fa fa-check"></i><b>7.7.1</b> Data format</a></li>
+<li class="chapter" data-level="7.7.2" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#number-of-variables"><i class="fa fa-check"></i><b>7.7.2</b> Number of variables</a></li>
+<li class="chapter" data-level="7.7.3" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#types-of-plots"><i class="fa fa-check"></i><b>7.7.3</b> Types of plots</a></li>
+<li class="chapter" data-level="7.7.4" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#groupings"><i class="fa fa-check"></i><b>7.7.4</b> Groupings</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#now-lets-have-a-look-at-different-plots-with-more-complexity"><i class="fa fa-check"></i><b>7.8</b> Now let’s have a look at different plots with more complexity</a></li>
+<li class="chapter" data-level="7.9" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#other-plots"><i class="fa fa-check"></i><b>7.9</b> Other plots</a></li>
+<li class="chapter" data-level="7.10" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#formative-homework"><i class="fa fa-check"></i><b>7.10</b> Formative Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html"><i class="fa fa-check"></i><b>8</b> Data Visualisation 2: Combining and Customising</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#additional-resources"><i class="fa fa-check"></i><b>8.1</b> Additional Resources</a></li>
+<li class="chapter" data-level="" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#intended-learning-outcomes-8"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="8.2" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#pre-steps-6"><i class="fa fa-check"></i><b>8.2</b> Pre-steps</a></li>
+<li class="chapter" data-level="8.3" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#re-introduction-to-the-data"><i class="fa fa-check"></i><b>8.3</b> Re-introduction to the data</a></li>
+<li class="chapter" data-level="8.4" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#create-multiple-plots-in-one"><i class="fa fa-check"></i><b>8.4</b> Create multiple plots in one</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#select-the-data-beforehand-and-create-different-plots."><i class="fa fa-check"></i><b>8.4.1</b> Select the data beforehand and create different plots.</a></li>
+<li class="chapter" data-level="8.4.2" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#facets"><i class="fa fa-check"></i><b>8.4.2</b> Facets</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#global-and-local-aesthetics"><i class="fa fa-check"></i><b>8.5</b> Global and Local aesthetics</a></li>
+<li class="chapter" data-level="8.6" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#themes-making-your-plots-pretty-looking-the-way-you-want-them-to"><i class="fa fa-check"></i><b>8.6</b> Themes: Making your plots pretty: looking the way you want them to</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#ready-made-themes"><i class="fa fa-check"></i><b>8.6.1</b> Ready-made themes</a></li>
+<li class="chapter" data-level="8.6.2" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#adding-axes-titles-and-headings"><i class="fa fa-check"></i><b>8.6.2</b> Adding axes titles and headings</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#changing-colours"><i class="fa fa-check"></i><b>8.7</b> Changing colours</a></li>
+<li class="chapter" data-level="8.8" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#legends"><i class="fa fa-check"></i><b>8.8</b> Legends</a></li>
+<li class="chapter" data-level="8.9" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#changing-axes-ticks"><i class="fa fa-check"></i><b>8.9</b> Changing axes ticks</a></li>
+<li class="chapter" data-level="8.10" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#saving-plots"><i class="fa fa-check"></i><b>8.10</b> Saving plots</a></li>
+<li class="chapter" data-level="8.11" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#summative-homework"><i class="fa fa-check"></i><b>8.11</b> Summative Homework</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
@@ -395,7 +403,7 @@ div.csl-indent {
 <div id="pre-steps-4" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> Pre-steps<a href="tidy-data-3-joins.html#pre-steps-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Before we can start to focus on some other functions that might come in handy for data manipulation, we need to make sure to load <code>tidyverse</code> into the library.</p>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="tidy-data-3-joins.html#cb343-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="tidy-data-3-joins.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 </div>
 <div id="two-table-verbs" class="section level2 hasAnchor" number="6.2">
 <h2><span class="header-section-number">6.2</span> Two-Table Verbs<a href="tidy-data-3-joins.html#two-table-verbs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -411,7 +419,7 @@ div.csl-indent {
 <p>wos_monthly_sun: Monthly and annual total duration of bright sunshine for Scotland W; Areal series, starting in 1919</p>
 <p>wos_seasonal_rain: Seasonal total precipitation amount for Scotland W; Areal series, starting in 1862</p>
 <p>wos_monthly_rain: Monthly and annual total precipitation amount for Scotland W; Areal series, starting in 1862</p>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="tidy-data-3-joins.html#cb344-1" tabindex="-1"></a>wos_seasonal_sun <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/wos_seasonal_sun.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="tidy-data-3-joins.html#cb2-1" tabindex="-1"></a>wos_seasonal_sun <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/wos_seasonal_sun.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 102 Columns: 5
 ## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
@@ -419,7 +427,7 @@ div.csl-indent {
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="tidy-data-3-joins.html#cb346-1" tabindex="-1"></a>wos_monthly_sun <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/wos_monthly_sun.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="tidy-data-3-joins.html#cb4-1" tabindex="-1"></a>wos_monthly_sun <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/wos_monthly_sun.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 102 Columns: 14
 ## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
@@ -427,7 +435,7 @@ div.csl-indent {
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="tidy-data-3-joins.html#cb348-1" tabindex="-1"></a>wos_seasonal_rain <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/wos_seasonal_rain.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="tidy-data-3-joins.html#cb6-1" tabindex="-1"></a>wos_seasonal_rain <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/wos_seasonal_rain.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 154 Columns: 5
 ## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
@@ -435,7 +443,7 @@ div.csl-indent {
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="tidy-data-3-joins.html#cb350-1" tabindex="-1"></a>wos_monthly_rain <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/wos_monthly_rain.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="tidy-data-3-joins.html#cb8-1" tabindex="-1"></a>wos_monthly_rain <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/wos_monthly_rain.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 154 Columns: 14
 ## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
@@ -457,13 +465,13 @@ div.csl-indent {
 <img src="images/join_tables.png" height="200">
 </center>
 <p>To make things nice and clear to see, lets simplify our data a litte.</p>
-<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="tidy-data-3-joins.html#cb352-1" tabindex="-1"></a>Summer_Rain <span class="ot">&lt;-</span> wos_seasonal_rain <span class="sc">%&gt;%</span> </span>
-<span id="cb352-2"><a href="tidy-data-3-joins.html#cb352-2" tabindex="-1"></a>  <span class="fu">select</span>(year, sum)</span>
-<span id="cb352-3"><a href="tidy-data-3-joins.html#cb352-3" tabindex="-1"></a></span>
-<span id="cb352-4"><a href="tidy-data-3-joins.html#cb352-4" tabindex="-1"></a>Summer_Sun <span class="ot">&lt;-</span> wos_seasonal_sun <span class="sc">%&gt;%</span> </span>
-<span id="cb352-5"><a href="tidy-data-3-joins.html#cb352-5" tabindex="-1"></a>  <span class="fu">select</span>(year, sum)</span>
-<span id="cb352-6"><a href="tidy-data-3-joins.html#cb352-6" tabindex="-1"></a></span>
-<span id="cb352-7"><a href="tidy-data-3-joins.html#cb352-7" tabindex="-1"></a>Summer_Rain</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="tidy-data-3-joins.html#cb10-1" tabindex="-1"></a>Summer_Rain <span class="ot">&lt;-</span> wos_seasonal_rain <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="tidy-data-3-joins.html#cb10-2" tabindex="-1"></a>  <span class="fu">select</span>(year, sum)</span>
+<span id="cb10-3"><a href="tidy-data-3-joins.html#cb10-3" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="tidy-data-3-joins.html#cb10-4" tabindex="-1"></a>Summer_Sun <span class="ot">&lt;-</span> wos_seasonal_sun <span class="sc">%&gt;%</span> </span>
+<span id="cb10-5"><a href="tidy-data-3-joins.html#cb10-5" tabindex="-1"></a>  <span class="fu">select</span>(year, sum)</span>
+<span id="cb10-6"><a href="tidy-data-3-joins.html#cb10-6" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="tidy-data-3-joins.html#cb10-7" tabindex="-1"></a>Summer_Rain</span></code></pre></div>
 <pre><code>## # A tibble: 154 × 2
 ##     year   sum
 ##    &lt;dbl&gt; &lt;dbl&gt;
@@ -478,7 +486,7 @@ div.csl-indent {
 ##  9  1870  205.
 ## 10  1871  349.
 ## # ℹ 144 more rows</code></pre>
-<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="tidy-data-3-joins.html#cb354-1" tabindex="-1"></a>Summer_Sun</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="tidy-data-3-joins.html#cb12-1" tabindex="-1"></a>Summer_Sun</span></code></pre></div>
 <pre><code>## # A tibble: 102 × 2
 ##     year   sum
 ##    &lt;dbl&gt; &lt;dbl&gt;
@@ -509,8 +517,8 @@ table
 <img src="images/inner_join1.png">
 </center>
 <p>Here we merge <code>Summer_Sun</code> and <code>Summer_Rain</code> with <code>inner_join()</code> specifying we want to “join by” the variable <code>year</code>. Becuase the remaining variable has the same name in both tables, R needs to distiguish them from each other, for that we use the <code>suffix =</code> arguement, which allows us to specify what suffix to add to each column of the resulting table. If we do not spcify this, R will add a <code>.x</code> and <code>.y</code> suffix for us to the x (left) and y (right) table variables respectively.</p>
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="tidy-data-3-joins.html#cb356-1" tabindex="-1"></a>inner <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(Summer_Sun, Summer_Rain, <span class="at">by=</span><span class="st">&quot;year&quot;</span>, <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_sun&quot;</span>, <span class="st">&quot;_rain&quot;</span>))</span>
-<span id="cb356-2"><a href="tidy-data-3-joins.html#cb356-2" tabindex="-1"></a>inner</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="tidy-data-3-joins.html#cb14-1" tabindex="-1"></a>inner <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(Summer_Sun, Summer_Rain, <span class="at">by=</span><span class="st">&quot;year&quot;</span>, <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_sun&quot;</span>, <span class="st">&quot;_rain&quot;</span>))</span>
+<span id="cb14-2"><a href="tidy-data-3-joins.html#cb14-2" tabindex="-1"></a>inner</span></code></pre></div>
 <pre><code>## # A tibble: 97 × 3
 ##     year sum_sun sum_rain
 ##    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
@@ -547,8 +555,8 @@ How many columns (or variables) does <code>inner</code> have? <input class='webe
 <img src="images/left_join1.png">
 </center>
 <p>Let’s try this <code>left_join()</code> function for our simple example of <code>Summer_Sun</code> and <code>Summer_Rain</code> in R.</p>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="tidy-data-3-joins.html#cb358-1" tabindex="-1"></a>left <span class="ot">&lt;-</span> <span class="fu">left_join</span>(Summer_Sun, Summer_Rain, <span class="at">by=</span><span class="st">&quot;year&quot;</span>, <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_sun&quot;</span>, <span class="st">&quot;_rain&quot;</span>))</span>
-<span id="cb358-2"><a href="tidy-data-3-joins.html#cb358-2" tabindex="-1"></a>left</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="tidy-data-3-joins.html#cb16-1" tabindex="-1"></a>left <span class="ot">&lt;-</span> <span class="fu">left_join</span>(Summer_Sun, Summer_Rain, <span class="at">by=</span><span class="st">&quot;year&quot;</span>, <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_sun&quot;</span>, <span class="st">&quot;_rain&quot;</span>))</span>
+<span id="cb16-2"><a href="tidy-data-3-joins.html#cb16-2" tabindex="-1"></a>left</span></code></pre></div>
 <pre><code>## # A tibble: 102 × 3
 ##     year sum_sun sum_rain
 ##    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
@@ -575,8 +583,8 @@ How many columns (or variables) does <code>left</code> have? <input class='webex
 <img src="images/right_join1.png">
 </center>
 <p>However, code-wise, you would still enter x as the first, and y as the second argument within <code>right_join()</code>.</p>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="tidy-data-3-joins.html#cb360-1" tabindex="-1"></a>right <span class="ot">&lt;-</span> <span class="fu">right_join</span>(Summer_Sun, Summer_Rain, <span class="at">by=</span><span class="st">&quot;year&quot;</span>, <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_sun&quot;</span>, <span class="st">&quot;_rain&quot;</span>))</span>
-<span id="cb360-2"><a href="tidy-data-3-joins.html#cb360-2" tabindex="-1"></a>right</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="tidy-data-3-joins.html#cb18-1" tabindex="-1"></a>right <span class="ot">&lt;-</span> <span class="fu">right_join</span>(Summer_Sun, Summer_Rain, <span class="at">by=</span><span class="st">&quot;year&quot;</span>, <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_sun&quot;</span>, <span class="st">&quot;_rain&quot;</span>))</span>
+<span id="cb18-2"><a href="tidy-data-3-joins.html#cb18-2" tabindex="-1"></a>right</span></code></pre></div>
 <pre><code>## # A tibble: 154 × 3
 ##     year sum_sun sum_rain
 ##    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
@@ -601,8 +609,8 @@ How many columns (or variables) does <code>left</code> have? <input class='webex
 <center>
 <img src="images/full_join1.png">
 </center>
-<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="tidy-data-3-joins.html#cb362-1" tabindex="-1"></a>full <span class="ot">&lt;-</span> <span class="fu">full_join</span>(Summer_Sun, Summer_Rain, <span class="at">by=</span><span class="st">&quot;year&quot;</span>, <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_sun&quot;</span>, <span class="st">&quot;_rain&quot;</span>))</span>
-<span id="cb362-2"><a href="tidy-data-3-joins.html#cb362-2" tabindex="-1"></a>full</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="tidy-data-3-joins.html#cb20-1" tabindex="-1"></a>full <span class="ot">&lt;-</span> <span class="fu">full_join</span>(Summer_Sun, Summer_Rain, <span class="at">by=</span><span class="st">&quot;year&quot;</span>, <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_sun&quot;</span>, <span class="st">&quot;_rain&quot;</span>))</span>
+<span id="cb20-2"><a href="tidy-data-3-joins.html#cb20-2" tabindex="-1"></a>full</span></code></pre></div>
 <pre><code>## # A tibble: 159 × 3
 ##     year sum_sun sum_rain
 ##    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
@@ -671,12 +679,12 @@ differentiate between columns with the same name. Store the result in
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="tidy-data-3-joins.html#cb364-1" tabindex="-1"></a><span class="co">#Jaimie&#39;s solution</span></span>
-<span id="cb364-2"><a href="tidy-data-3-joins.html#cb364-2" tabindex="-1"></a>Q10 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(wos_seasonal_sun, wos_seasonal_rain, <span class="at">by =</span> <span class="st">&quot;year&quot;</span>, <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_sun&quot;</span>, <span class="st">&quot;_rain&quot;</span>))</span>
-<span id="cb364-3"><a href="tidy-data-3-joins.html#cb364-3" tabindex="-1"></a><span class="co">#OR </span></span>
-<span id="cb364-4"><a href="tidy-data-3-joins.html#cb364-4" tabindex="-1"></a>Q10 <span class="ot">&lt;-</span> <span class="fu">right_join</span>(wos_seasonal_rain, wos_seasonal_sun, <span class="at">by =</span> <span class="st">&quot;year&quot;</span>, <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_rain&quot;</span>, <span class="st">&quot;_sun&quot;</span>))</span>
-<span id="cb364-5"><a href="tidy-data-3-joins.html#cb364-5" tabindex="-1"></a></span>
-<span id="cb364-6"><a href="tidy-data-3-joins.html#cb364-6" tabindex="-1"></a>Q10</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="tidy-data-3-joins.html#cb22-1" tabindex="-1"></a><span class="co">#Jaimie&#39;s solution</span></span>
+<span id="cb22-2"><a href="tidy-data-3-joins.html#cb22-2" tabindex="-1"></a>Q10 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(wos_seasonal_sun, wos_seasonal_rain, <span class="at">by =</span> <span class="st">&quot;year&quot;</span>, <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_sun&quot;</span>, <span class="st">&quot;_rain&quot;</span>))</span>
+<span id="cb22-3"><a href="tidy-data-3-joins.html#cb22-3" tabindex="-1"></a><span class="co">#OR </span></span>
+<span id="cb22-4"><a href="tidy-data-3-joins.html#cb22-4" tabindex="-1"></a>Q10 <span class="ot">&lt;-</span> <span class="fu">right_join</span>(wos_seasonal_rain, wos_seasonal_sun, <span class="at">by =</span> <span class="st">&quot;year&quot;</span>, <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_rain&quot;</span>, <span class="st">&quot;_sun&quot;</span>))</span>
+<span id="cb22-5"><a href="tidy-data-3-joins.html#cb22-5" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="tidy-data-3-joins.html#cb22-6" tabindex="-1"></a>Q10</span></code></pre></div>
 <pre><code>## # A tibble: 102 × 9
 ##     year win_rain spr_rain sum_rain aut_rain win_sun spr_sun sum_sun aut_sun
 ##    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
@@ -700,15 +708,15 @@ Solution
 <h4><span class="header-section-number">6.2.4.1</span> bind_rows()<a href="tidy-data-3-joins.html#bind_rows" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><code>bind_rows()</code> is ideal when you have more entries of the same kind of data, i.e. new observations of the same variables. (For example; you have a new batch of participants answering the same questionnaire; or you have new air pollution data from a different geographic region… same variables - different observations)</p>
 <p>Lets split some data</p>
-<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="tidy-data-3-joins.html#cb366-1" tabindex="-1"></a>Sun_Season_1 <span class="ot">&lt;-</span> wos_seasonal_sun <span class="sc">%&gt;%</span></span>
-<span id="cb366-2"><a href="tidy-data-3-joins.html#cb366-2" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">1970</span>)</span>
-<span id="cb366-3"><a href="tidy-data-3-joins.html#cb366-3" tabindex="-1"></a></span>
-<span id="cb366-4"><a href="tidy-data-3-joins.html#cb366-4" tabindex="-1"></a>Sun_Season_2 <span class="ot">&lt;-</span> wos_seasonal_sun <span class="sc">%&gt;%</span></span>
-<span id="cb366-5"><a href="tidy-data-3-joins.html#cb366-5" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&lt;</span> <span class="dv">1970</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="tidy-data-3-joins.html#cb24-1" tabindex="-1"></a>Sun_Season_1 <span class="ot">&lt;-</span> wos_seasonal_sun <span class="sc">%&gt;%</span></span>
+<span id="cb24-2"><a href="tidy-data-3-joins.html#cb24-2" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">1970</span>)</span>
+<span id="cb24-3"><a href="tidy-data-3-joins.html#cb24-3" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="tidy-data-3-joins.html#cb24-4" tabindex="-1"></a>Sun_Season_2 <span class="ot">&lt;-</span> wos_seasonal_sun <span class="sc">%&gt;%</span></span>
+<span id="cb24-5"><a href="tidy-data-3-joins.html#cb24-5" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&lt;</span> <span class="dv">1970</span>)</span></code></pre></div>
 <p>Now we have 2 indetical tables for seasonal sunshine in the west of Scotland, but for different sets of years. All the same variables, but totally different observations.</p>
 <p>We can easily join these together with <code>bind_rows</code> to create a complete history.</p>
-<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="tidy-data-3-joins.html#cb367-1" tabindex="-1"></a>Bind_1 <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(Sun_Season_1, Sun_Season_2)</span>
-<span id="cb367-2"><a href="tidy-data-3-joins.html#cb367-2" tabindex="-1"></a>Bind_1</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="tidy-data-3-joins.html#cb25-1" tabindex="-1"></a>Bind_1 <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(Sun_Season_1, Sun_Season_2)</span>
+<span id="cb25-2"><a href="tidy-data-3-joins.html#cb25-2" tabindex="-1"></a>Bind_1</span></code></pre></div>
 <pre><code>## # A tibble: 102 × 5
 ##     year   win   spr   sum   aut
 ##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -725,8 +733,8 @@ Solution
 ## # ℹ 92 more rows</code></pre>
 <p><code>bind_rows()</code> takes the second table <code>Sun_Season_2</code> and puts it <em>directly underneath</em> the first table <code>Sun_Season_1</code>.</p>
 <p>What happens if we attempt to bind tables with different dimensions</p>
-<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="tidy-data-3-joins.html#cb369-1" tabindex="-1"></a>Bind_2 <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(Sun_Season_1, inner)</span>
-<span id="cb369-2"><a href="tidy-data-3-joins.html#cb369-2" tabindex="-1"></a>Bind_2</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="tidy-data-3-joins.html#cb27-1" tabindex="-1"></a>Bind_2 <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(Sun_Season_1, inner)</span>
+<span id="cb27-2"><a href="tidy-data-3-joins.html#cb27-2" tabindex="-1"></a>Bind_2</span></code></pre></div>
 <pre><code>## # A tibble: 148 × 7
 ##     year   win   spr   sum   aut sum_sun sum_rain
 ##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
@@ -746,13 +754,13 @@ Solution
 <div id="bind_cols" class="section level4 hasAnchor" number="6.2.4.2">
 <h4><span class="header-section-number">6.2.4.2</span> bind_cols()<a href="tidy-data-3-joins.html#bind_cols" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><code>bind_cols()</code> is similar to our mutating join verbs in that it creates a new table by joining columns (or variables) together. However, note that <code>bind_cols()</code> does not perform any kind of row-wise matching when joining tables.</p>
-<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="tidy-data-3-joins.html#cb371-1" tabindex="-1"></a>Bind_3 <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(wos_monthly_sun, wos_seasonal_sun)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="tidy-data-3-joins.html#cb29-1" tabindex="-1"></a>Bind_3 <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(wos_monthly_sun, wos_seasonal_sun)</span></code></pre></div>
 <pre><code>## New names:
 ## • `year` -&gt; `year...1`
 ## • `year` -&gt; `year...15`</code></pre>
 <p><code>bind_cols()</code>takes <code>wos_seasonal_sun</code> and puts it <em>right next</em> to <code>wos_monthly_sun</code>. Since the column name <code>year</code> is in both tables they get called <code>year..1</code> and <code>year...15</code> after their respective column number to differentiate them.</p>
 <p>What happens if we attempt to bind tables with different dimensions</p>
-<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="tidy-data-3-joins.html#cb373-1" tabindex="-1"></a>Bind_4 <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(Summer_Sun, Summer_Rain)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="tidy-data-3-joins.html#cb31-1" tabindex="-1"></a>Bind_4 <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(Summer_Sun, Summer_Rain)</span></code></pre></div>
 <pre><code>## Error in `bind_cols()`:
 ## ! Can&#39;t recycle `..1` (size 102) to match `..2` (size 154).</code></pre>
 <p>You simply get an error</p>
@@ -770,10 +778,10 @@ full_join(data1, data2) %&gt;% full_join(data3)
 </div>
 <p>Just to further clarify the differences between <code>bind_cols()</code> and the mutating joing verbs, lets look at how they would deal with the same challenge</p>
 <p>First lets create a new table for winter sun data, but lets arrange it by “win”, so that rather than being in order of <code>year</code>, it is in order of most sunshine. This will have the same dimensions as the Summer_Sun table but a totally different order</p>
-<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="tidy-data-3-joins.html#cb375-1" tabindex="-1"></a>Winter_Sun <span class="ot">&lt;-</span> wos_seasonal_sun <span class="sc">%&gt;%</span> </span>
-<span id="cb375-2"><a href="tidy-data-3-joins.html#cb375-2" tabindex="-1"></a>  <span class="fu">select</span>(year, win) <span class="sc">%&gt;%</span></span>
-<span id="cb375-3"><a href="tidy-data-3-joins.html#cb375-3" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(win))</span>
-<span id="cb375-4"><a href="tidy-data-3-joins.html#cb375-4" tabindex="-1"></a>Winter_Sun</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="tidy-data-3-joins.html#cb33-1" tabindex="-1"></a>Winter_Sun <span class="ot">&lt;-</span> wos_seasonal_sun <span class="sc">%&gt;%</span> </span>
+<span id="cb33-2"><a href="tidy-data-3-joins.html#cb33-2" tabindex="-1"></a>  <span class="fu">select</span>(year, win) <span class="sc">%&gt;%</span></span>
+<span id="cb33-3"><a href="tidy-data-3-joins.html#cb33-3" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(win))</span>
+<span id="cb33-4"><a href="tidy-data-3-joins.html#cb33-4" tabindex="-1"></a>Winter_Sun</span></code></pre></div>
 <pre><code>## # A tibble: 102 × 2
 ##     year   win
 ##    &lt;dbl&gt; &lt;dbl&gt;
@@ -789,13 +797,13 @@ full_join(data1, data2) %&gt;% full_join(data3)
 ## 10  1996  156.
 ## # ℹ 92 more rows</code></pre>
 <p>Now lets try joining Winter_Sun and Summer_Sun using the two different methods</p>
-<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="tidy-data-3-joins.html#cb377-1" tabindex="-1"></a>Comparison_1 <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(Summer_Sun, Winter_Sun)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="tidy-data-3-joins.html#cb35-1" tabindex="-1"></a>Comparison_1 <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(Summer_Sun, Winter_Sun)</span></code></pre></div>
 <pre><code>## New names:
 ## • `year` -&gt; `year...1`
 ## • `year` -&gt; `year...3`</code></pre>
-<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="tidy-data-3-joins.html#cb379-1" tabindex="-1"></a>Comparison_2 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(Summer_Sun, Winter_Sun, <span class="st">&quot;year&quot;</span>)</span>
-<span id="cb379-2"><a href="tidy-data-3-joins.html#cb379-2" tabindex="-1"></a></span>
-<span id="cb379-3"><a href="tidy-data-3-joins.html#cb379-3" tabindex="-1"></a>Comparison_1</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="tidy-data-3-joins.html#cb37-1" tabindex="-1"></a>Comparison_2 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(Summer_Sun, Winter_Sun, <span class="st">&quot;year&quot;</span>)</span>
+<span id="cb37-2"><a href="tidy-data-3-joins.html#cb37-2" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="tidy-data-3-joins.html#cb37-3" tabindex="-1"></a>Comparison_1</span></code></pre></div>
 <pre><code>## # A tibble: 102 × 4
 ##    year...1   sum year...3   win
 ##       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
@@ -810,7 +818,7 @@ full_join(data1, data2) %&gt;% full_join(data3)
 ##  9     1927  446      1970  158.
 ## 10     1928  408.     1996  156.
 ## # ℹ 92 more rows</code></pre>
-<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="tidy-data-3-joins.html#cb381-1" tabindex="-1"></a>Comparison_2</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="tidy-data-3-joins.html#cb39-1" tabindex="-1"></a>Comparison_2</span></code></pre></div>
 <pre><code>## # A tibble: 102 × 3
 ##     year   sum   win
 ##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -1021,7 +1029,7 @@ window.onload = function() {
         </div>
       </div>
 <a href="tidy-data-2-cell-manipulation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="before.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-visualisation-1-fundamentals.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
