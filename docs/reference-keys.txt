@@ -178,3 +178,4 @@ using-select
 using-rename
 bringing-it-together
 pipe-practice-with-the-wickham-six
+magrittr-pipe-vs.-base-r-pipe

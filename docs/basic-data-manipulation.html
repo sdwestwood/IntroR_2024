@@ -23,7 +23,7 @@
 <meta name="author" content="Gaby Mahrholz, Greta Todorova, Wilhelmiina Toivo, and Jaimie Torrance, updated by Johanna Werner in 2022 and Sean Westwood in 2023" />
 
 
-<meta name="date" content="2023-11-22" />
+<meta name="date" content="2023-11-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -236,11 +236,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#pre-steps-1"><i class="fa fa-check"></i><b>3.2</b> Pre-Steps</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#downloading-materials-1"><i class="fa fa-check"></i><b>3.2.1</b> Downloading materials</a></li>
-<li class="chapter" data-level="3.2.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#unzipping-the-zip-folder"><i class="fa fa-check"></i><b>3.2.2</b> Unzipping the zip folder</a></li>
-<li class="chapter" data-level="3.2.3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#setting-the-working-directory-1"><i class="fa fa-check"></i><b>3.2.3</b> Setting the working directory</a></li>
-<li class="chapter" data-level="3.2.4" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#loading-in-the-required-packages-into-the-library"><i class="fa fa-check"></i><b>3.2.4</b> Loading in the required packages into the library</a></li>
-<li class="chapter" data-level="3.2.5" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#read-in-the-data"><i class="fa fa-check"></i><b>3.2.5</b> Read in the data</a></li>
-<li class="chapter" data-level="3.2.6" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#view-the-data"><i class="fa fa-check"></i><b>3.2.6</b> View the data</a></li>
+<li class="chapter" data-level="3.2.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#loading-in-the-required-packages-into-the-library"><i class="fa fa-check"></i><b>3.2.2</b> Loading in the required packages into the library</a></li>
+<li class="chapter" data-level="3.2.3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#read-in-the-data"><i class="fa fa-check"></i><b>3.2.3</b> Read in the data</a></li>
+<li class="chapter" data-level="3.2.4" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#view-the-data"><i class="fa fa-check"></i><b>3.2.4</b> View the data</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#select"><i class="fa fa-check"></i><b>3.3</b> select()</a>
 <ul>
@@ -261,7 +259,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.8.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#bringing-it-together"><i class="fa fa-check"></i><b>3.8.1</b> Bringing it together</a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#pipes"><i class="fa fa-check"></i><b>3.9</b> The pipe operator (%&gt;%)</a></li>
+<li class="chapter" data-level="3.9" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#pipes"><i class="fa fa-check"></i><b>3.9</b> The pipe operator (%&gt;%)</a>
+<ul>
+<li class="chapter" data-level="3.9.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#magrittr-pipe-vs.-base-r-pipe"><i class="fa fa-check"></i><b>3.9.1</b> Magrittr Pipe (%&gt;%) vs. Base R Pipe (|&gt;)</a></li>
+</ul></li>
 <li class="chapter" data-level="3.10" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#pipe-practice-with-the-wickham-six"><i class="fa fa-check"></i><b>3.10</b> Pipe Practice with the Wickham Six</a>
 <ul>
 <li class="chapter" data-level="3.10.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#select-1"><i class="fa fa-check"></i><b>3.10.1</b> select()</a></li>
@@ -453,33 +454,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="pre-steps-1" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> Pre-Steps<a href="basic-data-manipulation.html#pre-steps-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Before we can talk about today’s data, let’s do some house-keeping first.</p>
+<p>Before we dive in, let’s do some quick preparation.</p>
 <div id="downloading-materials-1" class="section level3 hasAnchor" number="3.2.1">
 <h3><span class="header-section-number">3.2.1</span> Downloading materials<a href="basic-data-manipulation.html#downloading-materials-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Download the materials we will be working with today from moodle. The zip folder that contains an Rmd file called <code>L3_stub</code>, and a data file called <code>CareerStats.csv</code>. Similar to last week, <code>L3_stub</code> contains all code chunks for today’s lesson, and is intended for you to add notes and comments.</p>
+<p>Download the <code>L3_manip.Rmd</code> file from Teams and move it to your project folder (if you haven’t already!).</p>
 </div>
-<div id="unzipping-the-zip-folder" class="section level3 hasAnchor" number="3.2.2">
-<h3><span class="header-section-number">3.2.2</span> Unzipping the zip folder<a href="basic-data-manipulation.html#unzipping-the-zip-folder" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Make sure you <strong>unzip the folder</strong> and check it contains the <code>L3_stub.Rmd</code> and <code>CareerStats.csv</code>.</p>
-</div>
-<div id="setting-the-working-directory-1" class="section level3 hasAnchor" number="3.2.3">
-<h3><span class="header-section-number">3.2.3</span> Setting the working directory<a href="basic-data-manipulation.html#setting-the-working-directory-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Set that folder as your working directory for today. The files in the folders should now be visible in the <code>Files pane</code>.</p>
-</div>
-<div id="loading-in-the-required-packages-into-the-library" class="section level3 hasAnchor" number="3.2.4">
-<h3><span class="header-section-number">3.2.4</span> Loading in the required packages into the library<a href="basic-data-manipulation.html#loading-in-the-required-packages-into-the-library" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="loading-in-the-required-packages-into-the-library" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Loading in the required packages into the library<a href="basic-data-manipulation.html#loading-in-the-required-packages-into-the-library" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As we will be using functions that are part of <code>tidyverse</code>, we need to load it into the library. You will also need to load in the new package <code>babynames</code>. You will need to have this package installed first before you can load it into the library, if you haven’t done that yet use the <code>install.packages()</code> function down in your console first.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="basic-data-manipulation.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="basic-data-manipulation.html#cb1-2" tabindex="-1"></a><span class="fu">library</span>(babynames)</span></code></pre></div>
 </div>
-<div id="read-in-the-data" class="section level3 hasAnchor" number="3.2.5">
-<h3><span class="header-section-number">3.2.5</span> Read in the data<a href="basic-data-manipulation.html#read-in-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="read-in-the-data" class="section level3 hasAnchor" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Read in the data<a href="basic-data-manipulation.html#read-in-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now, today we will work with two different datasets, one fairly simple dataset, and another more messy complex dataset later one.</p>
 <p>The first is a large dataset about babynames (big surprise!). The package you installed and loaded into the library is infact a readymade dataset, that can be read straight into the <code>Global Environment</code>. We will deal with the second dataset later.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="basic-data-manipulation.html#cb2-1" tabindex="-1"></a>Name_Data <span class="ot">&lt;-</span> babynames</span></code></pre></div>
 </div>
-<div id="view-the-data" class="section level3 hasAnchor" number="3.2.6">
-<h3><span class="header-section-number">3.2.6</span> View the data<a href="basic-data-manipulation.html#view-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="view-the-data" class="section level3 hasAnchor" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> View the data<a href="basic-data-manipulation.html#view-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Click on <code>Name_Data</code> in your <code>Global Environment</code> to open your data in a new tab on the <code>Source</code> pane or call the object in your <code>Console</code> (by typing the name of the object <code>Name_Data</code>) to check that the data was correctly imported into R.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="basic-data-manipulation.html#cb3-1" tabindex="-1"></a>Name_Data</span></code></pre></div>
 <pre><code>## # A tibble: 1,924,665 × 5
@@ -794,24 +787,28 @@ be overwritten.
 <h3><span class="header-section-number">3.5.1</span> Single criterion<a href="basic-data-manipulation.html#single-criterion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In order to include or exclude certain observations (rows), use the <code>filter()</code> function. The first argument to this function is an object (in this case the tibble <code>Name_Data</code>) and the subsequent argument is the criteria you wish to filter on. For example, if you want only those observations from the year of your birth:</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="basic-data-manipulation.html#cb32-1" tabindex="-1"></a>Name_MyYear <span class="ot">&lt;-</span> <span class="fu">filter</span>(Name_Data, year <span class="sc">==</span> <span class="dv">1988</span>)</span>
-<span id="cb32-2"><a href="basic-data-manipulation.html#cb32-2" tabindex="-1"></a><span class="fu">glimpse</span>(Name_MyYear)</span></code></pre></div>
-<pre><code>## Rows: 22,364
-## Columns: 5
-## $ year &lt;dbl&gt; 1988, 1988, 1988, 1988, 1988, 1988, 1988, 1988, 1988, 1988, 1988,…
-## $ sex  &lt;chr&gt; &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, …
-## $ name &lt;chr&gt; &quot;Jessica&quot;, &quot;Ashley&quot;, &quot;Amanda&quot;, &quot;Sarah&quot;, &quot;Jennifer&quot;, &quot;Brittany&quot;, &quot;…
-## $ n    &lt;int&gt; 51538, 49961, 39455, 28366, 27887, 26815, 22836, 20699, 20310, 20…
-## $ prop &lt;dbl&gt; 0.02680669, 0.02598643, 0.02052190, 0.01475413, 0.01450499, 0.013…</code></pre>
+<span id="cb32-2"><a href="basic-data-manipulation.html#cb32-2" tabindex="-1"></a><span class="fu">head</span>(Name_MyYear)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 5
+##    year sex   name         n   prop
+##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;int&gt;  &lt;dbl&gt;
+## 1  1988 F     Jessica  51538 0.0268
+## 2  1988 F     Ashley   49961 0.0260
+## 3  1988 F     Amanda   39455 0.0205
+## 4  1988 F     Sarah    28366 0.0148
+## 5  1988 F     Jennifer 27887 0.0145
+## 6  1988 F     Brittany 26815 0.0139</code></pre>
 <p>or keep observations of only popular names:</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="basic-data-manipulation.html#cb34-1" tabindex="-1"></a>Name_Pop <span class="ot">&lt;-</span> <span class="fu">filter</span>(Name_Data, prop <span class="sc">&gt;=</span> <span class="fl">0.07</span>)</span>
-<span id="cb34-2"><a href="basic-data-manipulation.html#cb34-2" tabindex="-1"></a><span class="fu">glimpse</span>(Name_Pop)</span></code></pre></div>
-<pre><code>## Rows: 19
-## Columns: 5
-## $ year &lt;dbl&gt; 1880, 1880, 1880, 1881, 1881, 1882, 1882, 1882, 1883, 1883, 1884,…
-## $ sex  &lt;chr&gt; &quot;F&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, …
-## $ name &lt;chr&gt; &quot;Mary&quot;, &quot;John&quot;, &quot;William&quot;, &quot;John&quot;, &quot;William&quot;, &quot;Mary&quot;, &quot;John&quot;, &quot;Wi…
-## $ n    &lt;int&gt; 7065, 9655, 9532, 8769, 8524, 8148, 9557, 9298, 8894, 8387, 9388,…
-## $ prop &lt;dbl&gt; 0.07238359, 0.08154561, 0.08050676, 0.08098299, 0.07872038, 0.070…</code></pre>
+<span id="cb34-2"><a href="basic-data-manipulation.html#cb34-2" tabindex="-1"></a><span class="fu">head</span>(Name_Pop)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 5
+##    year sex   name        n   prop
+##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;int&gt;  &lt;dbl&gt;
+## 1  1880 F     Mary     7065 0.0724
+## 2  1880 M     John     9655 0.0815
+## 3  1880 M     William  9532 0.0805
+## 4  1881 M     John     8769 0.0810
+## 5  1881 M     William  8524 0.0787
+## 6  1882 F     Mary     8148 0.0704</code></pre>
 <div class="question">
 <ol style="list-style-type: decimal">
 <li>
@@ -853,36 +850,42 @@ either <code>TRUE</code> or <code>FALSE</code>?
 <p>Relational operators (such as <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, and <code>&gt;=</code>) compare two numerical expressions and return a Boolean variable: a variable whose value is either 0 (<code>FALSE</code>) or 1 (<code>TRUE</code>). So, essentially, <code>filter()</code> includes any observations (rows) for which the expression evaluates to <code>TRUE</code>, and excludes any for which it evaluates to <code>FALSE</code>. In the previous example, <code>filter()</code> sifted through 1924665 observations, keeping rows containing year that was equal to 1998.</p>
 <p>This works as well for columns of the data type <code>character</code>. If you want only those observations for a specific name, you could use the equivalence operator <code>==</code>. Be aware that a single equals sign (<code>=</code>) is used to assign a value to a variable whereas a double equals sign (<code>==</code>) is used to check whether two values are equal.</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="basic-data-manipulation.html#cb36-1" tabindex="-1"></a>Name_Me <span class="ot">&lt;-</span> <span class="fu">filter</span>(Name_Data, name <span class="sc">==</span> <span class="st">&quot;Jaimie&quot;</span>)</span>
-<span id="cb36-2"><a href="basic-data-manipulation.html#cb36-2" tabindex="-1"></a><span class="fu">glimpse</span>(Name_Me)</span></code></pre></div>
-<pre><code>## Rows: 118
-## Columns: 5
-## $ year &lt;dbl&gt; 1946, 1948, 1951, 1952, 1953, 1954, 1955, 1956, 1957, 1958, 1958,…
-## $ sex  &lt;chr&gt; &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, …
-## $ name &lt;chr&gt; &quot;Jaimie&quot;, &quot;Jaimie&quot;, &quot;Jaimie&quot;, &quot;Jaimie&quot;, &quot;Jaimie&quot;, &quot;Jaimie&quot;, &quot;Jaim…
-## $ n    &lt;int&gt; 7, 5, 8, 8, 6, 8, 12, 16, 9, 28, 12, 30, 13, 19, 10, 20, 7, 23, 1…
-## $ prop &lt;dbl&gt; 4.340e-06, 2.870e-06, 4.330e-06, 4.210e-06, 3.110e-06, 4.020e-06,…</code></pre>
+<span id="cb36-2"><a href="basic-data-manipulation.html#cb36-2" tabindex="-1"></a><span class="fu">head</span>(Name_Me)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 5
+##    year sex   name       n       prop
+##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;int&gt;      &lt;dbl&gt;
+## 1  1946 F     Jaimie     7 0.00000434
+## 2  1948 F     Jaimie     5 0.00000287
+## 3  1951 F     Jaimie     8 0.00000433
+## 4  1952 F     Jaimie     8 0.00000421
+## 5  1953 F     Jaimie     6 0.00000311
+## 6  1954 F     Jaimie     8 0.00000402</code></pre>
 <p>Here, the <code>filter()</code> function compares every single value in the column <code>name</code> of the data object <code>Name_Data</code> with the character string written on the right-hand side of the equation (“Jaimie”).</p>
 <p>You can also use <code>filter()</code> to keep data from multiple options of the same variable using the <code>%in%</code> operator. In this case we want to filter several different names:</p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="basic-data-manipulation.html#cb38-1" tabindex="-1"></a>Name_J <span class="ot">&lt;-</span> <span class="fu">filter</span>(Name_Data, name <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Jaimie&quot;</span>, <span class="st">&quot;Jamie&quot;</span>, <span class="st">&quot;Jaime&quot;</span>, <span class="st">&quot;James&quot;</span>, <span class="st">&quot;Jayme&quot;</span>))</span>
-<span id="cb38-2"><a href="basic-data-manipulation.html#cb38-2" tabindex="-1"></a><span class="fu">glimpse</span>(Name_J)</span></code></pre></div>
-<pre><code>## Rows: 963
-## Columns: 5
-## $ year &lt;dbl&gt; 1880, 1880, 1881, 1881, 1882, 1882, 1883, 1883, 1884, 1884, 1884,…
-## $ sex  &lt;chr&gt; &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, …
-## $ name &lt;chr&gt; &quot;James&quot;, &quot;James&quot;, &quot;James&quot;, &quot;James&quot;, &quot;James&quot;, &quot;James&quot;, &quot;James&quot;, &quot;J…
-## $ n    &lt;int&gt; 22, 5927, 24, 5441, 18, 5892, 25, 5223, 33, 5, 5693, 26, 5175, 29…
-## $ prop &lt;dbl&gt; 0.00022540, 0.05005912, 0.00024278, 0.05024843, 0.00015558, 0.048…</code></pre>
+<span id="cb38-2"><a href="basic-data-manipulation.html#cb38-2" tabindex="-1"></a><span class="fu">head</span>(Name_J)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 5
+##    year sex   name      n     prop
+##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt;    &lt;dbl&gt;
+## 1  1880 F     James    22 0.000225
+## 2  1880 M     James  5927 0.0501  
+## 3  1881 F     James    24 0.000243
+## 4  1881 M     James  5441 0.0502  
+## 5  1882 F     James    18 0.000156
+## 6  1882 M     James  5892 0.0483</code></pre>
 <p>Because <code>filter()</code> evalutes variables against your criteria and keeps observations that are <code>TRUE</code>, in essence the function defaults to “filter-in” certain observations. You can however also use it to “filter-out” specific observations, by using the ‘not equals’ operator <code>!=</code>. Here <code>filter()</code> keeps every row in which the value DOES NOT read what you have specificed.</p>
 <p>Using <code>filter()</code> to exclude certain observations.</p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="basic-data-manipulation.html#cb40-1" tabindex="-1"></a>Name_J_Short <span class="ot">&lt;-</span> <span class="fu">filter</span>(Name_J, name <span class="sc">!=</span><span class="st">&quot;James&quot;</span>)</span>
-<span id="cb40-2"><a href="basic-data-manipulation.html#cb40-2" tabindex="-1"></a><span class="fu">glimpse</span>(Name_J_Short)</span></code></pre></div>
-<pre><code>## Rows: 687
-## Columns: 5
-## $ year &lt;dbl&gt; 1884, 1887, 1888, 1890, 1891, 1892, 1893, 1894, 1895, 1896, 1896,…
-## $ sex  &lt;chr&gt; &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, …
-## $ name &lt;chr&gt; &quot;Jamie&quot;, &quot;Jamie&quot;, &quot;Jamie&quot;, &quot;Jamie&quot;, &quot;Jamie&quot;, &quot;Jamie&quot;, &quot;Jamie&quot;, &quot;J…
-## $ n    &lt;int&gt; 5, 5, 5, 12, 11, 10, 9, 9, 10, 8, 6, 9, 5, 11, 14, 20, 6, 20, 15,…
-## $ prop &lt;dbl&gt; 3.634e-05, 3.217e-05, 2.639e-05, 5.951e-05, 5.596e-05, 4.446e-05,…</code></pre>
+<span id="cb40-2"><a href="basic-data-manipulation.html#cb40-2" tabindex="-1"></a><span class="fu">head</span>(Name_J_Short)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 5
+##    year sex   name      n      prop
+##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt;     &lt;dbl&gt;
+## 1  1884 F     Jamie     5 0.0000363
+## 2  1887 F     Jamie     5 0.0000322
+## 3  1888 F     Jamie     5 0.0000264
+## 4  1890 F     Jamie    12 0.0000595
+## 5  1891 F     Jamie    11 0.0000560
+## 6  1892 F     Jamie    10 0.0000445</code></pre>
 </div>
 <div id="multiple-criteria" class="section level3 hasAnchor" number="3.5.2">
 <h3><span class="header-section-number">3.5.2</span> Multiple criteria<a href="basic-data-manipulation.html#multiple-criteria" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -906,14 +909,16 @@ either <code>TRUE</code> or <code>FALSE</code>?
 <p><strong>What does that mean for our babynames data?</strong></p>
 <p>For example, to filter rows containing only your name, of one sex, since your year of birth, you would code:</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="basic-data-manipulation.html#cb42-1" tabindex="-1"></a>Name_Specific <span class="ot">&lt;-</span> <span class="fu">filter</span>(Name_Data, name <span class="sc">==</span> <span class="st">&quot;Jaimie&quot;</span>, year <span class="sc">&gt;=</span> <span class="dv">1988</span>, sex <span class="sc">==</span> <span class="st">&quot;M&quot;</span>)</span>
-<span id="cb42-2"><a href="basic-data-manipulation.html#cb42-2" tabindex="-1"></a><span class="fu">glimpse</span>(Name_Specific)</span></code></pre></div>
-<pre><code>## Rows: 19
-## Columns: 5
-## $ year &lt;dbl&gt; 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998,…
-## $ sex  &lt;chr&gt; &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, …
-## $ name &lt;chr&gt; &quot;Jaimie&quot;, &quot;Jaimie&quot;, &quot;Jaimie&quot;, &quot;Jaimie&quot;, &quot;Jaimie&quot;, &quot;Jaimie&quot;, &quot;Jaim…
-## $ n    &lt;int&gt; 22, 15, 28, 21, 19, 14, 6, 9, 10, 10, 6, 11, 9, 12, 7, 6, 6, 5, 5
-## $ prop &lt;dbl&gt; 1.099e-05, 7.160e-06, 1.302e-05, 9.910e-06, 9.050e-06, 6.780e-06,…</code></pre>
+<span id="cb42-2"><a href="basic-data-manipulation.html#cb42-2" tabindex="-1"></a><span class="fu">head</span>(Name_Specific)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 5
+##    year sex   name       n       prop
+##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;int&gt;      &lt;dbl&gt;
+## 1  1988 M     Jaimie    22 0.0000110 
+## 2  1989 M     Jaimie    15 0.00000716
+## 3  1990 M     Jaimie    28 0.0000130 
+## 4  1991 M     Jaimie    21 0.00000991
+## 5  1992 M     Jaimie    19 0.00000905
+## 6  1993 M     Jaimie    14 0.00000678</code></pre>
 <div class="funfact">
 <p>
 You could have also used the logical operator <code>&amp;</code>
@@ -924,43 +929,42 @@ would have given you the same result as above.
 </div>
 <p>If we wanted to filter the data <code>Name_Data</code> for either names with a very high count <strong>OR</strong> names that account for a very low proportion, we could use the logical operator <code>|</code> (OR).</p>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="basic-data-manipulation.html#cb44-1" tabindex="-1"></a>Data_Or <span class="ot">&lt;-</span> <span class="fu">filter</span>(Name_Data, n <span class="sc">&gt;</span> <span class="dv">90000</span> <span class="sc">|</span> prop <span class="sc">&lt;</span> <span class="fl">2.27e-06</span>)</span>
-<span id="cb44-2"><a href="basic-data-manipulation.html#cb44-2" tabindex="-1"></a><span class="fu">glimpse</span>(Data_Or)</span></code></pre></div>
-<pre><code>## Rows: 2,041
-## Columns: 5
-## $ year &lt;dbl&gt; 1947, 1947, 1947, 1948, 1949, 1956, 1957, 1958, 2007, 2007, 2007,…
-## $ sex  &lt;chr&gt; &quot;F&quot;, &quot;M&quot;, &quot;M&quot;, &quot;F&quot;, &quot;F&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, …
-## $ name &lt;chr&gt; &quot;Linda&quot;, &quot;James&quot;, &quot;Robert&quot;, &quot;Linda&quot;, &quot;Linda&quot;, &quot;Michael&quot;, &quot;Michael…
-## $ n    &lt;int&gt; 99686, 94756, 91642, 96209, 91016, 90620, 92695, 90520, 5, 5, 5, …
-## $ prop &lt;dbl&gt; 0.05483812, 0.05101589, 0.04933934, 0.05521079, 0.05184643, 0.042…</code></pre>
+<span id="cb44-2"><a href="basic-data-manipulation.html#cb44-2" tabindex="-1"></a><span class="fu">head</span>(Data_Or)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 5
+##    year sex   name        n   prop
+##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;int&gt;  &lt;dbl&gt;
+## 1  1947 F     Linda   99686 0.0548
+## 2  1947 M     James   94756 0.0510
+## 3  1947 M     Robert  91642 0.0493
+## 4  1948 F     Linda   96209 0.0552
+## 5  1949 F     Linda   91016 0.0518
+## 6  1956 M     Michael 90620 0.0423</code></pre>
 <p>As you will have noticed, <code>Data_Or</code> has now observations for names that either have a count over 90,000 in a year, or account for a very small proportion in a year. In this instance these are very distinct groups, and no observation would meet both criteria, check for yourself:</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="basic-data-manipulation.html#cb46-1" tabindex="-1"></a>Data_Or2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(Name_Data, n <span class="sc">&gt;</span> <span class="dv">90000</span> <span class="sc">&amp;</span> prop <span class="sc">&lt;</span> <span class="fl">2.27e-06</span>)</span>
-<span id="cb46-2"><a href="basic-data-manipulation.html#cb46-2" tabindex="-1"></a><span class="fu">glimpse</span>(Data_Or2)</span></code></pre></div>
-<pre><code>## Rows: 0
-## Columns: 5
-## $ year &lt;dbl&gt; 
-## $ sex  &lt;chr&gt; 
-## $ name &lt;chr&gt; 
-## $ n    &lt;int&gt; 
-## $ prop &lt;dbl&gt;</code></pre>
+<span id="cb46-2"><a href="basic-data-manipulation.html#cb46-2" tabindex="-1"></a><span class="fu">head</span>(Data_Or2)</span></code></pre></div>
+<pre><code>## # A tibble: 0 × 5
+## # ℹ 5 variables: year &lt;dbl&gt;, sex &lt;chr&gt;, name &lt;chr&gt;, n &lt;int&gt;, prop &lt;dbl&gt;</code></pre>
 <p>Here we see <code>Data_Or2</code>, returns no observations. However sometimes, you might select multiple criteria, where some observations will only meet one, but other observations may meet both criteria (see below). So always keep in mind what exactly you want to find, and choose the best way to filter.</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="basic-data-manipulation.html#cb48-1" tabindex="-1"></a>Data_Or3 <span class="ot">&lt;-</span> <span class="fu">filter</span>(Name_Data, n <span class="sc">&gt;</span> <span class="dv">90000</span> <span class="sc">|</span> prop <span class="sc">&gt;</span> <span class="fl">0.05</span>)</span>
-<span id="cb48-2"><a href="basic-data-manipulation.html#cb48-2" tabindex="-1"></a><span class="fu">glimpse</span>(Data_Or3)</span></code></pre></div>
-<pre><code>## Rows: 172
-## Columns: 5
-## $ year &lt;dbl&gt; 1880, 1880, 1880, 1880, 1881, 1881, 1881, 1881, 1882, 1882, 1882,…
-## $ sex  &lt;chr&gt; &quot;F&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;, …
-## $ name &lt;chr&gt; &quot;Mary&quot;, &quot;John&quot;, &quot;William&quot;, &quot;James&quot;, &quot;Mary&quot;, &quot;John&quot;, &quot;William&quot;, &quot;J…
-## $ n    &lt;int&gt; 7065, 9655, 9532, 5927, 6919, 8769, 8524, 5441, 8148, 9557, 9298,…
-## $ prop &lt;dbl&gt; 0.07238359, 0.08154561, 0.08050676, 0.05005912, 0.06999140, 0.080…</code></pre>
+<span id="cb48-2"><a href="basic-data-manipulation.html#cb48-2" tabindex="-1"></a><span class="fu">head</span>(Data_Or3)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 5
+##    year sex   name        n   prop
+##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;int&gt;  &lt;dbl&gt;
+## 1  1880 F     Mary     7065 0.0724
+## 2  1880 M     John     9655 0.0815
+## 3  1880 M     William  9532 0.0805
+## 4  1880 M     James    5927 0.0501
+## 5  1881 F     Mary     6919 0.0700
+## 6  1881 M     John     8769 0.0810</code></pre>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="basic-data-manipulation.html#cb50-1" tabindex="-1"></a>Data_Or4 <span class="ot">&lt;-</span> <span class="fu">filter</span>(Name_Data, n <span class="sc">&gt;</span> <span class="dv">90000</span> <span class="sc">&amp;</span> prop <span class="sc">&gt;</span> <span class="fl">0.05</span>)</span>
-<span id="cb50-2"><a href="basic-data-manipulation.html#cb50-2" tabindex="-1"></a><span class="fu">glimpse</span>(Data_Or4)</span></code></pre></div>
-<pre><code>## Rows: 4
-## Columns: 5
-## $ year &lt;dbl&gt; 1947, 1947, 1948, 1949
-## $ sex  &lt;chr&gt; &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;F&quot;
-## $ name &lt;chr&gt; &quot;Linda&quot;, &quot;James&quot;, &quot;Linda&quot;, &quot;Linda&quot;
-## $ n    &lt;int&gt; 99686, 94756, 96209, 91016
-## $ prop &lt;dbl&gt; 0.05483812, 0.05101589, 0.05521079, 0.05184643</code></pre>
+<span id="cb50-2"><a href="basic-data-manipulation.html#cb50-2" tabindex="-1"></a><span class="fu">head</span>(Data_Or4)</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 5
+##    year sex   name      n   prop
+##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt;  &lt;dbl&gt;
+## 1  1947 F     Linda 99686 0.0548
+## 2  1947 M     James 94756 0.0510
+## 3  1948 F     Linda 96209 0.0552
+## 4  1949 F     Linda 91016 0.0518</code></pre>
 <p><span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span></p>
 <p>How many rows (or observations) does the object <code>Data_Or3</code> contain? <input class='webex-solveme nospaces' size='3' data-answer='["172"]'/><br>
 How many different female names are in <code>Data_Or4</code>? <input class='webex-solveme nospaces' size='1' data-answer='["1"]'/> <br></p>
@@ -996,27 +1000,29 @@ Solution
 </center>
 <p>Let’s apply this to this to our <code>Name_Data</code> data tibble. Say we wanted to create a new column <code>Decade</code> that shows us the relative decade each observation is taken from. Save this as a new object <code>Name_Ext</code> to the <code>Global Environment</code> rather than overwriting <code>Name_Data</code> so that we can compare <code>Name_Data</code> with the extended <code>Name_Ext</code> later on.</p>
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="basic-data-manipulation.html#cb53-1" tabindex="-1"></a>Name_Ext <span class="ot">&lt;-</span> <span class="fu">mutate</span>(Name_Data, <span class="at">Decade =</span> <span class="fu">floor</span>(year<span class="sc">/</span><span class="dv">10</span>)<span class="sc">*</span><span class="dv">10</span>)</span>
-<span id="cb53-2"><a href="basic-data-manipulation.html#cb53-2" tabindex="-1"></a><span class="fu">glimpse</span>(Name_Ext)</span></code></pre></div>
-<pre><code>## Rows: 1,924,665
-## Columns: 6
-## $ year   &lt;dbl&gt; 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 188…
-## $ sex    &lt;chr&gt; &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;…
-## $ name   &lt;chr&gt; &quot;Mary&quot;, &quot;Anna&quot;, &quot;Emma&quot;, &quot;Elizabeth&quot;, &quot;Minnie&quot;, &quot;Margaret&quot;, &quot;Ida…
-## $ n      &lt;int&gt; 7065, 2604, 2003, 1939, 1746, 1578, 1472, 1414, 1320, 1288, 125…
-## $ prop   &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0.0…
-## $ Decade &lt;dbl&gt; 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 188…</code></pre>
+<span id="cb53-2"><a href="basic-data-manipulation.html#cb53-2" tabindex="-1"></a><span class="fu">head</span>(Name_Ext)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 6
+##    year sex   name          n   prop Decade
+##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1  1880 F     Mary       7065 0.0724   1880
+## 2  1880 F     Anna       2604 0.0267   1880
+## 3  1880 F     Emma       2003 0.0205   1880
+## 4  1880 F     Elizabeth  1939 0.0199   1880
+## 5  1880 F     Minnie     1746 0.0179   1880
+## 6  1880 F     Margaret   1578 0.0162   1880</code></pre>
 <p>As we can see, <code>Name_Ext</code> has one column more than <code>Name_Data</code>. So <code>mutate()</code> took the value in the cells for each row of the variable <code>year</code>, devided it by 10, and using the <code>floor()</code> function, rounds that value down to the nearest whole number, before finally multiplying the result by 10, and adding it to a new column called <code>Decade</code>.</p>
 <p>Importantly, new variables will overwrite existing variables if column headings are identical. So if we wanted to halve the values in column <code>Decade</code> and store them in a column <code>Decade</code>, the original <code>Decade</code> would be overwritten. To demonstrate we will try doing this and stroring the output in a new object called <code>Name_Ext2</code>and save that to our <code>Global Environment</code>.</p>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="basic-data-manipulation.html#cb55-1" tabindex="-1"></a>Name_Ext2 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(Name_Ext, <span class="at">Decade =</span> Decade<span class="sc">/</span><span class="dv">2</span>)</span>
-<span id="cb55-2"><a href="basic-data-manipulation.html#cb55-2" tabindex="-1"></a><span class="fu">glimpse</span>(Name_Ext2)</span></code></pre></div>
-<pre><code>## Rows: 1,924,665
-## Columns: 6
-## $ year   &lt;dbl&gt; 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 188…
-## $ sex    &lt;chr&gt; &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;…
-## $ name   &lt;chr&gt; &quot;Mary&quot;, &quot;Anna&quot;, &quot;Emma&quot;, &quot;Elizabeth&quot;, &quot;Minnie&quot;, &quot;Margaret&quot;, &quot;Ida…
-## $ n      &lt;int&gt; 7065, 2604, 2003, 1939, 1746, 1578, 1472, 1414, 1320, 1288, 125…
-## $ prop   &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0.0…
-## $ Decade &lt;dbl&gt; 940, 940, 940, 940, 940, 940, 940, 940, 940, 940, 940, 940, 940…</code></pre>
+<span id="cb55-2"><a href="basic-data-manipulation.html#cb55-2" tabindex="-1"></a><span class="fu">head</span>(Name_Ext2)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 6
+##    year sex   name          n   prop Decade
+##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1  1880 F     Mary       7065 0.0724    940
+## 2  1880 F     Anna       2604 0.0267    940
+## 3  1880 F     Emma       2003 0.0205    940
+## 4  1880 F     Elizabeth  1939 0.0199    940
+## 5  1880 F     Minnie     1746 0.0179    940
+## 6  1880 F     Margaret   1578 0.0162    940</code></pre>
 <p>So now, <code>Name_Ext2</code> did not gain a column (it still contains 6 variables), and <code>Decade</code> now has (unhelpfully) half the numeric value of the decade. (As an aside you could prevent yourself from accidentally doing something like this by converting <code>Decade</code> from numeric double type data to character type data, if you had no intention of carrying out any calculations on that variable)</p>
 <div class="info">
 <p>
@@ -1028,14 +1034,16 @@ any difference.
 </div>
 <p>You can also use <code>mutate()</code> to drop columns you no longer need, as an alternative to the <code>select()</code> function. This would mean that <code>Name_Ext2</code> is now identical to <code>Name_Data</code>.</p>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="basic-data-manipulation.html#cb57-1" tabindex="-1"></a>Name_Ext2 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(Name_Ext2, <span class="at">Decade =</span> <span class="cn">NULL</span>)</span>
-<span id="cb57-2"><a href="basic-data-manipulation.html#cb57-2" tabindex="-1"></a><span class="fu">glimpse</span>(Name_Ext2)</span></code></pre></div>
-<pre><code>## Rows: 1,924,665
-## Columns: 5
-## $ year &lt;dbl&gt; 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880, 1880,…
-## $ sex  &lt;chr&gt; &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, …
-## $ name &lt;chr&gt; &quot;Mary&quot;, &quot;Anna&quot;, &quot;Emma&quot;, &quot;Elizabeth&quot;, &quot;Minnie&quot;, &quot;Margaret&quot;, &quot;Ida&quot;,…
-## $ n    &lt;int&gt; 7065, 2604, 2003, 1939, 1746, 1578, 1472, 1414, 1320, 1288, 1258,…
-## $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0.016…</code></pre>
+<span id="cb57-2"><a href="basic-data-manipulation.html#cb57-2" tabindex="-1"></a><span class="fu">head</span>(Name_Ext2)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 5
+##    year sex   name          n   prop
+##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;int&gt;  &lt;dbl&gt;
+## 1  1880 F     Mary       7065 0.0724
+## 2  1880 F     Anna       2604 0.0267
+## 3  1880 F     Emma       2003 0.0205
+## 4  1880 F     Elizabeth  1939 0.0199
+## 5  1880 F     Minnie     1746 0.0179
+## 6  1880 F     Margaret   1578 0.0162</code></pre>
 <p>If you want to add more than 2 columns, you can do that in a single <code>mutate()</code> statement. You can also add variables that are not numerical values, such as <code>character</code> or <code>logical</code>.</p>
 <p>Add two columns to <code>Name_Ext</code> and call it <code>Name_Ext3</code>.</p>
 <ul>
@@ -1109,7 +1117,7 @@ You will have to stay tuned for Chapter 5 to find out more!!
 <ul>
 <li>
 Add a new column to <code>Name_Data</code> that is called
-<code>prcnt</code> and is position <em>to the left</em> of
+<code>prcnt</code> and is positioned <em>to the left</em> of
 <code>prop</code> that gives the percentage each name accounts for of
 total names that year. *Hint: <code>prop</code> (proportion) is like a
 percentage represented out of 1 instead of out of 100!
@@ -1381,53 +1389,34 @@ the <code>ungroup()</code> function.
 ## $ AbpM          &lt;dbl&gt; 2.605, 2.167, 2.515, 1.921, 1.616, 2.549, 2.948, 3.377, …
 ## $ SubAtt_Avg    &lt;dbl&gt; 0.122, 0.657, 0.700, 1.454, 3.864, 1.069, 0.618, 1.755, …</code></pre>
 <div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="basic-data-manipulation.html#cb92-1" tabindex="-1"></a>MMA_Data <span class="ot">&lt;-</span> <span class="fu">ungroup</span>(MMA_Data)</span>
-<span id="cb92-2"><a href="basic-data-manipulation.html#cb92-2" tabindex="-1"></a><span class="fu">glimpse</span>(MMA_Data)</span></code></pre></div>
-<pre><code>## Rows: 199
-## Columns: 32
-## $ ID            &lt;chr&gt; &quot;056c493bbd76a918&quot;, &quot;b102c26727306ab6&quot;, &quot;80eacd4da0617c5…
-## $ Age           &lt;dbl&gt; 31.88, 33.70, 34.41, 25.39, 31.02, 34.77, 33.97, 28.70, …
-## $ Height        &lt;dbl&gt; 64, 65, 64, 64, 65, 66, 64, 65, 65, 66, 67, 65, 68, 65, …
-## $ HeightClass   &lt;chr&gt; &quot;Short&quot;, &quot;Short&quot;, &quot;Short&quot;, &quot;Short&quot;, &quot;Short&quot;, &quot;Average&quot;, …
-## $ Weight        &lt;dbl&gt; 125, 125, 125, 125, 125, 125, 125, 125, 125, 125, 135, 1…
-## $ BMI           &lt;dbl&gt; 21.454, 20.799, 21.454, 21.454, 20.799, 20.173, 21.454, …
-## $ Reach         &lt;dbl&gt; 64, 67, 65, 63, 68, 66, 65, 67, 65, 65, 66, 65, 70, 68, …
-## $ ReachClass    &lt;chr&gt; &quot;Below&quot;, &quot;Below&quot;, &quot;Below&quot;, &quot;Below&quot;, &quot;Below&quot;, &quot;Below&quot;, &quot;B…
-## $ Stance        &lt;chr&gt; &quot;Orthodox&quot;, &quot;Orthodox&quot;, &quot;Southpaw&quot;, &quot;Orthodox&quot;, &quot;Orthodo…
-## $ WeightClass   &lt;chr&gt; &quot;Flyweight&quot;, &quot;Flyweight&quot;, &quot;Flyweight&quot;, &quot;Flyweight&quot;, &quot;Fly…
-## $ T_Wins        &lt;dbl&gt; 13, 22, 26, 11, 15, 19, 23, 20, 19, 21, 15, 14, 12, 10, …
-## $ T_Losses      &lt;dbl&gt; 2, 5, 5, 3, 0, 7, 9, 3, 7, 5, 8, 1, 1, 5, 5, 4, 5, 2, 2,…
-## $ T_Fights      &lt;dbl&gt; 15, 27, 31, 14, 15, 26, 32, 23, 26, 26, 24, 15, 13, 15, …
-## $ Success       &lt;dbl&gt; 0.867, 0.815, 0.839, 0.786, 1.000, 0.731, 0.719, 0.870, …
-## $ W_by_Decision &lt;dbl&gt; 8, 12, 10, 4, 2, 8, 13, 6, 7, 11, 6, 7, 7, 1, 5, 3, 3, 5…
-## $ `W_by_KO/TKO` &lt;dbl&gt; 5, 10, 7, 1, 8, 8, 0, 6, 8, 4, 3, 2, 2, 8, 2, 2, 1, 4, 2…
-## $ W_by_Sub      &lt;dbl&gt; 0, 0, 9, 6, 5, 3, 10, 8, 4, 6, 6, 5, 3, 1, 5, 6, 10, 4, …
-## $ L_by_Decision &lt;dbl&gt; 1, 3, 4, 2, 0, 4, 5, 3, 6, 1, 4, 0, 1, 3, 5, 1, 5, 0, 1,…
-## $ `L_by_KO/TKO` &lt;dbl&gt; 1, 2, 1, 0, 0, 2, 3, 0, 0, 1, 1, 1, 0, 0, 0, 2, 0, 2, 1,…
-## $ L_by_Sub      &lt;dbl&gt; 0, 0, 0, 1, 0, 1, 1, 0, 1, 3, 3, 0, 0, 2, 0, 1, 0, 0, 0,…
-## $ PWDec         &lt;dbl&gt; 0.533, 0.444, 0.323, 0.286, 0.133, 0.308, 0.406, 0.261, …
-## $ PWTko         &lt;dbl&gt; 0.333, 0.370, 0.226, 0.071, 0.533, 0.308, 0.000, 0.261, …
-## $ PWSub         &lt;dbl&gt; 0.000, 0.000, 0.290, 0.429, 0.333, 0.115, 0.312, 0.348, …
-## $ PLDec         &lt;dbl&gt; 0.067, 0.111, 0.129, 0.143, 0.000, 0.154, 0.156, 0.130, …
-## $ PLTko         &lt;dbl&gt; 0.067, 0.074, 0.032, 0.000, 0.000, 0.077, 0.094, 0.000, …
-## $ PLSub         &lt;dbl&gt; 0.000, 0.000, 0.000, 0.071, 0.000, 0.038, 0.031, 0.000, …
-## $ Available     &lt;dbl&gt; 9, 12, 24, 8, 4, 14, 12, 5, 15, 4, 10, 2, 1, 6, 5, 4, 5,…
-## $ TTime         &lt;dbl&gt; 123.234, 137.034, 278.699, 113.466, 42.700, 168.316, 145…
-## $ Time_Avg      &lt;dbl&gt; 13.693, 11.419, 11.612, 14.183, 10.675, 12.023, 12.127, …
-## $ TLpM          &lt;dbl&gt; 5.461, 3.196, 4.410, 2.732, 3.115, 3.624, 3.828, 5.851, …
-## $ AbpM          &lt;dbl&gt; 2.605, 2.167, 2.515, 1.921, 1.616, 2.549, 2.948, 3.377, …
-## $ SubAtt_Avg    &lt;dbl&gt; 0.122, 0.657, 0.700, 1.454, 3.864, 1.069, 0.618, 1.755, …</code></pre>
+<span id="cb92-2"><a href="basic-data-manipulation.html#cb92-2" tabindex="-1"></a><span class="fu">head</span>(MMA_Data)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 32
+##   ID                 Age Height HeightClass Weight   BMI Reach ReachClass Stance
+##   &lt;chr&gt;            &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; 
+## 1 056c493bbd76a918  31.9     64 Short          125  21.5    64 Below      Ortho…
+## 2 b102c26727306ab6  33.7     65 Short          125  20.8    67 Below      Ortho…
+## 3 80eacd4da0617c57  34.4     64 Short          125  21.5    65 Below      South…
+## 4 a4de54ea806fb525  25.4     64 Short          125  21.5    63 Below      Ortho…
+## 5 aa72b0f831d0bfe5  31.0     65 Short          125  20.8    68 Below      Ortho…
+## 6 92437c6775b3f7d1  34.8     66 Average        125  20.2    66 Below      Ortho…
+## # ℹ 23 more variables: WeightClass &lt;chr&gt;, T_Wins &lt;dbl&gt;, T_Losses &lt;dbl&gt;,
+## #   T_Fights &lt;dbl&gt;, Success &lt;dbl&gt;, W_by_Decision &lt;dbl&gt;, `W_by_KO/TKO` &lt;dbl&gt;,
+## #   W_by_Sub &lt;dbl&gt;, L_by_Decision &lt;dbl&gt;, `L_by_KO/TKO` &lt;dbl&gt;, L_by_Sub &lt;dbl&gt;,
+## #   PWDec &lt;dbl&gt;, PWTko &lt;dbl&gt;, PWSub &lt;dbl&gt;, PLDec &lt;dbl&gt;, PLTko &lt;dbl&gt;,
+## #   PLSub &lt;dbl&gt;, Available &lt;dbl&gt;, TTime &lt;dbl&gt;, Time_Avg &lt;dbl&gt;, TLpM &lt;dbl&gt;,
+## #   AbpM &lt;dbl&gt;, SubAtt_Avg &lt;dbl&gt;</code></pre>
 <div id="bringing-it-together" class="section level3 hasAnchor" number="3.8.1">
 <h3><span class="header-section-number">3.8.1</span> Bringing it together<a href="basic-data-manipulation.html#bringing-it-together" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s finish this section with an exercise that combines all of the Wickham Six functions.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span></p>
 <div class="task">
 <p>
-<strong>Your turn</strong>
+<strong>Your turn</strong> Starting with <code>MMA_Data</code>:
 </p>
 <ul>
 <li>
 Rename the column <code>Success</code> to be called
-<code>WinRate</code>, and keep only the following columns in this
+<code>WinRate</code>, and select only the following columns in this
 specific order: <code>WinRate</code>, <code>Stance</code>,
 <code>WeightClass</code> Save the output as <code>wick6a</code>.
 </li>
@@ -1516,6 +1505,27 @@ Solution
 ## 5   0.933 Switch   Welterweight    
 ## 6   0.929 Southpaw Featherweight</code></pre>
 <p>As you can see, <code>wick6_onestep</code> produces the same output as <code>wick6c</code>. So, how does it work? Well, pipes automatically take the output from one function and feed it directly into the <strong>first argument of the next function</strong>. Without pipes, you needed to insert your chosen dataset as the first argument to every function. With pipes, you are only required to specify the original dataset (i.e <code>MMA_Data</code>) once at the beginning of the pipeline, and removes the need to create unnecessary intermediary objects. You now no longer need the first argument of each of the subsequent functions anymore, because the pipe will know to look at the output from the previous step in the pipeline.</p>
+<div id="magrittr-pipe-vs.-base-r-pipe" class="section level3 hasAnchor" number="3.9.1">
+<h3><span class="header-section-number">3.9.1</span> Magrittr Pipe (%&gt;%) vs. Base R Pipe (|&gt;)<a href="basic-data-manipulation.html#magrittr-pipe-vs.-base-r-pipe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In this course we will use the pipe that exists as part of the magrittr package: <code>%&gt;%</code>
+This is the original pipe and is included as part of the tidyverse.</p>
+<p>However, it is worth noting that a base R pipe has since been added: <code>|&gt;</code>
+This works extremely similarly in most cases, and you may well encounter it as you encounter more R code.</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="basic-data-manipulation.html#cb100-1" tabindex="-1"></a>wick6_onestep <span class="ot">&lt;-</span> MMA_Data <span class="sc">|&gt;</span></span>
+<span id="cb100-2"><a href="basic-data-manipulation.html#cb100-2" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">WinRate =</span> Success, Stance, WeightClass) <span class="sc">|&gt;</span></span>
+<span id="cb100-3"><a href="basic-data-manipulation.html#cb100-3" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(WinRate)) <span class="sc">|&gt;</span></span>
+<span id="cb100-4"><a href="basic-data-manipulation.html#cb100-4" tabindex="-1"></a>  <span class="fu">filter</span>(Stance <span class="sc">!=</span> <span class="st">&quot;Orthodox&quot;</span>)</span>
+<span id="cb100-5"><a href="basic-data-manipulation.html#cb100-5" tabindex="-1"></a><span class="fu">head</span>(wick6_onestep)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
+##   WinRate Stance   WeightClass     
+##     &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;           
+## 1   1     Switch   Middleweight    
+## 2   1     Switch   Middleweight    
+## 3   1     Southpaw LightHeavyweight
+## 4   0.944 Southpaw Welterweight    
+## 5   0.933 Switch   Welterweight    
+## 6   0.929 Southpaw Featherweight</code></pre>
+<p>However, for this course we will be only using the magrittr pipe.</p>
 <div class="task">
 <p>
 <strong>Your turn</strong>
@@ -1530,15 +1540,15 @@ your <code>Global Environment</code>.
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="basic-data-manipulation.html#cb100-1" tabindex="-1"></a><span class="co"># Sean&#39;s solution</span></span>
-<span id="cb100-2"><a href="basic-data-manipulation.html#cb100-2" tabindex="-1"></a>wick6pipe <span class="ot">&lt;-</span> MMA_Data <span class="sc">%&gt;%</span></span>
-<span id="cb100-3"><a href="basic-data-manipulation.html#cb100-3" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">WinRate =</span> Success, Stance, WeightClass) <span class="sc">%&gt;%</span></span>
-<span id="cb100-4"><a href="basic-data-manipulation.html#cb100-4" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(WinRate)) <span class="sc">%&gt;%</span></span>
-<span id="cb100-5"><a href="basic-data-manipulation.html#cb100-5" tabindex="-1"></a>  <span class="fu">filter</span>(Stance <span class="sc">!=</span> <span class="st">&quot;Orthodox&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb100-6"><a href="basic-data-manipulation.html#cb100-6" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Rank =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(wick6c), <span class="at">.before =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb100-7"><a href="basic-data-manipulation.html#cb100-7" tabindex="-1"></a>  <span class="fu">group_by</span>(WeightClass) <span class="sc">%&gt;%</span></span>
-<span id="cb100-8"><a href="basic-data-manipulation.html#cb100-8" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">WinRate_Average =</span> <span class="fu">mean</span>(WinRate))</span>
-<span id="cb100-9"><a href="basic-data-manipulation.html#cb100-9" tabindex="-1"></a>wick6pipe</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="basic-data-manipulation.html#cb102-1" tabindex="-1"></a><span class="co"># Sean&#39;s solution</span></span>
+<span id="cb102-2"><a href="basic-data-manipulation.html#cb102-2" tabindex="-1"></a>wick6pipe <span class="ot">&lt;-</span> MMA_Data <span class="sc">%&gt;%</span></span>
+<span id="cb102-3"><a href="basic-data-manipulation.html#cb102-3" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">WinRate =</span> Success, Stance, WeightClass) <span class="sc">%&gt;%</span></span>
+<span id="cb102-4"><a href="basic-data-manipulation.html#cb102-4" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(WinRate)) <span class="sc">%&gt;%</span></span>
+<span id="cb102-5"><a href="basic-data-manipulation.html#cb102-5" tabindex="-1"></a>  <span class="fu">filter</span>(Stance <span class="sc">!=</span> <span class="st">&quot;Orthodox&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb102-6"><a href="basic-data-manipulation.html#cb102-6" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Rank =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(wick6c), <span class="at">.before =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb102-7"><a href="basic-data-manipulation.html#cb102-7" tabindex="-1"></a>  <span class="fu">group_by</span>(WeightClass) <span class="sc">%&gt;%</span></span>
+<span id="cb102-8"><a href="basic-data-manipulation.html#cb102-8" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">WinRate_Average =</span> <span class="fu">mean</span>(WinRate))</span>
+<span id="cb102-9"><a href="basic-data-manipulation.html#cb102-9" tabindex="-1"></a>wick6pipe</span></code></pre></div>
 <pre><code>## # A tibble: 8 × 2
 ##   WeightClass      WinRate_Average
 ##   &lt;chr&gt;                      &lt;dbl&gt;
@@ -1551,7 +1561,7 @@ Solution
 ## 7 Middleweight               0.815
 ## 8 Welterweight               0.791</code></pre>
 </div>
-<p>If done correct <code>wick6pipe</code> should look identical to <code>wick6f</code></p>
+<p>If done correctly <code>wick6pipe</code> should look identical to <code>wick6f</code></p>
 <div class="funfact">
 <p>
 Note that in the above code chunk, the data object has been on its
@@ -1560,14 +1570,20 @@ starting with the “functions”.
 </p>
 <p>
 The other option would have been to put the data object as the first
-argument within the first function.
+argument within the first function like so:
+</p>
+<p>
+<code>wick6pipe &lt;- select(MMA_Data, WinRate = Success, Stance, WeightClass) %&gt;%</code>
 </p>
 <p>
 The benefit of having the data on its own is that you can reorder
 functions easily or squeeze another one in (for example if you
 summarised something but forgot to group beforehand) without the need to
-“move” the data object into the new first argument of the pipeline.
+“move” the data object into the new first argument of the pipeline. It
+is mostly a convenience issue, and there may be times where one solution
+makes more sense than the other!
 </p>
+</div>
 </div>
 </div>
 <div id="pipe-practice-with-the-wickham-six" class="section level2 hasAnchor" number="3.10">
@@ -1576,8 +1592,8 @@ summarised something but forgot to group beforehand) without the need to
 <div id="select-1" class="section level3 hasAnchor" number="3.10.1">
 <h3><span class="header-section-number">3.10.1</span> select()<a href="basic-data-manipulation.html#select-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>First up lets try to narrow down this big data set, by taking <code>MMA_Data</code>, and selecting only the variables; <code>ID</code>, <code>Height</code>, <code>Weight</code>, <code>BMI</code>, <code>Reach</code> and <code>Stance</code>. We will store this in <code>Example_1</code>.</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="basic-data-manipulation.html#cb102-1" tabindex="-1"></a>Example_1 <span class="ot">&lt;-</span> MMA_Data <span class="sc">%&gt;%</span> <span class="fu">select</span>(ID, Height, Weight<span class="sc">:</span>Reach, Stance)</span>
-<span id="cb102-2"><a href="basic-data-manipulation.html#cb102-2" tabindex="-1"></a>Example_1</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="basic-data-manipulation.html#cb104-1" tabindex="-1"></a>Example_1 <span class="ot">&lt;-</span> MMA_Data <span class="sc">%&gt;%</span> <span class="fu">select</span>(ID, Height, Weight<span class="sc">:</span>Reach, Stance)</span>
+<span id="cb104-2"><a href="basic-data-manipulation.html#cb104-2" tabindex="-1"></a>Example_1</span></code></pre></div>
 <pre><code>## # A tibble: 199 × 6
 ##    ID               Height Weight   BMI Reach Stance  
 ##    &lt;chr&gt;             &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   
@@ -1618,19 +1634,19 @@ object names <code>Q1</code>.
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="basic-data-manipulation.html#cb104-1" tabindex="-1"></a><span class="co"># Sean&#39;s solutions</span></span>
-<span id="cb104-2"><a href="basic-data-manipulation.html#cb104-2" tabindex="-1"></a>Q1 <span class="ot">&lt;-</span> Example_1 <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>Reach)</span>
-<span id="cb104-3"><a href="basic-data-manipulation.html#cb104-3" tabindex="-1"></a><span class="co">#OR</span></span>
-<span id="cb104-4"><a href="basic-data-manipulation.html#cb104-4" tabindex="-1"></a>Q1 <span class="ot">&lt;-</span> Example_1 <span class="sc">%&gt;%</span> <span class="fu">select</span>(ID, Height, Weight, BMI, Stance)</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="basic-data-manipulation.html#cb106-1" tabindex="-1"></a><span class="co"># Sean&#39;s solutions</span></span>
+<span id="cb106-2"><a href="basic-data-manipulation.html#cb106-2" tabindex="-1"></a>Q1 <span class="ot">&lt;-</span> Example_1 <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>Reach)</span>
+<span id="cb106-3"><a href="basic-data-manipulation.html#cb106-3" tabindex="-1"></a><span class="co">#OR</span></span>
+<span id="cb106-4"><a href="basic-data-manipulation.html#cb106-4" tabindex="-1"></a>Q1 <span class="ot">&lt;-</span> Example_1 <span class="sc">%&gt;%</span> <span class="fu">select</span>(ID, Height, Weight, BMI, Stance)</span></code></pre></div>
 </div>
 </div>
 <div id="arrange-1" class="section level3 hasAnchor" number="3.10.2">
 <h3><span class="header-section-number">3.10.2</span> arrange()<a href="basic-data-manipulation.html#arrange-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Lets move on to <code>arrange()</code>; lets repeat the steps we did to make <code>Example_1</code>, and then arrange it first by <code>Weight</code>, then by <code>BMI</code>, we’ll store this in <code>Example_2</code>.</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="basic-data-manipulation.html#cb105-1" tabindex="-1"></a>Example_2 <span class="ot">&lt;-</span> MMA_Data <span class="sc">%&gt;%</span> </span>
-<span id="cb105-2"><a href="basic-data-manipulation.html#cb105-2" tabindex="-1"></a>  <span class="fu">select</span>(ID, Height, Weight<span class="sc">:</span>Reach, Stance) <span class="sc">%&gt;%</span></span>
-<span id="cb105-3"><a href="basic-data-manipulation.html#cb105-3" tabindex="-1"></a>  <span class="fu">arrange</span>(Weight, BMI)</span>
-<span id="cb105-4"><a href="basic-data-manipulation.html#cb105-4" tabindex="-1"></a>Example_2</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="basic-data-manipulation.html#cb107-1" tabindex="-1"></a>Example_2 <span class="ot">&lt;-</span> MMA_Data <span class="sc">%&gt;%</span> </span>
+<span id="cb107-2"><a href="basic-data-manipulation.html#cb107-2" tabindex="-1"></a>  <span class="fu">select</span>(ID, Height, Weight<span class="sc">:</span>Reach, Stance) <span class="sc">%&gt;%</span></span>
+<span id="cb107-3"><a href="basic-data-manipulation.html#cb107-3" tabindex="-1"></a>  <span class="fu">arrange</span>(Weight, BMI)</span>
+<span id="cb107-4"><a href="basic-data-manipulation.html#cb107-4" tabindex="-1"></a>Example_2</span></code></pre></div>
 <pre><code>## # A tibble: 199 × 6
 ##    ID               Height Weight   BMI Reach Stance  
 ##    &lt;chr&gt;             &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   
@@ -1660,7 +1676,7 @@ that it is called <code>Tallness</code>, and keep only the following
 columns IN THIS EXACT ORDER: <code>ID</code>, <code>Weight</code>,
 <code>BMI</code>, <code>Reach</code>, <code>Stance</code>,
 <code>Tallness</code> AND THEN use the arrange() function to sort first
-by <code>Reach</code> in <em>desceding</em> order, then by
+by <code>Reach</code> in <em>descending</em> order, then by
 <code>Tallness</code> in <em>ascending</em> order.
 </p>
 <p>
@@ -1671,18 +1687,18 @@ Store the result in <code>Q2</code>.
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="basic-data-manipulation.html#cb107-1" tabindex="-1"></a><span class="co"># Sean&#39;s solution</span></span>
-<span id="cb107-2"><a href="basic-data-manipulation.html#cb107-2" tabindex="-1"></a>Q2 <span class="ot">&lt;-</span> MMA_Data <span class="sc">%&gt;%</span> </span>
-<span id="cb107-3"><a href="basic-data-manipulation.html#cb107-3" tabindex="-1"></a>  <span class="fu">select</span>(ID, Weight<span class="sc">:</span>Reach, Stance, <span class="at">Tallness=</span>Height) <span class="sc">%&gt;%</span> </span>
-<span id="cb107-4"><a href="basic-data-manipulation.html#cb107-4" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Reach), Tallness)</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="basic-data-manipulation.html#cb109-1" tabindex="-1"></a><span class="co"># Sean&#39;s solution</span></span>
+<span id="cb109-2"><a href="basic-data-manipulation.html#cb109-2" tabindex="-1"></a>Q2 <span class="ot">&lt;-</span> MMA_Data <span class="sc">%&gt;%</span> </span>
+<span id="cb109-3"><a href="basic-data-manipulation.html#cb109-3" tabindex="-1"></a>  <span class="fu">select</span>(ID, Weight<span class="sc">:</span>Reach, Stance, <span class="at">Tallness=</span>Height) <span class="sc">%&gt;%</span> </span>
+<span id="cb109-4"><a href="basic-data-manipulation.html#cb109-4" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Reach), Tallness)</span></code></pre></div>
 </div>
 <p>What is the <code>BMI</code> of the top entry in <code>Q2</code>? <input class='webex-solveme nospaces' size='6' data-answer='["27.042"]'/></p>
 </div>
 <div id="filter-1" class="section level3 hasAnchor" number="3.10.3">
 <h3><span class="header-section-number">3.10.3</span> filter()<a href="basic-data-manipulation.html#filter-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now onto <code>filter()</code> which has so many uses! Lets filter out all the athletes who are <em>over</em> 31 years of age</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="basic-data-manipulation.html#cb108-1" tabindex="-1"></a>Example_3 <span class="ot">&lt;-</span> MMA_Data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Age <span class="sc">&lt;=</span><span class="dv">31</span>)</span>
-<span id="cb108-2"><a href="basic-data-manipulation.html#cb108-2" tabindex="-1"></a>Example_3</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="basic-data-manipulation.html#cb110-1" tabindex="-1"></a>Example_3 <span class="ot">&lt;-</span> MMA_Data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Age <span class="sc">&lt;=</span><span class="dv">31</span>)</span>
+<span id="cb110-2"><a href="basic-data-manipulation.html#cb110-2" tabindex="-1"></a>Example_3</span></code></pre></div>
 <pre><code>## # A tibble: 97 × 32
 ##    ID                Age Height HeightClass Weight   BMI Reach ReachClass Stance
 ##    &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; 
@@ -1720,8 +1736,8 @@ and ‘Lightweight’ <code>WeightClasses</code> Store the result in
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="basic-data-manipulation.html#cb110-1" tabindex="-1"></a><span class="co"># Sean&#39;s solution</span></span>
-<span id="cb110-2"><a href="basic-data-manipulation.html#cb110-2" tabindex="-1"></a>Q3 <span class="ot">&lt;-</span> MMA_Data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(WeightClass <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Flyweight&quot;</span>, <span class="st">&quot;Lightweight&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="basic-data-manipulation.html#cb112-1" tabindex="-1"></a><span class="co"># Sean&#39;s solution</span></span>
+<span id="cb112-2"><a href="basic-data-manipulation.html#cb112-2" tabindex="-1"></a>Q3 <span class="ot">&lt;-</span> MMA_Data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(WeightClass <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Flyweight&quot;</span>, <span class="st">&quot;Lightweight&quot;</span>))</span></code></pre></div>
 </div>
 <p>How many athletes (observations) are left in <code>Q3</code>? <input class='webex-solveme nospaces' size='2' data-answer='["50"]'/></p>
 <div class="task">
@@ -1740,8 +1756,8 @@ conditions
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="basic-data-manipulation.html#cb111-1" tabindex="-1"></a><span class="co"># Sean&#39;s solution</span></span>
-<span id="cb111-2"><a href="basic-data-manipulation.html#cb111-2" tabindex="-1"></a>Q4 <span class="ot">&lt;-</span> MMA_Data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(WeightClass <span class="sc">==</span> <span class="st">&quot;Welterweight&quot;</span>, Height <span class="sc">&gt;</span> <span class="dv">72</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="basic-data-manipulation.html#cb113-1" tabindex="-1"></a><span class="co"># Sean&#39;s solution</span></span>
+<span id="cb113-2"><a href="basic-data-manipulation.html#cb113-2" tabindex="-1"></a>Q4 <span class="ot">&lt;-</span> MMA_Data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(WeightClass <span class="sc">==</span> <span class="st">&quot;Welterweight&quot;</span>, Height <span class="sc">&gt;</span> <span class="dv">72</span>)</span></code></pre></div>
 </div>
 <p>How many athletes (observations) are left in <code>Q4</code>? <input class='webex-solveme nospaces' size='2' data-answer='["18"]'/></p>
 <div class="task">
@@ -1765,14 +1781,14 @@ the <code>Orthodox</code> stance, regardless of the other conditions
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="basic-data-manipulation.html#cb112-1" tabindex="-1"></a><span class="co"># Sean&#39;s solution</span></span>
-<span id="cb112-2"><a href="basic-data-manipulation.html#cb112-2" tabindex="-1"></a>Q5 <span class="ot">&lt;-</span> MMA_Data <span class="sc">%&gt;%</span></span>
-<span id="cb112-3"><a href="basic-data-manipulation.html#cb112-3" tabindex="-1"></a>  <span class="fu">select</span>(Stance, T_Fights, W_by_Sub) <span class="sc">%&gt;%</span></span>
-<span id="cb112-4"><a href="basic-data-manipulation.html#cb112-4" tabindex="-1"></a>  <span class="fu">filter</span>(Stance <span class="sc">==</span> <span class="st">&quot;Orthodox&quot;</span> <span class="sc">&amp;</span> (T_Fights <span class="sc">&gt;=</span> <span class="dv">27</span> <span class="sc">|</span> W_by_Sub <span class="sc">&gt;=</span> <span class="dv">15</span>))</span>
-<span id="cb112-5"><a href="basic-data-manipulation.html#cb112-5" tabindex="-1"></a><span class="co">#OR</span></span>
-<span id="cb112-6"><a href="basic-data-manipulation.html#cb112-6" tabindex="-1"></a>Q5 <span class="ot">&lt;-</span> MMA_Data <span class="sc">%&gt;%</span></span>
-<span id="cb112-7"><a href="basic-data-manipulation.html#cb112-7" tabindex="-1"></a>  <span class="fu">select</span>(Stance, T_Fights, W_by_Sub) <span class="sc">%&gt;%</span></span>
-<span id="cb112-8"><a href="basic-data-manipulation.html#cb112-8" tabindex="-1"></a>  <span class="fu">filter</span>(Stance <span class="sc">==</span> <span class="st">&quot;Orthodox&quot;</span>, (T_Fights <span class="sc">&gt;=</span> <span class="dv">27</span> <span class="sc">|</span> W_by_Sub <span class="sc">&gt;=</span> <span class="dv">15</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="basic-data-manipulation.html#cb114-1" tabindex="-1"></a><span class="co"># Sean&#39;s solution</span></span>
+<span id="cb114-2"><a href="basic-data-manipulation.html#cb114-2" tabindex="-1"></a>Q5 <span class="ot">&lt;-</span> MMA_Data <span class="sc">%&gt;%</span></span>
+<span id="cb114-3"><a href="basic-data-manipulation.html#cb114-3" tabindex="-1"></a>  <span class="fu">select</span>(Stance, T_Fights, W_by_Sub) <span class="sc">%&gt;%</span></span>
+<span id="cb114-4"><a href="basic-data-manipulation.html#cb114-4" tabindex="-1"></a>  <span class="fu">filter</span>(Stance <span class="sc">==</span> <span class="st">&quot;Orthodox&quot;</span> <span class="sc">&amp;</span> (T_Fights <span class="sc">&gt;=</span> <span class="dv">27</span> <span class="sc">|</span> W_by_Sub <span class="sc">&gt;=</span> <span class="dv">15</span>))</span>
+<span id="cb114-5"><a href="basic-data-manipulation.html#cb114-5" tabindex="-1"></a><span class="co">#OR</span></span>
+<span id="cb114-6"><a href="basic-data-manipulation.html#cb114-6" tabindex="-1"></a>Q5 <span class="ot">&lt;-</span> MMA_Data <span class="sc">%&gt;%</span></span>
+<span id="cb114-7"><a href="basic-data-manipulation.html#cb114-7" tabindex="-1"></a>  <span class="fu">select</span>(Stance, T_Fights, W_by_Sub) <span class="sc">%&gt;%</span></span>
+<span id="cb114-8"><a href="basic-data-manipulation.html#cb114-8" tabindex="-1"></a>  <span class="fu">filter</span>(Stance <span class="sc">==</span> <span class="st">&quot;Orthodox&quot;</span>, (T_Fights <span class="sc">&gt;=</span> <span class="dv">27</span> <span class="sc">|</span> W_by_Sub <span class="sc">&gt;=</span> <span class="dv">15</span>))</span></code></pre></div>
 </div>
 <div class="webex-solution">
 <button>
@@ -1809,8 +1825,8 @@ Hopefully now you can understand the difference.
 <h3><span class="header-section-number">3.10.4</span> mutate()<a href="basic-data-manipulation.html#mutate-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Moving on to mutate() now.</p>
 <p>Lets add a new column onto the table <code>Example_1</code>, that shows <code>Reach</code> but in meters rather than inches, and we’ll call it <code>ReachM</code>. We can make this column with <code>mutate()</code> by converting the inches value in the original <code>Reach</code> column into centimeters, by multiplying (<code>*</code>) the value by <code>2.54</code> and then dividing (<code>/</code>) the result by <code>100</code>.</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="basic-data-manipulation.html#cb113-1" tabindex="-1"></a>Example_4 <span class="ot">&lt;-</span> Example_1 <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ReachM =</span> (Reach<span class="sc">*</span><span class="fl">2.54</span>)<span class="sc">/</span><span class="dv">100</span>)</span>
-<span id="cb113-2"><a href="basic-data-manipulation.html#cb113-2" tabindex="-1"></a>Example_4</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="basic-data-manipulation.html#cb115-1" tabindex="-1"></a>Example_4 <span class="ot">&lt;-</span> Example_1 <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ReachM =</span> (Reach<span class="sc">*</span><span class="fl">2.54</span>)<span class="sc">/</span><span class="dv">100</span>)</span>
+<span id="cb115-2"><a href="basic-data-manipulation.html#cb115-2" tabindex="-1"></a>Example_4</span></code></pre></div>
 <pre><code>## # A tibble: 199 × 7
 ##    ID               Height Weight   BMI Reach Stance   ReachM
 ##    &lt;chr&gt;             &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;
@@ -1851,8 +1867,8 @@ of”
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="basic-data-manipulation.html#cb115-1" tabindex="-1"></a><span class="co"># Sean&#39;s solution</span></span>
-<span id="cb115-2"><a href="basic-data-manipulation.html#cb115-2" tabindex="-1"></a>Q6 <span class="ot">&lt;-</span> Example_1 <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">BMI_Alt =</span> (Weight<span class="sc">*</span><span class="fl">0.453</span>)<span class="sc">/</span>(((Height<span class="sc">*</span><span class="fl">2.54</span>)<span class="sc">/</span><span class="dv">100</span>)<span class="sc">^</span><span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="basic-data-manipulation.html#cb117-1" tabindex="-1"></a><span class="co"># Sean&#39;s solution</span></span>
+<span id="cb117-2"><a href="basic-data-manipulation.html#cb117-2" tabindex="-1"></a>Q6 <span class="ot">&lt;-</span> Example_1 <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">BMI_Alt =</span> (Weight<span class="sc">*</span><span class="fl">0.453</span>)<span class="sc">/</span>(((Height<span class="sc">*</span><span class="fl">2.54</span>)<span class="sc">/</span><span class="dv">100</span>)<span class="sc">^</span><span class="dv">2</span>))</span></code></pre></div>
 </div>
 <div class="info">
 <p>
@@ -1871,14 +1887,14 @@ Then we will create <code>mean()</code> summary stats for:
 Number of hits landed per minute (<code>TLpM</code>) and we’ll call that column <code>MeanHit</code>,
 Number of hits absorbed per minute (<code>AbpM</code>) and we’ll call that column <code>MeanAbsorb</code>,
 And average fight length (<code>Time_Avg</code>) and we’ll call that column <code>MeanTime</code>.</p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="basic-data-manipulation.html#cb116-1" tabindex="-1"></a>Example_5 <span class="ot">&lt;-</span> MMA_Data <span class="sc">%&gt;%</span> </span>
-<span id="cb116-2"><a href="basic-data-manipulation.html#cb116-2" tabindex="-1"></a>  <span class="fu">group_by</span>(WeightClass) <span class="sc">%&gt;%</span></span>
-<span id="cb116-3"><a href="basic-data-manipulation.html#cb116-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">MeanHit =</span> <span class="fu">mean</span>(TLpM), <span class="at">MeanAbsorb =</span> <span class="fu">mean</span>(AbpM), <span class="at">MeanTime =</span> <span class="fu">mean</span>(Time_Avg))</span>
-<span id="cb116-4"><a href="basic-data-manipulation.html#cb116-4" tabindex="-1"></a></span>
-<span id="cb116-5"><a href="basic-data-manipulation.html#cb116-5" tabindex="-1"></a><span class="co"># OR</span></span>
-<span id="cb116-6"><a href="basic-data-manipulation.html#cb116-6" tabindex="-1"></a></span>
-<span id="cb116-7"><a href="basic-data-manipulation.html#cb116-7" tabindex="-1"></a>Example_5 <span class="ot">&lt;-</span> <span class="fu">group_by</span>(MMA_Data, WeightClass) <span class="sc">%&gt;%</span> <span class="co"># we could skip the first pipe if we wanted</span></span>
-<span id="cb116-8"><a href="basic-data-manipulation.html#cb116-8" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">MeanHit =</span> <span class="fu">mean</span>(TLpM), <span class="at">MeanAbsorb =</span> <span class="fu">mean</span>(AbpM), <span class="at">MeanTime =</span> <span class="fu">mean</span>(Time_Avg))</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="basic-data-manipulation.html#cb118-1" tabindex="-1"></a>Example_5 <span class="ot">&lt;-</span> MMA_Data <span class="sc">%&gt;%</span> </span>
+<span id="cb118-2"><a href="basic-data-manipulation.html#cb118-2" tabindex="-1"></a>  <span class="fu">group_by</span>(WeightClass) <span class="sc">%&gt;%</span></span>
+<span id="cb118-3"><a href="basic-data-manipulation.html#cb118-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">MeanHit =</span> <span class="fu">mean</span>(TLpM), <span class="at">MeanAbsorb =</span> <span class="fu">mean</span>(AbpM), <span class="at">MeanTime =</span> <span class="fu">mean</span>(Time_Avg))</span>
+<span id="cb118-4"><a href="basic-data-manipulation.html#cb118-4" tabindex="-1"></a></span>
+<span id="cb118-5"><a href="basic-data-manipulation.html#cb118-5" tabindex="-1"></a><span class="co"># OR</span></span>
+<span id="cb118-6"><a href="basic-data-manipulation.html#cb118-6" tabindex="-1"></a></span>
+<span id="cb118-7"><a href="basic-data-manipulation.html#cb118-7" tabindex="-1"></a>Example_5 <span class="ot">&lt;-</span> <span class="fu">group_by</span>(MMA_Data, WeightClass) <span class="sc">%&gt;%</span> <span class="co"># we could skip the first pipe if we wanted</span></span>
+<span id="cb118-8"><a href="basic-data-manipulation.html#cb118-8" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">MeanHit =</span> <span class="fu">mean</span>(TLpM), <span class="at">MeanAbsorb =</span> <span class="fu">mean</span>(AbpM), <span class="at">MeanTime =</span> <span class="fu">mean</span>(Time_Avg))</span></code></pre></div>
 <p><span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span></p>
 <p>Which weightclass has the highest Hit average? <input class='webex-solveme nospaces' size='16' data-answer='["LightHeavyweight"]'/> <br>
 Which weightclass has the lowest Absorbtion average? <input class='webex-solveme nospaces' size='9' data-answer='["Flyweight"]'/> <br>
@@ -1898,20 +1914,20 @@ called; <code>MedSuccess</code> that shows the median success rate
 <code>MaxSuccess</code> that shows the maximum success rate
 <code>MinSuccess</code> that shows the minimum success rate
 <code>SDSuccess</code> that shows the standard deviation of success rate
-The resulting table should be stored in <code>Example_6</code>.
+The resulting table should be stored in <code>Q6</code>.
 </p>
 </div>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="basic-data-manipulation.html#cb117-1" tabindex="-1"></a><span class="co"># Sean&#39;s solution</span></span>
-<span id="cb117-2"><a href="basic-data-manipulation.html#cb117-2" tabindex="-1"></a>Example_6 <span class="ot">&lt;-</span> MMA_Data <span class="sc">%&gt;%</span></span>
-<span id="cb117-3"><a href="basic-data-manipulation.html#cb117-3" tabindex="-1"></a>  <span class="fu">group_by</span>(Stance, HeightClass) <span class="sc">%&gt;%</span></span>
-<span id="cb117-4"><a href="basic-data-manipulation.html#cb117-4" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">MedSuccess =</span> <span class="fu">median</span>(Success), </span>
-<span id="cb117-5"><a href="basic-data-manipulation.html#cb117-5" tabindex="-1"></a>            <span class="at">MaxSuccess =</span> <span class="fu">max</span>(Success), </span>
-<span id="cb117-6"><a href="basic-data-manipulation.html#cb117-6" tabindex="-1"></a>            <span class="at">MinSuccess =</span> <span class="fu">min</span>(Success), </span>
-<span id="cb117-7"><a href="basic-data-manipulation.html#cb117-7" tabindex="-1"></a>            <span class="at">SDSuccess =</span> <span class="fu">sd</span>(Success))</span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="basic-data-manipulation.html#cb119-1" tabindex="-1"></a><span class="co"># Sean&#39;s solution</span></span>
+<span id="cb119-2"><a href="basic-data-manipulation.html#cb119-2" tabindex="-1"></a>Q6 <span class="ot">&lt;-</span> MMA_Data <span class="sc">%&gt;%</span></span>
+<span id="cb119-3"><a href="basic-data-manipulation.html#cb119-3" tabindex="-1"></a>  <span class="fu">group_by</span>(Stance, HeightClass) <span class="sc">%&gt;%</span></span>
+<span id="cb119-4"><a href="basic-data-manipulation.html#cb119-4" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">MedSuccess =</span> <span class="fu">median</span>(Success), </span>
+<span id="cb119-5"><a href="basic-data-manipulation.html#cb119-5" tabindex="-1"></a>            <span class="at">MaxSuccess =</span> <span class="fu">max</span>(Success), </span>
+<span id="cb119-6"><a href="basic-data-manipulation.html#cb119-6" tabindex="-1"></a>            <span class="at">MinSuccess =</span> <span class="fu">min</span>(Success), </span>
+<span id="cb119-7"><a href="basic-data-manipulation.html#cb119-7" tabindex="-1"></a>            <span class="at">SDSuccess =</span> <span class="fu">sd</span>(Success))</span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by &#39;Stance&#39;. You can override using the
 ## `.groups` argument.</code></pre>
 </div>
@@ -1954,20 +1970,20 @@ Create summary stats that show the mean of
 </li>
 </ul>
 <p>
-Store the result in a variable called <code>Example_7</code>.
+Store the result in a variable called <code>Q7</code>.
 </p>
 </div>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="basic-data-manipulation.html#cb119-1" tabindex="-1"></a><span class="co"># Sean&#39;s solution</span></span>
-<span id="cb119-2"><a href="basic-data-manipulation.html#cb119-2" tabindex="-1"></a>Example_7 <span class="ot">&lt;-</span> MMA_Data <span class="sc">%&gt;%</span> </span>
-<span id="cb119-3"><a href="basic-data-manipulation.html#cb119-3" tabindex="-1"></a>  <span class="fu">select</span>(ID, WeightClass, Stance, T_Wins, W_by_Decision<span class="sc">:</span>W_by_Sub) <span class="sc">%&gt;%</span></span>
-<span id="cb119-4"><a href="basic-data-manipulation.html#cb119-4" tabindex="-1"></a>  <span class="fu">filter</span>(Stance <span class="sc">!=</span> <span class="st">&quot;Southpaw&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb119-5"><a href="basic-data-manipulation.html#cb119-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Perc_W_by_Dec =</span> (W_by_Decision<span class="sc">/</span>T_Wins)<span class="sc">*</span><span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb119-6"><a href="basic-data-manipulation.html#cb119-6" tabindex="-1"></a>  <span class="fu">group_by</span>(WeightClass) <span class="sc">%&gt;%</span></span>
-<span id="cb119-7"><a href="basic-data-manipulation.html#cb119-7" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">AvgPercDec =</span> <span class="fu">mean</span>(Perc_W_by_Dec))</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="basic-data-manipulation.html#cb121-1" tabindex="-1"></a><span class="co"># Sean&#39;s solution</span></span>
+<span id="cb121-2"><a href="basic-data-manipulation.html#cb121-2" tabindex="-1"></a>Q7 <span class="ot">&lt;-</span> MMA_Data <span class="sc">%&gt;%</span> </span>
+<span id="cb121-3"><a href="basic-data-manipulation.html#cb121-3" tabindex="-1"></a>  <span class="fu">select</span>(ID, WeightClass, Stance, T_Wins, W_by_Decision<span class="sc">:</span>W_by_Sub) <span class="sc">%&gt;%</span></span>
+<span id="cb121-4"><a href="basic-data-manipulation.html#cb121-4" tabindex="-1"></a>  <span class="fu">filter</span>(Stance <span class="sc">!=</span> <span class="st">&quot;Southpaw&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb121-5"><a href="basic-data-manipulation.html#cb121-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Perc_W_by_Dec =</span> (W_by_Decision<span class="sc">/</span>T_Wins)<span class="sc">*</span><span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb121-6"><a href="basic-data-manipulation.html#cb121-6" tabindex="-1"></a>  <span class="fu">group_by</span>(WeightClass) <span class="sc">%&gt;%</span></span>
+<span id="cb121-7"><a href="basic-data-manipulation.html#cb121-7" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">AvgPercDec =</span> <span class="fu">mean</span>(Perc_W_by_Dec))</span></code></pre></div>
 </div>
 <p>Which weightclass has the lowest average percentage of wins by decision? <input class='webex-solveme nospaces' size='11' data-answer='["Heavyweight"]'/></p>
 

@@ -33,22 +33,11 @@ These are termed **one table verbs** as they only operate on one table at a time
 
 ## Pre-Steps
 
-Before we can talk about today's data, let's do some house-keeping first.
+Before we dive in, let's do some quick preparation.
 
 ### Downloading materials
 
-Download the materials we will be working with today from moodle. The zip folder that contains an Rmd file called `L3_stub`, and a data file called `CareerStats.csv`. Similar to last week, `L3_stub` contains all code chunks for today's lesson, and is intended for you to add notes and comments.
-
-
-### Unzipping the zip folder
-
-Make sure you **unzip the folder** and check it contains the `L3_stub.Rmd` and `CareerStats.csv`. 
-
-
-### Setting the working directory
-
-Set that folder as your working directory for today. The files in the folders should now be visible in the `Files pane`.
-
+Download the `L3_manip.Rmd` file from Teams and move it to your project folder (if you haven't already!).
 
 ### Loading in the required packages into the library
 
@@ -65,8 +54,6 @@ library(babynames)
 Now, today we will work with two different datasets, one fairly simple dataset, and another more messy complex dataset later one.
 
 The first is a large dataset about babynames (big surprise!). The package you installed and loaded into the library is infact a readymade dataset, that can be read straight into the `Global Environment`. We will deal with the second dataset later.
-
-
 
 ```{r}
 Name_Data <- babynames
@@ -263,14 +250,14 @@ In order to include or exclude certain observations (rows), use the `filter()` f
 
 ```{r}
 Name_MyYear <- filter(Name_Data, year == 1988)
-glimpse(Name_MyYear)
+head(Name_MyYear)
 ```
 
 or keep observations of only popular names:
 
 ```{r}
 Name_Pop <- filter(Name_Data, prop >= 0.07)
-glimpse(Name_Pop)
+head(Name_Pop)
 ```
 
 
@@ -296,7 +283,7 @@ This works as well for columns of the data type `character`. If you want only th
 
 ```{r}
 Name_Me <- filter(Name_Data, name == "Jaimie")
-glimpse(Name_Me)
+head(Name_Me)
 ```
 
 Here, the `filter()` function compares every single value in the column `name` of the data object `Name_Data` with the character string written on the right-hand side of the equation ("Jaimie").
@@ -305,7 +292,7 @@ You can also use `filter()` to keep data from multiple options of the same varia
 
 ```{r}
 Name_J <- filter(Name_Data, name %in% c("Jaimie", "Jamie", "Jaime", "James", "Jayme"))
-glimpse(Name_J)
+head(Name_J)
 ```
 
 
@@ -315,7 +302,7 @@ Using `filter()` to exclude certain observations.
 
 ```{r}
 Name_J_Short <- filter(Name_J, name !="James")
-glimpse(Name_J_Short)
+head(Name_J_Short)
 ```
 
 
@@ -345,7 +332,7 @@ For example, to filter rows containing only your name, of one sex, since your ye
 
 ```{r}
 Name_Specific <- filter(Name_Data, name == "Jaimie", year >= 1988, sex == "M")
-glimpse(Name_Specific)
+head(Name_Specific)
 ```
 
 ```{block, type="funfact"}
@@ -357,7 +344,7 @@ If we wanted to filter the data `Name_Data` for either names with a very high co
 
 ```{r}
 Data_Or <- filter(Name_Data, n > 90000 | prop < 2.27e-06)
-glimpse(Data_Or)
+head(Data_Or)
 ```
 
 As you will have noticed, `Data_Or` has now observations for names that either have a count over 90,000 in a year, or account for a very small proportion in a year. In this instance these are very distinct groups, and no observation would meet both criteria, check for yourself:
@@ -365,17 +352,17 @@ As you will have noticed, `Data_Or` has now observations for names that either h
 
 ```{r}
 Data_Or2 <- filter(Name_Data, n > 90000 & prop < 2.27e-06)
-glimpse(Data_Or2)
+head(Data_Or2)
 ```
 
 Here we see `Data_Or2`, returns no observations. However sometimes, you might select multiple criteria, where some observations will only meet one, but other observations may meet both criteria (see below). So always keep in mind what exactly you want to find, and choose the best way to filter. 
 
 ```{r}
 Data_Or3 <- filter(Name_Data, n > 90000 | prop > 0.05)
-glimpse(Data_Or3)
+head(Data_Or3)
 
 Data_Or4 <- filter(Name_Data, n > 90000 & prop > 0.05)
-glimpse(Data_Or4)
+head(Data_Or4)
 ```
 
 <span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span>
@@ -414,7 +401,7 @@ Let's apply this to this to our `Name_Data` data tibble. Say we wanted to create
 
 ```{r}
 Name_Ext <- mutate(Name_Data, Decade = floor(year/10)*10)
-glimpse(Name_Ext)
+head(Name_Ext)
 ```
 
 As we can see, `Name_Ext` has one column more than `Name_Data`. So `mutate()` took the value in the cells for each row of the variable `year`, devided it by 10, and using the `floor()` function, rounds that value down to the nearest whole number, before finally multiplying the result by 10, and adding it to a new column called `Decade`.
@@ -423,7 +410,7 @@ Importantly, new variables will overwrite existing variables if column headings 
 
 ```{r}
 Name_Ext2 <- mutate(Name_Ext, Decade = Decade/2)
-glimpse(Name_Ext2)
+head(Name_Ext2)
 ```
 
 So now, `Name_Ext2` did not gain a column (it still contains 6 variables), and `Decade` now has (unhelpfully) half the numeric value of the decade. (As an aside you could prevent yourself from accidentally doing something like this by converting `Decade` from numeric double type data to character type data, if you had no intention of carrying out any calculations on that variable)
@@ -438,7 +425,7 @@ You can also use `mutate()` to drop columns you no longer need, as an alternativ
 
 ```{r}
 Name_Ext2 <- mutate(Name_Ext2, Decade = NULL)
-glimpse(Name_Ext2)
+head(Name_Ext2)
 ```
 
 
@@ -484,7 +471,7 @@ You will have to stay tuned for Chapter 5 to find out more!!
 ```{block, type="task"}
 **Your turn**
 
-* Add a new column to `Name_Data` that is called `prcnt` and is position *to the left* of `prop` that gives the percentage each name accounts for of total names that year. *Hint: `prop` (proportion) is like a percentage represented out of 1 instead of out of 100! 
+* Add a new column to `Name_Data` that is called `prcnt` and is positioned *to the left* of `prop` that gives the percentage each name accounts for of total names that year. *Hint: `prop` (proportion) is like a percentage represented out of 1 instead of out of 100! 
 
 ```
 
@@ -654,7 +641,7 @@ If you need to return the data to a non-grouped form, use the `ungroup()` functi
 MMA_Data <- group_by(MMA_Data, BMI)
 glimpse(MMA_Data)
 MMA_Data <- ungroup(MMA_Data)
-glimpse(MMA_Data)
+head(MMA_Data)
 ```
 
 
@@ -666,8 +653,9 @@ Let's finish this section with an exercise that combines all of the Wickham Six 
 
 ```{block, type="task"}
 **Your turn**
+Starting with `MMA_Data`:
 
-* Rename the column `Success` to be called `WinRate`, and keep only the following columns in this specific order:
+* Rename the column `Success` to be called `WinRate`, and select only the following columns in this specific order:
 `WinRate`, `Stance`, `WeightClass`
 Save the output as `wick6a`.
 * Arrange the data in `wick6a` such that those with the highest `WinRate` are at the top and those with the lowest `WinRate` are at the bottom.
@@ -720,6 +708,23 @@ head(wick6_onestep)
 
 As you can see, `wick6_onestep` produces the same output as `wick6c`. So, how does it work? Well, pipes automatically take the output from one function and feed it directly into the **first argument of the next function**. Without pipes, you needed to insert your chosen dataset as the first argument to every function. With pipes, you are only required to specify the original dataset (i.e  `MMA_Data`) once at the beginning of the pipeline, and removes the need to create unnecessary intermediary objects. You now no longer need the first argument of each of the subsequent functions anymore, because the pipe will know to look at the output from the previous step in the pipeline.
 
+### Magrittr Pipe (%>%) vs. Base R Pipe (|>)
+
+In this course we will use the pipe that exists as part of the magrittr package: `%>%`
+This is the original pipe and is included as part of the tidyverse. 
+
+However, it is worth noting that a base R pipe has since been added: `|>`
+This works extremely similarly in most cases, and you may well encounter it as you encounter more R code. 
+
+```{r}
+wick6_onestep <- MMA_Data |>
+  select(WinRate = Success, Stance, WeightClass) |>
+  arrange(desc(WinRate)) |>
+  filter(Stance != "Orthodox")
+head(wick6_onestep)
+```
+
+However, for this course we will be only using the magrittr pipe. 
 
 ```{block, type="task"}
 **Your turn**
@@ -742,16 +747,18 @@ wick6pipe
 ```
 `r unhide()`
 
-If done correct `wick6pipe` should look identical to `wick6f`
+If done correctly `wick6pipe` should look identical to `wick6f`
 
 
 ```{block, type="funfact"}
 
 Note that in the above code chunk, the data object has been on its own line in the code followed immediately by `%>%` before starting with the "functions". 
 
-The other option would have been to put the data object as the first argument within the first function. 
+The other option would have been to put the data object as the first argument within the first function like so: 
 
-The benefit of having the data on its own is that you can reorder functions easily or squeeze another one in (for example if you summarised something but forgot to group beforehand) without the need to "move" the data object into the new first argument of the pipeline. 
+`wick6pipe <- select(MMA_Data, WinRate = Success, Stance, WeightClass) %>%`
+
+The benefit of having the data on its own is that you can reorder functions easily or squeeze another one in (for example if you summarised something but forgot to group beforehand) without the need to "move" the data object into the new first argument of the pipeline. It is mostly a convenience issue, and there may be times where one solution makes more sense than the other!
 
 ```
 
@@ -819,7 +826,7 @@ In one continuous pipe chain:
 Take `MMA_Data`, rename the `Height` column so that it is called `Tallness`, and keep only the following columns IN THIS EXACT ORDER:
 `ID`, `Weight`, `BMI`, `Reach`, `Stance`, `Tallness`
 AND THEN
-use the arrange() function to sort first by `Reach` in *desceding* order, then by `Tallness` in *ascending* order. 
+use the arrange() function to sort first by `Reach` in *descending* order, then by `Tallness` in *ascending* order. 
 
 Store the result in `Q2`.
 ```
@@ -1004,13 +1011,13 @@ Create summary stats for success rate (`Success`), you should have columns calle
 `MaxSuccess` that shows the maximum success rate
 `MinSuccess` that shows the minimum success rate
 `SDSuccess` that shows the standard deviation of success rate
-The resulting table should be stored in `Example_6`.
+The resulting table should be stored in `Q6`.
 ```
 
 `r hide("Solution")`
 ```{r}
 # Sean's solution
-Example_6 <- MMA_Data %>%
+Q6 <- MMA_Data %>%
   group_by(Stance, HeightClass) %>%
   summarise(MedSuccess = median(Success), 
             MaxSuccess = max(Success), 
@@ -1040,13 +1047,13 @@ In one continuous pipe chain:
 * Group the data by `WeightClass`
 * Create summary stats that show the mean of `Perc_W_by_Dec`
 
-Store the result in a variable called `Example_7`.
+Store the result in a variable called `Q7`.
 ```
 
 `r hide("Solution")`
 ```{r}
 # Sean's solution
-Example_7 <- MMA_Data %>% 
+Q7 <- MMA_Data %>% 
   select(ID, WeightClass, Stance, T_Wins, W_by_Decision:W_by_Sub) %>%
   filter(Stance != "Southpaw") %>%
   mutate(Perc_W_by_Dec = (W_by_Decision/T_Wins)*100) %>%
