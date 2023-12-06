@@ -2,7 +2,7 @@
 
 This week we are moving on to plots. You have learned how to get your data into a usable format, so now it is time for you to learn how to visualise your data. Visualisations are important as they tell us how our data looks like; help us discover outlier variables, tells us about distribution abnormalities etc. Plots also help your reader to better understand the data that you are working with.
 
-## Pre-class Activities
+## Pre-class Resources
 
 Before you start this week's class, here are some pre-class readings:
 * [Five Ways to Lie with Charts](https://getpocket.com/explore/item/five-ways-to-lie-with-charts?utm_source=pocket-newtab-global-en-GB)
@@ -22,7 +22,6 @@ Before you start this week's class, here are some pre-class readings:
 4. Learn how to create groups in plots
 5. Learn how to make a variety of plots based on the type of variables we have
 
-This lesson is led by Sean Westwood.
 
 ## Pre-steps
 
@@ -32,7 +31,10 @@ Firstly, load `tidyverse`, and then read the data into your `Global Environment`
 
 ```{r L7, message=FALSE, warning=FALSE}
 library(tidyverse)
-migration_scot <- read_csv("data/free_movement_uk.csv") #downloaded from the Scottish Government Stats website
+migration_scot <- read_csv("data/free_movement_uk.csv") %>%
+  # remove spaces from variable names
+  rename(MigrationType = MigrationType,
+         MigrationSource = MigrationSource)
 ```
 
 
@@ -62,7 +64,7 @@ The data is a bit messy, so let's clean it a little bit before we can work with 
 
 Use pipes `%>%` for the following 4 tasks and save your data into the **traffic_scot** variable so that it appears in your `Global Environment`.
 
-1. Select only the necessary variable - `DateCode`, `Value`, `Sex`, `Age`, `Migration Source` & `Migration Type` (notice that some variable names include spaces)
+1. Select only the necessary variable - `DateCode`, `Value`, `Sex`, `Age`, `MigrationSource` & `MigrationType` (notice that some variable names include spaces)
 2. Filter the data in column `DateCode`, and keep only observations from 2016
 3. Keep only the total number of people by `Age` ('All') and `Sex` ('Male' or 'Female')
 4. Keep only the information about the number of people that came to and left Scotland (we do not want to know about the net value)
@@ -74,13 +76,12 @@ traffic_scot <- NULL
 
 `r hide("Solution")`
 ```{r}
-
 traffic_scot <- migration_scot %>% 
-  select(DateCode, Value, Sex, Age, `Migration Source`, `Migration Type`) %>% 
+  select(DateCode, Value, Sex, Age, MigrationSource, MigrationType) %>% 
   filter(DateCode == '2016', 
          Age == 'All', 
          Sex != 'All', 
-         `Migration Type` != 'Net')
+         MigrationType != 'Net')
 
 ```
 `r unhide()`
@@ -119,7 +120,6 @@ Let's try it.
 
 ```{r}
 ggplot()
-
 ```
 
 Now let's add some information. Let's include the data and the axes. From our data `traffic_scot` let's put `Sex` on the x-axis and `Value` on the y-axis. This way we can visualise how many people from each sex category came to and left Scotland overall.
@@ -127,9 +127,7 @@ Now let's add some information. Let's include the data and the axes. From our da
 What's the difference with the empty plot above?
 
 ```{r}
-
 ggplot(traffic_scot, aes(x = Sex, y = Value))
-
 ```
 
 ```{block, type="question"}
@@ -279,11 +277,9 @@ ggplot(df, aes(x=x, y=y, group=group)) + geom_line(aes(colour = group), linetype
 `r unhide()`
 
 
-
 ```{block, type = 'info'}
 **Tip**: Most of the time, if you cannot represent a graph in 2D then you are probably trying to show too much, and you should reconsider splitting it into multiple plots.
 ```
-
 
 
 Let's get back to our free movement data that we started with in the section above. Remember we wanted to visualise how many people from each sex category came to and left Scotland.
@@ -303,7 +299,6 @@ What types of data are we trying to plot according to our first layer? Continuou
 We are using both continuous (value i.e. count of people) and categorical (sex).
 ```
 `r unhide()`
-
 
 
 ### Types of plots
@@ -327,13 +322,9 @@ There is variety of plots that we can create using ggplot2. We select the plot b
 Let's create a column/bar plot to visualise the data using `geom_col()`. What does the data look like?
 
 ```{r}
-
 ggplot(traffic_scot, aes(x = Sex, y = Value)) + 
   geom_col()
-
 ```
-
-
 
 ```{block, type = 'question'}
 Considering what we know from the data description and the different variable in it, do we need another variable to make the plot more informative? If yes, which one?
@@ -343,7 +334,7 @@ Considering what we know from the data description and the different variable in
 
 `r hide('Explanation')`
 ```{block, type = 'solved'}
-If you worked in the immigration office, you would want to know how many people left and how many people came to Scotland. Knowing how many people moved about is not particularly informative. In what ways can we differentiate the males and females who came to and who went out of Scotland? Separating the data by `Migration Type` would tell us whether the people came into or left Scotland.
+If you worked in the immigration office, you would want to know how many people left and how many people came to Scotland. Knowing how many people moved about is not particularly informative. In what ways can we differentiate the males and females who came to and who went out of Scotland? Separating the data by `MigrationType` would tell us whether the people came into or left Scotland.
 ```
 `r unhide()`
 
@@ -357,14 +348,14 @@ Let's first look at colour.
 Depending on the type of graph, colouring in can be done either with `colour` or with `fill`. For our column plots we use `fill.` If we used `colour`, then we would get different colours for the outlines. You can find out whether to use colour or fill by typing the name of the geom in the Help search bar or typing `?geom_col()` in the console and looking at the **Aesthetics** section.
 
 ```{r}
-ggplot(traffic_scot, aes(x = Sex, y = Value, fill = `Migration Type`)) +
+ggplot(traffic_scot, aes(x = Sex, y = Value, fill = MigrationType)) +
   geom_col(position = 'dodge')
 
 ```
 
 Let's decompose the code above: 
 
-We have our data and our two variables. They are the same as before. This time we are saying that we want the data to be separated even further by `Migration Type` and we have given two different colours to the 'In' and 'Out' migration types using the additional argument `fill`. 
+We have our data and our two variables. They are the same as before. This time we are saying that we want the data to be separated even further by `MigrationType` and we have given two different colours to the 'In' and 'Out' migration types using the additional argument `fill`. 
 
 We have also added the argument `position = 'dodge'` in the `geom_col()`. This makes sure that any groupings we create are then presented separately.
 
@@ -375,7 +366,7 @@ Simple task:
 ```
 
 ```{r}
-ggplot(traffic_scot, aes(x = Sex, y = Value, fill = `Migration Type`)) +
+ggplot(traffic_scot, aes(x = Sex, y = Value, fill = MigrationType)) +
   geom_col()
 ```
 
@@ -389,7 +380,7 @@ Simple task:
 
 ```{r}
 # create your plot here
-ggplot(traffic_scot, aes(x = Sex, y = Value, fill = `Migration Type`)) +
+ggplot(traffic_scot, aes(x = Sex, y = Value, fill = MigrationType)) +
   geom_col(position = 'fill')
 ```
 
@@ -411,10 +402,10 @@ Geoms in `ggplot2` have a large selection of arguments to allow you to adjust yo
 
 #### More groupings
 
-Now let's imagine that we want to know whether the individuals are moving to/from Overseas or RUK as well as all the information we have so far. Should we create more groups? Let's try also using colour as a grouping way, based on `Migration Source`.
+Now let's imagine that we want to know whether the individuals are moving to/from Overseas or RUK as well as all the information we have so far. Should we create more groups? Let's try also using colour as a grouping way, based on `MigrationSource`.
 
 ```{r}
-ggplot(traffic_scot, aes(x = Sex, y = Value, fill = `Migration Type`, colour =`Migration Source`)) + 
+ggplot(traffic_scot, aes(x = Sex, y = Value, fill = MigrationType, colour = MigrationSource)) +
   geom_col(position = 'dodge')
 
 ```
@@ -437,11 +428,11 @@ What variables would you use? Write them down in your stub file.
 
 `r hide('Solution')`
 ```{block, type = "solved"}
-DateCode, Migration Type, Migration Source, Value
+DateCode, MigrationType, MigrationSource, Value
 ```
 `r unhide()`
 
-First, let's get the data we will need. We want our selected variables from above, and the overall data for the rest of the variables i.e. the 'all' categories for `Age`, and `Sex`. Remember we want to look at people moving in and out, so we do not want the net `Migration Type`. Save the output into the variable **trafic_scot2** so that it appears in your `Global Environment`.
+First, let's get the data we will need. We want our selected variables from above, and the overall data for the rest of the variables i.e. the 'all' categories for `Age`, and `Sex`. Remember we want to look at people moving in and out, so we do not want the net `MigrationType`. Save the output into the variable **traffic_scot2** so that it appears in your `Global Environment`.
 
 ```{r}
 
@@ -454,9 +445,9 @@ traffic_scot2 <- NULL
 
 traffic_scot2 <- migration_scot %>% 
   filter(Age == 'All', 
-         `Migration Type` != 'Net',
+         MigrationType != 'Net',
          Sex == 'All') %>% 
-  select(DateCode, Value,`Migration Source`, `Migration Type`)
+  select(DateCode, Value,MigrationSource, MigrationType)
 
 ```
 `r unhide()`
@@ -483,8 +474,8 @@ Let's start with a scatter plot.
 
 ```{r}
 ggplot(traffic_scot2, aes(DateCode, Value, 
-                          shape = `Migration Source`, 
-                          colour = `Migration Type`)) + 
+                          shape = MigrationSource, 
+                          colour = MigrationType)) + 
   geom_point() 
 ```
 
@@ -493,15 +484,15 @@ This seems difficult to look at. Let's make it easier by adding a line that conn
 
 ```{r}
 ggplot(traffic_scot2, aes(DateCode, Value, 
-                          shape = `Migration Source`,
-                          colour = `Migration Type`)) + 
+                          shape = MigrationSource,
+                          colour = MigrationType)) + 
   geom_point() + 
   geom_line()
 
 ```
 
 ```{block, type = 'question'}
-Question: How do we know that the line graph is going to connect the `Migration Type` and not the `Migration Source`? (Think about the aesthetics of `geom_line` and `geom_point`)
+Question: How do we know that the line graph is going to connect the `MigrationType` and not the `MigrationSource`? (Think about the aesthetics of `geom_line` and `geom_point`)
 ```
 
 
@@ -529,17 +520,17 @@ Let's get back to the original data and plot the distribution of all females ent
 ```{r}
 female_migration <- migration_scot %>% 
   filter(Sex == 'Female', 
-         `Migration Source` == 'To-from Overseas', 
+         MigrationSource == 'To-from Overseas', 
          Age == 'All', 
-         `Migration Type` != 'Net')
+         MigrationType != 'Net')
 
 # make box plots
-ggplot(female_migration, aes(x = `Migration Type`, y = Value, fill = `Migration Type`)) + 
+ggplot(female_migration, aes(x = MigrationType, y = Value, fill = MigrationType)) + 
   geom_boxplot()
 
 
 #make violin plots
-ggplot(female_migration, aes(x = `Migration Type`, y = Value, fill = `Migration Type`)) + 
+ggplot(female_migration, aes(x = MigrationType, y = Value, fill = MigrationType)) + 
   geom_violin()
 
 ```
@@ -575,27 +566,24 @@ traffic_scot <- read_csv("data/free_movement_uk.csv")
 
 my_data <- traffic_scot %>% 
   filter(Age %in% c('21 years', '41 years')) %>% 
-  select(DateCode, Value, Age, Sex, `Migration Source`, `Migration Type`) %>% 
+  select(DateCode, Value, Age, Sex, MigrationSource, MigrationType) %>% 
   filter(DateCode %in% c('2013', '2018'), 
-         `Migration Type` != 'Net', 
-         `Migration Source` == 'To-from Overseas', 
+         MigrationType != 'Net', 
+         MigrationSource == 'To-from Overseas', 
          Sex == 'All')
 
 
-q6 <- ggplot(my_data, aes(`Migration Type`, Value)) + 
+q6 <- ggplot(my_data, aes(MigrationType, Value)) + 
   geom_col()
 q6
 
-q7 <- ggplot(my_data, aes(`Migration Type`, Value, fill = as.character(DateCode))) + 
+q7 <- ggplot(my_data, aes(MigrationType, Value, fill = as.character(DateCode))) + 
   geom_col(position = 'dodge')
 q7 
 
-q8 <-ggplot(my_data, aes(`Migration Type`, Value, fill = Age)) + 
+q8 <-ggplot(my_data, aes(MigrationType, Value, fill = Age)) + 
   geom_col(position = 'dodge')
 q8
 ```
 `r unhide()`
 
-## Formative Homework
-
-The formative homework for this week can now be found on Moodle.
