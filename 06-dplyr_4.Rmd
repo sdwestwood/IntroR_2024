@@ -217,7 +217,7 @@ beat_baby <- NULL
 
 `r hide("Solution")`
 ```{r}
-#Jaimie's solution
+#Alistair's solution
 Q10 <- left_join(beatnames, babynames, by = join_by(name), suffix = c("_beat", "_baby"))
 #OR 
 Q10 <- right_join(babynames, beatnames, by = join_by(name), suffix = c("_baby", "_beat"))
@@ -246,7 +246,7 @@ Sun_Season_2 <- wos_seasonal_sun %>%
   filter(year < 1970)
 ```
 
-Now we have 2 indetical tables for seasonal sunshine in the west of Scotland, but for different sets of years. All the same variables, but totally different observations.
+Now we have 2 identical tables for seasonal sunshine in the west of Scotland, but for different sets of years. All the same variables, but totally different observations.
 
 We can easily join these together with `bind_rows` to create a complete history.
 ```{r}

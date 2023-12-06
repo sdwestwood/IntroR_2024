@@ -8,7 +8,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Data Transformation 4: Fine-tuned Data Manipulation 
+# Tidy Data 2: Cell Manipulation 
 
 ## Pre-steps
 
@@ -17,46 +17,6 @@ Before we can start to focus on some other functions that might come in handy fo
 ```{r L6}
 library(tidyverse)
 ```
-
-
-## rename()
-
-`rename()` changes column names. All available column are retained.
-
-```{r, eval=FALSE}
-rename(data, new_column_name = old_column_name)
-```
-
-You can rename multiple column headers by including more arguments, separating them with a comma. Let's take a look at a simple example in `table1`.
-
-```{r}
-table1
-```
-
-If we wanted to change the column headers of `country` to `Country` and `population` to `Population`, and keep the columns `year` and `cases` as they are, we would code
-
-```{r}
-rename(table1, Country = country,
-       Population = population)
-```
-
-
-
-If you want to select a few columns and rename them in the process, you could use `select()`. The structure is the same as with `rename()`, the only difference is that the new data only retains the columns mentioned explicitly within `select()`.
-
-```{r, eval=FALSE}
-select(data, new_column_name = old_column_name)
-```
-
-
-
-Select columns `country` and `population` from `table1` and renaming them as `Country` and `Population` at the same time.
-
-```{r}
-select(table1, Country = country,
-       Population = population)
-```
-
 
 
 
@@ -75,7 +35,7 @@ fake_data <- tibble(PP_ID = 1:40,
                     Age = sample(16:40, 40, replace = TRUE),
                     Institution = sample(c(rep(1,10), rep(2,8), rep(3,10), rep(4,10), rep(99,2))),
                     Grade_points = sample(c(0,9:22), 40, replace = TRUE))
-glimpse(fake_data)
+head(fake_data)
 
 ```
 
@@ -112,7 +72,7 @@ fake_data <- mutate(fake_data, Sex_char = recode(Sex,
                                                  `1` = "Male", 
                                                  `2` = "Female", 
                                                  `3` = "Other"))
-glimpse(fake_data)
+head(fake_data)
 ```
 
 
@@ -167,7 +127,7 @@ How would we apply that to recoding `Sex`? We would want the expression to test 
 
 ```{r}
 fake_data <- mutate(fake_data, Sex_ifelse = ifelse(Sex == 1, "Male", "Female"))
-glimpse(fake_data)
+head(fake_data)
 ```
 
 
@@ -202,7 +162,7 @@ The test expression in `ifelse()` can evaluate more complex "things" as long as 
 
 ```{r}
 fake_data <- mutate(fake_data, Pass_Fail = ifelse(Grade_points > 9, "Pass", "Fail"))
-glimpse(fake_data)
+head(fake_data)
 ```
 
 We could also add a column `Grade` to `fake_data` that tells us the primary band the students got in their test. `Grade_points` between 18 and 22 result in A, 15 to 17 = B, 12 to 14 = C, 9 to 11 = D, 6 to 8 = E, 3 to 5 = F, 1 and 2 = G, and 0 = H. Here we can use the `%in%` operator.
@@ -216,7 +176,7 @@ fake_data <- mutate(fake_data, Grade = ifelse(Grade_points %in% 18:22, "A",
                                                                           ifelse(Grade_points %in% 3:5, "F",
                                                                                  ifelse(Grade_points %in% 1:2, "G","H"))))))))
 
-glimpse(fake_data)
+head(fake_data)
 ```
 
 
@@ -244,7 +204,7 @@ fake_data <- mutate(fake_data, Institution_case_when = case_when(
   TRUE ~ "Strathclyde"
   )
 )
-glimpse(fake_data)
+head(fake_data)
 ```
 
 The `TRUE` statement at the end is similar to the the "else" in the `ifelse()` function. A further similarity between the two is that arguments are evaluated in order, so you must proceed from the most specific to the most general.

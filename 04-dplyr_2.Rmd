@@ -2,14 +2,14 @@
 
 ## Intended Learning Outcomes {-}
 
-1. understand what tidy data is
-2. pivot
-3. recode
+1. Understand what tidy data is
+2. Be able to convert data from long format to wide
+3. Learn how to edit the content within cells
 
 
 ## Pre-steps
 
-All the functions for tidying data are within `tidyverse` so we need to make sure to load it into the library. Today's lecture will make use of built-in dataframes but for practice examples, we may want to load in the West of Scotland seasonal sunshine and rain data you encountered last week.
+All the functions for tidying data are within `tidyverse` so we need to make sure to load it into the library. Today's lecture will make use of built-in dataframes but for practice examples, as well as a couple of additional datasets we need to load in.
 
 ```{r L4, message=FALSE, warning=FALSE}
 library(tidyverse)

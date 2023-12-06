@@ -1,6 +1,7 @@
 ---
-title: "L5_code"
+title: "Tidy Data 1: Principles and Pivots"
 author: "SW"
+date: "22/11/2023"
 output: html_document
 ---
 
@@ -9,6 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
+# Tidy Data 1: Principles and Pivots
 
 ## Pre-steps
 
@@ -24,8 +26,6 @@ rain <- read_csv("wos_seasonal_rain.csv")
 We will also use some built-in datasets but we do not need to store them as objects in the `Global Environment`.
 
 
-
-
 ## Tidy data
 
 There are three interrelated rules which make a dataset tidy:
@@ -35,8 +35,6 @@ There are three interrelated rules which make a dataset tidy:
 3. Each value must have its own cell.
 
 Most data is not in a tidy format. `pivot_wider()`, `pivot_longer`, `separate()` and `unite()` can help us achieve that.
-
-
 
 
 ## Pivot Functions
@@ -88,7 +86,7 @@ There are two separate columns `1999` and `2000` with population values for Afgh
 
 
 ```{r}
-table4b_long <- pivot_longer(table4b, `1999`:`2000`, names_to='year', values_to='population')
+table4b_long <- NULL
 
 ```
 
@@ -98,10 +96,9 @@ table4b_long <- pivot_longer(table4b, `1999`:`2000`, names_to='year', values_to=
 Look object `sun`. The seasonal data is spread over 4 columns (`win`, `spr`, `sum`, and `aut`), which is not tidy. Use `pivot_longer()` to reshape the data into a tidier format. Store the output in the `Global Environment` as an object called `sun_tidy`.
 
 ```{r}
-sun_tidy <- pivot_longer(sun, win:aut, names_to='season', values_to='sun')
+sun_tidy <- NULL
                          
 ```
-
 
 
 
@@ -161,7 +158,7 @@ Your task is to spread the data back out, so that cases, population, and percent
 
 
 ```{r}
-table1_mod_corrected <- pivot_wider(table1_mod, names_from = variable, values_from = values)
+table1_mod_corrected <- NULL
 table1_mod_corrected
 ```
 
@@ -186,10 +183,7 @@ Undo the messiness by reshaping the data in `sun_fail` into a tidier format. Sto
 
 
 ```{r}
-sun_retidy <- sun_fail %>%
-  pivot_wider(names_from=col_names, values_from=values) %>%
-  select(year,season,sun)
-head(sun_retidy)
+sun_retidy <- NULL
 ```
 
 
@@ -212,7 +206,7 @@ separate(data=table3, col=rate, into = c("cases", "population"), sep = "/")
 ```
 
 
-### additional arguments for separate()
+### Additional arguments for separate()
 
 
 #### Retaining the original column
@@ -239,7 +233,7 @@ Separate the column `rate` in `table3` to keep only the values after the separat
 
 
 ```{r}
-separate(data=table3, col=rate, into=c(NA,'population'), sep='/', remove=FALSE)
+table_3_sep <- NULL
 ```
 
 
@@ -303,9 +297,7 @@ Answer:
 How would you fix that?
 
 ```{r}
-table_9 <- table3_mod %>% 
-  separate(rate, into = c("cases", "ID_code"), sep = "/", extra = "merge") %>%
-  mutate(cases = as.integer(cases))
+table_9 <- NULL
 
 ```
 
@@ -360,9 +352,7 @@ Let's combine the two steps of tidying `table5` in a single pipe `%>%`. Separate
 
 
 ```{r}
-tb_cases <- table5 %>%
-  separate(col=rate, into=c('cases','population'), sep='/', convert=TRUE) %>%
-  unite(col=year, century, year, sep='') 
+tb_cases <- NULL
 
 tb_cases
 ```
@@ -424,7 +414,7 @@ mtcars
 
 
 
-Now, that we have learnt about the `mutate()` function, we can attempt to get all of these row names into a new column. All we have to do is combining a function called `rownames()` with `mutate()`. We also could use some more of these handy pipes `%>%` you learnt about last week.
+Now, that we have learnt about the `mutate()` function, we can attempt to get all of these row names into a new column. All we have to do is combining a function called `rownames()` with `mutate()`. We also could use some more of these handy pipes `%>%` you learnt about.
 
 ```{r}
 df_mtcars <- mtcars %>% 

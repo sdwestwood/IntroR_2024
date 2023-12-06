@@ -11,7 +11,7 @@ library(tidyverse)
 ```
 
 
-# Data Transformation - Lecture 4
+# Tidy Data 1: Principles and Pivots
 
 
 ##	Pre-Steps
