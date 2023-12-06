@@ -1,8 +1,6 @@
 # Tidy Data 3: Joins 
 
 ## Intended Learning Outcomes {-}
-:LOGBOOK:
-:END:
 
 The aim of this section is to give you some tools that let you combine data from multiple tables. By the end of this section, you will know:
 
@@ -24,7 +22,7 @@ More often than not you will find yourself with data across multiple tables. In 
 
 ### Bringing in new data
 
-First of all lets bring in some new data to look at these new functions.
+First of all lets bring in some familiar data to look at these new functions.
 
 #### What's the data
 
@@ -56,7 +54,7 @@ I'm going to adapt the starwars data to make it a bit easier for us to use.
 
 sw_names <- starwars %>%
   separate(col = name, into = c("name", NA), sep = " ", extra = "drop", fill = "right") %>%
-  unnest(films) %>% # We didn't learn about this
+  unnest(films) %>% # Don't worry, we didn't learn about this
   filter(films == "The Empire Strikes Back") %>%
   mutate(sex = recode(sex, male = "M", female = "F", .default = NA_character_)) %>%
   select(name, sex, homeworld) %>%
@@ -81,11 +79,11 @@ Here we merge `babynames` and `sw_names` with `inner_join()` specifying we want 
 
 ```{r}
 
-inner <- inner_join(sw_names, babynames, join_by("name"), suffix = c("_sw", "_baby"))
+inner <- inner_join(sw_names, babynames, by = join_by(name), suffix = c("_sw", "_baby"))
 inner
 ```
 
-Using an inner join returns only `r nrow(inner)` rows of observations because these are the only rows that contain names from our Star Wars data. However, we are still merging both tibbles together, meaning that all columns from `sw_names` and `babynames` are kept (including the `sex` associated with that name in each table, with a suffix added to each to tell them appart). In this example, the name "Darth" is dropped because no one is actually called "Yoda".
+Using an inner join returns only `r nrow(inner)` rows of observations because these are the only rows that contain names from our Star Wars data. However, we are still merging both tibbles together, meaning that all columns from `sw_names` and `babynames` are kept (including the `sex` associated with that name in each table, with a suffix added to each to tell them appart). In this example, the name "Yoda" is dropped because no one is actually called "Yoda".
 
 ```{r}
 filter(inner, name == "Yoda")
@@ -112,32 +110,30 @@ How many columns (or variables) does `inner` have? `r fitb(as.character(ncol(inn
 Let's try this `left_join()` function for our simple example of `babynames` and `sw_names` in R.
 
 ```{r}
-left <- left_join(sw_names, babynames, join_by("name"), suffix = c("_baby", "_sw"))
+left <- left_join(sw_names, babynames, by = join_by(name), suffix = c("_sw", "_baby"))
 left
 ```
 
 Here `babynames` is returned in full, and for every matching `name` in `sw_names` the value is added. However, most of the names in `babynames` aren't in `sw_names`, so we get `NA` added here to the column `sex_sw` and `homeworld` columns.  
 
-We can get the same data as we did with `inner_join()` if we remove the missing values.
+We can get the same data as we did with `inner_join()` if we remove the missing values. We can check if 2 objects are the same in R using the `identical()` function.
 
 ```{r}
 left_filt <- filter(left, !is.na(year))
 
-nrow(left_filt) == nrow(inner)
+identical(left_filt, inner)
+```
+
+If we want to do it the other way round we can reverse the order of the tables. This time I'll also leave out the `by` argument so that we only match the rows where both `name` and `sex` match. (Note the helpful message we get.)
+
+```{r}
+left_join(babynames, sw_names)
 ```
 
 <span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span>
 
 How many rows (or observations) does `left` have? `r fitb(as.character(nrow(left)))` <br>
 How many columns (or variables) does `left` have? `r fitb(as.character(ncol(left)))` <br>
-
-
-If we want to do it the other way round we can reverse the order of the tables. This time I'll also leave out the `by` argument so that we only match the rows where both `name` and `sex` match. (Note the helpful message we get.)
-
-```{r}
-
-left_join(babynames, sw_names)
-```
 
 ##### right_join()
 
@@ -161,8 +157,6 @@ arrange(right, name)
 
 How many rows (or observations) does `right` have? `r fitb(as.character(nrow(right)))` <br>
 
-
-
 ##### full_join() #####
 
 `full_join()` combines all rows and all columns from both dataframes. `NA` values fill unmatched rows.
@@ -171,7 +165,7 @@ How many rows (or observations) does `right` have? `r fitb(as.character(nrow(rig
 
 ```{r}
 
-full <- full_join(sw_names, babynames, join_by("name"), suffix = c("_baby", "_sw"))
+full <- full_join(sw_names, babynames, join_by(name), suffix = c("_baby", "_sw"))
 full
 ```
 
@@ -208,24 +202,56 @@ beatnames <- tibble(
 ```{block, type="task"}
 **Your turn**
 
-Join together `beatnames` and `babynames` so that we keep all the rows from the `beatnames` table, add a useful suffix so you can differentiate between columns with the same name. Store the result in `Q10`.
+Join together `beatnames` and `babynames` so that we keep all the rows from the `beatnames` table, add a useful suffix so you can differentiate between columns with the same name. Try using each of the 4 mutating join methods and store the result in `beat_left`, `beat_right`, `beat_inner` and `beat_full`.
 ```
 
 ```{r}
-beat_baby <- NULL
+beat_left <- NULL
 ```
 
 `r hide("Solution")`
 ```{r}
 #Alistair's solution
-Q10 <- left_join(beatnames, babynames, by = join_by(name), suffix = c("_beat", "_baby"))
-#OR 
-Q10 <- right_join(babynames, beatnames, by = join_by(name), suffix = c("_baby", "_beat"))
-
-Q10
+beat_left <- left_join(beatnames, babynames, by = join_by(name), suffix = c("_beat", "_baby"))
+beat_left
 ```
 `r unhide()`
 
+```{r}
+beat_right <- NULL
+```
+
+`r hide("Solution")`
+```{r}
+#Alistair's solution
+beat_right <- right_join(babynames, beatnames, by = join_by(name), suffix = c("_baby", "_beat"))
+beat_right
+```
+`r unhide()`
+
+```{r}
+beat_inner <- NULL
+```
+
+`r hide("Solution")`
+```{r}
+#Alistair's solution
+beat_inner <- inner_join(beatnames, babynames, by = join_by(name), suffix = c("_beat", "_baby"))
+beat_inner
+```
+`r unhide()`
+
+```{r}
+beat_full <- NULL
+```
+
+`r hide("Solution")`
+```{r}
+#Alistair's solution
+beat_full <- full_join(beatnames, babynames, by = join_by(name), suffix = c("_beat", "_baby"))
+beat_full
+```
+`r unhide()`
 
 ###	Binding Join Verbs
 
@@ -233,6 +259,12 @@ In contrast to mutating join verbs, binding join verbs simply combine tables wit
 
 
 #### bind_rows()
+
+```{r}
+wos_seasonal_sun <- read_csv("data/wos_seasonal_sun.csv", show_col_types = FALSE)
+wos_monthly_sun <- read_csv("data/wos_monthly_sun.csv", show_col_types = FALSE)
+```
+
 
 `bind_rows()` is ideal when you have more entries of the same kind of data, i.e. new observations of the same variables. (For example; you have a new batch of participants answering the same questionnaire; or you have new air pollution data from a different geographic region... same variables - different observations)
 
@@ -276,7 +308,7 @@ Bind_3 <- bind_cols(wos_monthly_sun, wos_seasonal_sun)
 
 What happens if we attempt to bind tables with different dimensions
 ```{r, error=TRUE}
-Bind_4 <- bind_cols(Summer_Sun, Summer_Rain)
+Bind_4 <-bind_cols(wos_monthly_sun, inner)
 ```
 You simply get an error
 
@@ -292,6 +324,8 @@ example 2: full_join(data1, data2) %>% full_join(data3)
 
 Just to further clarify the differences between `bind_cols()` and the mutating joing verbs, lets look at how they would deal with the same challenge
 
+
+
 First lets create a new table for winter sun data, but lets arrange it by "win", so that rather than being in order of `year`, it is in order of most sunshine. This will have the same dimensions as the Summer_Sun table but a totally different order
 
 ```{r}
@@ -301,12 +335,17 @@ Winter_Sun <- wos_seasonal_sun %>%
 Winter_Sun
 ```
 
-Now lets try joining Winter_Sun and Summer_Sun using the two different methods
+Now lets make a Summer_sun table the same way and try joining it with Winter_Sun using the two different methods
 ```{r}
-Comparison_1 <- bind_cols(Summer_Sun, Winter_Sun)
-Comparison_2 <- left_join(Summer_Sun, Winter_Sun, "year")
+Summer_Sun <- wos_seasonal_sun %>% 
+  select(year, sum) %>%
+  arrange(desc(sum))
 
+
+Comparison_1 <- bind_cols(Summer_Sun, Winter_Sun)
 Comparison_1
+
+Comparison_2 <- left_join(Summer_Sun, Winter_Sun, by = join_by(year))
 Comparison_2
 ```
 
