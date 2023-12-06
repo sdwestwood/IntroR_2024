@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Pre-steps
 
-Before we can start to focus on some other functions that might come in handy for data manipulation, we need to make sure to load `tidyverse` into the library. 
+Before we can start to focus on some other functions that might come in handy for data manipulation, we need to make sure to load `tidyverse` into the library.
 
 ```{r L6}
 library(tidyverse)
@@ -340,3 +340,249 @@ fake_data_sex <- NULL
 
 
 
+
+# Tidy Data 3: Joins 
+
+## Pre-steps
+
+Before we can start we need to make sure to load `tidyverse` into the library. We're also going to use the `babynames` data again so let's load that.
+
+```{r L6, message=FALSE}
+library(babynames)
+```
+
+## Two-Table Verbs
+
+More often than not you will find yourself with data across multiple tables. In order to effectively combine multiple tables, `dplyr` provides a selection of **mutating join verbs**.
+
+### Bringing in new data
+
+First of all lets bring in some familiar data to look at these new functions.
+
+#### What's the data
+
+We're going to use 2 datasets that you should be familiar with from last week. The `starwars` data from the `tidyverse` and the `babynames` data package.
+
+```{r}
+starwars
+```
+
+```{r}
+babynames
+```
+
+#### Mutating Join Verbs
+
+Mutating join verbs combine the variables (columns) of two tables so that matching rows are together. There are 4 different types of mutating joins, namely `inner_join()`, `left_join()`, `right_join()`, and `full_join()`.
+
+I'm going to adapt the starwars data to make it a bit easier for us to use.
+
+```{r sw_data}
+sw_names <- starwars %>%
+  separate(col = name, into = c("name", NA), sep = " ", extra = "drop", fill = "right") %>%
+  unnest(films) %>% # Don't worry, we didn't learn about this
+  filter(films == "The Empire Strikes Back") %>%
+  mutate(sex = recode(sex, male = "M", female = "F", .default = NA_character_)) %>%
+  select(name, sex, homeworld) %>%
+  arrange(name)
+
+sw_names
+```
+Now we have all the first names of the characters in The Empire Strikes Back. Notice that some of these names will be in the babynames dataset and some won't.
+
+##### inner_join()
+
+`inner_join()` returns all rows from both tables for which the values in column specified in the `"by = "` statement overlap.
+
+Here we merge `babynames` and `sw_names` with `inner_join()` specifying we want to "join by" the variable `name`. Because both tables have the column `sex`, R needs to distiguish them from each other, for that we use the `suffix = ` argument, which allows us to specify what suffix to add to each column of the resulting table. If we do not spcify this, R will add a `.x` and `.y` suffix for us to the x (left) and y (right) table variables respectively.
+
+```{r}
+inner <- inner_join(sw_names, babynames, by = join_by(name), suffix = c("_sw", "_baby"))
+inner
+```
+
+Using an inner join returns only `r nrow(inner)` rows of observations because these are the only rows that contain names from our Star Wars data. However, we are still merging both tibbles together, meaning that all columns from `sw_names` and `babynames` are kept (including the `sex` associated with that name in each table, with a suffix added to each to tell them appart). In this example, the name "Yoda" is dropped because no one is actually called "Yoda".
+
+```{r}
+filter(inner, name == "Yoda")
+```
+
+##### left_join()
+
+`left_join()` retains the complete first (left) table and adds values from the second (right) table that have matching values in the column specified in the `"by ="` statement. Rows in the left table with no match in the right table will have missing values (`NA`) in the new columns. 
+
+Let's try this `left_join()` function for our simple example of `babynames` and `sw_names` in R.
+
+```{r}
+left <- left_join(sw_names, babynames, by = join_by(name), suffix = c("_sw", "_baby"))
+left
+```
+
+Here `babynames` is returned in full, and for every matching `name` in `sw_names` the value is added. However, most of the names in `babynames` aren't in `sw_names`, so we get `NA` added here to the column `sex_sw` and `homeworld` columns.  
+
+We can get the same data as we did with `inner_join()` if we remove the missing values. We can check if 2 objects are the same in R using the `identical()` function.
+
+```{r}
+left_filt <- filter(left, !is.na(year))
+
+identical(left_filt, inner)
+```
+
+If we want to do it the other way round we can reverse the order of the tables. This time I'll also leave out the `by` argument so that we only match the rows where both `name` and `sex` match. (Note the helpful message we get.)
+
+```{r}
+left_join(babynames, sw_names)
+```
+
+##### right_join()
+
+Alternatively we can use a `right_join()` to do the same thing using the original order of data tables. `right_join()` retains the complete second (right) table and adds values from the first (left) table that have matching values in the column specified in the by statement. Rows in the right table with no match in the left table will have missing values (`NA`) in the new columns.
+
+```{r}
+right <- right_join(sw_names, babynames, by = join_by(name, sex))
+right
+```
+
+Here `sw_names` is returned in full, and for every matching `name` in `babynames` the value is added, for any row of `sw_names` that does not have a matching value in `babynames`, `NA` is added. Notice the order of the rows, though!!! All the names from `sw_names` come first before the extra rows from `babynames` which are added at the bottom. That is due to the order of how they are entered into the `right_join()` function. The "left" data (first table) is still prioritised in terms of ordering observations!
+
+```{r}
+arrange(right, name)
+```
+
+##### full_join() #####
+
+`full_join()` combines all rows and all columns from both dataframes. `NA` values fill unmatched rows.
+
+```{r}
+full <- full_join(sw_names, babynames, join_by(name), suffix = c("_baby", "_sw"))
+full
+```
+
+As you can see, all names from both tables are kept, and `NA` is used to fill the missing `homeworlds`. Again you can see the prioritization of the left (first) table in the arrangement of the years.
+
+### Mutating Join Summary
+
+| join function | Description                                                             |
+|:--------------|:------------------------------------------------------------------------|
+| inner_join()  | Includes all rows that are PRESENT IN BOTH the left and the right table |
+| left_join()   | Includes all rows from the left table (first data entered)              |
+| right_join()  | Includes all rows from the right table (second data entered)            |
+| full_join()   | Includes all rows from both left and right tables                       |
+
+Let's make a new tibble for you to use. Make sure you run the code in this block.
+
+```{r}
+beatnames <- tibble(
+  name = c("John", "Paul", "George", "Ringo", "Yoko", "Walrus"),
+  n = 1:6
+)
+```
+
+Join together `beatnames` and `babynames` so that we keep all the rows from the `beatnames` table, add a useful suffix so you can differentiate between columns with the same name. Try using each of the 4 mutating join methods and store the result in `beat_left`, `beat_right`, `beat_inner` and `beat_full`.
+
+```{r}
+beat_left <- NULL
+```
+
+```{r}
+beat_right <- NULL
+```
+
+```{r}
+beat_inner <- NULL
+```
+
+```{r}
+beat_full <- NULL
+```
+
+Can you do something to get the same rows as `beat_inner` from `beat_full`?
+
+```{r}
+beat_inner2 <- NULL
+```
+
+###	Binding Join Verbs
+
+In contrast to mutating join verbs, binding join verbs simply combine tables without any need for matching. Dplyr provides `bind_rows()` and `bind_cols()` for combining tables by row and column respectively. When row binding, missing columns are replaced by `NA` values. When column binding, if the tables do not match by appropriate dimensions, an error will result. 
+
+
+#### bind_rows()
+
+```{r}
+wos_seasonal_sun <- read_csv("data/wos_seasonal_sun.csv", show_col_types = FALSE)
+wos_monthly_sun <- read_csv("data/wos_monthly_sun.csv", show_col_types = FALSE)
+```
+
+
+`bind_rows()` is ideal when you have more entries of the same kind of data, i.e. new observations of the same variables. (For example; you have a new batch of participants answering the same questionnaire; or you have new air pollution data from a different geographic region... same variables - different observations)
+
+Lets split some data
+
+```{r}
+Sun_Season_1 <- wos_seasonal_sun %>%
+  filter(year >= 1970)
+
+Sun_Season_2 <- wos_seasonal_sun %>%
+  filter(year < 1970)
+```
+
+Now we have 2 identical tables for seasonal sunshine in the west of Scotland, but for different sets of years. All the same variables, but totally different observations.
+
+We can easily join these together with `bind_rows` to create a complete history.
+```{r}
+Bind_1 <- bind_rows(Sun_Season_1, Sun_Season_2)
+Bind_1
+```
+`bind_rows()` takes the second table `Sun_Season_2` and puts it *directly underneath* the first table `Sun_Season_1`. 
+
+
+What happens if we attempt to bind tables with different dimensions
+```{r}
+Bind_2 <- bind_rows(Sun_Season_1, inner)
+Bind_2
+```
+Notice that the `bind_rows()` does not "care" if it duplicates rows, here we have repeat years. Also `bind_rows()` does not "care" that there are columns that do not match between the tables, here `NA` is added fill the missing space. 
+
+#### bind_cols()
+
+`bind_cols()` is similar to our mutating join verbs in that it creates a new table by joining columns (or variables) together. However, note that `bind_cols()` does not perform any kind of row-wise matching when joining tables.
+
+```{r}
+Bind_3 <- bind_cols(wos_monthly_sun, wos_seasonal_sun)
+```
+`bind_cols()`takes `wos_seasonal_sun` and puts it *right next* to `wos_monthly_sun`. Since the column name `year` is in both tables they get called `year..1` and `year...15` after their respective column number to differentiate them.
+
+
+
+What happens if we attempt to bind tables with different dimensions
+```{r, error=TRUE}
+Bind_4 <-bind_cols(wos_monthly_sun, inner)
+```
+You simply get an error
+
+Just to further clarify the differences between `bind_cols()` and the mutating joing verbs, lets look at how they would deal with the same challenge.
+
+First lets create a new table for winter sun data, but lets arrange it by "win", so that rather than being in order of `year`, it is in order of most sunshine. This will have the same dimensions as the Summer_Sun table but a totally different order
+
+```{r}
+Winter_Sun <- wos_seasonal_sun %>%
+  select(year, win) %>%
+  arrange(desc(win))
+Winter_Sun
+```
+
+Now lets make a `Summer_sun` table the same way and try joining it with `Winter_Sun` using the two different methods.
+
+```{r}
+Summer_Sun <- wos_seasonal_sun %>%
+  select(year, sum) %>%
+  arrange(desc(sum))
+
+
+Comparison_1 <- bind_cols(Summer_Sun, Winter_Sun)
+Comparison_1
+
+Comparison_2 <- left_join(Summer_Sun, Winter_Sun, by = join_by(year))
+Comparison_2
+```
