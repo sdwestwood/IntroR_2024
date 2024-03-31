@@ -23,7 +23,7 @@
 <meta name="author" content="Gaby Mahrholz, Greta Todorova, Wilhelmiina Toivo, and Jaimie Torrance, updated by Johanna Werner in 2022 and Sean Westwood in 2023" />
 
 
-<meta name="date" content="2023-11-22" />
+<meta name="date" content="2024-03-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -122,6 +122,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <style type="text/css">
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -236,56 +258,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#pre-steps-1"><i class="fa fa-check"></i><b>3.2</b> Pre-Steps</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#downloading-materials-1"><i class="fa fa-check"></i><b>3.2.1</b> Downloading materials</a></li>
-<li class="chapter" data-level="3.2.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#unzipping-the-zip-folder"><i class="fa fa-check"></i><b>3.2.2</b> Unzipping the zip folder</a></li>
-<li class="chapter" data-level="3.2.3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#setting-the-working-directory-1"><i class="fa fa-check"></i><b>3.2.3</b> Setting the working directory</a></li>
-<li class="chapter" data-level="3.2.4" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#loading-in-the-required-packages-into-the-library"><i class="fa fa-check"></i><b>3.2.4</b> Loading in the required packages into the library</a></li>
-<li class="chapter" data-level="3.2.5" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#read-in-the-data"><i class="fa fa-check"></i><b>3.2.5</b> Read in the data</a></li>
-<li class="chapter" data-level="3.2.6" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#view-the-data"><i class="fa fa-check"></i><b>3.2.6</b> View the data</a></li>
+<li class="chapter" data-level="3.2.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#loading-in-the-required-packages-into-the-library"><i class="fa fa-check"></i><b>3.2.2</b> Loading in the required packages into the library</a></li>
+<li class="chapter" data-level="3.2.3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#read-in-the-data"><i class="fa fa-check"></i><b>3.2.3</b> Read in the data</a></li>
+<li class="chapter" data-level="3.2.4" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#view-the-data"><i class="fa fa-check"></i><b>3.2.4</b> View the data</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#select"><i class="fa fa-check"></i><b>3.3</b> select()</a></li>
-<li class="chapter" data-level="3.4" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#rename"><i class="fa fa-check"></i><b>3.4</b> rename()</a></li>
-<li class="chapter" data-level="3.5" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#arrange"><i class="fa fa-check"></i><b>3.5</b> arrange()</a></li>
-<li class="chapter" data-level="3.6" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#filter"><i class="fa fa-check"></i><b>3.6</b> filter()</a>
+<li class="chapter" data-level="3.3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#select"><i class="fa fa-check"></i><b>3.3</b> select()</a>
 <ul>
-<li class="chapter" data-level="3.6.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#single-criterion"><i class="fa fa-check"></i><b>3.6.1</b> Single criterion</a></li>
-<li class="chapter" data-level="3.6.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#multiple-criteria"><i class="fa fa-check"></i><b>3.6.2</b> Multiple criteria</a></li>
+<li class="chapter" data-level="3.3.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#renaming-columns"><i class="fa fa-check"></i><b>3.3.1</b> Renaming Columns</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#mutate"><i class="fa fa-check"></i><b>3.7</b> mutate()</a>
+<li class="chapter" data-level="3.4" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#arrange"><i class="fa fa-check"></i><b>3.4</b> arrange()</a></li>
+<li class="chapter" data-level="3.5" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#filter"><i class="fa fa-check"></i><b>3.5</b> filter()</a>
 <ul>
-<li class="chapter" data-level="3.7.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#read-in-second-dataset"><i class="fa fa-check"></i><b>3.7.1</b> Read in second dataset</a></li>
+<li class="chapter" data-level="3.5.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#single-criterion"><i class="fa fa-check"></i><b>3.5.1</b> Single criterion</a></li>
+<li class="chapter" data-level="3.5.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#multiple-criteria"><i class="fa fa-check"></i><b>3.5.2</b> Multiple criteria</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#summarise"><i class="fa fa-check"></i><b>3.8</b> summarise()</a></li>
-<li class="chapter" data-level="3.9" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#adding-group_by"><i class="fa fa-check"></i><b>3.9</b> Adding group_by()</a></li>
-<li class="chapter" data-level="3.10" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#pipes"><i class="fa fa-check"></i><b>3.10</b> The pipe operator (%&gt;%)</a></li>
-<li class="chapter" data-level="3.11" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#pipes-with-the-wickham-six"><i class="fa fa-check"></i><b>3.11</b> Pipes with the Wickham Six</a>
+<li class="chapter" data-level="3.6" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#mutate"><i class="fa fa-check"></i><b>3.6</b> mutate()</a>
 <ul>
-<li class="chapter" data-level="3.11.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#select-1"><i class="fa fa-check"></i><b>3.11.1</b> select()</a></li>
-<li class="chapter" data-level="3.11.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#arrange-1"><i class="fa fa-check"></i><b>3.11.2</b> arrange()</a></li>
-<li class="chapter" data-level="3.11.3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#filter-1"><i class="fa fa-check"></i><b>3.11.3</b> filter()</a></li>
-<li class="chapter" data-level="3.11.4" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#mutate-1"><i class="fa fa-check"></i><b>3.11.4</b> mutate()</a></li>
-<li class="chapter" data-level="3.11.5" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#group_by-and-summarise"><i class="fa fa-check"></i><b>3.11.5</b> group_by() and summarise()</a></li>
-<li class="chapter" data-level="3.11.6" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#bringing-it-all-together"><i class="fa fa-check"></i><b>3.11.6</b> Bringing it all together</a></li>
+<li class="chapter" data-level="3.6.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#read-in-second-dataset"><i class="fa fa-check"></i><b>3.6.1</b> Read in second dataset</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html"><i class="fa fa-check"></i><b>4</b> Tidy Data 1: Principles and Pivot Functions</a>
+<li class="chapter" data-level="3.7" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#summarise"><i class="fa fa-check"></i><b>3.7</b> summarise()</a></li>
+<li class="chapter" data-level="3.8" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#adding-group_by"><i class="fa fa-check"></i><b>3.8</b> Adding group_by()</a>
 <ul>
-<li class="chapter" data-level="" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html#intended-learning-outcomes-4"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
-<li class="chapter" data-level="4.1" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html#pre-steps-2"><i class="fa fa-check"></i><b>4.1</b> Pre-steps</a></li>
-<li class="chapter" data-level="4.2" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html#tidy-data"><i class="fa fa-check"></i><b>4.2</b> Tidy data</a></li>
-<li class="chapter" data-level="4.3" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html#pivot_longer-and-pivot_wider"><i class="fa fa-check"></i><b>4.3</b> pivot_longer() and pivot_wider()</a>
-<ul>
-<li class="chapter" data-level="4.3.1" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html#pivot_longer"><i class="fa fa-check"></i><b>4.3.1</b> pivot_longer()</a></li>
-<li class="chapter" data-level="4.3.2" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html#pivot_wider"><i class="fa fa-check"></i><b>4.3.2</b> pivot_wider()</a></li>
+<li class="chapter" data-level="3.8.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#bringing-it-together"><i class="fa fa-check"></i><b>3.8.1</b> Bringing it together</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html#separate-and-unite"><i class="fa fa-check"></i><b>4.4</b> separate() and unite()</a>
+<li class="chapter" data-level="3.9" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#pipes"><i class="fa fa-check"></i><b>3.9</b> The pipe operator (%&gt;%)</a>
 <ul>
-<li class="chapter" data-level="4.4.1" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html#separate"><i class="fa fa-check"></i><b>4.4.1</b> separate()</a></li>
-<li class="chapter" data-level="4.4.2" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html#additional-arguments-for-separate"><i class="fa fa-check"></i><b>4.4.2</b> Additional arguments for separate()</a></li>
-<li class="chapter" data-level="4.4.3" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html#unite"><i class="fa fa-check"></i><b>4.4.3</b> unite()</a></li>
-<li class="chapter" data-level="4.4.4" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html#additional-arguments-for-unite"><i class="fa fa-check"></i><b>4.4.4</b> Additional arguments for unite()</a></li>
+<li class="chapter" data-level="3.9.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#magrittr-pipe-vs.-base-r-pipe"><i class="fa fa-check"></i><b>3.9.1</b> Magrittr Pipe (%&gt;%) vs. Base R Pipe (|&gt;)</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html#bonus-materials-mutate-row-names-from-the-mtcars"><i class="fa fa-check"></i><b>4.5</b> Bonus materials: mutate row names from the <code>mtcars</code></a></li>
-<li class="chapter" data-level="4.6" data-path="tidy-data-1-principles-and-pivot-functions.html"><a href="tidy-data-1-principles-and-pivot-functions.html#additional-information"><i class="fa fa-check"></i><b>4.6</b> Additional information</a></li>
+<li class="chapter" data-level="3.10" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#pipe-practice-with-the-wickham-six"><i class="fa fa-check"></i><b>3.10</b> Pipe Practice with the Wickham Six</a>
+<ul>
+<li class="chapter" data-level="3.10.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#select-1"><i class="fa fa-check"></i><b>3.10.1</b> select()</a></li>
+<li class="chapter" data-level="3.10.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#arrange-1"><i class="fa fa-check"></i><b>3.10.2</b> arrange()</a></li>
+<li class="chapter" data-level="3.10.3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#filter-1"><i class="fa fa-check"></i><b>3.10.3</b> filter()</a></li>
+<li class="chapter" data-level="3.10.4" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#mutate-1"><i class="fa fa-check"></i><b>3.10.4</b> mutate()</a></li>
+<li class="chapter" data-level="3.10.5" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#group_by-and-summarise"><i class="fa fa-check"></i><b>3.10.5</b> group_by() and summarise()</a></li>
+<li class="chapter" data-level="3.10.6" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#bringing-it-all-together"><i class="fa fa-check"></i><b>3.10.6</b> Bringing it all together</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html"><i class="fa fa-check"></i><b>4</b> Tidy Data 1: Principles and Pivots</a>
+<ul>
+<li class="chapter" data-level="" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html#intended-learning-outcomes-4"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="4.1" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html#pre-steps-2"><i class="fa fa-check"></i><b>4.1</b> Pre-steps</a></li>
+<li class="chapter" data-level="4.2" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html#tidy-data"><i class="fa fa-check"></i><b>4.2</b> Tidy data</a></li>
+<li class="chapter" data-level="4.3" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html#pivot_longer-and-pivot_wider"><i class="fa fa-check"></i><b>4.3</b> pivot_longer() and pivot_wider()</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html#pivot_longer"><i class="fa fa-check"></i><b>4.3.1</b> pivot_longer()</a></li>
+<li class="chapter" data-level="4.3.2" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html#pivot_wider"><i class="fa fa-check"></i><b>4.3.2</b> pivot_wider()</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html#separate-and-unite"><i class="fa fa-check"></i><b>4.4</b> separate() and unite()</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html#separate"><i class="fa fa-check"></i><b>4.4.1</b> separate()</a></li>
+<li class="chapter" data-level="4.4.2" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html#additional-arguments-for-separate"><i class="fa fa-check"></i><b>4.4.2</b> Additional arguments for separate()</a></li>
+<li class="chapter" data-level="4.4.3" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html#unite"><i class="fa fa-check"></i><b>4.4.3</b> unite()</a></li>
+<li class="chapter" data-level="4.4.4" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html#additional-arguments-for-unite"><i class="fa fa-check"></i><b>4.4.4</b> Additional arguments for unite()</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html#bonus-materials-mutate-row-names-from-the-mtcars"><i class="fa fa-check"></i><b>4.5</b> Bonus materials: mutate row names from the <code>mtcars</code></a></li>
+<li class="chapter" data-level="4.6" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html#additional-information"><i class="fa fa-check"></i><b>4.6</b> Additional information</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html"><i class="fa fa-check"></i><b>5</b> Tidy Data 2: Cell Manipulation</a>
 <ul>
@@ -314,15 +342,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#two-table-verbs"><i class="fa fa-check"></i><b>6.2</b> Two-Table Verbs</a>
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#bringing-in-new-data"><i class="fa fa-check"></i><b>6.2.1</b> Bringing in new data</a></li>
-<li class="chapter" data-level="6.2.2" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#mutating-join-verbs"><i class="fa fa-check"></i><b>6.2.2</b> Mutating Join Verbs</a></li>
-<li class="chapter" data-level="6.2.3" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#mutating-join-summary"><i class="fa fa-check"></i><b>6.2.3</b> Mutating Join Summary</a></li>
-<li class="chapter" data-level="6.2.4" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#binding-join-verbs"><i class="fa fa-check"></i><b>6.2.4</b> Binding Join Verbs</a></li>
+<li class="chapter" data-level="6.2.2" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#mutating-join-summary"><i class="fa fa-check"></i><b>6.2.2</b> Mutating Join Summary</a></li>
+<li class="chapter" data-level="6.2.3" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#binding-join-verbs"><i class="fa fa-check"></i><b>6.2.3</b> Binding Join Verbs</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#additional-information-1"><i class="fa fa-check"></i><b>6.3</b> Additional information</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html"><i class="fa fa-check"></i><b>7</b> Data Visualisation 1: Fundamentals</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#pre-class-activities"><i class="fa fa-check"></i><b>7.1</b> Pre-class Activities</a></li>
+<li class="chapter" data-level="7.1" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#pre-class-resources"><i class="fa fa-check"></i><b>7.1</b> Pre-class Resources</a></li>
 <li class="chapter" data-level="" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#intended-learning-outcomes-7"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
 <li class="chapter" data-level="7.2" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#pre-steps-5"><i class="fa fa-check"></i><b>7.2</b> Pre-steps</a></li>
 <li class="chapter" data-level="7.3" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#introduction-to-the-data"><i class="fa fa-check"></i><b>7.3</b> Introduction to the data</a></li>
@@ -342,7 +369,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.8" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#now-lets-have-a-look-at-different-plots-with-more-complexity"><i class="fa fa-check"></i><b>7.8</b> Now let’s have a look at different plots with more complexity</a></li>
 <li class="chapter" data-level="7.9" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#other-plots"><i class="fa fa-check"></i><b>7.9</b> Other plots</a></li>
-<li class="chapter" data-level="7.10" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#formative-homework"><i class="fa fa-check"></i><b>7.10</b> Formative Homework</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html"><i class="fa fa-check"></i><b>8</b> Data Visualisation 2: Combining and Customising</a>
 <ul>
@@ -394,67 +420,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 6</span> Tidy Data 3: Joins<a href="tidy-data-3-joins.html#tidy-data-3-joins" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="intended-learning-outcomes-6" class="section level2 unnumbered hasAnchor">
 <h2>Intended Learning Outcomes<a href="tidy-data-3-joins.html#intended-learning-outcomes-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The whole purpose of the next two lecture is to tidy up dataframe and expose you to a bunch of useful functions that would make your daily life easier when dealing with your own data. By the end of today, you will know:</p>
+<p>The aim of this section is to give you some tools that let you combine data from multiple tables. By the end of this section, you will know:</p>
 <ol style="list-style-type: decimal">
-<li>How to rearrange data from long format into to wide format and vice versa</li>
-<li>How to combine and separate columns</li>
+<li>How to use 4 main types of join</li>
+<li>How to know which join to use</li>
 </ol>
 </div>
 <div id="pre-steps-4" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> Pre-steps<a href="tidy-data-3-joins.html#pre-steps-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Before we can start to focus on some other functions that might come in handy for data manipulation, we need to make sure to load <code>tidyverse</code> into the library.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="tidy-data-3-joins.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<p>Before we can start we need to make sure to load <code>tidyverse</code> into the library. We’re also going to use the <code>babynames</code> data again so let’s load that.</p>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="tidy-data-3-joins.html#cb353-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb353-2"><a href="tidy-data-3-joins.html#cb353-2" tabindex="-1"></a><span class="fu">library</span>(babynames)</span></code></pre></div>
 </div>
 <div id="two-table-verbs" class="section level2 hasAnchor" number="6.2">
 <h2><span class="header-section-number">6.2</span> Two-Table Verbs<a href="tidy-data-3-joins.html#two-table-verbs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>More often than not you will find yourself with data across multiple tables. In order to effectively combine multiple tables, <code>dplyr</code> provides a selection of <strong>two-table verbs</strong>. Today we will focus on two categories of two-table verbs - mutating join verbs and binding join verbs.</p>
+<p>More often than not you will find yourself with data across multiple tables. In order to effectively combine multiple tables, <code>dplyr</code> provides a selection of <strong>mutating join verbs</strong>.</p>
 <div id="bringing-in-new-data" class="section level3 hasAnchor" number="6.2.1">
 <h3><span class="header-section-number">6.2.1</span> Bringing in new data<a href="tidy-data-3-joins.html#bringing-in-new-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>First of all lets bring in some new data to look at these new functions.</p>
+<p>First of all lets bring in some familiar data to look at these new functions.</p>
 <div id="whats-the-data" class="section level4 hasAnchor" number="6.2.1.1">
 <h4><span class="header-section-number">6.2.1.1</span> What’s the data<a href="tidy-data-3-joins.html#whats-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Source: Met Office National Climate Information Centre
-<a href="https://www.metoffice.gov.uk/research/climate/maps-and-data/uk-and-regional-series" class="uri">https://www.metoffice.gov.uk/research/climate/maps-and-data/uk-and-regional-series</a></p>
-<p>wos_seasonal_sun: Seasonal total duration of bright sunshine for Scotland W; Areal series, starting in 1919</p>
-<p>wos_monthly_sun: Monthly and annual total duration of bright sunshine for Scotland W; Areal series, starting in 1919</p>
-<p>wos_seasonal_rain: Seasonal total precipitation amount for Scotland W; Areal series, starting in 1862</p>
-<p>wos_monthly_rain: Monthly and annual total precipitation amount for Scotland W; Areal series, starting in 1862</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="tidy-data-3-joins.html#cb2-1" tabindex="-1"></a>wos_seasonal_sun <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/wos_seasonal_sun.csv&quot;</span>)</span></code></pre></div>
-<pre><code>## Rows: 102 Columns: 5
-## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: &quot;,&quot;
-## dbl (5): year, win, spr, sum, aut
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="tidy-data-3-joins.html#cb4-1" tabindex="-1"></a>wos_monthly_sun <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/wos_monthly_sun.csv&quot;</span>)</span></code></pre></div>
-<pre><code>## Rows: 102 Columns: 14
-## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: &quot;,&quot;
-## dbl (14): year, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec, ann
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="tidy-data-3-joins.html#cb6-1" tabindex="-1"></a>wos_seasonal_rain <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/wos_seasonal_rain.csv&quot;</span>)</span></code></pre></div>
-<pre><code>## Rows: 154 Columns: 5
-## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: &quot;,&quot;
-## dbl (5): year, win, spr, sum, aut
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="tidy-data-3-joins.html#cb8-1" tabindex="-1"></a>wos_monthly_rain <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/wos_monthly_rain.csv&quot;</span>)</span></code></pre></div>
-<pre><code>## Rows: 154 Columns: 14
-## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: &quot;,&quot;
-## dbl (14): year, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec, ann
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<p>We’re going to use 2 datasets that you should be familiar with from last week. The <code>starwars</code> data from the <code>tidyverse</code> and the <code>babynames</code> data package.</p>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="tidy-data-3-joins.html#cb354-1" tabindex="-1"></a>starwars</span></code></pre></div>
+<pre><code>## # A tibble: 87 × 14
+##    name     height  mass hair_color skin_color eye_color birth_year sex   gender
+##    &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+##  1 Luke Sk…    172    77 blond      fair       blue            19   male  mascu…
+##  2 C-3PO       167    75 &lt;NA&gt;       gold       yellow         112   none  mascu…
+##  3 R2-D2        96    32 &lt;NA&gt;       white, bl… red             33   none  mascu…
+##  4 Darth V…    202   136 none       white      yellow          41.9 male  mascu…
+##  5 Leia Or…    150    49 brown      light      brown           19   fema… femin…
+##  6 Owen La…    178   120 brown, gr… light      blue            52   male  mascu…
+##  7 Beru Wh…    165    75 brown      light      blue            47   fema… femin…
+##  8 R5-D4        97    32 &lt;NA&gt;       white, red red             NA   none  mascu…
+##  9 Biggs D…    183    84 black      light      brown           24   male  mascu…
+## 10 Obi-Wan…    182    77 auburn, w… fair       blue-gray       57   male  mascu…
+## # ℹ 77 more rows
+## # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="tidy-data-3-joins.html#cb356-1" tabindex="-1"></a>babynames</span></code></pre></div>
+<pre><code>## # A tibble: 1,924,665 × 5
+##     year sex   name          n   prop
+##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;int&gt;  &lt;dbl&gt;
+##  1  1880 F     Mary       7065 0.0724
+##  2  1880 F     Anna       2604 0.0267
+##  3  1880 F     Emma       2003 0.0205
+##  4  1880 F     Elizabeth  1939 0.0199
+##  5  1880 F     Minnie     1746 0.0179
+##  6  1880 F     Margaret   1578 0.0162
+##  7  1880 F     Ida        1472 0.0151
+##  8  1880 F     Alice      1414 0.0145
+##  9  1880 F     Bertha     1320 0.0135
+## 10  1880 F     Sarah      1288 0.0132
+## # ℹ 1,924,655 more rows</code></pre>
 </div>
-</div>
-<div id="mutating-join-verbs" class="section level3 hasAnchor" number="6.2.2">
-<h3><span class="header-section-number">6.2.2</span> Mutating Join Verbs<a href="tidy-data-3-joins.html#mutating-join-verbs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="mutating-join-verbs" class="section level4 hasAnchor" number="6.2.1.2">
+<h4><span class="header-section-number">6.2.1.2</span> Mutating Join Verbs<a href="tidy-data-3-joins.html#mutating-join-verbs" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Mutating join verbs combine the variables (columns) of two tables so that matching rows are together. There are 4 different types of mutating joins, namely <code>inner_join()</code>, <code>left_join()</code>, <code>right_join()</code>, and <code>full_join()</code>.</p>
 <p>Mutating joins have the following basic syntax:</p>
 <center>
@@ -464,76 +485,73 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <center>
 <img src="images/join_tables.png" height="200">
 </center>
-<p>To make things nice and clear to see, lets simplify our data a litte.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="tidy-data-3-joins.html#cb10-1" tabindex="-1"></a>Summer_Rain <span class="ot">&lt;-</span> wos_seasonal_rain <span class="sc">%&gt;%</span> </span>
-<span id="cb10-2"><a href="tidy-data-3-joins.html#cb10-2" tabindex="-1"></a>  <span class="fu">select</span>(year, sum)</span>
-<span id="cb10-3"><a href="tidy-data-3-joins.html#cb10-3" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="tidy-data-3-joins.html#cb10-4" tabindex="-1"></a>Summer_Sun <span class="ot">&lt;-</span> wos_seasonal_sun <span class="sc">%&gt;%</span> </span>
-<span id="cb10-5"><a href="tidy-data-3-joins.html#cb10-5" tabindex="-1"></a>  <span class="fu">select</span>(year, sum)</span>
-<span id="cb10-6"><a href="tidy-data-3-joins.html#cb10-6" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="tidy-data-3-joins.html#cb10-7" tabindex="-1"></a>Summer_Rain</span></code></pre></div>
-<pre><code>## # A tibble: 154 × 2
-##     year   sum
-##    &lt;dbl&gt; &lt;dbl&gt;
-##  1  1862  426.
-##  2  1863  299.
-##  3  1864  255.
-##  4  1865  274.
-##  5  1866  345.
-##  6  1867  340.
-##  7  1868  295.
-##  8  1869  183.
-##  9  1870  205.
-## 10  1871  349.
-## # ℹ 144 more rows</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="tidy-data-3-joins.html#cb12-1" tabindex="-1"></a>Summer_Sun</span></code></pre></div>
-<pre><code>## # A tibble: 102 × 2
-##     year   sum
-##    &lt;dbl&gt; &lt;dbl&gt;
-##  1  1919  524.
-##  2  1920  411.
-##  3  1921  509 
-##  4  1922  385.
-##  5  1923  327.
-##  6  1924  329.
-##  7  1925  529.
-##  8  1926  512.
-##  9  1927  446 
-## 10  1928  408.
-## # ℹ 92 more rows</code></pre>
+<p>I’m going to adapt the starwars data to make it a bit easier for us to use.</p>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="tidy-data-3-joins.html#cb358-1" tabindex="-1"></a>sw_names <span class="ot">&lt;-</span> starwars <span class="sc">%&gt;%</span></span>
+<span id="cb358-2"><a href="tidy-data-3-joins.html#cb358-2" tabindex="-1"></a>  <span class="fu">separate</span>(<span class="at">col =</span> name, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;name&quot;</span>, <span class="cn">NA</span>), <span class="at">sep =</span> <span class="st">&quot; &quot;</span>, <span class="at">extra =</span> <span class="st">&quot;drop&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;right&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb358-3"><a href="tidy-data-3-joins.html#cb358-3" tabindex="-1"></a>  <span class="fu">unnest</span>(films) <span class="sc">%&gt;%</span> <span class="co"># Don&#39;t worry, we didn&#39;t learn about this</span></span>
+<span id="cb358-4"><a href="tidy-data-3-joins.html#cb358-4" tabindex="-1"></a>  <span class="fu">filter</span>(films <span class="sc">==</span> <span class="st">&quot;The Empire Strikes Back&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb358-5"><a href="tidy-data-3-joins.html#cb358-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">recode</span>(sex, <span class="at">male =</span> <span class="st">&quot;M&quot;</span>, <span class="at">female =</span> <span class="st">&quot;F&quot;</span>, <span class="at">.default =</span> <span class="cn">NA_character_</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb358-6"><a href="tidy-data-3-joins.html#cb358-6" tabindex="-1"></a>  <span class="fu">select</span>(name, sex, homeworld) <span class="sc">%&gt;%</span></span>
+<span id="cb358-7"><a href="tidy-data-3-joins.html#cb358-7" tabindex="-1"></a>  <span class="fu">arrange</span>(name)</span>
+<span id="cb358-8"><a href="tidy-data-3-joins.html#cb358-8" tabindex="-1"></a></span>
+<span id="cb358-9"><a href="tidy-data-3-joins.html#cb358-9" tabindex="-1"></a>sw_names</span></code></pre></div>
+<pre><code>## # A tibble: 16 × 3
+##    name      sex   homeworld
+##    &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;    
+##  1 Boba      M     Kamino   
+##  2 Bossk     M     Trandosha
+##  3 C-3PO     &lt;NA&gt;  Tatooine 
+##  4 Chewbacca M     Kashyyyk 
+##  5 Darth     M     Tatooine 
+##  6 Han       M     Corellia 
+##  7 IG-88     &lt;NA&gt;  &lt;NA&gt;     
+##  8 Lando     M     Socorro  
+##  9 Leia      F     Alderaan 
+## 10 Lobot     M     Bespin   
+## 11 Luke      M     Tatooine 
+## 12 Obi-Wan   M     Stewjon  
+## 13 Palpatine M     Naboo    
+## 14 R2-D2     &lt;NA&gt;  Naboo    
+## 15 Wedge     M     Corellia 
+## 16 Yoda      M     &lt;NA&gt;</code></pre>
 <div class="info">
 <p>
-Now we have; * rain data for the summer months from 1862 to 2015
-(<code>Summer_Rain</code>) * sunshine data for the summer months from
-1919 to 2020 (<code>Summer_Sun</code>) Notice they have data from some
-of the same years, but also have data from years unique to each
-table
+Now we have all the first names of the characters in The Empire
+Strikes Back
+</p>
+<p>
+Notice that some of these names will be in the babynames dataset and
+some won’t (hopefully).
 </p>
 </div>
-<div id="inner_join" class="section level4 hasAnchor" number="6.2.2.1">
-<h4><span class="header-section-number">6.2.2.1</span> inner_join()<a href="tidy-data-3-joins.html#inner_join" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="inner_join" class="section level5 hasAnchor" number="6.2.1.2.1">
+<h5><span class="header-section-number">6.2.1.2.1</span> inner_join()<a href="tidy-data-3-joins.html#inner_join" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p><code>inner_join()</code> returns all rows from both tables for which the values in column specified in the <code>"by = "</code> statement overlap.</p>
 <center>
 <img src="images/inner_join1.png">
 </center>
-<p>Here we merge <code>Summer_Sun</code> and <code>Summer_Rain</code> with <code>inner_join()</code> specifying we want to “join by” the variable <code>year</code>. Becuase the remaining variable has the same name in both tables, R needs to distiguish them from each other, for that we use the <code>suffix =</code> arguement, which allows us to specify what suffix to add to each column of the resulting table. If we do not spcify this, R will add a <code>.x</code> and <code>.y</code> suffix for us to the x (left) and y (right) table variables respectively.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="tidy-data-3-joins.html#cb14-1" tabindex="-1"></a>inner <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(Summer_Sun, Summer_Rain, <span class="at">by=</span><span class="st">&quot;year&quot;</span>, <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_sun&quot;</span>, <span class="st">&quot;_rain&quot;</span>))</span>
-<span id="cb14-2"><a href="tidy-data-3-joins.html#cb14-2" tabindex="-1"></a>inner</span></code></pre></div>
-<pre><code>## # A tibble: 97 × 3
-##     year sum_sun sum_rain
-##    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
-##  1  1919    524.     298 
-##  2  1920    411.     358.
-##  3  1921    509      354.
-##  4  1922    385.     334.
-##  5  1923    327.     444.
-##  6  1924    329.     395.
-##  7  1925    529.     228.
-##  8  1926    512.     367 
-##  9  1927    446      433.
-## 10  1928    408.     440.
-## # ℹ 87 more rows</code></pre>
-<p>Using an inner join returns only 97 (1919 to 2015) rows of observations because these are the only years in <code>year</code> that are present in both the Sun (1919 to 2020) and the Rain (1862 to 2015) data tables. However, we are still merging both tibbles together, meaning that all columns from <code>Summer_Sun</code> and <code>Summer_Rain</code> are kept (in our case <code>sum</code>, with a suffix added to each to tell them appart). In this example, the years 1862 to 1918, are dropped becuase they are not present in the Sun data, and the years 2016 to 2020 are dropped becuase they are not present in the Rain data.</p>
+<p>Here we merge <code>babynames</code> and <code>sw_names</code> with <code>inner_join()</code> specifying we want to “join by” the variable <code>name</code>. Because both tables have the column <code>sex</code>, R needs to distiguish them from each other, for that we use the <code>suffix =</code> argument, which allows us to specify what suffix to add to each column of the resulting table. If we do not spcify this, R will add a <code>.x</code> and <code>.y</code> suffix for us to the x (left) and y (right) table variables respectively.</p>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="tidy-data-3-joins.html#cb360-1" tabindex="-1"></a>inner <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(sw_names, babynames, <span class="at">by =</span> <span class="fu">join_by</span>(name), <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_sw&quot;</span>, <span class="st">&quot;_baby&quot;</span>))</span>
+<span id="cb360-2"><a href="tidy-data-3-joins.html#cb360-2" tabindex="-1"></a>inner</span></code></pre></div>
+<pre><code>## # A tibble: 369 × 7
+##    name  sex_sw homeworld  year sex_baby     n       prop
+##    &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;    &lt;int&gt;      &lt;dbl&gt;
+##  1 Darth M      Tatooine   1977 M            9 0.00000526
+##  2 Darth M      Tatooine   1978 M           13 0.00000761
+##  3 Darth M      Tatooine   1979 M            7 0.00000391
+##  4 Han   M      Corellia   1968 M            5 0.00000282
+##  5 Han   M      Corellia   1969 M            6 0.00000328
+##  6 Han   M      Corellia   1973 M            5 0.0000031 
+##  7 Han   M      Corellia   1974 M            6 0.00000368
+##  8 Han   M      Corellia   1976 M            7 0.00000429
+##  9 Han   M      Corellia   1977 F            5 0.00000304
+## 10 Han   M      Corellia   1977 M            8 0.00000468
+## # ℹ 359 more rows</code></pre>
+<p>Using an inner join returns only 369 rows of observations because these are the only rows that contain names from our Star Wars data. However, we are still merging both tibbles together, meaning that all columns from <code>sw_names</code> and <code>babynames</code> are kept (including the <code>sex</code> associated with that name in each table, with a suffix added to each to tell them appart). In this example, the name “Yoda” is dropped because no one is actually called “Yoda”.</p>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="tidy-data-3-joins.html#cb362-1" tabindex="-1"></a><span class="fu">filter</span>(inner, name <span class="sc">==</span> <span class="st">&quot;Yoda&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 0 × 7
+## # ℹ 7 variables: name &lt;chr&gt;, sex_sw &lt;chr&gt;, homeworld &lt;chr&gt;, year &lt;dbl&gt;,
+## #   sex_baby &lt;chr&gt;, n &lt;int&gt;, prop &lt;dbl&gt;</code></pre>
 <div class="funfact">
 <p>
 If you don’t specify which variable to “join by”, and omit the by
@@ -545,93 +563,130 @@ happens
 </p>
 </div>
 <p><span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span></p>
-<p>How many rows (or observations) does <code>inner</code> have? <input class='webex-solveme nospaces' size='2' data-answer='["97"]'/> <br>
-How many columns (or variables) does <code>inner</code> have? <input class='webex-solveme nospaces' size='1' data-answer='["3"]'/> <br></p>
+<p>How many rows (or observations) does <code>inner</code> have? <input class='webex-solveme nospaces' size='3' data-answer='["369"]'/> <br>
+How many columns (or variables) does <code>inner</code> have? <input class='webex-solveme nospaces' size='1' data-answer='["7"]'/> <br></p>
 </div>
-<div id="left_join" class="section level4 hasAnchor" number="6.2.2.2">
-<h4><span class="header-section-number">6.2.2.2</span> left_join()<a href="tidy-data-3-joins.html#left_join" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="left_join" class="section level5 hasAnchor" number="6.2.1.2.2">
+<h5><span class="header-section-number">6.2.1.2.2</span> left_join()<a href="tidy-data-3-joins.html#left_join" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p><code>left_join()</code> retains the complete first (left) table and adds values from the second (right) table that have matching values in the column specified in the <code>"by ="</code> statement. Rows in the left table with no match in the right table will have missing values (<code>NA</code>) in the new columns.</p>
 <center>
 <img src="images/left_join1.png">
 </center>
-<p>Let’s try this <code>left_join()</code> function for our simple example of <code>Summer_Sun</code> and <code>Summer_Rain</code> in R.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="tidy-data-3-joins.html#cb16-1" tabindex="-1"></a>left <span class="ot">&lt;-</span> <span class="fu">left_join</span>(Summer_Sun, Summer_Rain, <span class="at">by=</span><span class="st">&quot;year&quot;</span>, <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_sun&quot;</span>, <span class="st">&quot;_rain&quot;</span>))</span>
-<span id="cb16-2"><a href="tidy-data-3-joins.html#cb16-2" tabindex="-1"></a>left</span></code></pre></div>
-<pre><code>## # A tibble: 102 × 3
-##     year sum_sun sum_rain
-##    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
-##  1  1919    524.     298 
-##  2  1920    411.     358.
-##  3  1921    509      354.
-##  4  1922    385.     334.
-##  5  1923    327.     444.
-##  6  1924    329.     395.
-##  7  1925    529.     228.
-##  8  1926    512.     367 
-##  9  1927    446      433.
-## 10  1928    408.     440.
-## # ℹ 92 more rows</code></pre>
-<p>Here <code>Summer_Sun</code> is returned in full, and for every matching <code>year</code> in <code>Summer_Rain</code> the value is added. However, <code>Summer_Rain</code> does not have any value for the years 2016 to 2020, hence <code>NA</code> is added here to the column <code>sum_rain</code>.</p>
+<p>Let’s try this <code>left_join()</code> function for our simple example of <code>babynames</code> and <code>sw_names</code> in R.</p>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="tidy-data-3-joins.html#cb364-1" tabindex="-1"></a>left <span class="ot">&lt;-</span> <span class="fu">left_join</span>(sw_names, babynames, <span class="at">by =</span> <span class="fu">join_by</span>(name), <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_sw&quot;</span>, <span class="st">&quot;_baby&quot;</span>))</span>
+<span id="cb364-2"><a href="tidy-data-3-joins.html#cb364-2" tabindex="-1"></a>left</span></code></pre></div>
+<pre><code>## # A tibble: 380 × 7
+##    name      sex_sw homeworld  year sex_baby     n        prop
+##    &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;    &lt;int&gt;       &lt;dbl&gt;
+##  1 Boba      M      Kamino       NA &lt;NA&gt;        NA NA         
+##  2 Bossk     M      Trandosha    NA &lt;NA&gt;        NA NA         
+##  3 C-3PO     &lt;NA&gt;   Tatooine     NA &lt;NA&gt;        NA NA         
+##  4 Chewbacca M      Kashyyyk     NA &lt;NA&gt;        NA NA         
+##  5 Darth     M      Tatooine   1977 M            9  0.00000526
+##  6 Darth     M      Tatooine   1978 M           13  0.00000761
+##  7 Darth     M      Tatooine   1979 M            7  0.00000391
+##  8 Han       M      Corellia   1968 M            5  0.00000282
+##  9 Han       M      Corellia   1969 M            6  0.00000328
+## 10 Han       M      Corellia   1973 M            5  0.0000031 
+## # ℹ 370 more rows</code></pre>
+<p>Here <code>babynames</code> is returned in full, and for every matching <code>name</code> in <code>sw_names</code> the value is added. However, most of the names in <code>babynames</code> aren’t in <code>sw_names</code>, so we get <code>NA</code> added here to the column <code>sex_sw</code> and <code>homeworld</code> columns.</p>
+<p>We can get the same data as we did with <code>inner_join()</code> if we remove the missing values. We can check if 2 objects are the same in R using the <code>identical()</code> function.</p>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="tidy-data-3-joins.html#cb366-1" tabindex="-1"></a>left_filt <span class="ot">&lt;-</span> <span class="fu">filter</span>(left, <span class="sc">!</span><span class="fu">is.na</span>(year))</span>
+<span id="cb366-2"><a href="tidy-data-3-joins.html#cb366-2" tabindex="-1"></a></span>
+<span id="cb366-3"><a href="tidy-data-3-joins.html#cb366-3" tabindex="-1"></a><span class="fu">identical</span>(left_filt, inner)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>If we want to do it the other way round we can reverse the order of the tables. This time I’ll also leave out the <code>by</code> argument so that we only match the rows where both <code>name</code> and <code>sex</code> match. (Note the helpful message we get.)</p>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="tidy-data-3-joins.html#cb368-1" tabindex="-1"></a><span class="fu">left_join</span>(babynames, sw_names)</span></code></pre></div>
+<pre><code>## Joining with `by = join_by(sex, name)`</code></pre>
+<pre><code>## # A tibble: 1,924,665 × 6
+##     year sex   name          n   prop homeworld
+##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt;    
+##  1  1880 F     Mary       7065 0.0724 &lt;NA&gt;     
+##  2  1880 F     Anna       2604 0.0267 &lt;NA&gt;     
+##  3  1880 F     Emma       2003 0.0205 &lt;NA&gt;     
+##  4  1880 F     Elizabeth  1939 0.0199 &lt;NA&gt;     
+##  5  1880 F     Minnie     1746 0.0179 &lt;NA&gt;     
+##  6  1880 F     Margaret   1578 0.0162 &lt;NA&gt;     
+##  7  1880 F     Ida        1472 0.0151 &lt;NA&gt;     
+##  8  1880 F     Alice      1414 0.0145 &lt;NA&gt;     
+##  9  1880 F     Bertha     1320 0.0135 &lt;NA&gt;     
+## 10  1880 F     Sarah      1288 0.0132 &lt;NA&gt;     
+## # ℹ 1,924,655 more rows</code></pre>
 <p><span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span></p>
-<p>How many rows (or observations) does <code>left</code> have? <input class='webex-solveme nospaces' size='3' data-answer='["102"]'/> <br>
-How many columns (or variables) does <code>left</code> have? <input class='webex-solveme nospaces' size='1' data-answer='["3"]'/> <br></p>
+<p>How many rows (or observations) does <code>left</code> have? <input class='webex-solveme nospaces' size='3' data-answer='["380"]'/> <br>
+How many columns (or variables) does <code>left</code> have? <input class='webex-solveme nospaces' size='1' data-answer='["7"]'/> <br></p>
 </div>
-<div id="right_join" class="section level4 hasAnchor" number="6.2.2.3">
-<h4><span class="header-section-number">6.2.2.3</span> right_join()<a href="tidy-data-3-joins.html#right_join" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><code>right_join()</code> retains the complete second (right) table and adds values from the first (left) table that have matching values in the column specified in the by statement. Rows in the right table with no match in the left table will have missing values (<code>NA</code>) in the new columns.</p>
+<div id="right_join" class="section level5 hasAnchor" number="6.2.1.2.3">
+<h5><span class="header-section-number">6.2.1.2.3</span> right_join()<a href="tidy-data-3-joins.html#right_join" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Alternatively we can use a <code>right_join()</code> to do the same thing using the original order of data tables. <code>right_join()</code> retains the complete second (right) table and adds values from the first (left) table that have matching values in the column specified in the by statement. Rows in the right table with no match in the left table will have missing values (<code>NA</code>) in the new columns.</p>
 <center>
 <img src="images/right_join1.png">
 </center>
-<p>However, code-wise, you would still enter x as the first, and y as the second argument within <code>right_join()</code>.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="tidy-data-3-joins.html#cb18-1" tabindex="-1"></a>right <span class="ot">&lt;-</span> <span class="fu">right_join</span>(Summer_Sun, Summer_Rain, <span class="at">by=</span><span class="st">&quot;year&quot;</span>, <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_sun&quot;</span>, <span class="st">&quot;_rain&quot;</span>))</span>
-<span id="cb18-2"><a href="tidy-data-3-joins.html#cb18-2" tabindex="-1"></a>right</span></code></pre></div>
-<pre><code>## # A tibble: 154 × 3
-##     year sum_sun sum_rain
-##    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
-##  1  1919    524.     298 
-##  2  1920    411.     358.
-##  3  1921    509      354.
-##  4  1922    385.     334.
-##  5  1923    327.     444.
-##  6  1924    329.     395.
-##  7  1925    529.     228.
-##  8  1926    512.     367 
-##  9  1927    446      433.
-## 10  1928    408.     440.
-## # ℹ 144 more rows</code></pre>
-<p>Here <code>Summer_Rain</code> is returned in full, and for every matching <code>year</code> in <code>Summer_Sun</code> the value is added, for any row of <code>Summer_Rain</code> that does not have a mating value in <code>Summer_Sun</code>, <code>NA</code> is added. Notice the order of the rows, though!!! All the years of <code>Summer_Sun</code> come first before the extra rows from <code>Summer_Rain</code> are added at the bottom. That is due to the order of how they are entered into the <code>right_join()</code> function. The “left” data (first table) is still prioritised in terms of ordering observations!</p>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="tidy-data-3-joins.html#cb371-1" tabindex="-1"></a>right <span class="ot">&lt;-</span> <span class="fu">right_join</span>(sw_names, babynames, <span class="at">by =</span> <span class="fu">join_by</span>(name, sex))</span>
+<span id="cb371-2"><a href="tidy-data-3-joins.html#cb371-2" tabindex="-1"></a>right</span></code></pre></div>
+<pre><code>## # A tibble: 1,924,665 × 6
+##    name  sex   homeworld  year     n       prop
+##    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt;      &lt;dbl&gt;
+##  1 Darth M     Tatooine   1977     9 0.00000526
+##  2 Darth M     Tatooine   1978    13 0.00000761
+##  3 Darth M     Tatooine   1979     7 0.00000391
+##  4 Han   M     Corellia   1968     5 0.00000282
+##  5 Han   M     Corellia   1969     6 0.00000328
+##  6 Han   M     Corellia   1973     5 0.0000031 
+##  7 Han   M     Corellia   1974     6 0.00000368
+##  8 Han   M     Corellia   1976     7 0.00000429
+##  9 Han   M     Corellia   1977     8 0.00000468
+## 10 Han   M     Corellia   1978     5 0.00000293
+## # ℹ 1,924,655 more rows</code></pre>
+<p>Here <code>sw_names</code> is returned in full, and for every matching <code>name</code> in <code>babynames</code> the value is added, for any row of <code>sw_names</code> that does not have a matching value in <code>babynames</code>, <code>NA</code> is added. Notice the order of the rows, though!!! All the names from <code>sw_names</code> come first before the extra rows from <code>babynames</code> which are added at the bottom. That is due to the order of how they are entered into the <code>right_join()</code> function. The “left” data (first table) is still prioritised in terms of ordering observations!</p>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="tidy-data-3-joins.html#cb373-1" tabindex="-1"></a><span class="fu">arrange</span>(right, name)</span></code></pre></div>
+<pre><code>## # A tibble: 1,924,665 × 6
+##    name  sex   homeworld  year     n       prop
+##    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt;      &lt;dbl&gt;
+##  1 Aaban M     &lt;NA&gt;       2007     5 0.00000226
+##  2 Aaban M     &lt;NA&gt;       2009     6 0.00000283
+##  3 Aaban M     &lt;NA&gt;       2010     9 0.00000439
+##  4 Aaban M     &lt;NA&gt;       2011    11 0.00000542
+##  5 Aaban M     &lt;NA&gt;       2012    11 0.00000543
+##  6 Aaban M     &lt;NA&gt;       2013    14 0.00000694
+##  7 Aaban M     &lt;NA&gt;       2014    16 0.00000783
+##  8 Aaban M     &lt;NA&gt;       2015    15 0.00000736
+##  9 Aaban M     &lt;NA&gt;       2016     9 0.00000446
+## 10 Aaban M     &lt;NA&gt;       2017    11 0.0000056 
+## # ℹ 1,924,655 more rows</code></pre>
 <p><span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span></p>
-<p>How many rows (or observations) does <code>right</code> have? <input class='webex-solveme nospaces' size='3' data-answer='["154"]'/> <br></p>
+<p>How many rows (or observations) does <code>right</code> have? <input class='webex-solveme nospaces' size='7' data-answer='["1924665"]'/> <br></p>
 </div>
-<div id="full_join" class="section level4 hasAnchor" number="6.2.2.4">
-<h4><span class="header-section-number">6.2.2.4</span> full_join()<a href="tidy-data-3-joins.html#full_join" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><code>full_join()</code> returns all rows and all columns from both dataframes. <code>NA</code> values fill unmatched rows.</p>
+<div id="full_join" class="section level5 hasAnchor" number="6.2.1.2.4">
+<h5><span class="header-section-number">6.2.1.2.4</span> full_join()<a href="tidy-data-3-joins.html#full_join" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><code>full_join()</code> combines all rows and all columns from both dataframes. <code>NA</code> values fill unmatched rows.</p>
 <center>
 <img src="images/full_join1.png">
 </center>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="tidy-data-3-joins.html#cb20-1" tabindex="-1"></a>full <span class="ot">&lt;-</span> <span class="fu">full_join</span>(Summer_Sun, Summer_Rain, <span class="at">by=</span><span class="st">&quot;year&quot;</span>, <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_sun&quot;</span>, <span class="st">&quot;_rain&quot;</span>))</span>
-<span id="cb20-2"><a href="tidy-data-3-joins.html#cb20-2" tabindex="-1"></a>full</span></code></pre></div>
-<pre><code>## # A tibble: 159 × 3
-##     year sum_sun sum_rain
-##    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
-##  1  1919    524.     298 
-##  2  1920    411.     358.
-##  3  1921    509      354.
-##  4  1922    385.     334.
-##  5  1923    327.     444.
-##  6  1924    329.     395.
-##  7  1925    529.     228.
-##  8  1926    512.     367 
-##  9  1927    446      433.
-## 10  1928    408.     440.
-## # ℹ 149 more rows</code></pre>
-<p>As you can see, all years from both tables are kept, and <code>NA</code> is used to fill the missing years (1862 to 1918 for <code>sum_sun</code>, and 2016 to 2020 for <code>sum_rain</code>). Again you can see the prioritization of the left (first) table in the arrangement of the years.</p>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="tidy-data-3-joins.html#cb375-1" tabindex="-1"></a>full <span class="ot">&lt;-</span> <span class="fu">full_join</span>(sw_names, babynames, <span class="fu">join_by</span>(name), <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_baby&quot;</span>, <span class="st">&quot;_sw&quot;</span>))</span>
+<span id="cb375-2"><a href="tidy-data-3-joins.html#cb375-2" tabindex="-1"></a>full</span></code></pre></div>
+<pre><code>## # A tibble: 1,924,676 × 7
+##    name      sex_baby homeworld  year sex_sw     n        prop
+##    &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;  &lt;int&gt;       &lt;dbl&gt;
+##  1 Boba      M        Kamino       NA &lt;NA&gt;      NA NA         
+##  2 Bossk     M        Trandosha    NA &lt;NA&gt;      NA NA         
+##  3 C-3PO     &lt;NA&gt;     Tatooine     NA &lt;NA&gt;      NA NA         
+##  4 Chewbacca M        Kashyyyk     NA &lt;NA&gt;      NA NA         
+##  5 Darth     M        Tatooine   1977 M          9  0.00000526
+##  6 Darth     M        Tatooine   1978 M         13  0.00000761
+##  7 Darth     M        Tatooine   1979 M          7  0.00000391
+##  8 Han       M        Corellia   1968 M          5  0.00000282
+##  9 Han       M        Corellia   1969 M          6  0.00000328
+## 10 Han       M        Corellia   1973 M          5  0.0000031 
+## # ℹ 1,924,666 more rows</code></pre>
+<p>As you can see, all names from both tables are kept, and <code>NA</code> is used to fill the missing <code>homeworlds</code>. Again you can see the prioritization of the left (first) table in the arrangement of the years.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span></p>
-<p>How many rows (or observations) does <code>full</code> have? <input class='webex-solveme nospaces' size='3' data-answer='["159"]'/> <br></p>
+<p>How many rows (or observations) does <code>full</code> have? <input class='webex-solveme nospaces' size='7' data-answer='["1924676"]'/> <br></p>
 </div>
 </div>
-<div id="mutating-join-summary" class="section level3 hasAnchor" number="6.2.3">
-<h3><span class="header-section-number">6.2.3</span> Mutating Join Summary<a href="tidy-data-3-joins.html#mutating-join-summary" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="mutating-join-summary" class="section level3 hasAnchor" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Mutating Join Summary<a href="tidy-data-3-joins.html#mutating-join-summary" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <table>
 <colgroup>
 <col width="28%" />
@@ -653,7 +708,7 @@ How many columns (or variables) does <code>left</code> have? <input class='webex
 <td align="left">Includes all rows from the left table (first data entered)</td>
 </tr>
 <tr class="odd">
-<td align="left">left_join()</td>
+<td align="left">right_join()</td>
 <td align="left">Includes all rows from the right table (second data entered)</td>
 </tr>
 <tr class="even">
@@ -663,60 +718,135 @@ How many columns (or variables) does <code>left</code> have? <input class='webex
 </tbody>
 </table>
 <p><span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span></p>
+<p>Let’s make a new tibble for you to use. Make sure you run the code in this block.</p>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="tidy-data-3-joins.html#cb377-1" tabindex="-1"></a>beatnames <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb377-2"><a href="tidy-data-3-joins.html#cb377-2" tabindex="-1"></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">&quot;John&quot;</span>, <span class="st">&quot;Paul&quot;</span>, <span class="st">&quot;George&quot;</span>, <span class="st">&quot;Ringo&quot;</span>, <span class="st">&quot;Yoko&quot;</span>, <span class="st">&quot;Walrus&quot;</span>),</span>
+<span id="cb377-3"><a href="tidy-data-3-joins.html#cb377-3" tabindex="-1"></a>  <span class="at">n =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span></span>
+<span id="cb377-4"><a href="tidy-data-3-joins.html#cb377-4" tabindex="-1"></a>)</span></code></pre></div>
 <div class="task">
 <p>
 <strong>Your turn</strong>
 </p>
 <p>
-Join together <code>wos_seasonal_rain</code> and
-<code>wos_seasonal_sun</code> so that we keep all the rows from the
-<code>wos_seasonal_sun</code> table, add a useful suffix so you can
-differentiate between columns with the same name. Store the result in
-<code>Q10</code>.
+Join together <code>beatnames</code> and <code>babynames</code> so
+that we keep all the rows from the <code>beatnames</code> table, add a
+useful suffix so you can differentiate between columns with the same
+name. Try using each of the 4 mutating join methods and store the result
+in <code>beat_left</code>, <code>beat_right</code>,
+<code>beat_inner</code> and <code>beat_full</code>.
 </p>
 </div>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="tidy-data-3-joins.html#cb378-1" tabindex="-1"></a>beat_left <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="tidy-data-3-joins.html#cb22-1" tabindex="-1"></a><span class="co">#Jaimie&#39;s solution</span></span>
-<span id="cb22-2"><a href="tidy-data-3-joins.html#cb22-2" tabindex="-1"></a>Q10 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(wos_seasonal_sun, wos_seasonal_rain, <span class="at">by =</span> <span class="st">&quot;year&quot;</span>, <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_sun&quot;</span>, <span class="st">&quot;_rain&quot;</span>))</span>
-<span id="cb22-3"><a href="tidy-data-3-joins.html#cb22-3" tabindex="-1"></a><span class="co">#OR </span></span>
-<span id="cb22-4"><a href="tidy-data-3-joins.html#cb22-4" tabindex="-1"></a>Q10 <span class="ot">&lt;-</span> <span class="fu">right_join</span>(wos_seasonal_rain, wos_seasonal_sun, <span class="at">by =</span> <span class="st">&quot;year&quot;</span>, <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_rain&quot;</span>, <span class="st">&quot;_sun&quot;</span>))</span>
-<span id="cb22-5"><a href="tidy-data-3-joins.html#cb22-5" tabindex="-1"></a></span>
-<span id="cb22-6"><a href="tidy-data-3-joins.html#cb22-6" tabindex="-1"></a>Q10</span></code></pre></div>
-<pre><code>## # A tibble: 102 × 9
-##     year win_rain spr_rain sum_rain aut_rain win_sun spr_sun sum_sun aut_sun
-##    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-##  1  1919     389.     260.     298      339.    NA      414.    524.    257.
-##  2  1920     704.     428.     358.     374.   111.     328.    411.    219.
-##  3  1921     489.     390.     354.     340.   104.     404.    509     222.
-##  4  1922     620      309.     334.     290.   102.     457.    385.    252.
-##  5  1923     531.     266.     444.     649.    77.2    430.    327.    245.
-##  6  1924     406.     262.     395.     447.   117.     356     329.    221.
-##  7  1925     575.     462.     228.     329.    87.5    353.    529.    252.
-##  8  1926     547.     308.     367      547.    91.1    366.    512.    241.
-##  9  1927     445.     345.     433.     574.   104.     423.    446     240.
-## 10  1928     567.     272.     440.     612.   131.     384.    408.    253.
-## # ℹ 92 more rows</code></pre>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="tidy-data-3-joins.html#cb379-1" tabindex="-1"></a><span class="co">#Alistair&#39;s solution</span></span>
+<span id="cb379-2"><a href="tidy-data-3-joins.html#cb379-2" tabindex="-1"></a>beat_left <span class="ot">&lt;-</span> <span class="fu">left_join</span>(beatnames, babynames, <span class="at">by =</span> <span class="fu">join_by</span>(name), <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_beat&quot;</span>, <span class="st">&quot;_baby&quot;</span>))</span>
+<span id="cb379-3"><a href="tidy-data-3-joins.html#cb379-3" tabindex="-1"></a>beat_left</span></code></pre></div>
+<pre><code>## # A tibble: 884 × 6
+##    name  n_beat  year sex   n_baby     prop
+##    &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;int&gt;    &lt;dbl&gt;
+##  1 John       1  1880 F         46 0.000471
+##  2 John       1  1880 M       9655 0.0815  
+##  3 John       1  1881 F         26 0.000263
+##  4 John       1  1881 M       8769 0.0810  
+##  5 John       1  1882 F         40 0.000346
+##  6 John       1  1882 M       9557 0.0783  
+##  7 John       1  1883 F         40 0.000333
+##  8 John       1  1883 M       8894 0.0791  
+##  9 John       1  1884 F         40 0.000291
+## 10 John       1  1884 M       9388 0.0765  
+## # ℹ 874 more rows</code></pre>
+</div>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="tidy-data-3-joins.html#cb381-1" tabindex="-1"></a>beat_right <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="tidy-data-3-joins.html#cb382-1" tabindex="-1"></a><span class="co">#Alistair&#39;s solution</span></span>
+<span id="cb382-2"><a href="tidy-data-3-joins.html#cb382-2" tabindex="-1"></a>beat_right <span class="ot">&lt;-</span> <span class="fu">right_join</span>(babynames, beatnames, <span class="at">by =</span> <span class="fu">join_by</span>(name), <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_baby&quot;</span>, <span class="st">&quot;_beat&quot;</span>))</span>
+<span id="cb382-3"><a href="tidy-data-3-joins.html#cb382-3" tabindex="-1"></a>beat_right</span></code></pre></div>
+<pre><code>## # A tibble: 884 × 6
+##     year sex   name   n_baby     prop n_beat
+##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;int&gt;    &lt;dbl&gt;  &lt;int&gt;
+##  1  1880 F     John       46 0.000471      1
+##  2  1880 F     George     26 0.000266      3
+##  3  1880 M     John     9655 0.0815        1
+##  4  1880 M     George   5126 0.0433        3
+##  5  1880 M     Paul      301 0.00254       2
+##  6  1881 F     George     30 0.000303      3
+##  7  1881 F     John       26 0.000263      1
+##  8  1881 M     John     8769 0.0810        1
+##  9  1881 M     George   4664 0.0431        3
+## 10  1881 M     Paul      291 0.00269       2
+## # ℹ 874 more rows</code></pre>
+</div>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="tidy-data-3-joins.html#cb384-1" tabindex="-1"></a>beat_inner <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="tidy-data-3-joins.html#cb385-1" tabindex="-1"></a><span class="co">#Alistair&#39;s solution</span></span>
+<span id="cb385-2"><a href="tidy-data-3-joins.html#cb385-2" tabindex="-1"></a>beat_inner <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(beatnames, babynames, <span class="at">by =</span> <span class="fu">join_by</span>(name), <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_beat&quot;</span>, <span class="st">&quot;_baby&quot;</span>))</span>
+<span id="cb385-3"><a href="tidy-data-3-joins.html#cb385-3" tabindex="-1"></a>beat_inner</span></code></pre></div>
+<pre><code>## # A tibble: 883 × 6
+##    name  n_beat  year sex   n_baby     prop
+##    &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;int&gt;    &lt;dbl&gt;
+##  1 John       1  1880 F         46 0.000471
+##  2 John       1  1880 M       9655 0.0815  
+##  3 John       1  1881 F         26 0.000263
+##  4 John       1  1881 M       8769 0.0810  
+##  5 John       1  1882 F         40 0.000346
+##  6 John       1  1882 M       9557 0.0783  
+##  7 John       1  1883 F         40 0.000333
+##  8 John       1  1883 M       8894 0.0791  
+##  9 John       1  1884 F         40 0.000291
+## 10 John       1  1884 M       9388 0.0765  
+## # ℹ 873 more rows</code></pre>
+</div>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="tidy-data-3-joins.html#cb387-1" tabindex="-1"></a>beat_full <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="tidy-data-3-joins.html#cb388-1" tabindex="-1"></a><span class="co">#Alistair&#39;s solution</span></span>
+<span id="cb388-2"><a href="tidy-data-3-joins.html#cb388-2" tabindex="-1"></a>beat_full <span class="ot">&lt;-</span> <span class="fu">full_join</span>(beatnames, babynames, <span class="at">by =</span> <span class="fu">join_by</span>(name), <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;_beat&quot;</span>, <span class="st">&quot;_baby&quot;</span>))</span>
+<span id="cb388-3"><a href="tidy-data-3-joins.html#cb388-3" tabindex="-1"></a>beat_full</span></code></pre></div>
+<pre><code>## # A tibble: 1,924,666 × 6
+##    name  n_beat  year sex   n_baby     prop
+##    &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;int&gt;    &lt;dbl&gt;
+##  1 John       1  1880 F         46 0.000471
+##  2 John       1  1880 M       9655 0.0815  
+##  3 John       1  1881 F         26 0.000263
+##  4 John       1  1881 M       8769 0.0810  
+##  5 John       1  1882 F         40 0.000346
+##  6 John       1  1882 M       9557 0.0783  
+##  7 John       1  1883 F         40 0.000333
+##  8 John       1  1883 M       8894 0.0791  
+##  9 John       1  1884 F         40 0.000291
+## 10 John       1  1884 M       9388 0.0765  
+## # ℹ 1,924,656 more rows</code></pre>
 </div>
 </div>
-<div id="binding-join-verbs" class="section level3 hasAnchor" number="6.2.4">
-<h3><span class="header-section-number">6.2.4</span> Binding Join Verbs<a href="tidy-data-3-joins.html#binding-join-verbs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="binding-join-verbs" class="section level3 hasAnchor" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> Binding Join Verbs<a href="tidy-data-3-joins.html#binding-join-verbs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In contrast to mutating join verbs, binding join verbs simply combine tables without any need for matching. Dplyr provides <code>bind_rows()</code> and <code>bind_cols()</code> for combining tables by row and column respectively. When row binding, missing columns are replaced by <code>NA</code> values. When column binding, if the tables do not match by appropriate dimensions, an error will result.</p>
-<div id="bind_rows" class="section level4 hasAnchor" number="6.2.4.1">
-<h4><span class="header-section-number">6.2.4.1</span> bind_rows()<a href="tidy-data-3-joins.html#bind_rows" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="bind_rows" class="section level4 hasAnchor" number="6.2.3.1">
+<h4><span class="header-section-number">6.2.3.1</span> bind_rows()<a href="tidy-data-3-joins.html#bind_rows" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="tidy-data-3-joins.html#cb390-1" tabindex="-1"></a>wos_seasonal_sun <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/wos_seasonal_sun.csv&quot;</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb390-2"><a href="tidy-data-3-joins.html#cb390-2" tabindex="-1"></a>wos_monthly_sun <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/wos_monthly_sun.csv&quot;</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p><code>bind_rows()</code> is ideal when you have more entries of the same kind of data, i.e. new observations of the same variables. (For example; you have a new batch of participants answering the same questionnaire; or you have new air pollution data from a different geographic region… same variables - different observations)</p>
 <p>Lets split some data</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="tidy-data-3-joins.html#cb24-1" tabindex="-1"></a>Sun_Season_1 <span class="ot">&lt;-</span> wos_seasonal_sun <span class="sc">%&gt;%</span></span>
-<span id="cb24-2"><a href="tidy-data-3-joins.html#cb24-2" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">1970</span>)</span>
-<span id="cb24-3"><a href="tidy-data-3-joins.html#cb24-3" tabindex="-1"></a></span>
-<span id="cb24-4"><a href="tidy-data-3-joins.html#cb24-4" tabindex="-1"></a>Sun_Season_2 <span class="ot">&lt;-</span> wos_seasonal_sun <span class="sc">%&gt;%</span></span>
-<span id="cb24-5"><a href="tidy-data-3-joins.html#cb24-5" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&lt;</span> <span class="dv">1970</span>)</span></code></pre></div>
-<p>Now we have 2 indetical tables for seasonal sunshine in the west of Scotland, but for different sets of years. All the same variables, but totally different observations.</p>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="tidy-data-3-joins.html#cb391-1" tabindex="-1"></a>Sun_Season_1 <span class="ot">&lt;-</span> wos_seasonal_sun <span class="sc">%&gt;%</span></span>
+<span id="cb391-2"><a href="tidy-data-3-joins.html#cb391-2" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">1970</span>)</span>
+<span id="cb391-3"><a href="tidy-data-3-joins.html#cb391-3" tabindex="-1"></a></span>
+<span id="cb391-4"><a href="tidy-data-3-joins.html#cb391-4" tabindex="-1"></a>Sun_Season_2 <span class="ot">&lt;-</span> wos_seasonal_sun <span class="sc">%&gt;%</span></span>
+<span id="cb391-5"><a href="tidy-data-3-joins.html#cb391-5" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&lt;</span> <span class="dv">1970</span>)</span></code></pre></div>
+<p>Now we have 2 identical tables for seasonal sunshine in the west of Scotland, but for different sets of years. All the same variables, but totally different observations.</p>
 <p>We can easily join these together with <code>bind_rows</code> to create a complete history.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="tidy-data-3-joins.html#cb25-1" tabindex="-1"></a>Bind_1 <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(Sun_Season_1, Sun_Season_2)</span>
-<span id="cb25-2"><a href="tidy-data-3-joins.html#cb25-2" tabindex="-1"></a>Bind_1</span></code></pre></div>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="tidy-data-3-joins.html#cb392-1" tabindex="-1"></a>Bind_1 <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(Sun_Season_1, Sun_Season_2)</span>
+<span id="cb392-2"><a href="tidy-data-3-joins.html#cb392-2" tabindex="-1"></a>Bind_1</span></code></pre></div>
 <pre><code>## # A tibble: 102 × 5
 ##     year   win   spr   sum   aut
 ##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -733,36 +863,36 @@ Solution
 ## # ℹ 92 more rows</code></pre>
 <p><code>bind_rows()</code> takes the second table <code>Sun_Season_2</code> and puts it <em>directly underneath</em> the first table <code>Sun_Season_1</code>.</p>
 <p>What happens if we attempt to bind tables with different dimensions</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="tidy-data-3-joins.html#cb27-1" tabindex="-1"></a>Bind_2 <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(Sun_Season_1, inner)</span>
-<span id="cb27-2"><a href="tidy-data-3-joins.html#cb27-2" tabindex="-1"></a>Bind_2</span></code></pre></div>
-<pre><code>## # A tibble: 148 × 7
-##     year   win   spr   sum   aut sum_sun sum_rain
-##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
-##  1  1970  158.  385.  474.  202.      NA       NA
-##  2  1971  115.  424.  475.  269       NA       NA
-##  3  1972  113.  380.  480.  282.      NA       NA
-##  4  1973  116.  418.  444.  250       NA       NA
-##  5  1974  110.  471.  480.  244       NA       NA
-##  6  1975  130.  517.  561.  218.      NA       NA
-##  7  1976  110.  343.  588.  213       NA       NA
-##  8  1977  156.  431.  599.  226.      NA       NA
-##  9  1978  159.  394.  412.  192.      NA       NA
-## 10  1979  155.  383.  403.  223.      NA       NA
-## # ℹ 138 more rows</code></pre>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="tidy-data-3-joins.html#cb394-1" tabindex="-1"></a>Bind_2 <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(Sun_Season_1, inner)</span>
+<span id="cb394-2"><a href="tidy-data-3-joins.html#cb394-2" tabindex="-1"></a>Bind_2</span></code></pre></div>
+<pre><code>## # A tibble: 420 × 11
+##     year   win   spr   sum   aut name  sex_sw homeworld sex_baby     n  prop
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt;
+##  1  1970  158.  385.  474.  202. &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;      &lt;NA&gt;        NA    NA
+##  2  1971  115.  424.  475.  269  &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;      &lt;NA&gt;        NA    NA
+##  3  1972  113.  380.  480.  282. &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;      &lt;NA&gt;        NA    NA
+##  4  1973  116.  418.  444.  250  &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;      &lt;NA&gt;        NA    NA
+##  5  1974  110.  471.  480.  244  &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;      &lt;NA&gt;        NA    NA
+##  6  1975  130.  517.  561.  218. &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;      &lt;NA&gt;        NA    NA
+##  7  1976  110.  343.  588.  213  &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;      &lt;NA&gt;        NA    NA
+##  8  1977  156.  431.  599.  226. &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;      &lt;NA&gt;        NA    NA
+##  9  1978  159.  394.  412.  192. &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;      &lt;NA&gt;        NA    NA
+## 10  1979  155.  383.  403.  223. &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;      &lt;NA&gt;        NA    NA
+## # ℹ 410 more rows</code></pre>
 <p>Notice that the <code>bind_rows()</code> does not “care” if it duplicates rows, here we have repeat years. Also <code>bind_rows()</code> does not “care” that there are columns that do not match between the tables, here <code>NA</code> is added fill the missing space.</p>
 </div>
-<div id="bind_cols" class="section level4 hasAnchor" number="6.2.4.2">
-<h4><span class="header-section-number">6.2.4.2</span> bind_cols()<a href="tidy-data-3-joins.html#bind_cols" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="bind_cols" class="section level4 hasAnchor" number="6.2.3.2">
+<h4><span class="header-section-number">6.2.3.2</span> bind_cols()<a href="tidy-data-3-joins.html#bind_cols" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><code>bind_cols()</code> is similar to our mutating join verbs in that it creates a new table by joining columns (or variables) together. However, note that <code>bind_cols()</code> does not perform any kind of row-wise matching when joining tables.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="tidy-data-3-joins.html#cb29-1" tabindex="-1"></a>Bind_3 <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(wos_monthly_sun, wos_seasonal_sun)</span></code></pre></div>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="tidy-data-3-joins.html#cb396-1" tabindex="-1"></a>Bind_3 <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(wos_monthly_sun, wos_seasonal_sun)</span></code></pre></div>
 <pre><code>## New names:
 ## • `year` -&gt; `year...1`
 ## • `year` -&gt; `year...15`</code></pre>
 <p><code>bind_cols()</code>takes <code>wos_seasonal_sun</code> and puts it <em>right next</em> to <code>wos_monthly_sun</code>. Since the column name <code>year</code> is in both tables they get called <code>year..1</code> and <code>year...15</code> after their respective column number to differentiate them.</p>
 <p>What happens if we attempt to bind tables with different dimensions</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="tidy-data-3-joins.html#cb31-1" tabindex="-1"></a>Bind_4 <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(Summer_Sun, Summer_Rain)</span></code></pre></div>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="tidy-data-3-joins.html#cb398-1" tabindex="-1"></a>Bind_4 <span class="ot">&lt;-</span><span class="fu">bind_cols</span>(wos_monthly_sun, inner)</span></code></pre></div>
 <pre><code>## Error in `bind_cols()`:
-## ! Can&#39;t recycle `..1` (size 102) to match `..2` (size 154).</code></pre>
+## ! Can&#39;t recycle `..1` (size 102) to match `..2` (size 369).</code></pre>
 <p>You simply get an error</p>
 <div class="funfact">
 <p>
@@ -778,10 +908,10 @@ full_join(data1, data2) %&gt;% full_join(data3)
 </div>
 <p>Just to further clarify the differences between <code>bind_cols()</code> and the mutating joing verbs, lets look at how they would deal with the same challenge</p>
 <p>First lets create a new table for winter sun data, but lets arrange it by “win”, so that rather than being in order of <code>year</code>, it is in order of most sunshine. This will have the same dimensions as the Summer_Sun table but a totally different order</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="tidy-data-3-joins.html#cb33-1" tabindex="-1"></a>Winter_Sun <span class="ot">&lt;-</span> wos_seasonal_sun <span class="sc">%&gt;%</span> </span>
-<span id="cb33-2"><a href="tidy-data-3-joins.html#cb33-2" tabindex="-1"></a>  <span class="fu">select</span>(year, win) <span class="sc">%&gt;%</span></span>
-<span id="cb33-3"><a href="tidy-data-3-joins.html#cb33-3" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(win))</span>
-<span id="cb33-4"><a href="tidy-data-3-joins.html#cb33-4" tabindex="-1"></a>Winter_Sun</span></code></pre></div>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="tidy-data-3-joins.html#cb400-1" tabindex="-1"></a>Winter_Sun <span class="ot">&lt;-</span> wos_seasonal_sun <span class="sc">%&gt;%</span> </span>
+<span id="cb400-2"><a href="tidy-data-3-joins.html#cb400-2" tabindex="-1"></a>  <span class="fu">select</span>(year, win) <span class="sc">%&gt;%</span></span>
+<span id="cb400-3"><a href="tidy-data-3-joins.html#cb400-3" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(win))</span>
+<span id="cb400-4"><a href="tidy-data-3-joins.html#cb400-4" tabindex="-1"></a>Winter_Sun</span></code></pre></div>
 <pre><code>## # A tibble: 102 × 2
 ##     year   win
 ##    &lt;dbl&gt; &lt;dbl&gt;
@@ -796,42 +926,46 @@ full_join(data1, data2) %&gt;% full_join(data3)
 ##  9  1970  158.
 ## 10  1996  156.
 ## # ℹ 92 more rows</code></pre>
-<p>Now lets try joining Winter_Sun and Summer_Sun using the two different methods</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="tidy-data-3-joins.html#cb35-1" tabindex="-1"></a>Comparison_1 <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(Summer_Sun, Winter_Sun)</span></code></pre></div>
+<p>Now lets make a Summer_sun table the same way and try joining it with Winter_Sun using the two different methods</p>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="tidy-data-3-joins.html#cb402-1" tabindex="-1"></a>Summer_Sun <span class="ot">&lt;-</span> wos_seasonal_sun <span class="sc">%&gt;%</span> </span>
+<span id="cb402-2"><a href="tidy-data-3-joins.html#cb402-2" tabindex="-1"></a>  <span class="fu">select</span>(year, sum) <span class="sc">%&gt;%</span></span>
+<span id="cb402-3"><a href="tidy-data-3-joins.html#cb402-3" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(sum))</span>
+<span id="cb402-4"><a href="tidy-data-3-joins.html#cb402-4" tabindex="-1"></a></span>
+<span id="cb402-5"><a href="tidy-data-3-joins.html#cb402-5" tabindex="-1"></a></span>
+<span id="cb402-6"><a href="tidy-data-3-joins.html#cb402-6" tabindex="-1"></a>Comparison_1 <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(Summer_Sun, Winter_Sun)</span></code></pre></div>
 <pre><code>## New names:
 ## • `year` -&gt; `year...1`
 ## • `year` -&gt; `year...3`</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="tidy-data-3-joins.html#cb37-1" tabindex="-1"></a>Comparison_2 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(Summer_Sun, Winter_Sun, <span class="st">&quot;year&quot;</span>)</span>
-<span id="cb37-2"><a href="tidy-data-3-joins.html#cb37-2" tabindex="-1"></a></span>
-<span id="cb37-3"><a href="tidy-data-3-joins.html#cb37-3" tabindex="-1"></a>Comparison_1</span></code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="tidy-data-3-joins.html#cb404-1" tabindex="-1"></a>Comparison_1</span></code></pre></div>
 <pre><code>## # A tibble: 102 × 4
 ##    year...1   sum year...3   win
 ##       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
-##  1     1919  524.     1963  204.
-##  2     1920  411.     2018  170.
-##  3     1921  509      2003  169.
-##  4     1922  385.     2001  166 
-##  5     1923  327.     1965  165 
-##  6     1924  329.     2004  163.
-##  7     1925  529.     1978  159.
-##  8     1926  512.     1968  159.
-##  9     1927  446      1970  158.
-## 10     1928  408.     1996  156.
+##  1     1995  652.     1963  204.
+##  2     1955  604      2018  170.
+##  3     1977  599.     2003  169.
+##  4     1976  588.     2001  166 
+##  5     1989  564.     1965  165 
+##  6     1975  561.     2004  163.
+##  7     1949  544.     1978  159.
+##  8     1984  543.     1968  159.
+##  9     2018  539.     1970  158.
+## 10     1925  529.     1996  156.
 ## # ℹ 92 more rows</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="tidy-data-3-joins.html#cb39-1" tabindex="-1"></a>Comparison_2</span></code></pre></div>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="tidy-data-3-joins.html#cb406-1" tabindex="-1"></a>Comparison_2 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(Summer_Sun, Winter_Sun, <span class="at">by =</span> <span class="fu">join_by</span>(year))</span>
+<span id="cb406-2"><a href="tidy-data-3-joins.html#cb406-2" tabindex="-1"></a>Comparison_2</span></code></pre></div>
 <pre><code>## # A tibble: 102 × 3
 ##     year   sum   win
 ##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-##  1  1919  524.  NA  
-##  2  1920  411. 111. 
-##  3  1921  509  104. 
-##  4  1922  385. 102. 
-##  5  1923  327.  77.2
-##  6  1924  329. 117. 
-##  7  1925  529.  87.5
-##  8  1926  512.  91.1
-##  9  1927  446  104. 
-## 10  1928  408. 131. 
+##  1  1995  652. 122. 
+##  2  1955  604  143  
+##  3  1977  599. 156. 
+##  4  1976  588. 110. 
+##  5  1989  564. 111. 
+##  6  1975  561. 130. 
+##  7  1949  544. 120  
+##  8  1984  543. 105. 
+##  9  2018  539. 170. 
+## 10  1925  529.  87.5
 ## # ℹ 92 more rows</code></pre>
 <div class="info">
 <p>
