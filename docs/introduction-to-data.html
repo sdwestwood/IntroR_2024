@@ -667,11 +667,11 @@ country you are from. Store this vector under the name
 <button>
 Explain this!
 </button>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="introduction-to-data.html#cb51-1" tabindex="-1"></a><span class="co"># Gaby&#39;s solution:</span></span>
-<span id="cb51-2"><a href="introduction-to-data.html#cb51-2" tabindex="-1"></a>favourite_movies <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Red&quot;</span>, <span class="st">&quot;Cloud Atlas&quot;</span>, <span class="st">&quot;Hot Fuzz&quot;</span>) <span class="co"># character</span></span>
-<span id="cb51-3"><a href="introduction-to-data.html#cb51-3" tabindex="-1"></a>years_birth <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1953</span>, <span class="dv">1975</span>) <span class="co"># double</span></span>
-<span id="cb51-4"><a href="introduction-to-data.html#cb51-4" tabindex="-1"></a>alph <span class="ot">&lt;-</span> letters <span class="co"># muahahahaaaa! &amp; character</span></span>
-<span id="cb51-5"><a href="introduction-to-data.html#cb51-5" tabindex="-1"></a>this_is_me <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Gaby&quot;</span>, <span class="dv">38</span>, <span class="st">&quot;Germany&quot;</span>) <span class="co"># character</span></span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="introduction-to-data.html#cb51-1" tabindex="-1"></a><span class="co"># Sean&#39;s solution:</span></span>
+<span id="cb51-2"><a href="introduction-to-data.html#cb51-2" tabindex="-1"></a>favourite_movies <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Mary Poppins&quot;</span>, <span class="st">&quot;Amelie&quot;</span>, <span class="st">&quot;The Life Aquatic with Steve Zissou&quot;</span>) <span class="co"># character</span></span>
+<span id="cb51-3"><a href="introduction-to-data.html#cb51-3" tabindex="-1"></a>years_birth <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1963</span>, <span class="dv">2003</span>) <span class="co"># double</span></span>
+<span id="cb51-4"><a href="introduction-to-data.html#cb51-4" tabindex="-1"></a>alph <span class="ot">&lt;-</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>] <span class="co"># sorry, a mean trick! (character)</span></span>
+<span id="cb51-5"><a href="introduction-to-data.html#cb51-5" tabindex="-1"></a>this_is_me <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Sean&quot;</span>, <span class="dv">27</span>, <span class="st">&quot;Scotland&quot;</span>) <span class="co"># character</span></span></code></pre></div>
 <div class="solved">
 <p>
 More detailed explanations:
@@ -702,9 +702,10 @@ diameter
 </li>
 </ul>
 <p>
-Of course, the task could have been solved typing alph &lt;- c(“a”,
-“b”, “c”, “d”, “e”, “f”, “g”, “h”, “i”, “j”, “k”, “l”, “m”, “n”, “o”,
-“p”, “q”, “r”, “s”, “t”, “u”, “v”, “w”, “x”, “y”, “z”)
+Of course, the task could have been solved typing
+<code>alph &lt;- c(“a”, “b”, “c”, “d”, “e”, “f”, “g”, “h”, “i”, “j”)</code>,
+but if you find yourself typing out a tedious set of things it is a good
+habit to look for ways to shorten/automate!
 </p>
 <p>
 <code>this_is_me</code> would be stored as a <code>character</code>
@@ -973,7 +974,7 @@ consent, participant 6 has not.
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="introduction-to-data.html#cb91-1" tabindex="-1"></a><span class="co"># Gaby&#39;s solution:</span></span>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="introduction-to-data.html#cb91-1" tabindex="-1"></a><span class="co"># Sean&#39;s solution:</span></span>
 <span id="cb91-2"><a href="introduction-to-data.html#cb91-2" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">PP_ID =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,</span>
 <span id="cb91-3"><a href="introduction-to-data.html#cb91-3" tabindex="-1"></a>                 <span class="at">PP_Age =</span> <span class="fu">c</span>(<span class="dv">22</span>, <span class="dv">21</span>, <span class="dv">24</span>, <span class="dv">36</span>, <span class="dv">33</span>, <span class="dv">25</span>),</span>
 <span id="cb91-4"><a href="introduction-to-data.html#cb91-4" tabindex="-1"></a>                 <span class="at">PP_Sex =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>), <span class="dv">3</span>),</span>
@@ -981,8 +982,8 @@ Solution
 <span id="cb91-6"><a href="introduction-to-data.html#cb91-6" tabindex="-1"></a>                 <span class="at">PP_Consent =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="cn">TRUE</span>, <span class="dv">5</span>), <span class="cn">FALSE</span>))</span></code></pre></div>
 <div class="info">
 <p>
-But there are plenty of other ways how this could have been done. For
-example:
+But there are plenty of other ways how this could have been done
+(some more efficient than others!). For example:
 </p>
 <ul>
 <li>
@@ -1104,10 +1105,10 @@ this stage in the course (but you could try and do it after lecture
 ## # ℹ 77 more rows
 ## # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 ## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
-<p>In comparison to <code>mtcars</code>, <code>starwars</code> is already a tibble (which you can see in the first line of the printout). It gives you the number of observations (87) and variables (13), the column headers, the data type of each column, and the first 10 rows of data. Again, it would be neater to work with the data if we saved the data tibble to our <code>Global Environment</code>. Let’s do that and call it <code>data_SW</code>.</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="introduction-to-data.html#cb98-1" tabindex="-1"></a>data_SW <span class="ot">&lt;-</span> starwars</span></code></pre></div>
+<p>In comparison to <code>mtcars</code>, <code>starwars</code> is already a tibble (which you can see in the first line of the printout). It gives you the number of observations (87) and variables (13), the column headers, the data type of each column, and the first 10 rows of data. Again, it would be neater to work with the data if we saved the data tibble to our <code>Global Environment</code>. Let’s do that and call it <code>data_sw</code>.</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="introduction-to-data.html#cb98-1" tabindex="-1"></a>data_sw <span class="ot">&lt;-</span> starwars</span></code></pre></div>
 <p>Again, you could use the very handy <code>glimpse()</code> function to see what data types the columns are.</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="introduction-to-data.html#cb99-1" tabindex="-1"></a><span class="fu">glimpse</span>(data_SW)</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="introduction-to-data.html#cb99-1" tabindex="-1"></a><span class="fu">glimpse</span>(data_sw)</span></code></pre></div>
 <div class="funfact">
 <p>
 There are other built in datasets available, such as

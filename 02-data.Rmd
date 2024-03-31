@@ -258,11 +258,11 @@ Don't believe it? Try it out in your Console!
 
 `r hide("Explain this!")`
 ```{r}
-# Gaby's solution:
-favourite_movies <- c("Red", "Cloud Atlas", "Hot Fuzz") # character
-years_birth <- c(1953, 1975) # double
-alph <- letters # muahahahaaaa! & character
-this_is_me <- c("Gaby", 38, "Germany") # character
+# Sean's solution:
+favourite_movies <- c("Mary Poppins", "Amelie", "The Life Aquatic with Steve Zissou") # character
+years_birth <- c(1963, 2003) # double
+alph <- letters[1:10] # sorry, a mean trick! (character)
+this_is_me <- c("Sean", 27, "Scotland") # character
 ```
 
 
@@ -277,7 +277,7 @@ R has Built-in Constants:
 * `month.name`: the English names for the months of the year; <br>
 * `pi`: the ratio of the circumference of a circle to its diameter
 
-Of course, the task could have been solved typing alph <- c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z")
+Of course, the task could have been solved typing `alph <- c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j")`, but if you find yourself typing out a tedious set of things it is a good habit to look for ways to shorten/automate!
 
 `this_is_me` would be stored as a `character` vector despite having text as well as numeric elements. Remember how we said earlier that all elements have to be of the same data type? After the next section, you will understand why they are stored as a character and not as a numeric vector.
 
@@ -528,7 +528,7 @@ Make a tibble called `mydata` with 5 columns and 6 rows:
 
 `r hide("Solution")`
 ```{r, eval = FALSE}
-# Gaby's solution:
+# Sean's solution:
 mydata <- tibble(PP_ID = 1:6,
                  PP_Age = c(22, 21, 24, 36, 33, 25),
                  PP_Sex = rep(c("Female", "Male"), 3),
@@ -537,7 +537,7 @@ mydata <- tibble(PP_ID = 1:6,
 ```
 
 ```{block, type="info"}
-But there are plenty of other ways how this could have been done. For example:
+But there are plenty of other ways how this could have been done (some more efficient than others!). For example:
 
 * PP_ID = seq(10) <br>
 * PP_ID = as.integer(c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)) <br>
@@ -595,16 +595,16 @@ Another interesting dataset is called `starwars`. It can be found in the package
 starwars
 ```
 
-In comparison to `mtcars`, `starwars` is already a tibble (which you can see in the first line of the printout). It gives you the number of observations (87) and variables (13), the column headers, the data type of each column, and the first 10 rows of data. Again, it would be neater to work with the data if we saved the data tibble to our `Global Environment`. Let's do that and call it `data_SW`.
+In comparison to `mtcars`, `starwars` is already a tibble (which you can see in the first line of the printout). It gives you the number of observations (87) and variables (13), the column headers, the data type of each column, and the first 10 rows of data. Again, it would be neater to work with the data if we saved the data tibble to our `Global Environment`. Let's do that and call it `data_sw`.
 
 ```{r}
-data_SW <- starwars
+data_sw <- starwars
 ```
 
 Again, you could use the very handy `glimpse()` function to see what data types the columns are.
 
 ```{r, eval=FALSE}
-glimpse(data_SW)
+glimpse(data_sw)
 ```
 
 
