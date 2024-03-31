@@ -123,28 +123,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -343,7 +321,6 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#bringing-in-new-data"><i class="fa fa-check"></i><b>6.2.1</b> Bringing in new data</a></li>
 <li class="chapter" data-level="6.2.2" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#mutating-join-summary"><i class="fa fa-check"></i><b>6.2.2</b> Mutating Join Summary</a></li>
-<li class="chapter" data-level="6.2.3" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#binding-join-verbs"><i class="fa fa-check"></i><b>6.2.3</b> Binding Join Verbs</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#additional-information-1"><i class="fa fa-check"></i><b>6.3</b> Additional information</a></li>
 </ul></li>
@@ -430,21 +407,22 @@ div.csl-indent {
 <div id="pre-steps-3" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> Pre-steps<a href="tidy-data-2-cell-manipulation.html#pre-steps-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Before we can start to focus on some other functions that might come in handy for data manipulation, we need to make sure to load <code>tidyverse</code> into the library.</p>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="tidy-data-2-cell-manipulation.html#cb301-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb301-2"><a href="tidy-data-2-cell-manipulation.html#cb301-2" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="tidy-data-2-cell-manipulation.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 4.3.2</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="tidy-data-2-cell-manipulation.html#cb3-1" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div>
 </div>
 <div id="conditional-statements" class="section level2 hasAnchor" number="5.2">
 <h2><span class="header-section-number">5.2</span> Conditional statements<a href="tidy-data-2-cell-manipulation.html#conditional-statements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Conditional statements are used when you want to create an output value that is conditioned on an evaluation. Here, we are showing you how to use them in combination with <code>mutate()</code> by either modifying the values within one column, or by adding a new column.</p>
 <p>Example scenario: Imagine that we have data in which a column <code>Sex</code> holds values of <code>1</code> and <code>2</code> that stand for <code>Male</code>, and <code>Female</code> participants respectively. Conditional statements make an evaluation: <em>if <code>Sex</code> is <code>1</code>, then put the value of <code>Male</code> in a new column called <code>Sex_char</code>; if <code>Sex</code> is <code>2</code> put <code>Female</code> in column <code>Sex_char</code>.</em></p>
 <p>Let’s create some fake data for this. 40 participants (17 male, 20 female, 3 other), they are between 16 and 40 years of age, they study at 4 different institutions (University of Glasgow, University of Strathclyde, Glasgow Caledonian University, University of the West of Scotland), and we had them complete an R assignment and recorded their grade points.</p>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="tidy-data-2-cell-manipulation.html#cb302-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">999</span>) <span class="co">#so we all get the same random data</span></span>
-<span id="cb302-2"><a href="tidy-data-2-cell-manipulation.html#cb302-2" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">PP_ID =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">40</span>,</span>
-<span id="cb302-3"><a href="tidy-data-2-cell-manipulation.html#cb302-3" tabindex="-1"></a>                    <span class="at">Sex =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">17</span>), <span class="fu">rep</span>(<span class="dv">2</span>,<span class="dv">20</span>), <span class="fu">rep</span>(<span class="dv">3</span>,<span class="dv">3</span>)),</span>
-<span id="cb302-4"><a href="tidy-data-2-cell-manipulation.html#cb302-4" tabindex="-1"></a>                    <span class="at">Age =</span> <span class="fu">sample</span>(<span class="dv">16</span><span class="sc">:</span><span class="dv">40</span>, <span class="dv">40</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb302-5"><a href="tidy-data-2-cell-manipulation.html#cb302-5" tabindex="-1"></a>                    <span class="at">Institution =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">10</span>), <span class="fu">rep</span>(<span class="dv">2</span>,<span class="dv">8</span>), <span class="fu">rep</span>(<span class="dv">3</span>,<span class="dv">10</span>), <span class="fu">rep</span>(<span class="dv">4</span>,<span class="dv">10</span>), <span class="fu">rep</span>(<span class="dv">99</span>,<span class="dv">2</span>))),</span>
-<span id="cb302-6"><a href="tidy-data-2-cell-manipulation.html#cb302-6" tabindex="-1"></a>                    <span class="at">Grade_points =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">9</span><span class="sc">:</span><span class="dv">22</span>), <span class="dv">40</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb302-7"><a href="tidy-data-2-cell-manipulation.html#cb302-7" tabindex="-1"></a><span class="fu">glimpse</span>(fake_data)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="tidy-data-2-cell-manipulation.html#cb4-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">999</span>) <span class="co">#so we all get the same random data</span></span>
+<span id="cb4-2"><a href="tidy-data-2-cell-manipulation.html#cb4-2" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">PP_ID =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">40</span>,</span>
+<span id="cb4-3"><a href="tidy-data-2-cell-manipulation.html#cb4-3" tabindex="-1"></a>                    <span class="at">Sex =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">17</span>), <span class="fu">rep</span>(<span class="dv">2</span>,<span class="dv">20</span>), <span class="fu">rep</span>(<span class="dv">3</span>,<span class="dv">3</span>)),</span>
+<span id="cb4-4"><a href="tidy-data-2-cell-manipulation.html#cb4-4" tabindex="-1"></a>                    <span class="at">Age =</span> <span class="fu">sample</span>(<span class="dv">16</span><span class="sc">:</span><span class="dv">40</span>, <span class="dv">40</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb4-5"><a href="tidy-data-2-cell-manipulation.html#cb4-5" tabindex="-1"></a>                    <span class="at">Institution =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">10</span>), <span class="fu">rep</span>(<span class="dv">2</span>,<span class="dv">8</span>), <span class="fu">rep</span>(<span class="dv">3</span>,<span class="dv">10</span>), <span class="fu">rep</span>(<span class="dv">4</span>,<span class="dv">10</span>), <span class="fu">rep</span>(<span class="dv">99</span>,<span class="dv">2</span>))),</span>
+<span id="cb4-6"><a href="tidy-data-2-cell-manipulation.html#cb4-6" tabindex="-1"></a>                    <span class="at">Grade_points =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">9</span><span class="sc">:</span><span class="dv">22</span>), <span class="dv">40</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb4-7"><a href="tidy-data-2-cell-manipulation.html#cb4-7" tabindex="-1"></a><span class="fu">glimpse</span>(fake_data)</span></code></pre></div>
 <pre><code>## Rows: 40
 ## Columns: 5
 ## $ PP_ID        &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17…
@@ -452,7 +430,7 @@ div.csl-indent {
 ## $ Age          &lt;int&gt; 19, 22, 24, 29, 16, 25, 37, 18, 38, 39, 30, 20, 22, 21, 3…
 ## $ Institution  &lt;dbl&gt; 3, 1, 1, 4, 2, 3, 1, 4, 3, 4, 3, 4, 4, 4, 2, 3, 3, 99, 2,…
 ## $ Grade_points &lt;dbl&gt; 0, 20, 15, 20, 11, 22, 21, 9, 13, 22, 19, 13, 10, 0, 12, …</code></pre>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="tidy-data-2-cell-manipulation.html#cb304-1" tabindex="-1"></a><span class="fu">kable</span>(fake_data)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="tidy-data-2-cell-manipulation.html#cb6-1" tabindex="-1"></a><span class="fu">kable</span>(fake_data)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -752,19 +730,19 @@ div.csl-indent {
 <h3><span class="header-section-number">5.2.1</span> recode()<a href="tidy-data-2-cell-manipulation.html#recode" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Can be used for character, numeric, and factors columns.</p>
 <p>The structure for <code>recode()</code> is:</p>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="tidy-data-2-cell-manipulation.html#cb305-1" tabindex="-1"></a><span class="fu">recode</span>(variable_to_recode, <span class="at">old_value =</span> new_value)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="tidy-data-2-cell-manipulation.html#cb7-1" tabindex="-1"></a><span class="fu">recode</span>(variable_to_recode, <span class="at">old_value =</span> new_value)</span></code></pre></div>
 <p>This is a bit tricky to remember as it doesn’t follow the usual tidyverse logic. In <code>select()</code>, <code>rename()</code>, and <code>mutate()</code> for example it is the other way around <code>new_thing = old_thing</code> or <code>new_thing = something_computational</code>)</p>
 <p>In combination with <code>mutate()</code>, the structure looks as follows:</p>
-<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="tidy-data-2-cell-manipulation.html#cb306-1" tabindex="-1"></a><span class="fu">mutate</span>(data, <span class="at">new_column_name =</span> <span class="fu">recode</span>(variable_to_recode, <span class="at">old_value =</span> new_value))</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="tidy-data-2-cell-manipulation.html#cb8-1" tabindex="-1"></a><span class="fu">mutate</span>(data, <span class="at">new_column_name =</span> <span class="fu">recode</span>(variable_to_recode, <span class="at">old_value =</span> new_value))</span></code></pre></div>
 <p>What is a bit unusual in this structure is that we need a new column name within the <code>mutate()</code> function but also a reference column within <code>recode()</code> on which the conditional recoding is based upon.</p>
 <p>The new column name within <code>mutate()</code> can either be an entirely new column name, or if it is an existing column name that original column would be overwritten by the new values we recode.</p>
 <p>So, let’s turn to our <code>fake_data</code>, and apply that logic for recoding the values of the column <code>Sex</code> where 1 = “Male”, 2 = “Female”, and 3 = “Other”. We will add a new column <code>Sex_char</code> onto our <code>fake_data</code>.</p>
 <p>The only tricky thing to remember here is that recoding numeric values requires backticks (if the numbers are on the left side of the equation).</p>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="tidy-data-2-cell-manipulation.html#cb307-1" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(fake_data, <span class="at">Sex_char =</span> <span class="fu">recode</span>(Sex, </span>
-<span id="cb307-2"><a href="tidy-data-2-cell-manipulation.html#cb307-2" tabindex="-1"></a>                                                 <span class="st">`</span><span class="at">1</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;Male&quot;</span>, </span>
-<span id="cb307-3"><a href="tidy-data-2-cell-manipulation.html#cb307-3" tabindex="-1"></a>                                                 <span class="st">`</span><span class="at">2</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;Female&quot;</span>, </span>
-<span id="cb307-4"><a href="tidy-data-2-cell-manipulation.html#cb307-4" tabindex="-1"></a>                                                 <span class="st">`</span><span class="at">3</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;Other&quot;</span>))</span>
-<span id="cb307-5"><a href="tidy-data-2-cell-manipulation.html#cb307-5" tabindex="-1"></a><span class="fu">glimpse</span>(fake_data)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="tidy-data-2-cell-manipulation.html#cb9-1" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(fake_data, <span class="at">Sex_char =</span> <span class="fu">recode</span>(Sex, </span>
+<span id="cb9-2"><a href="tidy-data-2-cell-manipulation.html#cb9-2" tabindex="-1"></a>                                                 <span class="st">`</span><span class="at">1</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;Male&quot;</span>, </span>
+<span id="cb9-3"><a href="tidy-data-2-cell-manipulation.html#cb9-3" tabindex="-1"></a>                                                 <span class="st">`</span><span class="at">2</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;Female&quot;</span>, </span>
+<span id="cb9-4"><a href="tidy-data-2-cell-manipulation.html#cb9-4" tabindex="-1"></a>                                                 <span class="st">`</span><span class="at">3</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;Other&quot;</span>))</span>
+<span id="cb9-5"><a href="tidy-data-2-cell-manipulation.html#cb9-5" tabindex="-1"></a><span class="fu">glimpse</span>(fake_data)</span></code></pre></div>
 <pre><code>## Rows: 40
 ## Columns: 6
 ## $ PP_ID        &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17…
@@ -819,13 +797,13 @@ strings indicated above.
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="tidy-data-2-cell-manipulation.html#cb309-1" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(fake_data, <span class="at">Institution_char =</span> <span class="fu">recode</span>(Institution, </span>
-<span id="cb309-2"><a href="tidy-data-2-cell-manipulation.html#cb309-2" tabindex="-1"></a>                                                         <span class="st">`</span><span class="at">1</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;UoG&quot;</span>, </span>
-<span id="cb309-3"><a href="tidy-data-2-cell-manipulation.html#cb309-3" tabindex="-1"></a>                                                         <span class="st">`</span><span class="at">2</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;Strathclyde&quot;</span>, </span>
-<span id="cb309-4"><a href="tidy-data-2-cell-manipulation.html#cb309-4" tabindex="-1"></a>                                                         <span class="st">`</span><span class="at">3</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;GCU&quot;</span>, </span>
-<span id="cb309-5"><a href="tidy-data-2-cell-manipulation.html#cb309-5" tabindex="-1"></a>                                                         <span class="st">`</span><span class="at">4</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;UWS&quot;</span>, </span>
-<span id="cb309-6"><a href="tidy-data-2-cell-manipulation.html#cb309-6" tabindex="-1"></a>                                                         <span class="st">`</span><span class="at">99</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;Strathclyde&quot;</span>))</span>
-<span id="cb309-7"><a href="tidy-data-2-cell-manipulation.html#cb309-7" tabindex="-1"></a><span class="fu">glimpse</span>(fake_data)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="tidy-data-2-cell-manipulation.html#cb11-1" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(fake_data, <span class="at">Institution_char =</span> <span class="fu">recode</span>(Institution, </span>
+<span id="cb11-2"><a href="tidy-data-2-cell-manipulation.html#cb11-2" tabindex="-1"></a>                                                         <span class="st">`</span><span class="at">1</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;UoG&quot;</span>, </span>
+<span id="cb11-3"><a href="tidy-data-2-cell-manipulation.html#cb11-3" tabindex="-1"></a>                                                         <span class="st">`</span><span class="at">2</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;Strathclyde&quot;</span>, </span>
+<span id="cb11-4"><a href="tidy-data-2-cell-manipulation.html#cb11-4" tabindex="-1"></a>                                                         <span class="st">`</span><span class="at">3</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;GCU&quot;</span>, </span>
+<span id="cb11-5"><a href="tidy-data-2-cell-manipulation.html#cb11-5" tabindex="-1"></a>                                                         <span class="st">`</span><span class="at">4</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;UWS&quot;</span>, </span>
+<span id="cb11-6"><a href="tidy-data-2-cell-manipulation.html#cb11-6" tabindex="-1"></a>                                                         <span class="st">`</span><span class="at">99</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;Strathclyde&quot;</span>))</span>
+<span id="cb11-7"><a href="tidy-data-2-cell-manipulation.html#cb11-7" tabindex="-1"></a><span class="fu">glimpse</span>(fake_data)</span></code></pre></div>
 <pre><code>## Rows: 40
 ## Columns: 7
 ## $ PP_ID            &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16…
@@ -842,7 +820,7 @@ Solution
 <h3><span class="header-section-number">5.2.2</span> ifelse()<a href="tidy-data-2-cell-manipulation.html#ifelse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>ifelse()</code> is a good option when dealing with character or numeric input but struggles with dates and factors. None of the columns in <code>fake_data</code> are dates or factors, so we can easily use <code>ifelse()</code> for recoding variables.</p>
 <p>The generic structure for <code>ifelse()</code> is:</p>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="tidy-data-2-cell-manipulation.html#cb311-1" tabindex="-1"></a><span class="fu">ifelse</span>(test, yes, no)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="tidy-data-2-cell-manipulation.html#cb13-1" tabindex="-1"></a><span class="fu">ifelse</span>(test, yes, no)</span></code></pre></div>
 <ul>
 <li>test: is an expression to test that creates an output of <code>TRUE</code> or <code>FALSE</code></li>
 <li>yes: if test has a <code>TRUE</code> outcome, this is what would be coded in the new column</li>
@@ -850,10 +828,10 @@ Solution
 </ul>
 <p>The interpretation of <code>ifelse()</code> is: if the test expression is <code>TRUE</code>, write the value of yes, otherwise no.</p>
 <p>In combination with <code>mutate()</code>, the structure looks as follows:</p>
-<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="tidy-data-2-cell-manipulation.html#cb312-1" tabindex="-1"></a><span class="fu">mutate</span>(data, <span class="at">new_column_name =</span> <span class="fu">ifelse</span>(test, yes, no))</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="tidy-data-2-cell-manipulation.html#cb14-1" tabindex="-1"></a><span class="fu">mutate</span>(data, <span class="at">new_column_name =</span> <span class="fu">ifelse</span>(test, yes, no))</span></code></pre></div>
 <p>How would we apply that to recoding <code>Sex</code>? We would want the expression to test whether the Sex column holds a value of 1, then a new column should code it as “Male”, otherwise as “Female”. Let’s add a new column <code>Sex_ifelse</code> to <code>fake_data</code></p>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="tidy-data-2-cell-manipulation.html#cb313-1" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(fake_data, <span class="at">Sex_ifelse =</span> <span class="fu">ifelse</span>(Sex <span class="sc">==</span> <span class="dv">1</span>, <span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>))</span>
-<span id="cb313-2"><a href="tidy-data-2-cell-manipulation.html#cb313-2" tabindex="-1"></a><span class="fu">glimpse</span>(fake_data)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="tidy-data-2-cell-manipulation.html#cb15-1" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(fake_data, <span class="at">Sex_ifelse =</span> <span class="fu">ifelse</span>(Sex <span class="sc">==</span> <span class="dv">1</span>, <span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>))</span>
+<span id="cb15-2"><a href="tidy-data-2-cell-manipulation.html#cb15-2" tabindex="-1"></a><span class="fu">glimpse</span>(fake_data)</span></code></pre></div>
 <pre><code>## Rows: 40
 ## Columns: 8
 ## $ PP_ID            &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16…
@@ -865,8 +843,8 @@ Solution
 ## $ Institution_char &lt;chr&gt; &quot;GCU&quot;, &quot;UoG&quot;, &quot;UoG&quot;, &quot;UWS&quot;, &quot;Strathclyde&quot;, &quot;GCU&quot;, &quot;Uo…
 ## $ Sex_ifelse       &lt;chr&gt; &quot;Male&quot;, &quot;Male&quot;, &quot;Male&quot;, &quot;Male&quot;, &quot;Male&quot;, &quot;Male&quot;, &quot;Male…</code></pre>
 <p>AHHHH!!! But what about the 3 participants that chose option 3? They are now coded as “Female”. Hmmm. One way to get around that would be a nested <code>ifelse()</code> statement. Instead of replacing the no argument (<code>FALSE</code> evaluation) with “Female”, we could include a second <code>ifelse()</code> statement.</p>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="tidy-data-2-cell-manipulation.html#cb315-1" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(fake_data, <span class="at">Sex_ifelse =</span> <span class="fu">ifelse</span>(Sex <span class="sc">==</span> <span class="dv">1</span>, <span class="st">&quot;Male&quot;</span>,</span>
-<span id="cb315-2"><a href="tidy-data-2-cell-manipulation.html#cb315-2" tabindex="-1"></a>                                                   <span class="fu">ifelse</span>(Sex <span class="sc">==</span> <span class="dv">2</span>, <span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Other&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="tidy-data-2-cell-manipulation.html#cb17-1" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(fake_data, <span class="at">Sex_ifelse =</span> <span class="fu">ifelse</span>(Sex <span class="sc">==</span> <span class="dv">1</span>, <span class="st">&quot;Male&quot;</span>,</span>
+<span id="cb17-2"><a href="tidy-data-2-cell-manipulation.html#cb17-2" tabindex="-1"></a>                                                   <span class="fu">ifelse</span>(Sex <span class="sc">==</span> <span class="dv">2</span>, <span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Other&quot;</span>)))</span></code></pre></div>
 <p>Now everything is coded as it should be.</p>
 <div class="task">
 <p>
@@ -896,11 +874,11 @@ quick reminder of the <code>Institution</code> values:
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="tidy-data-2-cell-manipulation.html#cb316-1" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(fake_data, <span class="at">Institution_ifelse =</span> <span class="fu">ifelse</span>(Institution <span class="sc">==</span> <span class="dv">1</span>, <span class="st">&quot;UoG&quot;</span>, </span>
-<span id="cb316-2"><a href="tidy-data-2-cell-manipulation.html#cb316-2" tabindex="-1"></a>                                                           <span class="fu">ifelse</span>(Institution <span class="sc">==</span> <span class="dv">3</span>, <span class="st">&quot;GCU&quot;</span>, </span>
-<span id="cb316-3"><a href="tidy-data-2-cell-manipulation.html#cb316-3" tabindex="-1"></a>                                                                  <span class="fu">ifelse</span>(Institution <span class="sc">==</span>  <span class="dv">4</span>, <span class="st">&quot;UWS&quot;</span>, <span class="st">&quot;Strathclyde&quot;</span>))))</span>
-<span id="cb316-4"><a href="tidy-data-2-cell-manipulation.html#cb316-4" tabindex="-1"></a></span>
-<span id="cb316-5"><a href="tidy-data-2-cell-manipulation.html#cb316-5" tabindex="-1"></a><span class="fu">glimpse</span>(fake_data)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="tidy-data-2-cell-manipulation.html#cb18-1" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(fake_data, <span class="at">Institution_ifelse =</span> <span class="fu">ifelse</span>(Institution <span class="sc">==</span> <span class="dv">1</span>, <span class="st">&quot;UoG&quot;</span>, </span>
+<span id="cb18-2"><a href="tidy-data-2-cell-manipulation.html#cb18-2" tabindex="-1"></a>                                                           <span class="fu">ifelse</span>(Institution <span class="sc">==</span> <span class="dv">3</span>, <span class="st">&quot;GCU&quot;</span>, </span>
+<span id="cb18-3"><a href="tidy-data-2-cell-manipulation.html#cb18-3" tabindex="-1"></a>                                                                  <span class="fu">ifelse</span>(Institution <span class="sc">==</span>  <span class="dv">4</span>, <span class="st">&quot;UWS&quot;</span>, <span class="st">&quot;Strathclyde&quot;</span>))))</span>
+<span id="cb18-4"><a href="tidy-data-2-cell-manipulation.html#cb18-4" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="tidy-data-2-cell-manipulation.html#cb18-5" tabindex="-1"></a><span class="fu">glimpse</span>(fake_data)</span></code></pre></div>
 <pre><code>## Rows: 40
 ## Columns: 9
 ## $ PP_ID              &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, …
@@ -914,8 +892,8 @@ Solution
 ## $ Institution_ifelse &lt;chr&gt; &quot;GCU&quot;, &quot;UoG&quot;, &quot;UoG&quot;, &quot;UWS&quot;, &quot;Strathclyde&quot;, &quot;GCU&quot;, &quot;…</code></pre>
 </div>
 <p>It does look a bit convoluted, and there is definitely the need to count opening and closing brackets, but it gets us the output we wanted. Before showing you how this can be coded in a slightly neater way with <code>case_when()</code>, I’d like to highlight one advantage <code>ifelse()</code> has over <code>recode()</code>, namely that the test expression can evaluate more complex “things” as long as they return a logical value. For example, if we wanted to add a column <code>Pass_Fail</code> to <code>fake_data</code>, that holds values of “Pass” for grade points above 9, and “Fail” for values of 9 and below, we would code</p>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="tidy-data-2-cell-manipulation.html#cb318-1" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(fake_data, <span class="at">Pass_Fail =</span> <span class="fu">ifelse</span>(Grade_points <span class="sc">&gt;</span> <span class="dv">9</span>, <span class="st">&quot;Pass&quot;</span>, <span class="st">&quot;Fail&quot;</span>))</span>
-<span id="cb318-2"><a href="tidy-data-2-cell-manipulation.html#cb318-2" tabindex="-1"></a><span class="fu">glimpse</span>(fake_data)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="tidy-data-2-cell-manipulation.html#cb20-1" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(fake_data, <span class="at">Pass_Fail =</span> <span class="fu">ifelse</span>(Grade_points <span class="sc">&gt;</span> <span class="dv">9</span>, <span class="st">&quot;Pass&quot;</span>, <span class="st">&quot;Fail&quot;</span>))</span>
+<span id="cb20-2"><a href="tidy-data-2-cell-manipulation.html#cb20-2" tabindex="-1"></a><span class="fu">glimpse</span>(fake_data)</span></code></pre></div>
 <pre><code>## Rows: 40
 ## Columns: 10
 ## $ PP_ID              &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, …
@@ -929,15 +907,15 @@ Solution
 ## $ Institution_ifelse &lt;chr&gt; &quot;GCU&quot;, &quot;UoG&quot;, &quot;UoG&quot;, &quot;UWS&quot;, &quot;Strathclyde&quot;, &quot;GCU&quot;, &quot;…
 ## $ Pass_Fail          &lt;chr&gt; &quot;Fail&quot;, &quot;Pass&quot;, &quot;Pass&quot;, &quot;Pass&quot;, &quot;Pass&quot;, &quot;Pass&quot;, &quot;Pa…</code></pre>
 <p>We could also add a column <code>Grade</code> to <code>fake_data</code> that tells us the primary band the students got in their test. <code>Grade_points</code> between 18 and 22 result in A, 15 to 17 = B, 12 to 14 = C, 9 to 11 = D, 6 to 8 = E, 3 to 5 = F, 1 and 2 = G, and 0 = H. Here we can use the <code>%in%</code> operator.</p>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="tidy-data-2-cell-manipulation.html#cb320-1" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(fake_data, <span class="at">Grade =</span> <span class="fu">ifelse</span>(Grade_points <span class="sc">%in%</span> <span class="dv">18</span><span class="sc">:</span><span class="dv">22</span>, <span class="st">&quot;A&quot;</span>,</span>
-<span id="cb320-2"><a href="tidy-data-2-cell-manipulation.html#cb320-2" tabindex="-1"></a>                                              <span class="fu">ifelse</span>(Grade_points <span class="sc">%in%</span> <span class="dv">15</span><span class="sc">:</span><span class="dv">17</span>, <span class="st">&quot;B&quot;</span>,</span>
-<span id="cb320-3"><a href="tidy-data-2-cell-manipulation.html#cb320-3" tabindex="-1"></a>                                                     <span class="fu">ifelse</span>(Grade_points <span class="sc">%in%</span> <span class="dv">12</span><span class="sc">:</span><span class="dv">14</span>, <span class="st">&quot;C&quot;</span>,</span>
-<span id="cb320-4"><a href="tidy-data-2-cell-manipulation.html#cb320-4" tabindex="-1"></a>                                                            <span class="fu">ifelse</span>(Grade_points <span class="sc">%in%</span> <span class="dv">9</span><span class="sc">:</span><span class="dv">11</span>, <span class="st">&quot;D&quot;</span>,</span>
-<span id="cb320-5"><a href="tidy-data-2-cell-manipulation.html#cb320-5" tabindex="-1"></a>                                                                   <span class="fu">ifelse</span>(Grade_points <span class="sc">%in%</span> <span class="dv">6</span><span class="sc">:</span><span class="dv">8</span>, <span class="st">&quot;E&quot;</span>,</span>
-<span id="cb320-6"><a href="tidy-data-2-cell-manipulation.html#cb320-6" tabindex="-1"></a>                                                                          <span class="fu">ifelse</span>(Grade_points <span class="sc">%in%</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">5</span>, <span class="st">&quot;F&quot;</span>,</span>
-<span id="cb320-7"><a href="tidy-data-2-cell-manipulation.html#cb320-7" tabindex="-1"></a>                                                                                 <span class="fu">ifelse</span>(Grade_points <span class="sc">%in%</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="st">&quot;G&quot;</span>,<span class="st">&quot;H&quot;</span>))))))))</span>
-<span id="cb320-8"><a href="tidy-data-2-cell-manipulation.html#cb320-8" tabindex="-1"></a></span>
-<span id="cb320-9"><a href="tidy-data-2-cell-manipulation.html#cb320-9" tabindex="-1"></a><span class="fu">glimpse</span>(fake_data)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="tidy-data-2-cell-manipulation.html#cb22-1" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(fake_data, <span class="at">Grade =</span> <span class="fu">ifelse</span>(Grade_points <span class="sc">%in%</span> <span class="dv">18</span><span class="sc">:</span><span class="dv">22</span>, <span class="st">&quot;A&quot;</span>,</span>
+<span id="cb22-2"><a href="tidy-data-2-cell-manipulation.html#cb22-2" tabindex="-1"></a>                                              <span class="fu">ifelse</span>(Grade_points <span class="sc">%in%</span> <span class="dv">15</span><span class="sc">:</span><span class="dv">17</span>, <span class="st">&quot;B&quot;</span>,</span>
+<span id="cb22-3"><a href="tidy-data-2-cell-manipulation.html#cb22-3" tabindex="-1"></a>                                                     <span class="fu">ifelse</span>(Grade_points <span class="sc">%in%</span> <span class="dv">12</span><span class="sc">:</span><span class="dv">14</span>, <span class="st">&quot;C&quot;</span>,</span>
+<span id="cb22-4"><a href="tidy-data-2-cell-manipulation.html#cb22-4" tabindex="-1"></a>                                                            <span class="fu">ifelse</span>(Grade_points <span class="sc">%in%</span> <span class="dv">9</span><span class="sc">:</span><span class="dv">11</span>, <span class="st">&quot;D&quot;</span>,</span>
+<span id="cb22-5"><a href="tidy-data-2-cell-manipulation.html#cb22-5" tabindex="-1"></a>                                                                   <span class="fu">ifelse</span>(Grade_points <span class="sc">%in%</span> <span class="dv">6</span><span class="sc">:</span><span class="dv">8</span>, <span class="st">&quot;E&quot;</span>,</span>
+<span id="cb22-6"><a href="tidy-data-2-cell-manipulation.html#cb22-6" tabindex="-1"></a>                                                                          <span class="fu">ifelse</span>(Grade_points <span class="sc">%in%</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">5</span>, <span class="st">&quot;F&quot;</span>,</span>
+<span id="cb22-7"><a href="tidy-data-2-cell-manipulation.html#cb22-7" tabindex="-1"></a>                                                                                 <span class="fu">ifelse</span>(Grade_points <span class="sc">%in%</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="st">&quot;G&quot;</span>,<span class="st">&quot;H&quot;</span>))))))))</span>
+<span id="cb22-8"><a href="tidy-data-2-cell-manipulation.html#cb22-8" tabindex="-1"></a></span>
+<span id="cb22-9"><a href="tidy-data-2-cell-manipulation.html#cb22-9" tabindex="-1"></a><span class="fu">glimpse</span>(fake_data)</span></code></pre></div>
 <pre><code>## Rows: 40
 ## Columns: 11
 ## $ PP_ID              &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, …
@@ -962,14 +940,14 @@ Solution
 <li>The LHS must evaluate to a logical vector. The RHS does not need to be logical, but all RHSs must evaluate to the same type of vector.</li>
 </ul>
 <p>Let’s apply this to recoding the values in the column <code>Institution</code>. Combining <code>case_when()</code> with <code>mutate()</code>, we will add another column called <code>Institution_case_when</code> to <code>fake_data</code>.</p>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="tidy-data-2-cell-manipulation.html#cb322-1" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(fake_data, <span class="at">Institution_case_when =</span> <span class="fu">case_when</span>(</span>
-<span id="cb322-2"><a href="tidy-data-2-cell-manipulation.html#cb322-2" tabindex="-1"></a>  Institution <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">&quot;UoG&quot;</span>,</span>
-<span id="cb322-3"><a href="tidy-data-2-cell-manipulation.html#cb322-3" tabindex="-1"></a>  Institution <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">&quot;GCU&quot;</span>,</span>
-<span id="cb322-4"><a href="tidy-data-2-cell-manipulation.html#cb322-4" tabindex="-1"></a>  Institution <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">&quot;UWS&quot;</span>,</span>
-<span id="cb322-5"><a href="tidy-data-2-cell-manipulation.html#cb322-5" tabindex="-1"></a>  <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;Strathclyde&quot;</span></span>
-<span id="cb322-6"><a href="tidy-data-2-cell-manipulation.html#cb322-6" tabindex="-1"></a>  )</span>
-<span id="cb322-7"><a href="tidy-data-2-cell-manipulation.html#cb322-7" tabindex="-1"></a>)</span>
-<span id="cb322-8"><a href="tidy-data-2-cell-manipulation.html#cb322-8" tabindex="-1"></a><span class="fu">glimpse</span>(fake_data)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="tidy-data-2-cell-manipulation.html#cb24-1" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(fake_data, <span class="at">Institution_case_when =</span> <span class="fu">case_when</span>(</span>
+<span id="cb24-2"><a href="tidy-data-2-cell-manipulation.html#cb24-2" tabindex="-1"></a>  Institution <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">&quot;UoG&quot;</span>,</span>
+<span id="cb24-3"><a href="tidy-data-2-cell-manipulation.html#cb24-3" tabindex="-1"></a>  Institution <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">&quot;GCU&quot;</span>,</span>
+<span id="cb24-4"><a href="tidy-data-2-cell-manipulation.html#cb24-4" tabindex="-1"></a>  Institution <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">&quot;UWS&quot;</span>,</span>
+<span id="cb24-5"><a href="tidy-data-2-cell-manipulation.html#cb24-5" tabindex="-1"></a>  <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;Strathclyde&quot;</span></span>
+<span id="cb24-6"><a href="tidy-data-2-cell-manipulation.html#cb24-6" tabindex="-1"></a>  )</span>
+<span id="cb24-7"><a href="tidy-data-2-cell-manipulation.html#cb24-7" tabindex="-1"></a>)</span>
+<span id="cb24-8"><a href="tidy-data-2-cell-manipulation.html#cb24-8" tabindex="-1"></a><span class="fu">glimpse</span>(fake_data)</span></code></pre></div>
 <pre><code>## Rows: 40
 ## Columns: 12
 ## $ PP_ID                 &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1…
@@ -1031,18 +1009,18 @@ grade points 18 - 22 = A,
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="tidy-data-2-cell-manipulation.html#cb324-1" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(fake_data, <span class="at">Grade_case_when =</span> <span class="fu">case_when</span>(</span>
-<span id="cb324-2"><a href="tidy-data-2-cell-manipulation.html#cb324-2" tabindex="-1"></a>  Grade_points <span class="sc">%in%</span> <span class="dv">18</span><span class="sc">:</span><span class="dv">22</span> <span class="sc">~</span> <span class="st">&quot;A&quot;</span>,</span>
-<span id="cb324-3"><a href="tidy-data-2-cell-manipulation.html#cb324-3" tabindex="-1"></a>  Grade_points <span class="sc">%in%</span> <span class="dv">15</span><span class="sc">:</span><span class="dv">17</span> <span class="sc">~</span> <span class="st">&quot;B&quot;</span>,</span>
-<span id="cb324-4"><a href="tidy-data-2-cell-manipulation.html#cb324-4" tabindex="-1"></a>  Grade_points <span class="sc">%in%</span> <span class="dv">12</span><span class="sc">:</span><span class="dv">14</span> <span class="sc">~</span> <span class="st">&quot;C&quot;</span>,</span>
-<span id="cb324-5"><a href="tidy-data-2-cell-manipulation.html#cb324-5" tabindex="-1"></a>  Grade_points <span class="sc">%in%</span> <span class="dv">9</span><span class="sc">:</span><span class="dv">11</span> <span class="sc">~</span> <span class="st">&quot;D&quot;</span>,</span>
-<span id="cb324-6"><a href="tidy-data-2-cell-manipulation.html#cb324-6" tabindex="-1"></a>  Grade_points <span class="sc">%in%</span> <span class="dv">6</span><span class="sc">:</span><span class="dv">8</span> <span class="sc">~</span> <span class="st">&quot;E&quot;</span>,</span>
-<span id="cb324-7"><a href="tidy-data-2-cell-manipulation.html#cb324-7" tabindex="-1"></a>  Grade_points <span class="sc">%in%</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">5</span> <span class="sc">~</span> <span class="st">&quot;F&quot;</span>,</span>
-<span id="cb324-8"><a href="tidy-data-2-cell-manipulation.html#cb324-8" tabindex="-1"></a>  Grade_points <span class="sc">%in%</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span> <span class="sc">~</span> <span class="st">&quot;G&quot;</span>,</span>
-<span id="cb324-9"><a href="tidy-data-2-cell-manipulation.html#cb324-9" tabindex="-1"></a>  <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;H&quot;</span></span>
-<span id="cb324-10"><a href="tidy-data-2-cell-manipulation.html#cb324-10" tabindex="-1"></a>  )</span>
-<span id="cb324-11"><a href="tidy-data-2-cell-manipulation.html#cb324-11" tabindex="-1"></a>)</span>
-<span id="cb324-12"><a href="tidy-data-2-cell-manipulation.html#cb324-12" tabindex="-1"></a><span class="fu">glimpse</span>(fake_data)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="tidy-data-2-cell-manipulation.html#cb26-1" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(fake_data, <span class="at">Grade_case_when =</span> <span class="fu">case_when</span>(</span>
+<span id="cb26-2"><a href="tidy-data-2-cell-manipulation.html#cb26-2" tabindex="-1"></a>  Grade_points <span class="sc">%in%</span> <span class="dv">18</span><span class="sc">:</span><span class="dv">22</span> <span class="sc">~</span> <span class="st">&quot;A&quot;</span>,</span>
+<span id="cb26-3"><a href="tidy-data-2-cell-manipulation.html#cb26-3" tabindex="-1"></a>  Grade_points <span class="sc">%in%</span> <span class="dv">15</span><span class="sc">:</span><span class="dv">17</span> <span class="sc">~</span> <span class="st">&quot;B&quot;</span>,</span>
+<span id="cb26-4"><a href="tidy-data-2-cell-manipulation.html#cb26-4" tabindex="-1"></a>  Grade_points <span class="sc">%in%</span> <span class="dv">12</span><span class="sc">:</span><span class="dv">14</span> <span class="sc">~</span> <span class="st">&quot;C&quot;</span>,</span>
+<span id="cb26-5"><a href="tidy-data-2-cell-manipulation.html#cb26-5" tabindex="-1"></a>  Grade_points <span class="sc">%in%</span> <span class="dv">9</span><span class="sc">:</span><span class="dv">11</span> <span class="sc">~</span> <span class="st">&quot;D&quot;</span>,</span>
+<span id="cb26-6"><a href="tidy-data-2-cell-manipulation.html#cb26-6" tabindex="-1"></a>  Grade_points <span class="sc">%in%</span> <span class="dv">6</span><span class="sc">:</span><span class="dv">8</span> <span class="sc">~</span> <span class="st">&quot;E&quot;</span>,</span>
+<span id="cb26-7"><a href="tidy-data-2-cell-manipulation.html#cb26-7" tabindex="-1"></a>  Grade_points <span class="sc">%in%</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">5</span> <span class="sc">~</span> <span class="st">&quot;F&quot;</span>,</span>
+<span id="cb26-8"><a href="tidy-data-2-cell-manipulation.html#cb26-8" tabindex="-1"></a>  Grade_points <span class="sc">%in%</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span> <span class="sc">~</span> <span class="st">&quot;G&quot;</span>,</span>
+<span id="cb26-9"><a href="tidy-data-2-cell-manipulation.html#cb26-9" tabindex="-1"></a>  <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;H&quot;</span></span>
+<span id="cb26-10"><a href="tidy-data-2-cell-manipulation.html#cb26-10" tabindex="-1"></a>  )</span>
+<span id="cb26-11"><a href="tidy-data-2-cell-manipulation.html#cb26-11" tabindex="-1"></a>)</span>
+<span id="cb26-12"><a href="tidy-data-2-cell-manipulation.html#cb26-12" tabindex="-1"></a><span class="fu">glimpse</span>(fake_data)</span></code></pre></div>
 <pre><code>## Rows: 40
 ## Columns: 13
 ## $ PP_ID                 &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1…
@@ -1064,12 +1042,12 @@ Solution
 <div id="distinct" class="section level2 hasAnchor" number="5.3">
 <h2><span class="header-section-number">5.3</span> distinct()<a href="tidy-data-2-cell-manipulation.html#distinct" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The <code>distinct()</code> function is used to remove duplicate rows in your dataframe. If we are using <code>distinct()</code> without specifying any arguments, R checks the whole row and excludes any row that is exactly repeated.</p>
-<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="tidy-data-2-cell-manipulation.html#cb326-1" tabindex="-1"></a>fake_data_no_dup <span class="ot">&lt;-</span> fake_data <span class="sc">%&gt;%</span> </span>
-<span id="cb326-2"><a href="tidy-data-2-cell-manipulation.html#cb326-2" tabindex="-1"></a>  <span class="fu">distinct</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="tidy-data-2-cell-manipulation.html#cb28-1" tabindex="-1"></a>fake_data_no_dup <span class="ot">&lt;-</span> fake_data <span class="sc">%&gt;%</span> </span>
+<span id="cb28-2"><a href="tidy-data-2-cell-manipulation.html#cb28-2" tabindex="-1"></a>  <span class="fu">distinct</span>()</span></code></pre></div>
 <p>We can see that all rows are still there. This is not surprising, given every participant has a unique ID number. However, <code>distinct()</code> does take arguments as well, namely the variable columns you are trying to determine uniqueness for. Say we we wanted to see how many different institutions we have data from.</p>
-<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="tidy-data-2-cell-manipulation.html#cb327-1" tabindex="-1"></a>institution_distinct <span class="ot">&lt;-</span> fake_data <span class="sc">%&gt;%</span> </span>
-<span id="cb327-2"><a href="tidy-data-2-cell-manipulation.html#cb327-2" tabindex="-1"></a>  <span class="fu">distinct</span>(Institution_char)</span>
-<span id="cb327-3"><a href="tidy-data-2-cell-manipulation.html#cb327-3" tabindex="-1"></a>institution_distinct</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="tidy-data-2-cell-manipulation.html#cb29-1" tabindex="-1"></a>institution_distinct <span class="ot">&lt;-</span> fake_data <span class="sc">%&gt;%</span> </span>
+<span id="cb29-2"><a href="tidy-data-2-cell-manipulation.html#cb29-2" tabindex="-1"></a>  <span class="fu">distinct</span>(Institution_char)</span>
+<span id="cb29-3"><a href="tidy-data-2-cell-manipulation.html#cb29-3" tabindex="-1"></a>institution_distinct</span></code></pre></div>
 <pre><code>## # A tibble: 4 × 1
 ##   Institution_char
 ##   &lt;chr&gt;           
@@ -1078,9 +1056,9 @@ Solution
 ## 3 UWS             
 ## 4 Strathclyde</code></pre>
 <p>We can see that there are 4 distinct institutions. But what happened to the output? We still have the output from the column we specified but all other information is gone. One quick solution would be to use the argument <code>.keep_all</code> and set that to <code>TRUE</code> (the default here is <code>FALSE</code>).</p>
-<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="tidy-data-2-cell-manipulation.html#cb329-1" tabindex="-1"></a>institution_distinct <span class="ot">&lt;-</span> fake_data <span class="sc">%&gt;%</span> </span>
-<span id="cb329-2"><a href="tidy-data-2-cell-manipulation.html#cb329-2" tabindex="-1"></a>  <span class="fu">distinct</span>(Institution_char, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb329-3"><a href="tidy-data-2-cell-manipulation.html#cb329-3" tabindex="-1"></a>institution_distinct</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="tidy-data-2-cell-manipulation.html#cb31-1" tabindex="-1"></a>institution_distinct <span class="ot">&lt;-</span> fake_data <span class="sc">%&gt;%</span> </span>
+<span id="cb31-2"><a href="tidy-data-2-cell-manipulation.html#cb31-2" tabindex="-1"></a>  <span class="fu">distinct</span>(Institution_char, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb31-3"><a href="tidy-data-2-cell-manipulation.html#cb31-3" tabindex="-1"></a>institution_distinct</span></code></pre></div>
 <pre><code>## # A tibble: 4 × 13
 ##   PP_ID   Sex   Age Institution Grade_points Sex_char Institution_char
 ##   &lt;int&gt; &lt;dbl&gt; &lt;int&gt;       &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;           
@@ -1093,9 +1071,9 @@ Solution
 ## #   Grade_case_when &lt;chr&gt;</code></pre>
 <p>In the new <code>institution_distinct</code> dataframe, we still have 4 institutions listed but we kept all 13 columns. If there are multiple rows with the same input (in this case 40 participants from 4 different institutions), <code>distinct()</code> only preserves the first row a new value occurs.</p>
 <p>The <code>distinct()</code> function also allows you to eliminate duplicate rows with multiple variables in the dataframe. So if we wanted to see where participants were studying but also the different sexes taking part in the study, we would code…</p>
-<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="tidy-data-2-cell-manipulation.html#cb331-1" tabindex="-1"></a>institution_sex_distinct <span class="ot">&lt;-</span> fake_data <span class="sc">%&gt;%</span> </span>
-<span id="cb331-2"><a href="tidy-data-2-cell-manipulation.html#cb331-2" tabindex="-1"></a>  <span class="fu">distinct</span>(Institution_char, Sex_char)</span>
-<span id="cb331-3"><a href="tidy-data-2-cell-manipulation.html#cb331-3" tabindex="-1"></a>institution_sex_distinct</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="tidy-data-2-cell-manipulation.html#cb33-1" tabindex="-1"></a>institution_sex_distinct <span class="ot">&lt;-</span> fake_data <span class="sc">%&gt;%</span> </span>
+<span id="cb33-2"><a href="tidy-data-2-cell-manipulation.html#cb33-2" tabindex="-1"></a>  <span class="fu">distinct</span>(Institution_char, Sex_char)</span>
+<span id="cb33-3"><a href="tidy-data-2-cell-manipulation.html#cb33-3" tabindex="-1"></a>institution_sex_distinct</span></code></pre></div>
 <pre><code>## # A tibble: 10 × 2
 ##    Institution_char Sex_char
 ##    &lt;chr&gt;            &lt;chr&gt;   
@@ -1145,16 +1123,16 @@ in row 4, then in row 7, then in row 18, 20, 22, 23, 38, and 39.
 <li><code>Sex_char</code> as <code>Sex</code></li>
 <li><code>Institution_char</code> as <code>Institution</code></li>
 </ul>
-<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="tidy-data-2-cell-manipulation.html#cb333-1" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="tidy-data-2-cell-manipulation.html#cb35-1" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="tidy-data-2-cell-manipulation.html#cb334-1" tabindex="-1"></a><span class="co"># solution using select:</span></span>
-<span id="cb334-2"><a href="tidy-data-2-cell-manipulation.html#cb334-2" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> fake_data <span class="sc">%&gt;%</span> </span>
-<span id="cb334-3"><a href="tidy-data-2-cell-manipulation.html#cb334-3" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">Participant_ID =</span> PP_ID, <span class="at">Sex =</span> Sex_char, Age, <span class="at">Institution =</span> Institution_char, Grade_points, Grade, Pass_Fail)</span>
-<span id="cb334-4"><a href="tidy-data-2-cell-manipulation.html#cb334-4" tabindex="-1"></a></span>
-<span id="cb334-5"><a href="tidy-data-2-cell-manipulation.html#cb334-5" tabindex="-1"></a>fake_data</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="tidy-data-2-cell-manipulation.html#cb36-1" tabindex="-1"></a><span class="co"># solution using select:</span></span>
+<span id="cb36-2"><a href="tidy-data-2-cell-manipulation.html#cb36-2" tabindex="-1"></a>fake_data <span class="ot">&lt;-</span> fake_data <span class="sc">%&gt;%</span> </span>
+<span id="cb36-3"><a href="tidy-data-2-cell-manipulation.html#cb36-3" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">Participant_ID =</span> PP_ID, <span class="at">Sex =</span> Sex_char, Age, <span class="at">Institution =</span> Institution_char, Grade_points, Grade, Pass_Fail)</span>
+<span id="cb36-4"><a href="tidy-data-2-cell-manipulation.html#cb36-4" tabindex="-1"></a></span>
+<span id="cb36-5"><a href="tidy-data-2-cell-manipulation.html#cb36-5" tabindex="-1"></a>fake_data</span></code></pre></div>
 <pre><code>## # A tibble: 40 × 7
 ##    Participant_ID Sex     Age Institution Grade_points Grade Pass_Fail
 ##             &lt;int&gt; &lt;chr&gt; &lt;int&gt; &lt;chr&gt;              &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    
@@ -1169,26 +1147,26 @@ Solution
 ##  9              9 Male     38 GCU                   13 C     Pass     
 ## 10             10 Male     39 UWS                   22 A     Pass     
 ## # ℹ 30 more rows</code></pre>
-<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="tidy-data-2-cell-manipulation.html#cb336-1" tabindex="-1"></a><span class="co"># solution involving select and rename:</span></span>
-<span id="cb336-2"><a href="tidy-data-2-cell-manipulation.html#cb336-2" tabindex="-1"></a><span class="co"># fake_data &lt;- fake_data %&gt;% </span></span>
-<span id="cb336-3"><a href="tidy-data-2-cell-manipulation.html#cb336-3" tabindex="-1"></a><span class="co">#   select(PP_ID, Sex_char, Age, Institution_char, Grade_points, Grade, Pass_Fail) %&gt;%</span></span>
-<span id="cb336-4"><a href="tidy-data-2-cell-manipulation.html#cb336-4" tabindex="-1"></a><span class="co">#   rename(Participant_ID = PP_ID, Sex = Sex_char, Institution = Institution_char)</span></span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="tidy-data-2-cell-manipulation.html#cb38-1" tabindex="-1"></a><span class="co"># solution involving select and rename:</span></span>
+<span id="cb38-2"><a href="tidy-data-2-cell-manipulation.html#cb38-2" tabindex="-1"></a><span class="co"># fake_data &lt;- fake_data %&gt;% </span></span>
+<span id="cb38-3"><a href="tidy-data-2-cell-manipulation.html#cb38-3" tabindex="-1"></a><span class="co">#   select(PP_ID, Sex_char, Age, Institution_char, Grade_points, Grade, Pass_Fail) %&gt;%</span></span>
+<span id="cb38-4"><a href="tidy-data-2-cell-manipulation.html#cb38-4" tabindex="-1"></a><span class="co">#   rename(Participant_ID = PP_ID, Sex = Sex_char, Institution = Institution_char)</span></span></code></pre></div>
 </div>
 </div>
 <div id="question-2" class="section level3 hasAnchor" number="5.4.2">
 <h3><span class="header-section-number">5.4.2</span> Question 2<a href="tidy-data-2-cell-manipulation.html#question-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Calculate the average grade points for each University. Store the output as a new object <code>grade_points</code> in your <code>Global Environment</code>. The new column should be named <code>Average_grade_points</code>.</p>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="tidy-data-2-cell-manipulation.html#cb337-1" tabindex="-1"></a>grade_points <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="tidy-data-2-cell-manipulation.html#cb39-1" tabindex="-1"></a>grade_points <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="tidy-data-2-cell-manipulation.html#cb338-1" tabindex="-1"></a>grade_points <span class="ot">&lt;-</span> fake_data <span class="sc">%&gt;%</span> </span>
-<span id="cb338-2"><a href="tidy-data-2-cell-manipulation.html#cb338-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Institution) <span class="sc">%&gt;%</span> </span>
-<span id="cb338-3"><a href="tidy-data-2-cell-manipulation.html#cb338-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Average_grade_points =</span> <span class="fu">mean</span>(Grade_points)) <span class="sc">%&gt;%</span> </span>
-<span id="cb338-4"><a href="tidy-data-2-cell-manipulation.html#cb338-4" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb338-5"><a href="tidy-data-2-cell-manipulation.html#cb338-5" tabindex="-1"></a></span>
-<span id="cb338-6"><a href="tidy-data-2-cell-manipulation.html#cb338-6" tabindex="-1"></a>grade_points</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="tidy-data-2-cell-manipulation.html#cb40-1" tabindex="-1"></a>grade_points <span class="ot">&lt;-</span> fake_data <span class="sc">%&gt;%</span> </span>
+<span id="cb40-2"><a href="tidy-data-2-cell-manipulation.html#cb40-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Institution) <span class="sc">%&gt;%</span> </span>
+<span id="cb40-3"><a href="tidy-data-2-cell-manipulation.html#cb40-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Average_grade_points =</span> <span class="fu">mean</span>(Grade_points)) <span class="sc">%&gt;%</span> </span>
+<span id="cb40-4"><a href="tidy-data-2-cell-manipulation.html#cb40-4" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb40-5"><a href="tidy-data-2-cell-manipulation.html#cb40-5" tabindex="-1"></a></span>
+<span id="cb40-6"><a href="tidy-data-2-cell-manipulation.html#cb40-6" tabindex="-1"></a>grade_points</span></code></pre></div>
 <pre><code>## # A tibble: 4 × 2
 ##   Institution Average_grade_points
 ##   &lt;chr&gt;                      &lt;dbl&gt;
@@ -1201,16 +1179,16 @@ Solution
 <div id="question-3" class="section level3 hasAnchor" number="5.4.3">
 <h3><span class="header-section-number">5.4.3</span> Question 3<a href="tidy-data-2-cell-manipulation.html#question-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Join the <code>fake_data</code> and <code>grade_points</code>, and calculate how much each person differs from the mean of their university. Results should be stored in a column named <code>grade_diff</code>. Store the output in your <code>Global Environment</code> as a new object called <code>fake_data_meandiff</code>. Sort the data by <code>Institution</code> and <code>Sex</code>.</p>
-<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="tidy-data-2-cell-manipulation.html#cb340-1" tabindex="-1"></a>fake_data_meandiff <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="tidy-data-2-cell-manipulation.html#cb42-1" tabindex="-1"></a>fake_data_meandiff <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="tidy-data-2-cell-manipulation.html#cb341-1" tabindex="-1"></a>fake_data_meandiff <span class="ot">&lt;-</span> <span class="fu">left_join</span>(fake_data, grade_points) <span class="sc">%&gt;%</span> </span>
-<span id="cb341-2"><a href="tidy-data-2-cell-manipulation.html#cb341-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">grade_diff =</span> Grade_points <span class="sc">-</span> Average_grade_points) <span class="sc">%&gt;%</span> </span>
-<span id="cb341-3"><a href="tidy-data-2-cell-manipulation.html#cb341-3" tabindex="-1"></a>  <span class="fu">arrange</span>(Institution, Sex)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="tidy-data-2-cell-manipulation.html#cb43-1" tabindex="-1"></a>fake_data_meandiff <span class="ot">&lt;-</span> <span class="fu">left_join</span>(fake_data, grade_points) <span class="sc">%&gt;%</span> </span>
+<span id="cb43-2"><a href="tidy-data-2-cell-manipulation.html#cb43-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">grade_diff =</span> Grade_points <span class="sc">-</span> Average_grade_points) <span class="sc">%&gt;%</span> </span>
+<span id="cb43-3"><a href="tidy-data-2-cell-manipulation.html#cb43-3" tabindex="-1"></a>  <span class="fu">arrange</span>(Institution, Sex)</span></code></pre></div>
 <pre><code>## Joining with `by = join_by(Institution)`</code></pre>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="tidy-data-2-cell-manipulation.html#cb343-1" tabindex="-1"></a>fake_data_meandiff</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="tidy-data-2-cell-manipulation.html#cb45-1" tabindex="-1"></a>fake_data_meandiff</span></code></pre></div>
 <pre><code>## # A tibble: 40 × 9
 ##    Participant_ID Sex      Age Institution Grade_points Grade Pass_Fail
 ##             &lt;int&gt; &lt;chr&gt;  &lt;int&gt; &lt;chr&gt;              &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    
@@ -1231,26 +1209,26 @@ Solution
 <div id="question-4" class="section level3 hasAnchor" number="5.4.4">
 <h3><span class="header-section-number">5.4.4</span> Question 4<a href="tidy-data-2-cell-manipulation.html#question-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Our colleague is interested in what the grade point average for each university would be if we were only looking at the students who passed the R assignment initially (i.e. grade points above 9). Store the output in your <code>Global Environment</code> as a new object called <code>fake_data_pass</code>.</p>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="tidy-data-2-cell-manipulation.html#cb345-1" tabindex="-1"></a>fake_data_pass <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="tidy-data-2-cell-manipulation.html#cb47-1" tabindex="-1"></a>fake_data_pass <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="tidy-data-2-cell-manipulation.html#cb346-1" tabindex="-1"></a><span class="co"># filter Grade_points</span></span>
-<span id="cb346-2"><a href="tidy-data-2-cell-manipulation.html#cb346-2" tabindex="-1"></a>fake_data_pass <span class="ot">&lt;-</span> fake_data <span class="sc">%&gt;%</span> </span>
-<span id="cb346-3"><a href="tidy-data-2-cell-manipulation.html#cb346-3" tabindex="-1"></a>  <span class="fu">filter</span>(Grade_points <span class="sc">&gt;</span> <span class="dv">9</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb346-4"><a href="tidy-data-2-cell-manipulation.html#cb346-4" tabindex="-1"></a>  <span class="fu">group_by</span>(Institution) <span class="sc">%&gt;%</span> </span>
-<span id="cb346-5"><a href="tidy-data-2-cell-manipulation.html#cb346-5" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Average_grade_points_pass =</span> <span class="fu">mean</span>(Grade_points)) <span class="sc">%&gt;%</span> </span>
-<span id="cb346-6"><a href="tidy-data-2-cell-manipulation.html#cb346-6" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb346-7"><a href="tidy-data-2-cell-manipulation.html#cb346-7" tabindex="-1"></a></span>
-<span id="cb346-8"><a href="tidy-data-2-cell-manipulation.html#cb346-8" tabindex="-1"></a><span class="co"># filter Pass_Fail</span></span>
-<span id="cb346-9"><a href="tidy-data-2-cell-manipulation.html#cb346-9" tabindex="-1"></a>fake_data_pass <span class="ot">&lt;-</span> fake_data <span class="sc">%&gt;%</span> </span>
-<span id="cb346-10"><a href="tidy-data-2-cell-manipulation.html#cb346-10" tabindex="-1"></a>  <span class="fu">filter</span>(Pass_Fail <span class="sc">==</span> <span class="st">&quot;Pass&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb346-11"><a href="tidy-data-2-cell-manipulation.html#cb346-11" tabindex="-1"></a>  <span class="fu">group_by</span>(Institution) <span class="sc">%&gt;%</span> </span>
-<span id="cb346-12"><a href="tidy-data-2-cell-manipulation.html#cb346-12" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Average_grade_points_pass =</span> <span class="fu">mean</span>(Grade_points)) <span class="sc">%&gt;%</span> </span>
-<span id="cb346-13"><a href="tidy-data-2-cell-manipulation.html#cb346-13" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb346-14"><a href="tidy-data-2-cell-manipulation.html#cb346-14" tabindex="-1"></a></span>
-<span id="cb346-15"><a href="tidy-data-2-cell-manipulation.html#cb346-15" tabindex="-1"></a>fake_data_pass</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="tidy-data-2-cell-manipulation.html#cb48-1" tabindex="-1"></a><span class="co"># filter Grade_points</span></span>
+<span id="cb48-2"><a href="tidy-data-2-cell-manipulation.html#cb48-2" tabindex="-1"></a>fake_data_pass <span class="ot">&lt;-</span> fake_data <span class="sc">%&gt;%</span> </span>
+<span id="cb48-3"><a href="tidy-data-2-cell-manipulation.html#cb48-3" tabindex="-1"></a>  <span class="fu">filter</span>(Grade_points <span class="sc">&gt;</span> <span class="dv">9</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-4"><a href="tidy-data-2-cell-manipulation.html#cb48-4" tabindex="-1"></a>  <span class="fu">group_by</span>(Institution) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-5"><a href="tidy-data-2-cell-manipulation.html#cb48-5" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Average_grade_points_pass =</span> <span class="fu">mean</span>(Grade_points)) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-6"><a href="tidy-data-2-cell-manipulation.html#cb48-6" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb48-7"><a href="tidy-data-2-cell-manipulation.html#cb48-7" tabindex="-1"></a></span>
+<span id="cb48-8"><a href="tidy-data-2-cell-manipulation.html#cb48-8" tabindex="-1"></a><span class="co"># filter Pass_Fail</span></span>
+<span id="cb48-9"><a href="tidy-data-2-cell-manipulation.html#cb48-9" tabindex="-1"></a>fake_data_pass <span class="ot">&lt;-</span> fake_data <span class="sc">%&gt;%</span> </span>
+<span id="cb48-10"><a href="tidy-data-2-cell-manipulation.html#cb48-10" tabindex="-1"></a>  <span class="fu">filter</span>(Pass_Fail <span class="sc">==</span> <span class="st">&quot;Pass&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-11"><a href="tidy-data-2-cell-manipulation.html#cb48-11" tabindex="-1"></a>  <span class="fu">group_by</span>(Institution) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-12"><a href="tidy-data-2-cell-manipulation.html#cb48-12" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Average_grade_points_pass =</span> <span class="fu">mean</span>(Grade_points)) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-13"><a href="tidy-data-2-cell-manipulation.html#cb48-13" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb48-14"><a href="tidy-data-2-cell-manipulation.html#cb48-14" tabindex="-1"></a></span>
+<span id="cb48-15"><a href="tidy-data-2-cell-manipulation.html#cb48-15" tabindex="-1"></a>fake_data_pass</span></code></pre></div>
 <pre><code>## # A tibble: 4 × 2
 ##   Institution Average_grade_points_pass
 ##   &lt;chr&gt;                           &lt;dbl&gt;
@@ -1263,22 +1241,22 @@ Solution
 <div id="question-5" class="section level3 hasAnchor" number="5.4.5">
 <h3><span class="header-section-number">5.4.5</span> Question 5<a href="tidy-data-2-cell-manipulation.html#question-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now our colleague wants to know whether the males or the females did better at each university. They are asking for a table with 4 columns in which the first column titled <code>Institution</code> lists the university, the second column is called <code>Males</code> for the average grade point scores of the males at each institution, the third column called <code>Females</code> with average grade point scores for the females, and the fourth column <code>Better</code> should say <code>"female"</code> or <code>"male"</code> if the females or males had higher grade points respectively. Store the output in your <code>Global Environment</code> as a new object called <code>fake_data_sex</code>. Use <code>fake_data</code> as the reference dataframe.</p>
-<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="tidy-data-2-cell-manipulation.html#cb348-1" tabindex="-1"></a>fake_data_sex <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="tidy-data-2-cell-manipulation.html#cb50-1" tabindex="-1"></a>fake_data_sex <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="tidy-data-2-cell-manipulation.html#cb349-1" tabindex="-1"></a>fake_data_sex <span class="ot">&lt;-</span> fake_data <span class="sc">%&gt;%</span> </span>
-<span id="cb349-2"><a href="tidy-data-2-cell-manipulation.html#cb349-2" tabindex="-1"></a>  <span class="fu">filter</span>(Sex <span class="sc">!=</span> <span class="st">&quot;Other&quot;</span>) <span class="sc">%&gt;%</span> <span class="co"># this step could actually be left out</span></span>
-<span id="cb349-3"><a href="tidy-data-2-cell-manipulation.html#cb349-3" tabindex="-1"></a>  <span class="fu">group_by</span>(Institution, Sex) <span class="sc">%&gt;%</span> </span>
-<span id="cb349-4"><a href="tidy-data-2-cell-manipulation.html#cb349-4" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Average_gp =</span> <span class="fu">mean</span>(Grade_points)) <span class="sc">%&gt;%</span> </span>
-<span id="cb349-5"><a href="tidy-data-2-cell-manipulation.html#cb349-5" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb349-6"><a href="tidy-data-2-cell-manipulation.html#cb349-6" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from=</span>Sex, <span class="at">values_from=</span>Average_gp) <span class="sc">%&gt;%</span> </span>
-<span id="cb349-7"><a href="tidy-data-2-cell-manipulation.html#cb349-7" tabindex="-1"></a>  <span class="fu">select</span>(Institution, <span class="at">Males =</span> Male, <span class="at">Females =</span> Female) <span class="sc">%&gt;%</span> </span>
-<span id="cb349-8"><a href="tidy-data-2-cell-manipulation.html#cb349-8" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Better =</span> <span class="fu">ifelse</span>(Males <span class="sc">&gt;</span> Females, <span class="st">&quot;male&quot;</span>, <span class="st">&quot;female&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="tidy-data-2-cell-manipulation.html#cb51-1" tabindex="-1"></a>fake_data_sex <span class="ot">&lt;-</span> fake_data <span class="sc">%&gt;%</span> </span>
+<span id="cb51-2"><a href="tidy-data-2-cell-manipulation.html#cb51-2" tabindex="-1"></a>  <span class="fu">filter</span>(Sex <span class="sc">!=</span> <span class="st">&quot;Other&quot;</span>) <span class="sc">%&gt;%</span> <span class="co"># this step could actually be left out</span></span>
+<span id="cb51-3"><a href="tidy-data-2-cell-manipulation.html#cb51-3" tabindex="-1"></a>  <span class="fu">group_by</span>(Institution, Sex) <span class="sc">%&gt;%</span> </span>
+<span id="cb51-4"><a href="tidy-data-2-cell-manipulation.html#cb51-4" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Average_gp =</span> <span class="fu">mean</span>(Grade_points)) <span class="sc">%&gt;%</span> </span>
+<span id="cb51-5"><a href="tidy-data-2-cell-manipulation.html#cb51-5" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb51-6"><a href="tidy-data-2-cell-manipulation.html#cb51-6" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from=</span>Sex, <span class="at">values_from=</span>Average_gp) <span class="sc">%&gt;%</span> </span>
+<span id="cb51-7"><a href="tidy-data-2-cell-manipulation.html#cb51-7" tabindex="-1"></a>  <span class="fu">select</span>(Institution, <span class="at">Males =</span> Male, <span class="at">Females =</span> Female) <span class="sc">%&gt;%</span> </span>
+<span id="cb51-8"><a href="tidy-data-2-cell-manipulation.html#cb51-8" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Better =</span> <span class="fu">ifelse</span>(Males <span class="sc">&gt;</span> Females, <span class="st">&quot;male&quot;</span>, <span class="st">&quot;female&quot;</span>))</span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by &#39;Institution&#39;. You can override using the
 ## `.groups` argument.</code></pre>
-<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="tidy-data-2-cell-manipulation.html#cb351-1" tabindex="-1"></a>fake_data_sex</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="tidy-data-2-cell-manipulation.html#cb53-1" tabindex="-1"></a>fake_data_sex</span></code></pre></div>
 <pre><code>## # A tibble: 4 × 4
 ##   Institution Males Females Better
 ##   &lt;chr&gt;       &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt; 
