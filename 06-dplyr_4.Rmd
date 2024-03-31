@@ -51,7 +51,6 @@ To help you visualise what these joining functions are doing, we will use some s
 I'm going to adapt the starwars data to make it a bit easier for us to use.
 
 ```{r}
-
 sw_names <- starwars %>%
   separate(col = name, into = c("name", NA), sep = " ", extra = "drop", fill = "right") %>%
   unnest(films) %>% # Don't worry, we didn't learn about this
@@ -78,7 +77,6 @@ Notice that some of these names will be in the babynames dataset and some won't 
 Here we merge `babynames` and `sw_names` with `inner_join()` specifying we want to "join by" the variable `name`. Because both tables have the column `sex`, R needs to distiguish them from each other, for that we use the `suffix = ` argument, which allows us to specify what suffix to add to each column of the resulting table. If we do not spcify this, R will add a `.x` and `.y` suffix for us to the x (left) and y (right) table variables respectively.
 
 ```{r}
-
 inner <- inner_join(sw_names, babynames, by = join_by(name), suffix = c("_sw", "_baby"))
 inner
 ```
@@ -142,7 +140,6 @@ Alternatively we can use a `right_join()` to do the same thing using the origina
 <center> <img src="images/right_join1.png"> </center>
 
 ```{r}
-
 right <- right_join(sw_names, babynames, by = join_by(name, sex))
 right
 ```
@@ -164,7 +161,6 @@ How many rows (or observations) does `right` have? `r fitb(as.character(nrow(rig
 <center> <img src="images/full_join1.png"> </center>
 
 ```{r}
-
 full <- full_join(sw_names, babynames, join_by(name), suffix = c("_baby", "_sw"))
 full
 ```

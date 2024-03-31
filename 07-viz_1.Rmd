@@ -33,8 +33,8 @@ Firstly, load `tidyverse`, and then read the data into your `Global Environment`
 library(tidyverse)
 migration_scot <- read_csv("data/free_movement_uk.csv") %>%
   # remove spaces from variable names
-  rename(MigrationType = MigrationType,
-         MigrationSource = MigrationSource)
+  rename(MigrationType = `Migration Type`,
+         MigrationSource = `Migration Source`)
 ```
 
 
@@ -82,7 +82,6 @@ traffic_scot <- migration_scot %>%
          Age == 'All', 
          Sex != 'All', 
          MigrationType != 'Net')
-
 ```
 `r unhide()`
 
@@ -566,7 +565,8 @@ traffic_scot <- read_csv("data/free_movement_uk.csv")
 
 my_data <- traffic_scot %>% 
   filter(Age %in% c('21 years', '41 years')) %>% 
-  select(DateCode, Value, Age, Sex, MigrationSource, MigrationType) %>% 
+  select(DateCode, Value, Age, Sex, 
+         MigrationSource=`Migration Source`, MigrationType=`Migration Type`) %>% 
   filter(DateCode %in% c('2013', '2018'), 
          MigrationType != 'Net', 
          MigrationSource == 'To-from Overseas', 
