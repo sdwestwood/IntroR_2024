@@ -434,6 +434,6 @@ ggsave('myplot.png', plot1, width = 9 , height = 6)
 
 The fourth summative assignment is available on Moodle now.
 
-Good luck.
-
 Check that your Rmd file knits into a html file before submitting. Upload your Rmd file (not the knitted html) to Moodle. 
+
+Good luck.
