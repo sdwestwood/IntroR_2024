@@ -581,6 +581,7 @@ Googling errors will often lead you to a useful site called [Stack Overflow](htt
 In the rare event that you can't find an answer on Stack Overflow, general search engine queries can be useful. 
 
 The main thing that you need to remember is that you need to include the right level of information in your query:
+
 - searching for "R code not working" will not get you information which is specific enough.
 - searching for "R" and the text given in the error message will give you a lot more, but some error message text can be the same for different functions.
 - searching for "R", the text given in the error message and the name of the function that is giving that error message will give you a lot more, specific information.

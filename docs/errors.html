@@ -553,7 +553,7 @@ concerned with time series analysis, not with data wrangling!
 <p>Warnings are more concerning, and it’s best not to ignore them. Tidyverse packages produce a lot of warnings to help you avoid common pitfalls. For example, you will have noticed that the <code>read_csv</code> function produces a warning.</p>
 <div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="errors.html#cb454-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;./data/groups.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 47 Columns: 2
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (1): Group
 ## dbl (1): Participant
@@ -776,7 +776,7 @@ Solution
 </button>
 <div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="errors.html#cb479-1" tabindex="-1"></a>demonstration <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/cars_for_sale.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 66 Columns: 11
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (6): manufacturer, model, trans, drv, fl, class
 ## dbl (5): displ, year, cyl, cty, hwy
@@ -994,11 +994,13 @@ Solution
 <div id="googling-it" class="section level3 hasAnchor" number="9.3.3">
 <h3><span class="header-section-number">9.3.3</span> Googling It<a href="errors.html#googling-it" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In the rare event that you can’t find an answer on Stack Overflow, general search engine queries can be useful.</p>
-<p>The main thing that you need to remember is that you need to include the right level of information in your query:
-- searching for “R code not working” will not get you information which is specific enough.
-- searching for “R” and the text given in the error message will give you a lot more, but some error message text can be the same for different functions.
-- searching for “R”, the text given in the error message and the name of the function that is giving that error message will give you a lot more, specific information.
-- searching for errors that are specific to your environment or the files you’re working with is unlikely to return results.</p>
+<p>The main thing that you need to remember is that you need to include the right level of information in your query:</p>
+<ul>
+<li>searching for “R code not working” will not get you information which is specific enough.</li>
+<li>searching for “R” and the text given in the error message will give you a lot more, but some error message text can be the same for different functions.</li>
+<li>searching for “R”, the text given in the error message and the name of the function that is giving that error message will give you a lot more, specific information.</li>
+<li>searching for errors that are specific to your environment or the files you’re working with is unlikely to return results.</li>
+</ul>
 <p>If you got the following error when running <code>read_csv("cars_for_sale.csv")</code>:</p>
 <pre><code>## Error: &#39;cars_for_sale.csv&#39; does not exist in current working directory (&#39;/Users/billgates/IntroR_2024&#39;)</code></pre>
 <p>You would search for something like <code>R read_csv does not exist in current working directory</code></p>
