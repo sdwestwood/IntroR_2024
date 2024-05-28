@@ -1,5 +1,9 @@
 # Errors
 
+```{r include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.align="center")
+```
+
 ## Intended Learning Outcomes {-}
 
 By the end of this session you should be:
@@ -17,15 +21,25 @@ This is a lesson focused on how to find and correct it *when* they happen- and t
 
 ## Debugging
 
-<center> <figure><img src="images/debugging.jpg"><figcaption>A literal bug in a machine, often incorrectly cited as the source of the term "debugging". From https://en.wikipedia.org/wiki/Debugging. </figcaption></figure> </center> <br>
+```{r bug-fig, echo=FALSE, fig.align = 'center', out.width = "100%", fig.cap = "A literal bug in a machine, often incorrectly cited as the source of the term \"debugging\". From https://en.wikipedia.org/wiki/Debugging."}
+knitr::include_graphics(here::here("images", "debugging.jpg"))
+```
 
 Debugging is the process of identifying and removing errors from your code. It sounds a bit technical, but you've probably been doing it already.
 
-What you do to identify errors depends on what is wrong. There are various types of messages that R will give you that will help you identify the issues that you are having.
+What you do to identify errors depends on what is wrong. There are three types of feedback that will help you figure out what's gone wrong. 
 
-Reading these error messages will come naturally after you get a bit more experience under your belt, but in the meantime let's look at common problems.
+To help you identify issues with your code, R and the packages you load will provide feedback in messages, warnings, and errors. They each serve a different purpose:
 
-### Messages from R
+- **Messages** provide informative output.
+- **Warnings** indicate potential issues but won't stop your code from running.
+- **Errors** indicate serious issues that prevent your code from running.
+
+Reading these messages will come naturally after you get a bit more experience under your belt, but in the meantime let's look at common problems.
+
+Let's have a look at what different types of thing R could be telling you when you get a text output.
+
+### Messages
 
 Occasionally, R will return some text when you run a piece of code. Often, this text is coloured red, which causes a bit of panic in newer users. It is printed in the console, but also may be displayed below code chunks in R Markdown documents.
 
@@ -33,11 +47,71 @@ Occasionally, R will return some text when you run a piece of code. Often, this 
 It is important to note that **not all red text indicates an error!** There are a number of things that R could be trying to tell you, all that the red colour indicates is that you should be paying attention to it.
 ```
 
-Let's have a look at what different types of thing R could be telling you when you get a text output.
+Messages can be thought of as information that helps you avoid errors.
 
-### Error Messages
+```{r}
+message("You've got this! Don't forget to use the help function if you're stuck!")
+```
 
-These are definitely the ones that people worry about the most, but error messages given information about what has gone wrong. By reading and interpreting these messages we can diagnose the problem and fix it- a process called **debugging**. Let's do something that will definitely generate an error and have a look at it:
+The most common type of message you will see is package startup messages like the ones you see when you load the tidyverse.
+
+```{r}
+library(tidyverse)
+```
+
+![](images/tidy_messages.png)
+
+This informs us that we have loaded in the packages listed under the sections that says `Attaching core tidyverse packages`. `tidyverse` is, after all, a collection of other packages.
+
+It also informs us that there are some conflicts- this usually panics people! 
+
+This section indicates that the function `filter()`, as part of the `dplyr` package within `tidyverse`, is masking another function with the same name which is part of the `stats` package, a part of base R. The same with `lag()`.
+
+This just means that when you use the functions `filter()` or `lag()` it will be the `tidyverse` versions that are used as default.
+
+The message also helpfully shows how we can access a function from a specific package using the `::` operator. For example, to use the `filter()` function that would be available without loading any packages we can use `stats::filter()`.
+
+```{r}
+stats::filter((0:10)^2, c(1, -1))
+```
+
+Similarly, if we wanted to use the `filter()` function that is loaded with the tidyverse we could use `dplyr::filter()`.
+
+```{r}
+dplyr::filter(mtcars, mpg > 30)
+```
+
+```{block, type = "warning"}
+Even though these functions use the same name, they do not perform the same function!
+
+`stats::filter()` and `stats::lag()` are both concerned with time series analysis, not with data wrangling!
+```
+
+### Warnings
+
+Warnings are more concerning, and it's best not to ignore them. Tidyverse packages produce a lot of warnings to help you avoid common pitfalls. For example, you will have noticed that the `read_csv` function produces a warning.
+
+```{r}
+read_csv("./data/groups.csv")
+```
+
+Often these warnings tell us how to make them quiet. Reading the message returned by `read_csv` suggests two ways to avoid this message. We can specifying the column types:
+
+```{r}
+read_csv("./data/groups.csv", col_types = cols(Participant = "i", Group = "f"))
+```
+
+This is good practice as the `read_csv` function won't always guess the right column type from a `csv` file. If it's important that the `Participant` column in an integer, then the warning could prevent an error. However, there is also the lazy option of setting the `show_col_types` argument:
+
+```{r}
+read_csv("./data/groups.csv", show_col_types = FALSE)
+```
+
+Alternatively, as long as you understand the warning you can ignore it if you and the people you share you code with don't mind the extra output.
+
+### Errors
+
+Errors can't simply be silenced or ignored. You see an error message when something has gone wrong. Don't panic! By reading and interpreting these messages we can diagnose the problem and fix it- a process called **debugging**. Let's do something that will definitely generate an error and have a look at it:
 
 ```{r error=TRUE}
 demo <- read_cvs("some_file_name.csv")
@@ -62,8 +136,9 @@ For this reason, you should always check that the outcome you have gotten from a
 
 For example, this might happen if you try to use `filter(variable > 150)`, which would retain all observations where the values in `variable` were greater than 150, when you actually mean to use `filter(variable < 150)` to get rid of all observations where the values in `variable` were greater than 150 (retaining those below 150).
 ```
+<br>
 
-<span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span>
+[Question Time]{.question}
 
 ```{block, type="task"}
 
@@ -71,11 +146,11 @@ For example, this might happen if you try to use `filter(variable > 150)`, which
 
 We have some error messages below- let's look at them and see if we can solve them.
 
-If you want, you can download <a href="data/cars_for_sale.csv" download>cars_for_sale.csv</a> and test them out as we go.
+If you want, you can download [cars_for_sale.csv](data/cars_for_sale.csv) and test them out as we go.
 
 ```
 
-#### Could not find function: 1 {-}
+#### Could not find function {-}
 
 ```{r error=TRUE}
 demonstration <- read_cvs("data/cars_for_sale.csv")
@@ -93,7 +168,7 @@ demonstration <- read_csv("data/cars_for_sale.csv")
 ```
 `r unhide()`
 
-#### Could not find function: 2 {-}
+#### Could not find function: 2 {.hidden}
 
 ```{r eval = F}
 demonstration <- read_csv("data/cars_for_sale.csv")
@@ -120,14 +195,14 @@ demonstration <- read_csv("data/cars_for_sale.csv")
 #### Unexpected ')' {-}
 
 ```{r error=TRUE, echo=TRUE}
-library(tidyverse))
+library(babynames))
 ```
 
 What does the error message tell you? What happened and what do you think I should do to fix it?
 
 `r hide("Solution")`
 ```{r, eval = F}
-library(tidyverse)
+library(babynames)
 
 # There was an extra ) in there. It might seem trivial, 
 # but this prevented the line of code from being run.
@@ -139,8 +214,12 @@ library(tidyverse)
 
 #### Not in current working directory {-}
 
-```{r error=TRUE}
-demonstration <- read_csv("data/cars_for_sale.csv")
+```{r eval=FALSE}
+demonstration <- read_csv("cars_for_sale.csv")
+```
+
+```{r echo=FALSE}
+cat("Error: 'cars_for_sale.csv' does not exist in current working directory ('C:\\Users\\timcook\\IntroR_2024')")
 ```
 
 What do you think this error means? We have all seen it at least once. I see it all the time because I always forget to do something when I start working.
@@ -197,7 +276,7 @@ demonstration <- read_csv("data/cars_for_sale.csv"
 
 This error appears in the console as below:
 
-<center><img src="images/plus_error.gif"></center>
+![](images/plus_error.gif)
 
 What has happened? How do I fix it?
 
@@ -273,13 +352,13 @@ Going through it a bit at a time will help you!
 
 We can do this by first highlighting the first line _**before the first pipe**_ and then pressing `Ctrl`+`Enter`. this will run only that line of code:
 
-<center>![](images/pipe_error_1.gif)</center>
+![](images/pipe_error_1.gif)
 
 OK, we can see that we now have an object called `species_count` in the environment, and this now contains the data set `starwars`. The code ran, and ran as we expected it to.
 
 Let's move on to the second line. Highlight the first two lines _**before the second pipe**_, again this will only run the first two lines of code:
 
-<center>![](images/pipe_error_2.gif)</center>
+![](images/pipe_error_2.gif)
 
 ```{r echo = F, error = T}
 species_count <- starwars %>%
@@ -288,7 +367,7 @@ species_count <- starwars %>%
 
 There we go, the location of the error is uncovered! We can now look at what is going on in line 2 and figure out what is going on.
 
-<span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span>
+[Question Time]{.question}
 
 From the text of the error message that the error relates to the column name `starwars`, so we look at parts called `starwars` in our code. We have already established that the first time this appears (in line 1) that the code runs and runs as we expected it to, so the error is in line 2. 
 
@@ -353,7 +432,7 @@ ggplot(mpg, aes(x = cty)) +
 
 Here is the code to recreate the graph presented above, but I've created 3 errors in it. These are probably the most common errors you will encounter. 
 
-<span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span>
+[Question Time]{.question}
 
 Let's look at fixing these 3 errors. As a bonus, the same method used in debugging pipes is also used.
 
@@ -381,7 +460,7 @@ ggplot(mpg, aes(x = cty)) +
 
 Let's do the same thing that we did with pipes, highlight the first line and run it. This time we don't stop at a pipe, because there is no pipe, we **stop before the `+`**.
 
-<center>![](images/gg_error_2.gif)</center> 
+![](images/gg_error_2.gif) 
 
 ```{r error = T, echo = F}
 ggplot(mpg, aes(x = cty))
@@ -393,7 +472,7 @@ What do you think is going on here? There is a hint available at this stage. Com
 
 If you are still not sure, do the same thing with the second line of the code, this is where the error message is produced in the code and this should provide you with extra information.
 
-<center>![](images/gg_error_3.gif)</center>
+![](images/gg_error_3.gif)
 
 `r hide("Solution")`
 
@@ -431,7 +510,7 @@ ggplot(mpg, aes(x = cty, y= hwy)) +
 
 Let's do the same thing that we did with pipes, highlight the first line and run it. As above, we don't stop at a pipe we **stop before the `+`**.
 
-<center>![](images/gg_error_1.gif)</center> 
+![](images/gg_error_1.gif) 
 
 ```{r echo = F, error = T}
 ggplot(mpg, aes(x = cty, y= hwy)) 
@@ -479,56 +558,57 @@ instead of using `geom_bar()` we should have used `geom_point()` or `geom_jitter
 
 `r unhide()`
 
-### Warning Messages
+### Warning Messages {.hidden}
 
 Warning messages are another type of message that you might encounter. Warning messages aren't quite errors, but aren't as benign as other types of textual outputs in the console.
 
 A warning will not halt the execution of code that you are running, but will allow the code to run. A warning message should spur you to checking if the function(s) you have tried to run have done so correctly.
 
-### Other Messages
+## Searching for Help
 
-There are also other types of textual output, too numerous to classify here. Here is an example that you should have been seeing on a regular basis by this stage:
+There are multiple ways you can search for help.
 
-<center>![](images/tidyverse_success.png)</center>
+### RTFM
 
-This informs us that by using the code `library(tidyverse)` we have loaded in the packages listed under the sections that says `Attaching Packages`. `tidyverse` is, after all, a collection of other packages.
-
-It also informs us that there are some conflicts- this usually panics people! 
-
-This section indicates that the function `filter()`, as part of the `dplyr` package within `tidyverse`, is masking another function with the same name which is part of the `stats` package, a part of base R. The same with `lag()`.
-
-This just means that when you use the functions `filter()` or `lag()` it will be the `tidyverse` versions that are used as default.
-
-You can still use the others, you just need to specify `stats::filter()` or `stats::lag()` if you do want to use these.
-
-```{block, type = "warning"}
-Even though these functions use the same name, they do not perform the same function!
-
-`stats::filter()` and `stats::lag()` are both concerned with time series analysis, not with data wrangling!
-```
-
-## Searching for Help Online
-
-There are multiple places online where you can search for help.
-
-### Googling It
-
-The first thing you should do with an error is to Google it. It sounds daft, but if you are having an issue there is probably someone on the internet who has also had that same problem.
-
-The main thing that you need to remember is that you need to include the right level of information in your query:
-* searching for "R code not working" will not get you information which is specific enough.
-* searching for "R" and the text given in the error message will give you a lot more, but some error message text can be the same for different functions.
-* searching for "R", the text given in the error message and the name of the function that is giving that error message will give you a lot more, specific information.
-
-Learning to Google with appropriate levels of detail in your question is a skill in itself! We know this because we were in exactly the same position as you when we were first learning- and we still frequently Google things!
+Documentation in R is generally very good, so when you are struggling with a function it's always a good idea to Read The Fun Manual (RTFM). At first it might seem too technical, but you will get used to the language in documentation over time. The more you use it, the easier it becomes to use. It also saves you from leaving R to find help.
 
 ### Stack Overflow
 
-[Stack Overflow](https://stackoverflow.com/) is a useful site for discussion and asking for help from experts. It is a community for professional coders, and operates on a reputation-based system. There are already huge numbers of questions there that have been answered that you can search through, but if your question is novel or unique you might want to ask there.
+Googling errors will often lead you to a useful site called [Stack Overflow](https://stackoverflow.com/) where users can ask questions. It is a community for coders, and operates on a reputation-based system. There are already huge numbers of questions there that have been answered that you can search through, but if your question is novel or unique you might want to ask there. Stack Overflow allows you to search using *tags* which is particularly helpful for finding answers for R. For example, instead of `R read_csv does not exist in current working directory` you would search for `[r] read_csv does not exist in current working directory`.
+
+### Googling It
+
+In the rare event that you can't find an answer on Stack Overflow, general search engine queries can be useful. 
+
+The main thing that you need to remember is that you need to include the right level of information in your query:
+- searching for "R code not working" will not get you information which is specific enough.
+- searching for "R" and the text given in the error message will give you a lot more, but some error message text can be the same for different functions.
+- searching for "R", the text given in the error message and the name of the function that is giving that error message will give you a lot more, specific information.
+- searching for errors that are specific to your environment or the files you're working with is unlikely to return results.
+
+If you got the following error when running `read_csv("cars_for_sale.csv")`:
+
+```{r echo=FALSE}
+cat("Error: 'cars_for_sale.csv' does not exist in current working directory ('/Users/billgates/IntroR_2024')")
+```
+
+You would search for something like `R read_csv does not exist in current working directory` 
+
+Learning to Google with appropriate levels of detail in your question is a skill in itself! We know this because we were in exactly the same position as you when we were first learning- and we still frequently Google things!
 
 ### YouTube
 
 [YouTube](https://www.youtube.com/results?search_query=learning+R) has a number of free video tutorials that you might want to check out now that you've had an introduction from us. Sometimes hearing the information from a different perspective, or hearing it explained in a different way, can help you understand it better.
+
+### AI bots
+
+Large Language Model (LLM) chat bots like ChatGPT can be handy when you need a little bit of additional explanation to understand what might have gone wrong. This can be much riskier than the alternatives as it may give you inaccurate or even dangerous information. Some tips:
+
+- **Never** run code written by an LLM without checking that you understand what every line does!
+- **Always** look up packages suggested by LLMs before installing them! LLMs can hallucinate packages, or suggested inappropriate packages that could cause compatibility issues.
+- Avoid asking leading questions. When you ask "how" to do something the model will try to tell you even of it's not the best way to acheive what you're trying to do. Instead, it's usually better to describe the problem and ask for the best solution or options for solving the problem.
+- Don't ask it to debug for you. LLMs use the prompt to generate responses. Providing code with errors in the prompt often leads to code with errors in the response. LLMs also tend to solve problems by adding complexity which can lead to messy and redundant code.
+- Double check answers by reading documentation in R. LLMs don't know when they're wrong.
 
 ### Further Reading
 

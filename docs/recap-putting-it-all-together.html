@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 10 Recap: Putting it all together | Introduction to R</title>
+  <meta name="description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2023/2024." />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 10 Recap: Putting it all together | Introduction to R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2023/2024." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 10 Recap: Putting it all together | Introduction to R" />
+  
+  <meta name="twitter:description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2023/2024." />
+  
+
+<meta name="author" content="Gaby Mahrholz, Greta Todorova, Wilhelmiina Toivo, and Jaimie Torrance, updated by Johanna Werner in 2022 and Sean Westwood in 2023" />
+
+
+<meta name="date" content="2024-05-28" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="errors.html"/>
+<link rel="next" href="appendices.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introduction to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About this course</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#intended-learning-outcomes"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-will-i-need-to-complete-this-course"><i class="fa fa-check"></i>What will I need to complete this course?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-are-these-materials-open"><i class="fa fa-check"></i>Why are these materials open?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgement"><i class="fa fa-check"></i>Acknowledgement</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="before.html"><a href="before.html"><i class="fa fa-check"></i>Assignment before starting the course</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="before.html"><a href="before.html#accessing"><i class="fa fa-check"></i><b>0.1</b> Access to RStudio</a>
+<ul>
+<li class="chapter" data-level="0.1.1" data-path="before.html"><a href="before.html#install"><i class="fa fa-check"></i><b>0.1.1</b> Installing R and RStudio on Your Own Machine</a></li>
+<li class="chapter" data-level="0.1.2" data-path="before.html"><a href="before.html#accessing-rstudio-on-university-computers"><i class="fa fa-check"></i><b>0.1.2</b> Accessing RStudio on University Computers</a></li>
+<li class="chapter" data-level="0.1.3" data-path="before.html"><a href="before.html#using-rstudio-cloud"><i class="fa fa-check"></i><b>0.1.3</b> Using RStudio Cloud</a></li>
+</ul></li>
+<li class="chapter" data-level="0.2" data-path="before.html"><a href="before.html#maximising-reproducibility-and-visibility"><i class="fa fa-check"></i><b>0.2</b> Maximising Reproducibility and Visibility</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#intended-learning-outcomes-1"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#computer-literacy-basics"><i class="fa fa-check"></i><b>1.1</b> Computer Literacy Basics</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#r-and-r-studio"><i class="fa fa-check"></i><b>1.2</b> R and R Studio</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#r"><i class="fa fa-check"></i><b>1.2.1</b> R</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#rstudio-ide"><i class="fa fa-check"></i><b>1.2.2</b> RStudio IDE</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#r-r-studio-and-associated-file-types"><i class="fa fa-check"></i><b>1.3</b> R, R Studio and Associated File Types</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="introduction.html"><a href="introduction.html#setting-the-working-directory"><i class="fa fa-check"></i><b>1.3.1</b> Setting the working directory</a></li>
+<li class="chapter" data-level="1.3.2" data-path="introduction.html"><a href="introduction.html#file-structuredirectories"><i class="fa fa-check"></i><b>1.3.2</b> File Structure/Directories</a></li>
+<li class="chapter" data-level="1.3.3" data-path="introduction.html"><a href="introduction.html#file-extensions"><i class="fa fa-check"></i><b>1.3.3</b> File Extensions</a></li>
+<li class="chapter" data-level="1.3.4" data-path="introduction.html"><a href="introduction.html#zip-files"><i class="fa fa-check"></i><b>1.3.4</b> .zip Files</a></li>
+<li class="chapter" data-level="1.3.5" data-path="introduction.html"><a href="introduction.html#rstudio-specific-files"><i class="fa fa-check"></i><b>1.3.5</b> RStudio Specific Files</a></li>
+<li class="chapter" data-level="1.3.6" data-path="introduction.html"><a href="introduction.html#r-files"><i class="fa fa-check"></i><b>1.3.6</b> .R Files</a></li>
+<li class="chapter" data-level="1.3.7" data-path="introduction.html"><a href="introduction.html#rmd-files"><i class="fa fa-check"></i><b>1.3.7</b> .Rmd files</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#comments"><i class="fa fa-check"></i><b>1.4</b> Comments</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#saving-your-file"><i class="fa fa-check"></i><b>1.5</b> Saving your file</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#sessions"><i class="fa fa-check"></i><b>1.6</b> Sessions</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="introduction.html"><a href="introduction.html#what-is-a-session-in-r"><i class="fa fa-check"></i><b>1.6.1</b> What is a session in R?</a></li>
+<li class="chapter" data-level="1.6.2" data-path="introduction.html"><a href="introduction.html#restarting-your-current-session"><i class="fa fa-check"></i><b>1.6.2</b> Restarting Your Current Session</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="introduction.html"><a href="introduction.html#packages"><i class="fa fa-check"></i><b>1.7</b> Packages</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="introduction.html"><a href="introduction.html#installing-packages"><i class="fa fa-check"></i><b>1.7.1</b> Installing Packages</a></li>
+<li class="chapter" data-level="1.7.2" data-path="introduction.html"><a href="introduction.html#load-tidyverse"><i class="fa fa-check"></i><b>1.7.2</b> Loading Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="introduction.html"><a href="introduction.html#functions"><i class="fa fa-check"></i><b>1.8</b> Functions</a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="introduction.html"><a href="introduction.html#what-is-a-function"><i class="fa fa-check"></i><b>1.8.1</b> What is a function?</a></li>
+<li class="chapter" data-level="1.8.2" data-path="introduction.html"><a href="introduction.html#the-anatomy-of-a-function-names-and-arguments"><i class="fa fa-check"></i><b>1.8.2</b> The Anatomy of a Function: names and arguments</a></li>
+<li class="chapter" data-level="1.8.3" data-path="introduction.html"><a href="introduction.html#installing-and-loading-tidyverse"><i class="fa fa-check"></i><b>1.8.3</b> Installing and Loading tidyverse</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introduction-to-data.html"><a href="introduction-to-data.html"><i class="fa fa-check"></i><b>2</b> Introduction to Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction-to-data.html"><a href="introduction-to-data.html#intended-learning-outcomes-2"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="2.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#pre-steps"><i class="fa fa-check"></i><b>2.1</b> Pre-Steps</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#downloading-materials"><i class="fa fa-check"></i><b>2.1.1</b> Downloading materials</a></li>
+<li class="chapter" data-level="2.1.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#creating-an-r-project"><i class="fa fa-check"></i><b>2.1.2</b> Creating an R Project</a></li>
+<li class="chapter" data-level="2.1.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#moving-the-downloaded-materials-into-our-project-folder"><i class="fa fa-check"></i><b>2.1.3</b> Moving the downloaded materials into our project folder</a></li>
+<li class="chapter" data-level="2.1.4" data-path="introduction-to-data.html"><a href="introduction-to-data.html#load-tidyverse-into-the-library"><i class="fa fa-check"></i><b>2.1.4</b> Load tidyverse into the library</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#basic-data-types"><i class="fa fa-check"></i><b>2.2</b> Basic data types</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#character"><i class="fa fa-check"></i><b>2.2.1</b> Character</a></li>
+<li class="chapter" data-level="2.2.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#numeric"><i class="fa fa-check"></i><b>2.2.2</b> Numeric</a></li>
+<li class="chapter" data-level="2.2.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#logical"><i class="fa fa-check"></i><b>2.2.3</b> Logical</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#vectors"><i class="fa fa-check"></i><b>2.3</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#creating-vectors"><i class="fa fa-check"></i><b>2.3.1</b> Creating vectors</a></li>
+<li class="chapter" data-level="2.3.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#converting-vectors-into-different-data-types-of-vectors-aka-funky-things-we-can-do"><i class="fa fa-check"></i><b>2.3.2</b> Converting vectors into different data types of vectors aka funky things we can do</a></li>
+<li class="chapter" data-level="2.3.3" data-path="introduction-to-data.html"><a href="introduction-to-data.html#adding-elements-to-existing-vectors"><i class="fa fa-check"></i><b>2.3.3</b> Adding elements to existing vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="introduction-to-data.html"><a href="introduction-to-data.html#tibble---the-new-way-of-creating-a-dataframe"><i class="fa fa-check"></i><b>2.4</b> Tibble - the new way of creating a dataframe</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#what-the-heck-is-a-tibble-do-you-mean-table"><i class="fa fa-check"></i><b>2.4.1</b> What the heck is a tibble? Do you mean table?</a></li>
+<li class="chapter" data-level="2.4.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#how-to-make-a-tibble-from-scratch"><i class="fa fa-check"></i><b>2.4.2</b> How to make a tibble from scratch</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="introduction-to-data.html"><a href="introduction-to-data.html#reading-in-data"><i class="fa fa-check"></i><b>2.5</b> Reading in data</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="introduction-to-data.html"><a href="introduction-to-data.html#from-pre-existing-databases"><i class="fa fa-check"></i><b>2.5.1</b> from pre-existing databases</a></li>
+<li class="chapter" data-level="2.5.2" data-path="introduction-to-data.html"><a href="introduction-to-data.html#from-existing-data-files"><i class="fa fa-check"></i><b>2.5.2</b> from existing data files</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="introduction-to-data.html"><a href="introduction-to-data.html#last-point-for-this-chapter"><i class="fa fa-check"></i><b>2.6</b> Last point for this chapter</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html"><i class="fa fa-check"></i><b>3</b> Basic Data Manipulation</a>
+<ul>
+<li class="chapter" data-level="" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#intended-learning-outcomes-3"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="3.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#data-wrangling"><i class="fa fa-check"></i><b>3.1</b> Data Wrangling</a></li>
+<li class="chapter" data-level="3.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#pre-steps-1"><i class="fa fa-check"></i><b>3.2</b> Pre-Steps</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#downloading-materials-1"><i class="fa fa-check"></i><b>3.2.1</b> Downloading materials</a></li>
+<li class="chapter" data-level="3.2.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#loading-in-the-required-packages-into-the-library"><i class="fa fa-check"></i><b>3.2.2</b> Loading in the required packages into the library</a></li>
+<li class="chapter" data-level="3.2.3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#read-in-the-data"><i class="fa fa-check"></i><b>3.2.3</b> Read in the data</a></li>
+<li class="chapter" data-level="3.2.4" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#view-the-data"><i class="fa fa-check"></i><b>3.2.4</b> View the data</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#select"><i class="fa fa-check"></i><b>3.3</b> select()</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#renaming-columns"><i class="fa fa-check"></i><b>3.3.1</b> Renaming Columns</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#arrange"><i class="fa fa-check"></i><b>3.4</b> arrange()</a></li>
+<li class="chapter" data-level="3.5" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#filter"><i class="fa fa-check"></i><b>3.5</b> filter()</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#single-criterion"><i class="fa fa-check"></i><b>3.5.1</b> Single criterion</a></li>
+<li class="chapter" data-level="3.5.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#multiple-criteria"><i class="fa fa-check"></i><b>3.5.2</b> Multiple criteria</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#mutate"><i class="fa fa-check"></i><b>3.6</b> mutate()</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#read-in-second-dataset"><i class="fa fa-check"></i><b>3.6.1</b> Read in second dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#summarise"><i class="fa fa-check"></i><b>3.7</b> summarise()</a></li>
+<li class="chapter" data-level="3.8" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#adding-group_by"><i class="fa fa-check"></i><b>3.8</b> Adding group_by()</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#bringing-it-together"><i class="fa fa-check"></i><b>3.8.1</b> Bringing it together</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#pipes"><i class="fa fa-check"></i><b>3.9</b> The pipe operator (%&gt;%)</a>
+<ul>
+<li class="chapter" data-level="3.9.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#magrittr-pipe-vs.-base-r-pipe"><i class="fa fa-check"></i><b>3.9.1</b> Magrittr Pipe (%&gt;%) vs. Base R Pipe (|&gt;)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#pipe-practice-with-the-wickham-six"><i class="fa fa-check"></i><b>3.10</b> Pipe Practice with the Wickham Six</a>
+<ul>
+<li class="chapter" data-level="3.10.1" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#select-1"><i class="fa fa-check"></i><b>3.10.1</b> select()</a></li>
+<li class="chapter" data-level="3.10.2" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#arrange-1"><i class="fa fa-check"></i><b>3.10.2</b> arrange()</a></li>
+<li class="chapter" data-level="3.10.3" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#filter-1"><i class="fa fa-check"></i><b>3.10.3</b> filter()</a></li>
+<li class="chapter" data-level="3.10.4" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#mutate-1"><i class="fa fa-check"></i><b>3.10.4</b> mutate()</a></li>
+<li class="chapter" data-level="3.10.5" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#group_by-and-summarise"><i class="fa fa-check"></i><b>3.10.5</b> group_by() and summarise()</a></li>
+<li class="chapter" data-level="3.10.6" data-path="basic-data-manipulation.html"><a href="basic-data-manipulation.html#bringing-it-all-together"><i class="fa fa-check"></i><b>3.10.6</b> Bringing it all together</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html"><i class="fa fa-check"></i><b>4</b> Tidy Data 1: Principles and Pivots</a>
+<ul>
+<li class="chapter" data-level="" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html#intended-learning-outcomes-4"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="4.1" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html#pre-steps-2"><i class="fa fa-check"></i><b>4.1</b> Pre-steps</a></li>
+<li class="chapter" data-level="4.2" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html#tidy-data"><i class="fa fa-check"></i><b>4.2</b> Tidy data</a></li>
+<li class="chapter" data-level="4.3" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html#pivot_longer-and-pivot_wider"><i class="fa fa-check"></i><b>4.3</b> pivot_longer() and pivot_wider()</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html#pivot_longer"><i class="fa fa-check"></i><b>4.3.1</b> pivot_longer()</a></li>
+<li class="chapter" data-level="4.3.2" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html#pivot_wider"><i class="fa fa-check"></i><b>4.3.2</b> pivot_wider()</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html#separate-and-unite"><i class="fa fa-check"></i><b>4.4</b> separate() and unite()</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html#separate"><i class="fa fa-check"></i><b>4.4.1</b> separate()</a></li>
+<li class="chapter" data-level="4.4.2" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html#additional-arguments-for-separate"><i class="fa fa-check"></i><b>4.4.2</b> Additional arguments for separate()</a></li>
+<li class="chapter" data-level="4.4.3" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html#unite"><i class="fa fa-check"></i><b>4.4.3</b> unite()</a></li>
+<li class="chapter" data-level="4.4.4" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html#additional-arguments-for-unite"><i class="fa fa-check"></i><b>4.4.4</b> Additional arguments for unite()</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html#bonus-materials-mutate-row-names-from-the-mtcars"><i class="fa fa-check"></i><b>4.5</b> Bonus materials: mutate row names from the <code>mtcars</code></a></li>
+<li class="chapter" data-level="4.6" data-path="tidy-data-1-principles-and-pivots.html"><a href="tidy-data-1-principles-and-pivots.html#additional-information"><i class="fa fa-check"></i><b>4.6</b> Additional information</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html"><i class="fa fa-check"></i><b>5</b> Tidy Data 2: Cell Manipulation</a>
+<ul>
+<li class="chapter" data-level="" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html#intended-learning-outcomes-5"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="5.1" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html#pre-steps-3"><i class="fa fa-check"></i><b>5.1</b> Pre-steps</a></li>
+<li class="chapter" data-level="5.2" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html#conditional-statements"><i class="fa fa-check"></i><b>5.2</b> Conditional statements</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html#recode"><i class="fa fa-check"></i><b>5.2.1</b> recode()</a></li>
+<li class="chapter" data-level="5.2.2" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html#ifelse"><i class="fa fa-check"></i><b>5.2.2</b> ifelse()</a></li>
+<li class="chapter" data-level="5.2.3" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html#case_when"><i class="fa fa-check"></i><b>5.2.3</b> case_when()</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html#distinct"><i class="fa fa-check"></i><b>5.3</b> distinct()</a></li>
+<li class="chapter" data-level="5.4" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html#recap"><i class="fa fa-check"></i><b>5.4</b> Recap</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html#question-1"><i class="fa fa-check"></i><b>5.4.1</b> Question 1</a></li>
+<li class="chapter" data-level="5.4.2" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html#question-2"><i class="fa fa-check"></i><b>5.4.2</b> Question 2</a></li>
+<li class="chapter" data-level="5.4.3" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html#question-3"><i class="fa fa-check"></i><b>5.4.3</b> Question 3</a></li>
+<li class="chapter" data-level="5.4.4" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html#question-4"><i class="fa fa-check"></i><b>5.4.4</b> Question 4</a></li>
+<li class="chapter" data-level="5.4.5" data-path="tidy-data-2-cell-manipulation.html"><a href="tidy-data-2-cell-manipulation.html#question-5"><i class="fa fa-check"></i><b>5.4.5</b> Question 5</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html"><i class="fa fa-check"></i><b>6</b> Tidy Data 3: Joins</a>
+<ul>
+<li class="chapter" data-level="" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#intended-learning-outcomes-6"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="6.1" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#pre-steps-4"><i class="fa fa-check"></i><b>6.1</b> Pre-steps</a></li>
+<li class="chapter" data-level="6.2" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#two-table-verbs"><i class="fa fa-check"></i><b>6.2</b> Two-Table Verbs</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#bringing-in-new-data"><i class="fa fa-check"></i><b>6.2.1</b> Bringing in new data</a></li>
+<li class="chapter" data-level="6.2.2" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#mutating-join-summary"><i class="fa fa-check"></i><b>6.2.2</b> Mutating Join Summary</a></li>
+<li class="chapter" data-level="6.2.3" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#binding-join-verbs"><i class="fa fa-check"></i><b>6.2.3</b> Binding Join Verbs</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#additional-information-1"><i class="fa fa-check"></i><b>6.3</b> Additional information</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html"><i class="fa fa-check"></i><b>7</b> Data Visualisation 1: Fundamentals</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#pre-class-resources"><i class="fa fa-check"></i><b>7.1</b> Pre-class Resources</a></li>
+<li class="chapter" data-level="" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#intended-learning-outcomes-7"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="7.2" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#pre-steps-5"><i class="fa fa-check"></i><b>7.2</b> Pre-steps</a></li>
+<li class="chapter" data-level="7.3" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#introduction-to-the-data"><i class="fa fa-check"></i><b>7.3</b> Introduction to the data</a></li>
+<li class="chapter" data-level="7.4" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#some-warm-up-tasks"><i class="fa fa-check"></i><b>7.4</b> Some warm-up tasks</a></li>
+<li class="chapter" data-level="7.5" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#the-package-ggplot2"><i class="fa fa-check"></i><b>7.5</b> The package GGPLOT2</a></li>
+<li class="chapter" data-level="7.6" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#layering"><i class="fa fa-check"></i><b>7.6</b> Layering</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#layer-1"><i class="fa fa-check"></i><b>7.6.1</b> Layer 1</a></li>
+<li class="chapter" data-level="7.6.2" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#layer-2-and-onward"><i class="fa fa-check"></i><b>7.6.2</b> Layer 2 and onward</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#how-do-we-choose-the-type-of-plot"><i class="fa fa-check"></i><b>7.7</b> How do we choose the type of plot?</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#data-format"><i class="fa fa-check"></i><b>7.7.1</b> Data format</a></li>
+<li class="chapter" data-level="7.7.2" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#number-of-variables"><i class="fa fa-check"></i><b>7.7.2</b> Number of variables</a></li>
+<li class="chapter" data-level="7.7.3" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#types-of-plots"><i class="fa fa-check"></i><b>7.7.3</b> Types of plots</a></li>
+<li class="chapter" data-level="7.7.4" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#groupings"><i class="fa fa-check"></i><b>7.7.4</b> Groupings</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#now-lets-have-a-look-at-different-plots-with-more-complexity"><i class="fa fa-check"></i><b>7.8</b> Now let’s have a look at different plots with more complexity</a></li>
+<li class="chapter" data-level="7.9" data-path="data-visualisation-1-fundamentals.html"><a href="data-visualisation-1-fundamentals.html#other-plots"><i class="fa fa-check"></i><b>7.9</b> Other plots</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html"><i class="fa fa-check"></i><b>8</b> Data Visualisation 2: Combining and Customising</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#additional-resources"><i class="fa fa-check"></i><b>8.1</b> Additional Resources</a></li>
+<li class="chapter" data-level="" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#intended-learning-outcomes-8"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="8.2" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#pre-steps-6"><i class="fa fa-check"></i><b>8.2</b> Pre-steps</a></li>
+<li class="chapter" data-level="8.3" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#re-introduction-to-the-data"><i class="fa fa-check"></i><b>8.3</b> Re-introduction to the data</a></li>
+<li class="chapter" data-level="8.4" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#create-multiple-plots-in-one"><i class="fa fa-check"></i><b>8.4</b> Create multiple plots in one</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#select-the-data-beforehand-and-create-different-plots."><i class="fa fa-check"></i><b>8.4.1</b> Select the data beforehand and create different plots.</a></li>
+<li class="chapter" data-level="8.4.2" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#facets"><i class="fa fa-check"></i><b>8.4.2</b> Facets</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#global-and-local-aesthetics"><i class="fa fa-check"></i><b>8.5</b> Global and Local aesthetics</a></li>
+<li class="chapter" data-level="8.6" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#themes-making-your-plots-pretty-looking-the-way-you-want-them-to"><i class="fa fa-check"></i><b>8.6</b> Themes: Making your plots pretty: looking the way you want them to</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#ready-made-themes"><i class="fa fa-check"></i><b>8.6.1</b> Ready-made themes</a></li>
+<li class="chapter" data-level="8.6.2" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#adding-axes-titles-and-headings"><i class="fa fa-check"></i><b>8.6.2</b> Adding axes titles and headings</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#changing-colours"><i class="fa fa-check"></i><b>8.7</b> Changing colours</a></li>
+<li class="chapter" data-level="8.8" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#legends"><i class="fa fa-check"></i><b>8.8</b> Legends</a></li>
+<li class="chapter" data-level="8.9" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#changing-axes-ticks"><i class="fa fa-check"></i><b>8.9</b> Changing axes ticks</a></li>
+<li class="chapter" data-level="8.10" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#saving-plots"><i class="fa fa-check"></i><b>8.10</b> Saving plots</a></li>
+<li class="chapter" data-level="8.11" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#summative-homework"><i class="fa fa-check"></i><b>8.11</b> Summative Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="errors.html"><a href="errors.html"><i class="fa fa-check"></i><b>9</b> Errors</a>
+<ul>
+<li class="chapter" data-level="" data-path="errors.html"><a href="errors.html#intended-learning-outcomes-9"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="9.1" data-path="errors.html"><a href="errors.html#errors-how-to-avoid-some-and-live-through-the-rest"><i class="fa fa-check"></i><b>9.1</b> Errors: How to avoid some and live through the rest</a></li>
+<li class="chapter" data-level="9.2" data-path="errors.html"><a href="errors.html#debugging"><i class="fa fa-check"></i><b>9.2</b> Debugging</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="errors.html"><a href="errors.html#messages"><i class="fa fa-check"></i><b>9.2.1</b> Messages</a></li>
+<li class="chapter" data-level="9.2.2" data-path="errors.html"><a href="errors.html#warnings"><i class="fa fa-check"></i><b>9.2.2</b> Warnings</a></li>
+<li class="chapter" data-level="9.2.3" data-path="errors.html"><a href="errors.html#errors-1"><i class="fa fa-check"></i><b>9.2.3</b> Errors</a></li>
+<li class="chapter" data-level="9.2.4" data-path="errors.html"><a href="errors.html#multiple-errors"><i class="fa fa-check"></i><b>9.2.4</b> Multiple Errors</a></li>
+<li class="chapter" data-level="9.2.5" data-path="errors.html"><a href="errors.html#finding-errors-in-longer-code-segments"><i class="fa fa-check"></i><b>9.2.5</b> Finding errors in longer code segments</a></li>
+<li class="chapter" data-level="9.2.6" data-path="errors.html"><a href="errors.html#warning-messages"><i class="fa fa-check"></i><b>9.2.6</b> Warning Messages</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="errors.html"><a href="errors.html#searching-for-help"><i class="fa fa-check"></i><b>9.3</b> Searching for Help</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="errors.html"><a href="errors.html#rtfm"><i class="fa fa-check"></i><b>9.3.1</b> RTFM</a></li>
+<li class="chapter" data-level="9.3.2" data-path="errors.html"><a href="errors.html#stack-overflow"><i class="fa fa-check"></i><b>9.3.2</b> Stack Overflow</a></li>
+<li class="chapter" data-level="9.3.3" data-path="errors.html"><a href="errors.html#googling-it"><i class="fa fa-check"></i><b>9.3.3</b> Googling It</a></li>
+<li class="chapter" data-level="9.3.4" data-path="errors.html"><a href="errors.html#youtube"><i class="fa fa-check"></i><b>9.3.4</b> YouTube</a></li>
+<li class="chapter" data-level="9.3.5" data-path="errors.html"><a href="errors.html#ai-bots"><i class="fa fa-check"></i><b>9.3.5</b> AI bots</a></li>
+<li class="chapter" data-level="9.3.6" data-path="errors.html"><a href="errors.html#further-reading"><i class="fa fa-check"></i><b>9.3.6</b> Further Reading</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html"><i class="fa fa-check"></i><b>10</b> Recap: Putting it all together</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#bringing-your-skills-together"><i class="fa fa-check"></i><b>10.1</b> Bringing your skills together</a>
+<ul>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-1-1"><i class="fa fa-check"></i>Question 1</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-2-1"><i class="fa fa-check"></i>Question 2</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-3-1"><i class="fa fa-check"></i>Question 3</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-4-1"><i class="fa fa-check"></i>Question 4</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-5-1"><i class="fa fa-check"></i>Question 5</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-6"><i class="fa fa-check"></i>Question 6</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-7"><i class="fa fa-check"></i>Question 7</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-8"><i class="fa fa-check"></i>Question 8</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-9"><i class="fa fa-check"></i>Question 9</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-10"><i class="fa fa-check"></i>Question 10</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-11"><i class="fa fa-check"></i>Question 11</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-12-bonus"><i class="fa fa-check"></i>Question 12 (Bonus)</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-13-bonus"><i class="fa fa-check"></i>Question 13 (Bonus)</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-14-bonus"><i class="fa fa-check"></i>Question 14 (Bonus)</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#solutions"><i class="fa fa-check"></i><b>10.2</b> Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html"><i class="fa fa-check"></i>Appendices</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#changing-the-appearance-of-rmarkdown"><i class="fa fa-check"></i>Changing the Appearance of RMarkdown</a></li>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#source-materials"><i class="fa fa-check"></i>Source Materials</a></li>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#further-reading-1"><i class="fa fa-check"></i>Further Reading</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#statistics"><i class="fa fa-check"></i>Statistics</a></li>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#more-advanced-use-of-r"><i class="fa fa-check"></i>More Advanced Use of R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>11</b> References</a></li>
+<li class="divider"></li>
+<li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
+    target="blank"><img alt="Creative Commons License" 
+    style="border-width:0" 
+    src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="recap-putting-it-all-together" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Chapter 10</span> Recap: Putting it all together<a href="recap-putting-it-all-together.html#recap-putting-it-all-together" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="bringing-your-skills-together" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Bringing your skills together<a href="recap-putting-it-all-together.html#bringing-your-skills-together" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this practice exam, you will use all the skills you have learnt to tidy up, summarise, and visualise actual data. This data set is from an experiment where participants were asked to rate 240 words on a scale from 1-9, 1 being <em>not exciting at all</em> and 9 being <em>extremely exciting</em>. This dimension is called emotional arousal of language. The words are split into three conditions: HA = <em>High arousal</em>, LA = <em>Low arousal</em> and DI = <em>neutral distractor words</em>. Each of the words has their own item number ranging from 1-240.</p>
+<p>There are three datafiles:</p>
+<ul>
+<li><code>ratings.csv</code> contains ratings from 47 participants.</li>
+<li><code>item_info.csv</code> contains more information about the words: <code>AROUSAL</code> column shows how people from a larger database (different to our participants) have rated the words on arousal, and <code>VALENCE</code> column shows how people have rated these words on valence (i.e. how positive or negative they think the words are).</li>
+<li><code>groups</code> contains information about our participants, who were either bilingual speakers <code>B</code> or monolingual native English speakers <code>E</code>.</li>
+</ul>
+<p>Before we get started, make sure you have downloaded and unzipped the folder, and you have the three datafiles and this .Rmd file in it. Now set your working directory to the folder and we are ready to go.</p>
+<p>Again, DON’T CHANGE THE OBJECT NAMES. Replace the NULLs with your code.</p>
+<p>This exercise is <strong>NOT GRADED</strong>, but it is very similar to the summative assignment you will be given after this class, and should help you prepare for it.</p>
+<div id="question-1-1" class="section level3 unnumbered hasAnchor">
+<h3>Question 1<a href="recap-putting-it-all-together.html#question-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Load in the package <code>tidyverse</code>. Type your code in the code chunk below.</p>
+<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="recap-putting-it-all-together.html#cb502-1" tabindex="-1"></a><span class="cn">NULL</span></span></code></pre></div>
+</div>
+<div id="question-2-1" class="section level3 unnumbered hasAnchor">
+<h3>Question 2<a href="recap-putting-it-all-together.html#question-2-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Read the data files into your <code>Global Environment</code>. Store <code>item_info.csv</code> as <code>words</code>, <code>ratings.csv</code> as <code>ratings</code>, and <code>groups.csv</code> as <code>groups</code>. Type your code in the code chunk below.</p>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="recap-putting-it-all-together.html#cb503-1" tabindex="-1"></a>words <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb503-2"><a href="recap-putting-it-all-together.html#cb503-2" tabindex="-1"></a>ratings <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb503-3"><a href="recap-putting-it-all-together.html#cb503-3" tabindex="-1"></a>groups <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+</div>
+<div id="question-3-1" class="section level3 unnumbered hasAnchor">
+<h3>Question 3<a href="recap-putting-it-all-together.html#question-3-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Look at <code>ratings</code>. Oh dear - whoever has entered <code>ratings</code> data clearly doesn’t know about tidy data! Right now, each participant has their own row and each of the 240 words has their own column. We want to transform this data into long format so that the item numbers of the words (1-240) are in one column and all the ratings are in one column. Using <code>gather()</code>, make a new dataframe that has a column called <code>item</code>. This column should include the column headers (item number). Make another column that is called <code>rating</code>, which should include the cell values from columns that contain word ratings.</p>
+<ul>
+<li>Hint 1: Remember how to index columns which have numerical names?</li>
+<li>Hint 2: Go to lecture 5 inclass material to see how to specify the arguments in <code>gather()</code></li>
+</ul>
+<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="recap-putting-it-all-together.html#cb504-1" tabindex="-1"></a>ratings_long <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+<p>You should end up with a dataframe that has 11280 observations and just three columns. The first 6 rows of <code>ratings_long</code> should look like the ones shown in the tibble below.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">participant</th>
+<th align="left">item</th>
+<th align="right">rating</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">1</td>
+<td align="right">8</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="left">2</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">3</td>
+<td align="right">6</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="left">4</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">5</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="left">6</td>
+<td align="right">7</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="question-4-1" class="section level3 unnumbered hasAnchor">
+<h3>Question 4<a href="recap-putting-it-all-together.html#question-4-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now look at <code>words</code> dataframe. We don’t need all these columns. Make a new dataframe called <code>words_small</code> that only includes columns <code>item</code>, <code>Word</code>,<code>AROUSAL</code> and <code>VALENCE</code>.</p>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="recap-putting-it-all-together.html#cb505-1" tabindex="-1"></a>words_small <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+<p>The first 6 rows of <code>words_small</code> should look like the ones shown in the tibble below.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">item</th>
+<th align="left">Word</th>
+<th align="right">AROUSAL</th>
+<th align="right">VALENCE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1_HA</td>
+<td align="left">porn</td>
+<td align="right">7.24</td>
+<td align="right">4.32</td>
+</tr>
+<tr class="even">
+<td align="left">2_LA</td>
+<td align="left">ford</td>
+<td align="right">2.85</td>
+<td align="right">5.79</td>
+</tr>
+<tr class="odd">
+<td align="left">3_DI</td>
+<td align="left">bolt</td>
+<td align="right">4.55</td>
+<td align="right">3.90</td>
+</tr>
+<tr class="even">
+<td align="left">4_HA</td>
+<td align="left">leopard</td>
+<td align="right">6.26</td>
+<td align="right">6.43</td>
+</tr>
+<tr class="odd">
+<td align="left">5_LA</td>
+<td align="left">dryer</td>
+<td align="right">2.43</td>
+<td align="right">5.21</td>
+</tr>
+<tr class="even">
+<td align="left">6_DI</td>
+<td align="left">fireman</td>
+<td align="right">4.52</td>
+<td align="right">6.47</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="question-5-1" class="section level3 unnumbered hasAnchor">
+<h3>Question 5<a href="recap-putting-it-all-together.html#question-5-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now we should put the tables together. But there is a problem! The columns don’t match. We need to change the <code>words_small</code> dataframe slightly. Separate the <code>item</code> column into two columns called <code>item</code> and <code>condition</code>, and remove the underscore.</p>
+<p>Hint: Look at lecture 5 for help with this.</p>
+<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="recap-putting-it-all-together.html#cb506-1" tabindex="-1"></a>words_small <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+<p>The first 6 rows of <code>words_small</code> should look like the ones shown in the tibble below.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">item</th>
+<th align="left">condition</th>
+<th align="left">Word</th>
+<th align="right">AROUSAL</th>
+<th align="right">VALENCE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="left">HA</td>
+<td align="left">porn</td>
+<td align="right">7.24</td>
+<td align="right">4.32</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="left">LA</td>
+<td align="left">ford</td>
+<td align="right">2.85</td>
+<td align="right">5.79</td>
+</tr>
+<tr class="odd">
+<td align="left">3</td>
+<td align="left">DI</td>
+<td align="left">bolt</td>
+<td align="right">4.55</td>
+<td align="right">3.90</td>
+</tr>
+<tr class="even">
+<td align="left">4</td>
+<td align="left">HA</td>
+<td align="left">leopard</td>
+<td align="right">6.26</td>
+<td align="right">6.43</td>
+</tr>
+<tr class="odd">
+<td align="left">5</td>
+<td align="left">LA</td>
+<td align="left">dryer</td>
+<td align="right">2.43</td>
+<td align="right">5.21</td>
+</tr>
+<tr class="even">
+<td align="left">6</td>
+<td align="left">DI</td>
+<td align="left">fireman</td>
+<td align="right">4.52</td>
+<td align="right">6.47</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="question-6" class="section level3 unnumbered hasAnchor">
+<h3>Question 6<a href="recap-putting-it-all-together.html#question-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Join <code>ratings_long</code> with <code>words_small</code> and store this in <code>combined_data</code>. Here, we want to use a mutating join that will join the tables based on the column they have in common.</p>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="recap-putting-it-all-together.html#cb507-1" tabindex="-1"></a>combined_data <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+</div>
+<div id="question-7" class="section level3 unnumbered hasAnchor">
+<h3>Question 7<a href="recap-putting-it-all-together.html#question-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We are almost ready to look at summary statistics, but we need to do two more things first. The participants have entered 0 as a rating when they didn’t know the word, or didn’t have time to read it. We only want to look at the trials where the participant knows what the word is. Remove the rows where the rating is 0 from <code>combined_data</code>. Store this in a dataframe called <code>combined_recog</code>.</p>
+<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="recap-putting-it-all-together.html#cb508-1" tabindex="-1"></a>combined_recog <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+</div>
+<div id="question-8" class="section level3 unnumbered hasAnchor">
+<h3>Question 8<a href="recap-putting-it-all-together.html#question-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Final step before summary statistics! Join <code>combined_recog</code> with <code>groups</code> and save it to <code>preprocessed_data</code>. You will get an error message trying to do this. Solve the error so you get the dataframe we are asking for.</p>
+<p>HINT: There are multiple ways of solving the error. You can change your dataframe heading in an additional step, or you can use the help function to figure out what to do when the dataframes you are trying to join don’t match.</p>
+<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="recap-putting-it-all-together.html#cb509-1" tabindex="-1"></a>preprocessed_data <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+</div>
+<div id="question-9" class="section level3 unnumbered hasAnchor">
+<h3>Question 9<a href="recap-putting-it-all-together.html#question-9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now we can calculate summary statistics from <code>preprocessed_data</code>. Make a new dataframe <code>rating_summary</code> in which you calculate mean rating and standard deviation of ratings (<code>rating</code> column) for each of the conditions and both participant groups. Call the columns in your summary table <code>mean</code> and <code>sd</code>.</p>
+<ul>
+<li>Hint 1: You need to do this in two steps. Combine the steps together with a pipeline operator: %&gt;%</li>
+<li>Hint 2: You first want to make R think of the data in subgroups based on <code>condition</code> and <code>Group</code>. Only after that you should calculate the summary statistics.</li>
+<li>Hint 3: Which dplyr function lets you calculate summary statistics for data?</li>
+</ul>
+<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="recap-putting-it-all-together.html#cb510-1" tabindex="-1"></a>rating_summary <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+<p>Now let’s visualise the data! We will use <code>preprocessed_data</code> for all the visualisations.</p>
+</div>
+<div id="question-10" class="section level3 unnumbered hasAnchor">
+<h3>Question 10<a href="recap-putting-it-all-together.html#question-10" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Make a boxplot of ratings. You want <code>condition</code> as the x-axis and <code>rating</code> as the y-axis. Make the ticks on the y-axis to show numbers from 1-9. Also, facet the plot by <code>Group</code>, and make the different <code>conditions</code> different colours (hint: use <code>fill</code> argument in the ggplot aes() to achieve this). When you are done, your boxplot should look like the one below.</p>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="recap-putting-it-all-together.html#cb511-1" tabindex="-1"></a><span class="cn">NULL</span></span></code></pre></div>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/Q10S-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="question-11" class="section level3 unnumbered hasAnchor">
+<h3>Question 11<a href="recap-putting-it-all-together.html#question-11" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Next, we want to see how the different features of the words we have collected from the database map onto each other. In dataframe <code>preprocessed_data</code>, we have a column for arousal ratings taken from the database called <code>AROUSAL</code>. We also have a column called <code>VALENCE</code> which shows how negative or positive the participants think these words are. Create a scatterplot to map <code>VALENCE</code> against <code>AROUSAL</code>.
+Extra challenge: make the scatterplot points into different colours based on the word type (<code>condition</code>). When you are done, your scatterplot should look like the one below.</p>
+<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="recap-putting-it-all-together.html#cb512-1" tabindex="-1"></a><span class="cn">NULL</span></span></code></pre></div>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/Q11S-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><span class="goodluck">Finished</span></p>
+<p>Well done, this is the end of the in-class exercise! We have three extra questions for those who are up for a challenge and would like to play around with the data a bit more.</p>
+<p><br>
+<span class="question">Bonus Questions</span></p>
+<p>We want to know which word people think is the most exciting and which one is the most boring. Let’s find out!</p>
+</div>
+<div id="question-12-bonus" class="section level3 unnumbered hasAnchor">
+<h3>Question 12 (Bonus)<a href="recap-putting-it-all-together.html#question-12-bonus" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We’ll go back to working with the <code>combined_recog</code> dataframe. Calculate a mean rating based on our participants’ ratings (the <code>rating</code> column) for each of the words. Call this column <code>mean_rating</code>. This process involves two steps, but put them together with the pipe operator and store it in <code>by_item_ratings</code>.
+Hint: You need to make R think about the data in subsets based on the column <code>Word</code>, and then calculate the mean scores.</p>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="recap-putting-it-all-together.html#cb513-1" tabindex="-1"></a>by_item_ratings <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+<p>You should end up with a dataframe that has 240 rows and 2 columns.</p>
+</div>
+<div id="question-13-bonus" class="section level3 unnumbered hasAnchor">
+<h3>Question 13 (Bonus)<a href="recap-putting-it-all-together.html#question-13-bonus" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now we just need to find out which are the words with highest and lowest mean ratings. Arrange <code>by_item_ratings</code> in ascending order based on the mean rating.</p>
+<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="recap-putting-it-all-together.html#cb514-1" tabindex="-1"></a>by_item_arranged <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+</div>
+<div id="question-14-bonus" class="section level3 unnumbered hasAnchor">
+<h3>Question 14 (Bonus)<a href="recap-putting-it-all-together.html#question-14-bonus" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Which word is the least exciting (lowest mean rating) and which one is the most exciting (highest mean rating)? Type the words in the code chunk below. REMEMBER TO TYPE THEM WITH QUOTATION MARKS.</p>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="recap-putting-it-all-together.html#cb515-1" tabindex="-1"></a>least_boring <span class="ot">&lt;-</span> <span class="st">&quot;NULL&quot;</span></span>
+<span id="cb515-2"><a href="recap-putting-it-all-together.html#cb515-2" tabindex="-1"></a>most_exciting <span class="ot">&lt;-</span> <span class="st">&quot;NULL&quot;</span></span></code></pre></div>
+</div>
+</div>
+<div id="solutions" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> Solutions<a href="recap-putting-it-all-together.html#solutions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="webex-solution">
+<button>
+Question 1
+</button>
+<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="recap-putting-it-all-together.html#cb516-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+</div>
+<div class="webex-solution">
+<button>
+Question 2
+</button>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="recap-putting-it-all-together.html#cb517-1" tabindex="-1"></a>words <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/item_info.csv&quot;</span>)</span>
+<span id="cb517-2"><a href="recap-putting-it-all-together.html#cb517-2" tabindex="-1"></a>ratings <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/ratings.csv&quot;</span>)</span>
+<span id="cb517-3"><a href="recap-putting-it-all-together.html#cb517-3" tabindex="-1"></a>groups <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/groups.csv&quot;</span>)</span></code></pre></div>
+</div>
+<div class="webex-solution">
+<button>
+Question 3
+</button>
+<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="recap-putting-it-all-together.html#cb518-1" tabindex="-1"></a>ratings_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(ratings, <span class="st">`</span><span class="at">1</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">240</span><span class="st">`</span>, <span class="at">names_to =</span> <span class="st">&quot;item&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;rating&quot;</span>)</span></code></pre></div>
+</div>
+<div class="webex-solution">
+<button>
+Question 4
+</button>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="recap-putting-it-all-together.html#cb519-1" tabindex="-1"></a>words_small <span class="ot">&lt;-</span> <span class="fu">select</span>(words, item, Word, AROUSAL, VALENCE)</span></code></pre></div>
+</div>
+<div class="webex-solution">
+<button>
+Question 5
+</button>
+<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="recap-putting-it-all-together.html#cb520-1" tabindex="-1"></a>words_small <span class="ot">&lt;-</span> <span class="fu">separate</span>(words_small, item, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;item&quot;</span>, <span class="st">&quot;condition&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>)</span></code></pre></div>
+</div>
+<div class="webex-solution">
+<button>
+Question 6
+</button>
+<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="recap-putting-it-all-together.html#cb521-1" tabindex="-1"></a>combined_data <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(ratings_long, words_small, <span class="at">by =</span> <span class="fu">join_by</span>(<span class="st">&quot;item&quot;</span>))</span></code></pre></div>
+</div>
+<div class="webex-solution">
+<button>
+Question 7
+</button>
+<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="recap-putting-it-all-together.html#cb522-1" tabindex="-1"></a>combined_recog <span class="ot">&lt;-</span> <span class="fu">filter</span>(combined_data, rating <span class="sc">!=</span> <span class="dv">0</span>)</span></code></pre></div>
+</div>
+<div class="webex-solution">
+<button>
+Question 8
+</button>
+<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="recap-putting-it-all-together.html#cb523-1" tabindex="-1"></a><span class="co"># Solution 1 - using inner_join to match two headers that don&#39;t match</span></span>
+<span id="cb523-2"><a href="recap-putting-it-all-together.html#cb523-2" tabindex="-1"></a>preprocessed_data <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(combined_recog, groups, <span class="at">by =</span> <span class="fu">join_by</span>(<span class="st">&quot;participant&quot;</span> <span class="sc">==</span> <span class="st">&quot;Participant&quot;</span>))</span>
+<span id="cb523-3"><a href="recap-putting-it-all-together.html#cb523-3" tabindex="-1"></a></span>
+<span id="cb523-4"><a href="recap-putting-it-all-together.html#cb523-4" tabindex="-1"></a><span class="co"># Solution 2 - renaming the column in `combined_recog`</span></span>
+<span id="cb523-5"><a href="recap-putting-it-all-together.html#cb523-5" tabindex="-1"></a>combined_data <span class="ot">&lt;-</span> combined_recog <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="st">&quot;Participant&quot;</span> <span class="ot">=</span> participant)</span>
+<span id="cb523-6"><a href="recap-putting-it-all-together.html#cb523-6" tabindex="-1"></a>preprocessed_data <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(combined_data, groups, <span class="at">by =</span> <span class="fu">join_by</span>(<span class="st">&quot;Participant&quot;</span>))</span>
+<span id="cb523-7"><a href="recap-putting-it-all-together.html#cb523-7" tabindex="-1"></a></span>
+<span id="cb523-8"><a href="recap-putting-it-all-together.html#cb523-8" tabindex="-1"></a><span class="co"># Solution 2 as a pipe</span></span>
+<span id="cb523-9"><a href="recap-putting-it-all-together.html#cb523-9" tabindex="-1"></a>preprocessed_data <span class="ot">&lt;-</span> combined_recog <span class="sc">%&gt;%</span> </span>
+<span id="cb523-10"><a href="recap-putting-it-all-together.html#cb523-10" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">&quot;Participant&quot;</span> <span class="ot">=</span> participant) <span class="sc">%&gt;%</span> </span>
+<span id="cb523-11"><a href="recap-putting-it-all-together.html#cb523-11" tabindex="-1"></a>  <span class="fu">inner_join</span>(groups, <span class="at">by =</span> <span class="fu">join_by</span>(<span class="st">&quot;Participant&quot;</span>))</span></code></pre></div>
+</div>
+<div class="webex-solution">
+<button>
+Question 9
+</button>
+<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="recap-putting-it-all-together.html#cb524-1" tabindex="-1"></a>rating_summary <span class="ot">&lt;-</span> preprocessed_data <span class="sc">%&gt;%</span></span>
+<span id="cb524-2"><a href="recap-putting-it-all-together.html#cb524-2" tabindex="-1"></a>    <span class="fu">group_by</span>(condition, Group) <span class="sc">%&gt;%</span> </span>
+<span id="cb524-3"><a href="recap-putting-it-all-together.html#cb524-3" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
+<span id="cb524-4"><a href="recap-putting-it-all-together.html#cb524-4" tabindex="-1"></a>        <span class="at">mean =</span> <span class="fu">mean</span>(rating),</span>
+<span id="cb524-5"><a href="recap-putting-it-all-together.html#cb524-5" tabindex="-1"></a>        <span class="at">sd =</span> <span class="fu">sd</span>(rating),</span>
+<span id="cb524-6"><a href="recap-putting-it-all-together.html#cb524-6" tabindex="-1"></a>        <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
+<span id="cb524-7"><a href="recap-putting-it-all-together.html#cb524-7" tabindex="-1"></a>    )</span></code></pre></div>
+</div>
+<div class="webex-solution">
+<button>
+Question 10
+</button>
+<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="recap-putting-it-all-together.html#cb525-1" tabindex="-1"></a>preprocessed_data <span class="sc">%&gt;%</span></span>
+<span id="cb525-2"><a href="recap-putting-it-all-together.html#cb525-2" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(condition, rating, <span class="at">fill =</span> condition)) <span class="sc">+</span> </span>
+<span id="cb525-3"><a href="recap-putting-it-all-together.html#cb525-3" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
+<span id="cb525-4"><a href="recap-putting-it-all-together.html#cb525-4" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>)) <span class="sc">+</span> </span>
+<span id="cb525-5"><a href="recap-putting-it-all-together.html#cb525-5" tabindex="-1"></a>    <span class="fu">facet_grid</span>(<span class="at">cols =</span> <span class="fu">vars</span>(Group))</span></code></pre></div>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-418-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div class="webex-solution">
+<button>
+Question 11
+</button>
+<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="recap-putting-it-all-together.html#cb526-1" tabindex="-1"></a>preprocessed_data <span class="sc">%&gt;%</span></span>
+<span id="cb526-2"><a href="recap-putting-it-all-together.html#cb526-2" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> AROUSAL, <span class="at">y =</span> VALENCE, <span class="at">colour =</span> condition)) <span class="sc">+</span> </span>
+<span id="cb526-3"><a href="recap-putting-it-all-together.html#cb526-3" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-419-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div class="webex-solution">
+<button>
+Question 12 (Bonus)
+</button>
+<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="recap-putting-it-all-together.html#cb527-1" tabindex="-1"></a>by_item_ratings <span class="ot">&lt;-</span> combined_recog <span class="sc">%&gt;%</span> </span>
+<span id="cb527-2"><a href="recap-putting-it-all-together.html#cb527-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Word) <span class="sc">%&gt;%</span> </span>
+<span id="cb527-3"><a href="recap-putting-it-all-together.html#cb527-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_rating =</span> <span class="fu">mean</span>(rating))</span></code></pre></div>
+</div>
+<div class="webex-solution">
+<button>
+Question 13 (Bonus)
+</button>
+<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="recap-putting-it-all-together.html#cb528-1" tabindex="-1"></a>by_item_arranged <span class="ot">&lt;-</span> <span class="fu">arrange</span>(by_item_ratings, mean_rating)</span></code></pre></div>
+</div>
+<div class="webex-solution">
+<button>
+Question 14 (Bonus)
+</button>
+<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="recap-putting-it-all-together.html#cb529-1" tabindex="-1"></a>least_exciting <span class="ot">&lt;-</span> <span class="st">&quot;slow&quot;</span></span>
+<span id="cb529-2"><a href="recap-putting-it-all-together.html#cb529-2" tabindex="-1"></a>most_exciting <span class="ot">&lt;-</span> <span class="st">&quot;pleasure&quot;</span></span></code></pre></div>
+</div>
+
+</div>
+</div>
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script>
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="errors.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="appendices.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

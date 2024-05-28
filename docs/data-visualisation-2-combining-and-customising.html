@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 Data Visualisation 2: Combining and Customising | Introduction to R</title>
   <meta name="description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2023/2024." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 Data Visualisation 2: Combining and Customising | Introduction to R" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Gaby Mahrholz, Greta Todorova, Wilhelmiina Toivo, and Jaimie Torrance, updated by Johanna Werner in 2022 and Sean Westwood in 2023" />
 
 
-<meta name="date" content="2024-03-31" />
+<meta name="date" content="2024-05-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="data-visualisation-1-fundamentals.html"/>
-
+<link rel="next" href="errors.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -56,7 +56,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,7 +66,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -120,14 +120,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
-  
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-</style>
-<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -393,6 +390,61 @@ div.csl-indent {
 <li class="chapter" data-level="8.10" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#saving-plots"><i class="fa fa-check"></i><b>8.10</b> Saving plots</a></li>
 <li class="chapter" data-level="8.11" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#summative-homework"><i class="fa fa-check"></i><b>8.11</b> Summative Homework</a></li>
 </ul></li>
+<li class="chapter" data-level="9" data-path="errors.html"><a href="errors.html"><i class="fa fa-check"></i><b>9</b> Errors</a>
+<ul>
+<li class="chapter" data-level="" data-path="errors.html"><a href="errors.html#intended-learning-outcomes-9"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="9.1" data-path="errors.html"><a href="errors.html#errors-how-to-avoid-some-and-live-through-the-rest"><i class="fa fa-check"></i><b>9.1</b> Errors: How to avoid some and live through the rest</a></li>
+<li class="chapter" data-level="9.2" data-path="errors.html"><a href="errors.html#debugging"><i class="fa fa-check"></i><b>9.2</b> Debugging</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="errors.html"><a href="errors.html#messages"><i class="fa fa-check"></i><b>9.2.1</b> Messages</a></li>
+<li class="chapter" data-level="9.2.2" data-path="errors.html"><a href="errors.html#warnings"><i class="fa fa-check"></i><b>9.2.2</b> Warnings</a></li>
+<li class="chapter" data-level="9.2.3" data-path="errors.html"><a href="errors.html#errors-1"><i class="fa fa-check"></i><b>9.2.3</b> Errors</a></li>
+<li class="chapter" data-level="9.2.4" data-path="errors.html"><a href="errors.html#multiple-errors"><i class="fa fa-check"></i><b>9.2.4</b> Multiple Errors</a></li>
+<li class="chapter" data-level="9.2.5" data-path="errors.html"><a href="errors.html#finding-errors-in-longer-code-segments"><i class="fa fa-check"></i><b>9.2.5</b> Finding errors in longer code segments</a></li>
+<li class="chapter" data-level="9.2.6" data-path="errors.html"><a href="errors.html#warning-messages"><i class="fa fa-check"></i><b>9.2.6</b> Warning Messages</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="errors.html"><a href="errors.html#searching-for-help"><i class="fa fa-check"></i><b>9.3</b> Searching for Help</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="errors.html"><a href="errors.html#rtfm"><i class="fa fa-check"></i><b>9.3.1</b> RTFM</a></li>
+<li class="chapter" data-level="9.3.2" data-path="errors.html"><a href="errors.html#stack-overflow"><i class="fa fa-check"></i><b>9.3.2</b> Stack Overflow</a></li>
+<li class="chapter" data-level="9.3.3" data-path="errors.html"><a href="errors.html#googling-it"><i class="fa fa-check"></i><b>9.3.3</b> Googling It</a></li>
+<li class="chapter" data-level="9.3.4" data-path="errors.html"><a href="errors.html#youtube"><i class="fa fa-check"></i><b>9.3.4</b> YouTube</a></li>
+<li class="chapter" data-level="9.3.5" data-path="errors.html"><a href="errors.html#ai-bots"><i class="fa fa-check"></i><b>9.3.5</b> AI bots</a></li>
+<li class="chapter" data-level="9.3.6" data-path="errors.html"><a href="errors.html#further-reading"><i class="fa fa-check"></i><b>9.3.6</b> Further Reading</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html"><i class="fa fa-check"></i><b>10</b> Recap: Putting it all together</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#bringing-your-skills-together"><i class="fa fa-check"></i><b>10.1</b> Bringing your skills together</a>
+<ul>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-1-1"><i class="fa fa-check"></i>Question 1</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-2-1"><i class="fa fa-check"></i>Question 2</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-3-1"><i class="fa fa-check"></i>Question 3</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-4-1"><i class="fa fa-check"></i>Question 4</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-5-1"><i class="fa fa-check"></i>Question 5</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-6"><i class="fa fa-check"></i>Question 6</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-7"><i class="fa fa-check"></i>Question 7</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-8"><i class="fa fa-check"></i>Question 8</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-9"><i class="fa fa-check"></i>Question 9</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-10"><i class="fa fa-check"></i>Question 10</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-11"><i class="fa fa-check"></i>Question 11</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-12-bonus"><i class="fa fa-check"></i>Question 12 (Bonus)</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-13-bonus"><i class="fa fa-check"></i>Question 13 (Bonus)</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-14-bonus"><i class="fa fa-check"></i>Question 14 (Bonus)</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#solutions"><i class="fa fa-check"></i><b>10.2</b> Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html"><i class="fa fa-check"></i>Appendices</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#changing-the-appearance-of-rmarkdown"><i class="fa fa-check"></i>Changing the Appearance of RMarkdown</a></li>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#source-materials"><i class="fa fa-check"></i>Source Materials</a></li>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#further-reading-1"><i class="fa fa-check"></i>Further Reading</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#statistics"><i class="fa fa-check"></i>Statistics</a></li>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#more-advanced-use-of-r"><i class="fa fa-check"></i>More Advanced Use of R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>11</b> References</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
     target="blank"><img alt="Creative Commons License" 
@@ -441,11 +493,11 @@ div.csl-indent {
 <div id="pre-steps-6" class="section level2 hasAnchor" number="8.2">
 <h2><span class="header-section-number">8.2</span> Pre-steps<a href="data-visualisation-2-combining-and-customising.html#pre-steps-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Firstly, load <code>tidyverse</code>, and read the data into your <code>Global Environment</code> as <code>migration_scot</code>.</p>
-<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="data-visualisation-2-combining-and-customising.html#cb429-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb429-2"><a href="data-visualisation-2-combining-and-customising.html#cb429-2" tabindex="-1"></a>migration_scot <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/free_movement_uk.csv&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb429-3"><a href="data-visualisation-2-combining-and-customising.html#cb429-3" tabindex="-1"></a>  <span class="co"># remove spaces from variable names</span></span>
-<span id="cb429-4"><a href="data-visualisation-2-combining-and-customising.html#cb429-4" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">MigrationType =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>,</span>
-<span id="cb429-5"><a href="data-visualisation-2-combining-and-customising.html#cb429-5" tabindex="-1"></a>         <span class="at">MigrationSource =</span> <span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="data-visualisation-2-combining-and-customising.html#cb428-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb428-2"><a href="data-visualisation-2-combining-and-customising.html#cb428-2" tabindex="-1"></a>migration_scot <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/free_movement_uk.csv&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb428-3"><a href="data-visualisation-2-combining-and-customising.html#cb428-3" tabindex="-1"></a>  <span class="co"># remove spaces from variable names</span></span>
+<span id="cb428-4"><a href="data-visualisation-2-combining-and-customising.html#cb428-4" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">MigrationType =</span> <span class="st">`</span><span class="at">Migration Type</span><span class="st">`</span>,</span>
+<span id="cb428-5"><a href="data-visualisation-2-combining-and-customising.html#cb428-5" tabindex="-1"></a>         <span class="at">MigrationSource =</span> <span class="st">`</span><span class="at">Migration Source</span><span class="st">`</span>)</span></code></pre></div>
 </div>
 <div id="re-introduction-to-the-data" class="section level2 hasAnchor" number="8.3">
 <h2><span class="header-section-number">8.3</span> Re-introduction to the data<a href="data-visualisation-2-combining-and-customising.html#re-introduction-to-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -501,11 +553,11 @@ div.csl-indent {
 </tbody>
 </table>
 <p>This is the wrangled data from last week.</p>
-<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="data-visualisation-2-combining-and-customising.html#cb430-1" tabindex="-1"></a>traffic_scot <span class="ot">&lt;-</span> migration_scot <span class="sc">%&gt;%</span> </span>
-<span id="cb430-2"><a href="data-visualisation-2-combining-and-customising.html#cb430-2" tabindex="-1"></a>  <span class="fu">select</span>(DateCode, Value, Sex, Age,</span>
-<span id="cb430-3"><a href="data-visualisation-2-combining-and-customising.html#cb430-3" tabindex="-1"></a>         MigrationSource, MigrationType) <span class="sc">%&gt;%</span> </span>
-<span id="cb430-4"><a href="data-visualisation-2-combining-and-customising.html#cb430-4" tabindex="-1"></a>  <span class="fu">filter</span>(DateCode <span class="sc">==</span> <span class="st">&#39;2016&#39;</span>, Age <span class="sc">==</span> <span class="st">&#39;All&#39;</span>, </span>
-<span id="cb430-5"><a href="data-visualisation-2-combining-and-customising.html#cb430-5" tabindex="-1"></a>         Sex <span class="sc">!=</span> <span class="st">&#39;All&#39;</span>, MigrationType <span class="sc">!=</span> <span class="st">&#39;Net&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="data-visualisation-2-combining-and-customising.html#cb429-1" tabindex="-1"></a>traffic_scot <span class="ot">&lt;-</span> migration_scot <span class="sc">%&gt;%</span> </span>
+<span id="cb429-2"><a href="data-visualisation-2-combining-and-customising.html#cb429-2" tabindex="-1"></a>  <span class="fu">select</span>(DateCode, Value, Sex, Age,</span>
+<span id="cb429-3"><a href="data-visualisation-2-combining-and-customising.html#cb429-3" tabindex="-1"></a>         MigrationSource, MigrationType) <span class="sc">%&gt;%</span> </span>
+<span id="cb429-4"><a href="data-visualisation-2-combining-and-customising.html#cb429-4" tabindex="-1"></a>  <span class="fu">filter</span>(DateCode <span class="sc">==</span> <span class="st">&#39;2016&#39;</span>, Age <span class="sc">==</span> <span class="st">&#39;All&#39;</span>, </span>
+<span id="cb429-5"><a href="data-visualisation-2-combining-and-customising.html#cb429-5" tabindex="-1"></a>         Sex <span class="sc">!=</span> <span class="st">&#39;All&#39;</span>, MigrationType <span class="sc">!=</span> <span class="st">&#39;Net&#39;</span>)</span></code></pre></div>
 </div>
 <div id="create-multiple-plots-in-one" class="section level2 hasAnchor" number="8.4">
 <h2><span class="header-section-number">8.4</span> Create multiple plots in one<a href="data-visualisation-2-combining-and-customising.html#create-multiple-plots-in-one" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -524,13 +576,13 @@ to and from the rest of the UK and save it to the
 <code>rest_of_uk</code> .
 </p>
 </div>
-<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="data-visualisation-2-combining-and-customising.html#cb431-1" tabindex="-1"></a>rest_of_uk <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="data-visualisation-2-combining-and-customising.html#cb430-1" tabindex="-1"></a>rest_of_uk <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="data-visualisation-2-combining-and-customising.html#cb432-1" tabindex="-1"></a>rest_of_uk <span class="ot">&lt;-</span> traffic_scot <span class="sc">%&gt;%</span> </span>
-<span id="cb432-2"><a href="data-visualisation-2-combining-and-customising.html#cb432-2" tabindex="-1"></a>  <span class="fu">filter</span>(MigrationSource <span class="sc">==</span> <span class="st">&#39;To-from Rest of UK&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="data-visualisation-2-combining-and-customising.html#cb431-1" tabindex="-1"></a>rest_of_uk <span class="ot">&lt;-</span> traffic_scot <span class="sc">%&gt;%</span> </span>
+<span id="cb431-2"><a href="data-visualisation-2-combining-and-customising.html#cb431-2" tabindex="-1"></a>  <span class="fu">filter</span>(MigrationSource <span class="sc">==</span> <span class="st">&#39;To-from Rest of UK&#39;</span>)</span></code></pre></div>
 </div>
 <div class="task">
 <p>
@@ -544,14 +596,14 @@ to use <code>position = ‘dodge’</code> so that your columns do not
 overlap.
 </p>
 </div>
-<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="data-visualisation-2-combining-and-customising.html#cb433-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="cn">NULL</span>) <span class="sc">+</span> <span class="cn">NULL</span></span></code></pre></div>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="data-visualisation-2-combining-and-customising.html#cb432-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="cn">NULL</span>) <span class="sc">+</span> <span class="cn">NULL</span></span></code></pre></div>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="data-visualisation-2-combining-and-customising.html#cb434-1" tabindex="-1"></a><span class="fu">ggplot</span>(rest_of_uk, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value, </span>
-<span id="cb434-2"><a href="data-visualisation-2-combining-and-customising.html#cb434-2" tabindex="-1"></a>                       <span class="at">fill =</span> MigrationType)) <span class="sc">+</span> </span>
-<span id="cb434-3"><a href="data-visualisation-2-combining-and-customising.html#cb434-3" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="data-visualisation-2-combining-and-customising.html#cb433-1" tabindex="-1"></a><span class="fu">ggplot</span>(rest_of_uk, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value, </span>
+<span id="cb433-2"><a href="data-visualisation-2-combining-and-customising.html#cb433-2" tabindex="-1"></a>                       <span class="at">fill =</span> MigrationType)) <span class="sc">+</span> </span>
+<span id="cb433-3"><a href="data-visualisation-2-combining-and-customising.html#cb433-3" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>)</span></code></pre></div>
 <p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-341-1.png" width="672" /></p>
 </div>
 <div class="task">
@@ -565,19 +617,19 @@ wrangled data into an object called <code>overseas</code> and then use
 it to create your plot.
 </p>
 </div>
-<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="data-visualisation-2-combining-and-customising.html#cb435-1" tabindex="-1"></a>overseas <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb435-2"><a href="data-visualisation-2-combining-and-customising.html#cb435-2" tabindex="-1"></a></span>
-<span id="cb435-3"><a href="data-visualisation-2-combining-and-customising.html#cb435-3" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="cn">NULL</span>) <span class="sc">+</span> <span class="cn">NULL</span></span></code></pre></div>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="data-visualisation-2-combining-and-customising.html#cb434-1" tabindex="-1"></a>overseas <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb434-2"><a href="data-visualisation-2-combining-and-customising.html#cb434-2" tabindex="-1"></a></span>
+<span id="cb434-3"><a href="data-visualisation-2-combining-and-customising.html#cb434-3" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="cn">NULL</span>) <span class="sc">+</span> <span class="cn">NULL</span></span></code></pre></div>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="data-visualisation-2-combining-and-customising.html#cb436-1" tabindex="-1"></a>overseas <span class="ot">&lt;-</span> traffic_scot <span class="sc">%&gt;%</span> </span>
-<span id="cb436-2"><a href="data-visualisation-2-combining-and-customising.html#cb436-2" tabindex="-1"></a>  <span class="fu">filter</span>(MigrationSource <span class="sc">==</span> <span class="st">&#39;To-from Overseas&#39;</span>)</span>
-<span id="cb436-3"><a href="data-visualisation-2-combining-and-customising.html#cb436-3" tabindex="-1"></a></span>
-<span id="cb436-4"><a href="data-visualisation-2-combining-and-customising.html#cb436-4" tabindex="-1"></a><span class="fu">ggplot</span>(overseas, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value, </span>
-<span id="cb436-5"><a href="data-visualisation-2-combining-and-customising.html#cb436-5" tabindex="-1"></a>                     <span class="at">fill =</span> MigrationType)) <span class="sc">+</span> </span>
-<span id="cb436-6"><a href="data-visualisation-2-combining-and-customising.html#cb436-6" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="data-visualisation-2-combining-and-customising.html#cb435-1" tabindex="-1"></a>overseas <span class="ot">&lt;-</span> traffic_scot <span class="sc">%&gt;%</span> </span>
+<span id="cb435-2"><a href="data-visualisation-2-combining-and-customising.html#cb435-2" tabindex="-1"></a>  <span class="fu">filter</span>(MigrationSource <span class="sc">==</span> <span class="st">&#39;To-from Overseas&#39;</span>)</span>
+<span id="cb435-3"><a href="data-visualisation-2-combining-and-customising.html#cb435-3" tabindex="-1"></a></span>
+<span id="cb435-4"><a href="data-visualisation-2-combining-and-customising.html#cb435-4" tabindex="-1"></a><span class="fu">ggplot</span>(overseas, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value, </span>
+<span id="cb435-5"><a href="data-visualisation-2-combining-and-customising.html#cb435-5" tabindex="-1"></a>                     <span class="at">fill =</span> MigrationType)) <span class="sc">+</span> </span>
+<span id="cb435-6"><a href="data-visualisation-2-combining-and-customising.html#cb435-6" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>)</span></code></pre></div>
 <p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-344-1.png" width="672" /></p>
 </div>
 <p>This becomes very cumbersome when we have more than one variable. Imagine you have data for 10 different countries. Can you imagine doing these plots by hand. Moreover, when you have to arrange them on a page to show how things differ you will loose a lot of time. Instead we can use <strong>facets</strong>.</p>
@@ -595,10 +647,10 @@ Solution
 <li><code>facet_wrap(variable)</code> creates a grid with rectangular slots for the plots based on your variables</li>
 </ul>
 <p>Let’s replicate the two plots we just created but using <code>facet_grid()</code> and put them side-by-side in one. Now we have both plots next to each other, which makes it much easier to look at the differences in the migration patterns between the two Migration Sources.</p>
-<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="data-visualisation-2-combining-and-customising.html#cb437-1" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value, </span>
-<span id="cb437-2"><a href="data-visualisation-2-combining-and-customising.html#cb437-2" tabindex="-1"></a>                         <span class="at">fill =</span> MigrationType)) <span class="sc">+</span> </span>
-<span id="cb437-3"><a href="data-visualisation-2-combining-and-customising.html#cb437-3" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>) <span class="sc">+</span></span>
-<span id="cb437-4"><a href="data-visualisation-2-combining-and-customising.html#cb437-4" tabindex="-1"></a>  <span class="fu">facet_grid</span>(.<span class="sc">~</span>MigrationSource)</span></code></pre></div>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="data-visualisation-2-combining-and-customising.html#cb436-1" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">y =</span> Value, </span>
+<span id="cb436-2"><a href="data-visualisation-2-combining-and-customising.html#cb436-2" tabindex="-1"></a>                         <span class="at">fill =</span> MigrationType)) <span class="sc">+</span> </span>
+<span id="cb436-3"><a href="data-visualisation-2-combining-and-customising.html#cb436-3" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>) <span class="sc">+</span></span>
+<span id="cb436-4"><a href="data-visualisation-2-combining-and-customising.html#cb436-4" tabindex="-1"></a>  <span class="fu">facet_grid</span>(.<span class="sc">~</span>MigrationSource)</span></code></pre></div>
 <p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-345-1.png" width="672" /></p>
 <p><span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Question Time</span></p>
 <p>Let’s look at these plots.</p>
@@ -615,26 +667,26 @@ Solution
 <p>If you remember from last week, we specified both the colour and the shape in our <code>ggplot()</code> when we were making the line graph. The <code>geom_line()</code> inherited the colour but not the shape argument.</p>
 <p>However, if we have two geoms that share the same aesthetics but we do not want to have the same colours, we can move them to each of the geoms instead of specifying them globally in the <code>ggplot()</code> function.</p>
 <p>Let’s redo the violins and box plots from last week, and put them together into two separate layers of the same graph. This time, we will give them some colour. We will colour the violins with the <code>fill</code> argument and make the box plots transparent using the <code>alpha</code> argument.</p>
-<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="data-visualisation-2-combining-and-customising.html#cb438-1" tabindex="-1"></a><span class="co">#some data wrangling</span></span>
-<span id="cb438-2"><a href="data-visualisation-2-combining-and-customising.html#cb438-2" tabindex="-1"></a>boxes <span class="ot">&lt;-</span> migration_scot <span class="sc">%&gt;%</span> </span>
-<span id="cb438-3"><a href="data-visualisation-2-combining-and-customising.html#cb438-3" tabindex="-1"></a>  <span class="fu">filter</span>(Sex <span class="sc">==</span> <span class="st">&#39;Female&#39;</span>, </span>
-<span id="cb438-4"><a href="data-visualisation-2-combining-and-customising.html#cb438-4" tabindex="-1"></a>         MigrationSource <span class="sc">==</span> <span class="st">&#39;To-from Overseas&#39;</span>, </span>
-<span id="cb438-5"><a href="data-visualisation-2-combining-and-customising.html#cb438-5" tabindex="-1"></a>         Age <span class="sc">==</span> <span class="st">&#39;All&#39;</span>, </span>
-<span id="cb438-6"><a href="data-visualisation-2-combining-and-customising.html#cb438-6" tabindex="-1"></a>         MigrationType <span class="sc">!=</span> <span class="st">&#39;Net&#39;</span>)</span>
-<span id="cb438-7"><a href="data-visualisation-2-combining-and-customising.html#cb438-7" tabindex="-1"></a></span>
-<span id="cb438-8"><a href="data-visualisation-2-combining-and-customising.html#cb438-8" tabindex="-1"></a><span class="co">#make violins and box plots </span></span>
-<span id="cb438-9"><a href="data-visualisation-2-combining-and-customising.html#cb438-9" tabindex="-1"></a></span>
-<span id="cb438-10"><a href="data-visualisation-2-combining-and-customising.html#cb438-10" tabindex="-1"></a><span class="fu">ggplot</span>(boxes, <span class="fu">aes</span>(<span class="at">x =</span> MigrationType, <span class="at">y =</span> Value)) <span class="sc">+</span> </span>
-<span id="cb438-11"><a href="data-visualisation-2-combining-and-customising.html#cb438-11" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">fill =</span> MigrationType)) <span class="sc">+</span> </span>
-<span id="cb438-12"><a href="data-visualisation-2-combining-and-customising.html#cb438-12" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="data-visualisation-2-combining-and-customising.html#cb437-1" tabindex="-1"></a><span class="co">#some data wrangling</span></span>
+<span id="cb437-2"><a href="data-visualisation-2-combining-and-customising.html#cb437-2" tabindex="-1"></a>boxes <span class="ot">&lt;-</span> migration_scot <span class="sc">%&gt;%</span> </span>
+<span id="cb437-3"><a href="data-visualisation-2-combining-and-customising.html#cb437-3" tabindex="-1"></a>  <span class="fu">filter</span>(Sex <span class="sc">==</span> <span class="st">&#39;Female&#39;</span>, </span>
+<span id="cb437-4"><a href="data-visualisation-2-combining-and-customising.html#cb437-4" tabindex="-1"></a>         MigrationSource <span class="sc">==</span> <span class="st">&#39;To-from Overseas&#39;</span>, </span>
+<span id="cb437-5"><a href="data-visualisation-2-combining-and-customising.html#cb437-5" tabindex="-1"></a>         Age <span class="sc">==</span> <span class="st">&#39;All&#39;</span>, </span>
+<span id="cb437-6"><a href="data-visualisation-2-combining-and-customising.html#cb437-6" tabindex="-1"></a>         MigrationType <span class="sc">!=</span> <span class="st">&#39;Net&#39;</span>)</span>
+<span id="cb437-7"><a href="data-visualisation-2-combining-and-customising.html#cb437-7" tabindex="-1"></a></span>
+<span id="cb437-8"><a href="data-visualisation-2-combining-and-customising.html#cb437-8" tabindex="-1"></a><span class="co">#make violins and box plots </span></span>
+<span id="cb437-9"><a href="data-visualisation-2-combining-and-customising.html#cb437-9" tabindex="-1"></a></span>
+<span id="cb437-10"><a href="data-visualisation-2-combining-and-customising.html#cb437-10" tabindex="-1"></a><span class="fu">ggplot</span>(boxes, <span class="fu">aes</span>(<span class="at">x =</span> MigrationType, <span class="at">y =</span> Value)) <span class="sc">+</span> </span>
+<span id="cb437-11"><a href="data-visualisation-2-combining-and-customising.html#cb437-11" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">fill =</span> MigrationType)) <span class="sc">+</span> </span>
+<span id="cb437-12"><a href="data-visualisation-2-combining-and-customising.html#cb437-12" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>))</span></code></pre></div>
 <p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-346-1.png" width="672" /></p>
 <p>Because <code>alpha</code> (the transparency argument) and <code>fill</code> are arguments for both box plots and violins, if we had put them in the <code>ggplot()</code> layer, they would both be inherited by the two geoms.</p>
 <p>Let’s see how it would have looked like if we had specified the two arguments globally.</p>
-<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="data-visualisation-2-combining-and-customising.html#cb439-1" tabindex="-1"></a><span class="co">#make violins and box plots </span></span>
-<span id="cb439-2"><a href="data-visualisation-2-combining-and-customising.html#cb439-2" tabindex="-1"></a></span>
-<span id="cb439-3"><a href="data-visualisation-2-combining-and-customising.html#cb439-3" tabindex="-1"></a><span class="fu">ggplot</span>(boxes, <span class="fu">aes</span>(<span class="at">x =</span> MigrationType, <span class="at">y =</span> Value, <span class="at">fill =</span> MigrationType, <span class="at">alpha =</span> <span class="fl">0.5</span>)) <span class="sc">+</span> </span>
-<span id="cb439-4"><a href="data-visualisation-2-combining-and-customising.html#cb439-4" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span> </span>
-<span id="cb439-5"><a href="data-visualisation-2-combining-and-customising.html#cb439-5" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="data-visualisation-2-combining-and-customising.html#cb438-1" tabindex="-1"></a><span class="co">#make violins and box plots </span></span>
+<span id="cb438-2"><a href="data-visualisation-2-combining-and-customising.html#cb438-2" tabindex="-1"></a></span>
+<span id="cb438-3"><a href="data-visualisation-2-combining-and-customising.html#cb438-3" tabindex="-1"></a><span class="fu">ggplot</span>(boxes, <span class="fu">aes</span>(<span class="at">x =</span> MigrationType, <span class="at">y =</span> Value, <span class="at">fill =</span> MigrationType, <span class="at">alpha =</span> <span class="fl">0.5</span>)) <span class="sc">+</span> </span>
+<span id="cb438-4"><a href="data-visualisation-2-combining-and-customising.html#cb438-4" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span> </span>
+<span id="cb438-5"><a href="data-visualisation-2-combining-and-customising.html#cb438-5" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
 <p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-347-1.png" width="672" /></p>
 <p>Now the violins and the box plots are both coloured and transparent.</p>
 <div class="info">
@@ -659,10 +711,10 @@ would look like.
 and more. Just use the cheetsheet for visualisations with ggplot for some more examples.</li>
 </ul>
 <p>Themes are just like any other layer for ggplot. You just add them at the end of your plot with <code>+</code>. Let’s add one of these theme formats to our plot above.</p>
-<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="data-visualisation-2-combining-and-customising.html#cb440-1" tabindex="-1"></a><span class="fu">ggplot</span>(boxes, <span class="fu">aes</span>(<span class="at">x =</span> MigrationType, <span class="at">y =</span> Value)) <span class="sc">+</span> </span>
-<span id="cb440-2"><a href="data-visualisation-2-combining-and-customising.html#cb440-2" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">fill =</span> MigrationType)) <span class="sc">+</span> </span>
-<span id="cb440-3"><a href="data-visualisation-2-combining-and-customising.html#cb440-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb440-4"><a href="data-visualisation-2-combining-and-customising.html#cb440-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="data-visualisation-2-combining-and-customising.html#cb439-1" tabindex="-1"></a><span class="fu">ggplot</span>(boxes, <span class="fu">aes</span>(<span class="at">x =</span> MigrationType, <span class="at">y =</span> Value)) <span class="sc">+</span> </span>
+<span id="cb439-2"><a href="data-visualisation-2-combining-and-customising.html#cb439-2" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">fill =</span> MigrationType)) <span class="sc">+</span> </span>
+<span id="cb439-3"><a href="data-visualisation-2-combining-and-customising.html#cb439-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb439-4"><a href="data-visualisation-2-combining-and-customising.html#cb439-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-349-1.png" width="672" /></p>
 <div class="question">
 <p>
@@ -684,32 +736,32 @@ instead of white, and there is a black border around the plot area.
 <div id="adding-axes-titles-and-headings" class="section level3 hasAnchor" number="8.6.2">
 <h3><span class="header-section-number">8.6.2</span> Adding axes titles and headings<a href="data-visualisation-2-combining-and-customising.html#adding-axes-titles-and-headings" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Next, let’s add some titles and better labels with <code>labs()</code>. You need to specify which labels you want to change - x, y or the title, and type in the labels you want. Write <code>?labs()</code> in your console to see some examples.</p>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="data-visualisation-2-combining-and-customising.html#cb440-1" tabindex="-1"></a><span class="fu">ggplot</span>(boxes, <span class="fu">aes</span>(<span class="at">x =</span> MigrationType, <span class="at">y =</span> Value)) <span class="sc">+</span> </span>
+<span id="cb440-2"><a href="data-visualisation-2-combining-and-customising.html#cb440-2" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">fill =</span> MigrationType)) <span class="sc">+</span> </span>
+<span id="cb440-3"><a href="data-visualisation-2-combining-and-customising.html#cb440-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb440-4"><a href="data-visualisation-2-combining-and-customising.html#cb440-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb440-5"><a href="data-visualisation-2-combining-and-customising.html#cb440-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&#39;Female migration to and from Overseas into Scotland&#39;</span>, </span>
+<span id="cb440-6"><a href="data-visualisation-2-combining-and-customising.html#cb440-6" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&#39;Migration direction&#39;</span>, </span>
+<span id="cb440-7"><a href="data-visualisation-2-combining-and-customising.html#cb440-7" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&#39;Number of people&#39;</span>)</span></code></pre></div>
+<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-352-1.png" width="672" /></p>
+<p>Sometimes, we need the titles to be a specific size. We can change all of that in an additional <code>theme()</code> layer. We specify the argument we want to change and what about them we need to change. In our case, I want to change the size of the x-axis title to 12pt, and the graph title to 20pt. Let’s also pretend we do not want the y-axis title. We can also specify this in the <code>theme()</code> layer.</p>
+<p>We do this by specifying <code>element_text()</code> and <code>element_blank()</code> for the correct theme arguments (<code>axis.title.x</code>, <code>title</code>, <code>axis.title.x</code>). Simply put, for that element of the plot, what do we want to change - text and to make it blank.</p>
 <div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="data-visualisation-2-combining-and-customising.html#cb441-1" tabindex="-1"></a><span class="fu">ggplot</span>(boxes, <span class="fu">aes</span>(<span class="at">x =</span> MigrationType, <span class="at">y =</span> Value)) <span class="sc">+</span> </span>
 <span id="cb441-2"><a href="data-visualisation-2-combining-and-customising.html#cb441-2" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">fill =</span> MigrationType)) <span class="sc">+</span> </span>
 <span id="cb441-3"><a href="data-visualisation-2-combining-and-customising.html#cb441-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
 <span id="cb441-4"><a href="data-visualisation-2-combining-and-customising.html#cb441-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
-<span id="cb441-5"><a href="data-visualisation-2-combining-and-customising.html#cb441-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&#39;Female migration to and from Overseas into Scotland&#39;</span>, </span>
-<span id="cb441-6"><a href="data-visualisation-2-combining-and-customising.html#cb441-6" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&#39;Migration direction&#39;</span>, </span>
-<span id="cb441-7"><a href="data-visualisation-2-combining-and-customising.html#cb441-7" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&#39;Number of people&#39;</span>)</span></code></pre></div>
-<p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-352-1.png" width="672" /></p>
-<p>Sometimes, we need the titles to be a specific size. We can change all of that in an additional <code>theme()</code> layer. We specify the argument we want to change and what about them we need to change. In our case, I want to change the size of the x-axis title to 12pt, and the graph title to 20pt. Let’s also pretend we do not want the y-axis title. We can also specify this in the <code>theme()</code> layer.</p>
-<p>We do this by specifying <code>element_text()</code> and <code>element_blank()</code> for the correct theme arguments (<code>axis.title.x</code>, <code>title</code>, <code>axis.title.x</code>). Simply put, for that element of the plot, what do we want to change - text and to make it blank.</p>
-<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="data-visualisation-2-combining-and-customising.html#cb442-1" tabindex="-1"></a><span class="fu">ggplot</span>(boxes, <span class="fu">aes</span>(<span class="at">x =</span> MigrationType, <span class="at">y =</span> Value)) <span class="sc">+</span> </span>
-<span id="cb442-2"><a href="data-visualisation-2-combining-and-customising.html#cb442-2" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">fill =</span> MigrationType)) <span class="sc">+</span> </span>
-<span id="cb442-3"><a href="data-visualisation-2-combining-and-customising.html#cb442-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb442-4"><a href="data-visualisation-2-combining-and-customising.html#cb442-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
-<span id="cb442-5"><a href="data-visualisation-2-combining-and-customising.html#cb442-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&#39;Female migration to and from</span><span class="sc">\n</span><span class="st">Overseas into Scotland&#39;</span>, </span>
-<span id="cb442-6"><a href="data-visualisation-2-combining-and-customising.html#cb442-6" tabindex="-1"></a>       <span class="co">#the addition of \n gives a new line</span></span>
-<span id="cb442-7"><a href="data-visualisation-2-combining-and-customising.html#cb442-7" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&#39;Migration direction&#39;</span>, </span>
-<span id="cb442-8"><a href="data-visualisation-2-combining-and-customising.html#cb442-8" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&#39;Number of people&#39;</span>) <span class="sc">+</span></span>
-<span id="cb442-9"><a href="data-visualisation-2-combining-and-customising.html#cb442-9" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb442-10"><a href="data-visualisation-2-combining-and-customising.html#cb442-10" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>), </span>
-<span id="cb442-11"><a href="data-visualisation-2-combining-and-customising.html#cb442-11" tabindex="-1"></a>    <span class="co"># read this as: change the size of element_text of the </span></span>
-<span id="cb442-12"><a href="data-visualisation-2-combining-and-customising.html#cb442-12" tabindex="-1"></a>    <span class="co"># x axis title</span></span>
-<span id="cb442-13"><a href="data-visualisation-2-combining-and-customising.html#cb442-13" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>),</span>
-<span id="cb442-14"><a href="data-visualisation-2-combining-and-customising.html#cb442-14" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>() </span>
-<span id="cb442-15"><a href="data-visualisation-2-combining-and-customising.html#cb442-15" tabindex="-1"></a>    <span class="co"># read this as: change the title of the y axis to blank</span></span>
-<span id="cb442-16"><a href="data-visualisation-2-combining-and-customising.html#cb442-16" tabindex="-1"></a>  )</span></code></pre></div>
+<span id="cb441-5"><a href="data-visualisation-2-combining-and-customising.html#cb441-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&#39;Female migration to and from</span><span class="sc">\n</span><span class="st">Overseas into Scotland&#39;</span>, </span>
+<span id="cb441-6"><a href="data-visualisation-2-combining-and-customising.html#cb441-6" tabindex="-1"></a>       <span class="co">#the addition of \n gives a new line</span></span>
+<span id="cb441-7"><a href="data-visualisation-2-combining-and-customising.html#cb441-7" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&#39;Migration direction&#39;</span>, </span>
+<span id="cb441-8"><a href="data-visualisation-2-combining-and-customising.html#cb441-8" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&#39;Number of people&#39;</span>) <span class="sc">+</span></span>
+<span id="cb441-9"><a href="data-visualisation-2-combining-and-customising.html#cb441-9" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb441-10"><a href="data-visualisation-2-combining-and-customising.html#cb441-10" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>), </span>
+<span id="cb441-11"><a href="data-visualisation-2-combining-and-customising.html#cb441-11" tabindex="-1"></a>    <span class="co"># read this as: change the size of element_text of the </span></span>
+<span id="cb441-12"><a href="data-visualisation-2-combining-and-customising.html#cb441-12" tabindex="-1"></a>    <span class="co"># x axis title</span></span>
+<span id="cb441-13"><a href="data-visualisation-2-combining-and-customising.html#cb441-13" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>),</span>
+<span id="cb441-14"><a href="data-visualisation-2-combining-and-customising.html#cb441-14" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>() </span>
+<span id="cb441-15"><a href="data-visualisation-2-combining-and-customising.html#cb441-15" tabindex="-1"></a>    <span class="co"># read this as: change the title of the y axis to blank</span></span>
+<span id="cb441-16"><a href="data-visualisation-2-combining-and-customising.html#cb441-16" tabindex="-1"></a>  )</span></code></pre></div>
 <p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-353-1.png" width="672" /></p>
 <div class="info">
 <p>
@@ -726,20 +778,20 @@ of above the <code>theme()</code> layer.
 <div id="changing-colours" class="section level2 hasAnchor" number="8.7">
 <h2><span class="header-section-number">8.7</span> Changing colours<a href="data-visualisation-2-combining-and-customising.html#changing-colours" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We can rely on the colour schemes automatically set by <code>ggplot2</code>, or we can manually specify colours we want. To change any of the colours, we need to specify which scale we are changing. This is done by specifying the aesthetic. In our case, we are changing the colours of the <code>fill</code> aesthetic so we use <code>scale_fill_manual()</code>. Instead of using names, you can use any hex colour you want. A hex colour is the representation of a colour using a 6 digit code. <code>scale_fill_manual()</code> works like another layer, which overwrites the automatic colour schemes. Because it overwrites an existing function, it has to be after the geom that uses the <code>fill</code> argument.</p>
-<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="data-visualisation-2-combining-and-customising.html#cb443-1" tabindex="-1"></a><span class="fu">ggplot</span>(boxes, <span class="fu">aes</span>(<span class="at">x =</span> MigrationType, <span class="at">y =</span> Value)) <span class="sc">+</span> </span>
-<span id="cb443-2"><a href="data-visualisation-2-combining-and-customising.html#cb443-2" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">fill =</span> MigrationType)) <span class="sc">+</span> </span>
-<span id="cb443-3"><a href="data-visualisation-2-combining-and-customising.html#cb443-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb443-4"><a href="data-visualisation-2-combining-and-customising.html#cb443-4" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&#39;#127d69&#39;</span>, <span class="st">&#39;#cedc00&#39;</span>)) <span class="sc">+</span> </span>
-<span id="cb443-5"><a href="data-visualisation-2-combining-and-customising.html#cb443-5" tabindex="-1"></a>  <span class="co">#here I have picked two specific colours</span></span>
-<span id="cb443-6"><a href="data-visualisation-2-combining-and-customising.html#cb443-6" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb443-7"><a href="data-visualisation-2-combining-and-customising.html#cb443-7" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&#39;Female migration to and from</span><span class="sc">\n</span><span class="st">Overseas into Scotland&#39;</span>, </span>
-<span id="cb443-8"><a href="data-visualisation-2-combining-and-customising.html#cb443-8" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&#39;Migration direction&#39;</span>, </span>
-<span id="cb443-9"><a href="data-visualisation-2-combining-and-customising.html#cb443-9" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&#39;Number of people&#39;</span>) <span class="sc">+</span></span>
-<span id="cb443-10"><a href="data-visualisation-2-combining-and-customising.html#cb443-10" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb443-11"><a href="data-visualisation-2-combining-and-customising.html#cb443-11" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb443-12"><a href="data-visualisation-2-combining-and-customising.html#cb443-12" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>),</span>
-<span id="cb443-13"><a href="data-visualisation-2-combining-and-customising.html#cb443-13" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb443-14"><a href="data-visualisation-2-combining-and-customising.html#cb443-14" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="data-visualisation-2-combining-and-customising.html#cb442-1" tabindex="-1"></a><span class="fu">ggplot</span>(boxes, <span class="fu">aes</span>(<span class="at">x =</span> MigrationType, <span class="at">y =</span> Value)) <span class="sc">+</span> </span>
+<span id="cb442-2"><a href="data-visualisation-2-combining-and-customising.html#cb442-2" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">fill =</span> MigrationType)) <span class="sc">+</span> </span>
+<span id="cb442-3"><a href="data-visualisation-2-combining-and-customising.html#cb442-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb442-4"><a href="data-visualisation-2-combining-and-customising.html#cb442-4" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&#39;#127d69&#39;</span>, <span class="st">&#39;#cedc00&#39;</span>)) <span class="sc">+</span> </span>
+<span id="cb442-5"><a href="data-visualisation-2-combining-and-customising.html#cb442-5" tabindex="-1"></a>  <span class="co">#here I have picked two specific colours</span></span>
+<span id="cb442-6"><a href="data-visualisation-2-combining-and-customising.html#cb442-6" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb442-7"><a href="data-visualisation-2-combining-and-customising.html#cb442-7" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&#39;Female migration to and from</span><span class="sc">\n</span><span class="st">Overseas into Scotland&#39;</span>, </span>
+<span id="cb442-8"><a href="data-visualisation-2-combining-and-customising.html#cb442-8" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&#39;Migration direction&#39;</span>, </span>
+<span id="cb442-9"><a href="data-visualisation-2-combining-and-customising.html#cb442-9" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&#39;Number of people&#39;</span>) <span class="sc">+</span></span>
+<span id="cb442-10"><a href="data-visualisation-2-combining-and-customising.html#cb442-10" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb442-11"><a href="data-visualisation-2-combining-and-customising.html#cb442-11" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb442-12"><a href="data-visualisation-2-combining-and-customising.html#cb442-12" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>),</span>
+<span id="cb442-13"><a href="data-visualisation-2-combining-and-customising.html#cb442-13" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb442-14"><a href="data-visualisation-2-combining-and-customising.html#cb442-14" tabindex="-1"></a>  )</span></code></pre></div>
 <p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-355-1.png" width="672" /></p>
 <div class="info">
 <p>
@@ -764,83 +816,83 @@ colour - <code>#cedc00</code> is associated with migration category
 </ol>
 <p>We do steps 2 and 3 in the <code>theme()</code> layer.</p>
 <p>Because we have more than one legend, everything we do will be applied to both legends.This is a good idea for consistency. But when we want to hide one of the legends, we have to specify that in the geom where the legend is created using the argument <code>show.legend</code>.</p>
-<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="data-visualisation-2-combining-and-customising.html#cb444-1" tabindex="-1"></a><span class="fu">ggplot</span>(boxes, <span class="fu">aes</span>(<span class="at">x =</span> MigrationType, <span class="at">y =</span> Value)) <span class="sc">+</span> </span>
-<span id="cb444-2"><a href="data-visualisation-2-combining-and-customising.html#cb444-2" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">fill =</span> MigrationType)) <span class="sc">+</span> </span>
-<span id="cb444-3"><a href="data-visualisation-2-combining-and-customising.html#cb444-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="co"># hide the legend</span></span>
-<span id="cb444-4"><a href="data-visualisation-2-combining-and-customising.html#cb444-4" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&#39;#127d69&#39;</span>, <span class="st">&#39;#cedc00&#39;</span>),</span>
-<span id="cb444-5"><a href="data-visualisation-2-combining-and-customising.html#cb444-5" tabindex="-1"></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&#39;Coming to Scotland&#39;</span>,</span>
-<span id="cb444-6"><a href="data-visualisation-2-combining-and-customising.html#cb444-6" tabindex="-1"></a>                               <span class="st">&#39;Leaving Scotland&#39;</span>)) <span class="sc">+</span></span>
-<span id="cb444-7"><a href="data-visualisation-2-combining-and-customising.html#cb444-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb444-8"><a href="data-visualisation-2-combining-and-customising.html#cb444-8" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&#39;Female migration to and from</span><span class="sc">\n</span><span class="st">Overseas into Scotland&#39;</span>,</span>
-<span id="cb444-9"><a href="data-visualisation-2-combining-and-customising.html#cb444-9" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&#39;Migration direction&#39;</span>,</span>
-<span id="cb444-10"><a href="data-visualisation-2-combining-and-customising.html#cb444-10" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&#39;Number of people&#39;</span>) <span class="sc">+</span></span>
-<span id="cb444-11"><a href="data-visualisation-2-combining-and-customising.html#cb444-11" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb444-12"><a href="data-visualisation-2-combining-and-customising.html#cb444-12" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb444-13"><a href="data-visualisation-2-combining-and-customising.html#cb444-13" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>),</span>
-<span id="cb444-14"><a href="data-visualisation-2-combining-and-customising.html#cb444-14" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb444-15"><a href="data-visualisation-2-combining-and-customising.html#cb444-15" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">&#39;bottom&#39;</span>, <span class="co">#move the legend to the bottom</span></span>
-<span id="cb444-16"><a href="data-visualisation-2-combining-and-customising.html#cb444-16" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>)</span>
-<span id="cb444-17"><a href="data-visualisation-2-combining-and-customising.html#cb444-17" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="data-visualisation-2-combining-and-customising.html#cb443-1" tabindex="-1"></a><span class="fu">ggplot</span>(boxes, <span class="fu">aes</span>(<span class="at">x =</span> MigrationType, <span class="at">y =</span> Value)) <span class="sc">+</span> </span>
+<span id="cb443-2"><a href="data-visualisation-2-combining-and-customising.html#cb443-2" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">fill =</span> MigrationType)) <span class="sc">+</span> </span>
+<span id="cb443-3"><a href="data-visualisation-2-combining-and-customising.html#cb443-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="co"># hide the legend</span></span>
+<span id="cb443-4"><a href="data-visualisation-2-combining-and-customising.html#cb443-4" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&#39;#127d69&#39;</span>, <span class="st">&#39;#cedc00&#39;</span>),</span>
+<span id="cb443-5"><a href="data-visualisation-2-combining-and-customising.html#cb443-5" tabindex="-1"></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&#39;Coming to Scotland&#39;</span>,</span>
+<span id="cb443-6"><a href="data-visualisation-2-combining-and-customising.html#cb443-6" tabindex="-1"></a>                               <span class="st">&#39;Leaving Scotland&#39;</span>)) <span class="sc">+</span></span>
+<span id="cb443-7"><a href="data-visualisation-2-combining-and-customising.html#cb443-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb443-8"><a href="data-visualisation-2-combining-and-customising.html#cb443-8" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&#39;Female migration to and from</span><span class="sc">\n</span><span class="st">Overseas into Scotland&#39;</span>,</span>
+<span id="cb443-9"><a href="data-visualisation-2-combining-and-customising.html#cb443-9" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&#39;Migration direction&#39;</span>,</span>
+<span id="cb443-10"><a href="data-visualisation-2-combining-and-customising.html#cb443-10" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&#39;Number of people&#39;</span>) <span class="sc">+</span></span>
+<span id="cb443-11"><a href="data-visualisation-2-combining-and-customising.html#cb443-11" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb443-12"><a href="data-visualisation-2-combining-and-customising.html#cb443-12" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb443-13"><a href="data-visualisation-2-combining-and-customising.html#cb443-13" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>),</span>
+<span id="cb443-14"><a href="data-visualisation-2-combining-and-customising.html#cb443-14" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb443-15"><a href="data-visualisation-2-combining-and-customising.html#cb443-15" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">&#39;bottom&#39;</span>, <span class="co">#move the legend to the bottom</span></span>
+<span id="cb443-16"><a href="data-visualisation-2-combining-and-customising.html#cb443-16" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>)</span>
+<span id="cb443-17"><a href="data-visualisation-2-combining-and-customising.html#cb443-17" tabindex="-1"></a>  )</span></code></pre></div>
 <p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-357-1.png" width="672" /></p>
 </div>
 <div id="changing-axes-ticks" class="section level2 hasAnchor" number="8.9">
 <h2><span class="header-section-number">8.9</span> Changing axes ticks<a href="data-visualisation-2-combining-and-customising.html#changing-axes-ticks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Now, we also need to change what is stated on our x-axis to match the legend. We use <code>scale_x_discrete()</code> to give new names inside the graph, so that we do not have to change our dataset. We specify the labels of the new groups by giving the old name in quotes and then the new name, also in quotes. We use <code>scale_x_discrete()</code>, because we have discrete groups - a categorical variable.</p>
-<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="data-visualisation-2-combining-and-customising.html#cb445-1" tabindex="-1"></a><span class="fu">ggplot</span>(boxes, <span class="fu">aes</span>(<span class="at">x =</span> MigrationType, <span class="at">y =</span> Value)) <span class="sc">+</span> </span>
-<span id="cb445-2"><a href="data-visualisation-2-combining-and-customising.html#cb445-2" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">fill =</span> MigrationType)) <span class="sc">+</span> </span>
-<span id="cb445-3"><a href="data-visualisation-2-combining-and-customising.html#cb445-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb445-4"><a href="data-visualisation-2-combining-and-customising.html#cb445-4" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&#39;#127d69&#39;</span>, <span class="st">&#39;#cedc00&#39;</span>),</span>
-<span id="cb445-5"><a href="data-visualisation-2-combining-and-customising.html#cb445-5" tabindex="-1"></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&#39;Coming to Scotland&#39;</span>,</span>
-<span id="cb445-6"><a href="data-visualisation-2-combining-and-customising.html#cb445-6" tabindex="-1"></a>                               <span class="st">&#39;Leaving Scotland&#39;</span>)) <span class="sc">+</span></span>
-<span id="cb445-7"><a href="data-visualisation-2-combining-and-customising.html#cb445-7" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&#39;In&#39;</span> <span class="ot">=</span> <span class="st">&#39;Coming to Scotland&#39;</span>, </span>
-<span id="cb445-8"><a href="data-visualisation-2-combining-and-customising.html#cb445-8" tabindex="-1"></a>                              <span class="st">&#39;Out&#39;</span> <span class="ot">=</span> <span class="st">&#39;Leaving Scotland&#39;</span>)) <span class="sc">+</span></span>
-<span id="cb445-9"><a href="data-visualisation-2-combining-and-customising.html#cb445-9" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb445-10"><a href="data-visualisation-2-combining-and-customising.html#cb445-10" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&#39;Female migration to and from</span><span class="sc">\n</span><span class="st">Overseas into Scotland&#39;</span>, </span>
-<span id="cb445-11"><a href="data-visualisation-2-combining-and-customising.html#cb445-11" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&#39;Migration direction&#39;</span>, </span>
-<span id="cb445-12"><a href="data-visualisation-2-combining-and-customising.html#cb445-12" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&#39;Number of people&#39;</span>) <span class="sc">+</span></span>
-<span id="cb445-13"><a href="data-visualisation-2-combining-and-customising.html#cb445-13" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb445-14"><a href="data-visualisation-2-combining-and-customising.html#cb445-14" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb445-15"><a href="data-visualisation-2-combining-and-customising.html#cb445-15" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>),</span>
-<span id="cb445-16"><a href="data-visualisation-2-combining-and-customising.html#cb445-16" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb445-17"><a href="data-visualisation-2-combining-and-customising.html#cb445-17" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">&#39;bottom&#39;</span>,</span>
-<span id="cb445-18"><a href="data-visualisation-2-combining-and-customising.html#cb445-18" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>)</span>
-<span id="cb445-19"><a href="data-visualisation-2-combining-and-customising.html#cb445-19" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="data-visualisation-2-combining-and-customising.html#cb444-1" tabindex="-1"></a><span class="fu">ggplot</span>(boxes, <span class="fu">aes</span>(<span class="at">x =</span> MigrationType, <span class="at">y =</span> Value)) <span class="sc">+</span> </span>
+<span id="cb444-2"><a href="data-visualisation-2-combining-and-customising.html#cb444-2" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">fill =</span> MigrationType)) <span class="sc">+</span> </span>
+<span id="cb444-3"><a href="data-visualisation-2-combining-and-customising.html#cb444-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb444-4"><a href="data-visualisation-2-combining-and-customising.html#cb444-4" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&#39;#127d69&#39;</span>, <span class="st">&#39;#cedc00&#39;</span>),</span>
+<span id="cb444-5"><a href="data-visualisation-2-combining-and-customising.html#cb444-5" tabindex="-1"></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&#39;Coming to Scotland&#39;</span>,</span>
+<span id="cb444-6"><a href="data-visualisation-2-combining-and-customising.html#cb444-6" tabindex="-1"></a>                               <span class="st">&#39;Leaving Scotland&#39;</span>)) <span class="sc">+</span></span>
+<span id="cb444-7"><a href="data-visualisation-2-combining-and-customising.html#cb444-7" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&#39;In&#39;</span> <span class="ot">=</span> <span class="st">&#39;Coming to Scotland&#39;</span>, </span>
+<span id="cb444-8"><a href="data-visualisation-2-combining-and-customising.html#cb444-8" tabindex="-1"></a>                              <span class="st">&#39;Out&#39;</span> <span class="ot">=</span> <span class="st">&#39;Leaving Scotland&#39;</span>)) <span class="sc">+</span></span>
+<span id="cb444-9"><a href="data-visualisation-2-combining-and-customising.html#cb444-9" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb444-10"><a href="data-visualisation-2-combining-and-customising.html#cb444-10" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&#39;Female migration to and from</span><span class="sc">\n</span><span class="st">Overseas into Scotland&#39;</span>, </span>
+<span id="cb444-11"><a href="data-visualisation-2-combining-and-customising.html#cb444-11" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&#39;Migration direction&#39;</span>, </span>
+<span id="cb444-12"><a href="data-visualisation-2-combining-and-customising.html#cb444-12" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&#39;Number of people&#39;</span>) <span class="sc">+</span></span>
+<span id="cb444-13"><a href="data-visualisation-2-combining-and-customising.html#cb444-13" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb444-14"><a href="data-visualisation-2-combining-and-customising.html#cb444-14" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb444-15"><a href="data-visualisation-2-combining-and-customising.html#cb444-15" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>),</span>
+<span id="cb444-16"><a href="data-visualisation-2-combining-and-customising.html#cb444-16" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb444-17"><a href="data-visualisation-2-combining-and-customising.html#cb444-17" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">&#39;bottom&#39;</span>,</span>
+<span id="cb444-18"><a href="data-visualisation-2-combining-and-customising.html#cb444-18" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>)</span>
+<span id="cb444-19"><a href="data-visualisation-2-combining-and-customising.html#cb444-19" tabindex="-1"></a>  )</span></code></pre></div>
 <p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-358-1.png" width="672" /></p>
 <p>Let’s also say that we are plotting data which is continuous but we want to show each of the values. For example we have years and we want to show every year. <code>ggplot</code> will try and skip some of the years to make the graph look neater. There are several ways we can change that. We can either make the variable into a factor or a character using <code>as.character</code>so that <code>ggplot</code> will be forced to look at it as a discrete variable or we can change the ticks of the x axis by giving them <code>limits</code> and <code>breaks</code> in the layer that overwrites the original x values - <code>scale_x_continuous()</code>.</p>
 <p>Let’s use the graph from last week which showed us the change in migration across the years.</p>
-<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="data-visualisation-2-combining-and-customising.html#cb446-1" tabindex="-1"></a><span class="co"># First, we are getting the data from last week to recreate the code.</span></span>
-<span id="cb446-2"><a href="data-visualisation-2-combining-and-customising.html#cb446-2" tabindex="-1"></a></span>
-<span id="cb446-3"><a href="data-visualisation-2-combining-and-customising.html#cb446-3" tabindex="-1"></a>traffic_scot2 <span class="ot">&lt;-</span> migration_scot <span class="sc">%&gt;%</span> </span>
-<span id="cb446-4"><a href="data-visualisation-2-combining-and-customising.html#cb446-4" tabindex="-1"></a>  <span class="fu">filter</span>(Age <span class="sc">==</span> <span class="st">&#39;All&#39;</span>, </span>
-<span id="cb446-5"><a href="data-visualisation-2-combining-and-customising.html#cb446-5" tabindex="-1"></a>         MigrationType <span class="sc">!=</span> <span class="st">&#39;Net&#39;</span>,</span>
-<span id="cb446-6"><a href="data-visualisation-2-combining-and-customising.html#cb446-6" tabindex="-1"></a>         Sex <span class="sc">==</span> <span class="st">&#39;All&#39;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb446-7"><a href="data-visualisation-2-combining-and-customising.html#cb446-7" tabindex="-1"></a>  <span class="fu">select</span>(DateCode, Value,MigrationSource, MigrationType)</span>
-<span id="cb446-8"><a href="data-visualisation-2-combining-and-customising.html#cb446-8" tabindex="-1"></a></span>
-<span id="cb446-9"><a href="data-visualisation-2-combining-and-customising.html#cb446-9" tabindex="-1"></a></span>
-<span id="cb446-10"><a href="data-visualisation-2-combining-and-customising.html#cb446-10" tabindex="-1"></a></span>
-<span id="cb446-11"><a href="data-visualisation-2-combining-and-customising.html#cb446-11" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot2, <span class="fu">aes</span>(DateCode, Value,</span>
-<span id="cb446-12"><a href="data-visualisation-2-combining-and-customising.html#cb446-12" tabindex="-1"></a>                          <span class="at">shape =</span> MigrationSource, </span>
-<span id="cb446-13"><a href="data-visualisation-2-combining-and-customising.html#cb446-13" tabindex="-1"></a>                          <span class="at">colour =</span> MigrationType)) <span class="sc">+</span> </span>
-<span id="cb446-14"><a href="data-visualisation-2-combining-and-customising.html#cb446-14" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb446-15"><a href="data-visualisation-2-combining-and-customising.html#cb446-15" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb446-16"><a href="data-visualisation-2-combining-and-customising.html#cb446-16" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">2002</span>,<span class="dv">2018</span>), <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">2002</span><span class="sc">:</span><span class="dv">2018</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="data-visualisation-2-combining-and-customising.html#cb445-1" tabindex="-1"></a><span class="co"># First, we are getting the data from last week to recreate the code.</span></span>
+<span id="cb445-2"><a href="data-visualisation-2-combining-and-customising.html#cb445-2" tabindex="-1"></a></span>
+<span id="cb445-3"><a href="data-visualisation-2-combining-and-customising.html#cb445-3" tabindex="-1"></a>traffic_scot2 <span class="ot">&lt;-</span> migration_scot <span class="sc">%&gt;%</span> </span>
+<span id="cb445-4"><a href="data-visualisation-2-combining-and-customising.html#cb445-4" tabindex="-1"></a>  <span class="fu">filter</span>(Age <span class="sc">==</span> <span class="st">&#39;All&#39;</span>, </span>
+<span id="cb445-5"><a href="data-visualisation-2-combining-and-customising.html#cb445-5" tabindex="-1"></a>         MigrationType <span class="sc">!=</span> <span class="st">&#39;Net&#39;</span>,</span>
+<span id="cb445-6"><a href="data-visualisation-2-combining-and-customising.html#cb445-6" tabindex="-1"></a>         Sex <span class="sc">==</span> <span class="st">&#39;All&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb445-7"><a href="data-visualisation-2-combining-and-customising.html#cb445-7" tabindex="-1"></a>  <span class="fu">select</span>(DateCode, Value,MigrationSource, MigrationType)</span>
+<span id="cb445-8"><a href="data-visualisation-2-combining-and-customising.html#cb445-8" tabindex="-1"></a></span>
+<span id="cb445-9"><a href="data-visualisation-2-combining-and-customising.html#cb445-9" tabindex="-1"></a></span>
+<span id="cb445-10"><a href="data-visualisation-2-combining-and-customising.html#cb445-10" tabindex="-1"></a></span>
+<span id="cb445-11"><a href="data-visualisation-2-combining-and-customising.html#cb445-11" tabindex="-1"></a><span class="fu">ggplot</span>(traffic_scot2, <span class="fu">aes</span>(DateCode, Value,</span>
+<span id="cb445-12"><a href="data-visualisation-2-combining-and-customising.html#cb445-12" tabindex="-1"></a>                          <span class="at">shape =</span> MigrationSource, </span>
+<span id="cb445-13"><a href="data-visualisation-2-combining-and-customising.html#cb445-13" tabindex="-1"></a>                          <span class="at">colour =</span> MigrationType)) <span class="sc">+</span> </span>
+<span id="cb445-14"><a href="data-visualisation-2-combining-and-customising.html#cb445-14" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb445-15"><a href="data-visualisation-2-combining-and-customising.html#cb445-15" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb445-16"><a href="data-visualisation-2-combining-and-customising.html#cb445-16" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">2002</span>,<span class="dv">2018</span>), <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">2002</span><span class="sc">:</span><span class="dv">2018</span>))</span></code></pre></div>
 <p><img src="Intro-to-R-GU-Open-Studies-2021-2022_files/figure-html/unnamed-chunk-359-1.png" width="672" /></p>
 </div>
 <div id="saving-plots" class="section level2 hasAnchor" number="8.10">
 <h2><span class="header-section-number">8.10</span> Saving plots<a href="data-visualisation-2-combining-and-customising.html#saving-plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Finally, we have made these lovely plots but we want to be able to put them in reports, papers, on a poster (print it in a large canvas for friends and family to admire). To save your plot to your working directory, you can use the function <code>ggsave</code>. First, you have to save your plot into an object in the <code>Global Environment</code>.</p>
-<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="data-visualisation-2-combining-and-customising.html#cb447-1" tabindex="-1"></a><span class="co"># Save your plot to the Global Environment.</span></span>
-<span id="cb447-2"><a href="data-visualisation-2-combining-and-customising.html#cb447-2" tabindex="-1"></a></span>
-<span id="cb447-3"><a href="data-visualisation-2-combining-and-customising.html#cb447-3" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(traffic_scot2, <span class="fu">aes</span>(DateCode, Value,</span>
-<span id="cb447-4"><a href="data-visualisation-2-combining-and-customising.html#cb447-4" tabindex="-1"></a>                          <span class="at">shape =</span> MigrationSource, </span>
-<span id="cb447-5"><a href="data-visualisation-2-combining-and-customising.html#cb447-5" tabindex="-1"></a>                          <span class="at">colour =</span> MigrationType)) <span class="sc">+</span> </span>
-<span id="cb447-6"><a href="data-visualisation-2-combining-and-customising.html#cb447-6" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb447-7"><a href="data-visualisation-2-combining-and-customising.html#cb447-7" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb447-8"><a href="data-visualisation-2-combining-and-customising.html#cb447-8" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb447-9"><a href="data-visualisation-2-combining-and-customising.html#cb447-9" tabindex="-1"></a></span>
-<span id="cb447-10"><a href="data-visualisation-2-combining-and-customising.html#cb447-10" tabindex="-1"></a></span>
-<span id="cb447-11"><a href="data-visualisation-2-combining-and-customising.html#cb447-11" tabindex="-1"></a><span class="co"># Then save it to your working directory folder</span></span>
-<span id="cb447-12"><a href="data-visualisation-2-combining-and-customising.html#cb447-12" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&#39;myplot.png&#39;</span>, plot1, <span class="at">width =</span> <span class="dv">9</span> , <span class="at">height =</span> <span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="data-visualisation-2-combining-and-customising.html#cb446-1" tabindex="-1"></a><span class="co"># Save your plot to the Global Environment.</span></span>
+<span id="cb446-2"><a href="data-visualisation-2-combining-and-customising.html#cb446-2" tabindex="-1"></a></span>
+<span id="cb446-3"><a href="data-visualisation-2-combining-and-customising.html#cb446-3" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(traffic_scot2, <span class="fu">aes</span>(DateCode, Value,</span>
+<span id="cb446-4"><a href="data-visualisation-2-combining-and-customising.html#cb446-4" tabindex="-1"></a>                          <span class="at">shape =</span> MigrationSource, </span>
+<span id="cb446-5"><a href="data-visualisation-2-combining-and-customising.html#cb446-5" tabindex="-1"></a>                          <span class="at">colour =</span> MigrationType)) <span class="sc">+</span> </span>
+<span id="cb446-6"><a href="data-visualisation-2-combining-and-customising.html#cb446-6" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb446-7"><a href="data-visualisation-2-combining-and-customising.html#cb446-7" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb446-8"><a href="data-visualisation-2-combining-and-customising.html#cb446-8" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb446-9"><a href="data-visualisation-2-combining-and-customising.html#cb446-9" tabindex="-1"></a></span>
+<span id="cb446-10"><a href="data-visualisation-2-combining-and-customising.html#cb446-10" tabindex="-1"></a></span>
+<span id="cb446-11"><a href="data-visualisation-2-combining-and-customising.html#cb446-11" tabindex="-1"></a><span class="co"># Then save it to your working directory folder</span></span>
+<span id="cb446-12"><a href="data-visualisation-2-combining-and-customising.html#cb446-12" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&#39;myplot.png&#39;</span>, plot1, <span class="at">width =</span> <span class="dv">9</span> , <span class="at">height =</span> <span class="dv">6</span>)</span></code></pre></div>
 </div>
 <div id="summative-homework" class="section level2 hasAnchor" number="8.11">
 <h2><span class="header-section-number">8.11</span> Summative Homework<a href="data-visualisation-2-combining-and-customising.html#summative-homework" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -848,11 +900,6 @@ colour - <code>#cedc00</code> is associated with migration category
 <p>Good luck.</p>
 <p>Check that your Rmd file knits into a html file before submitting. Upload your Rmd file (not the knitted html) to Moodle.</p>
 
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div class="csl-entry">
-Nordmann, Emily, and Heather Cleland Woods. 2019. <span>“Level 1 Data Skills.”</span> 2019. <a href="https://psyteachr.github.io/ug1-practical/index.html">https://psyteachr.github.io/ug1-practical/index.html</a>.
-</div>
-</div>
 </div>
 </div>
 <script>
@@ -1032,8 +1079,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="data-visualisation-1-fundamentals.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="data-visualisation-1-fundamentals.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="errors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

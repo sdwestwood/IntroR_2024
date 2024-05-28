@@ -2,7 +2,7 @@
 
 ## Bringing your skills together
 
-In this practice exam, you will use all the skills you have learnt to tidy up, summarise, and visualise an actual data set. These data are from an experiment where participants were asked to rate 240 words on a scale from 1-9, 1 being *not exciting at all* and 9 being *extremely exciting*. This dimension is called emotional arousal of language. The words are split into three conditions: HA = *High arousal*, LA = *Low arousal* and DI = *neutral distractor words*. Each of the words has their own item number ranging from 1-240.
+In this practice exam, you will use all the skills you have learnt to tidy up, summarise, and visualise actual data. This data set is from an experiment where participants were asked to rate 240 words on a scale from 1-9, 1 being *not exciting at all* and 9 being *extremely exciting*. This dimension is called emotional arousal of language. The words are split into three conditions: HA = *High arousal*, LA = *Low arousal* and DI = *neutral distractor words*. Each of the words has their own item number ranging from 1-240.
 
 There are three datafiles:
 
@@ -44,9 +44,9 @@ groups <- NULL
 ```
 
 ```{r Q2S, echo=FALSE, message=FALSE}
-words <- read_csv("item_info.csv")
-ratings <- read_csv("ratings.csv")
-groups <- read_csv("groups.csv")
+words <- read_csv("data/item_info.csv")
+ratings <- read_csv("data/ratings.csv")
+groups <- read_csv("data/groups.csv")
 ```
 
 
@@ -65,11 +65,9 @@ ratings_long <- NULL
 You should end up with a dataframe that has 11280 observations and just three columns. The first 6 rows of `ratings_long` should look like the ones shown in the tibble below.
 
 ```{r Q3S, echo=FALSE}
-ratings_long <- gather(ratings, "item", "rating", `1`:`240`)
+ratings_long <- pivot_longer(ratings, `1`:`240`, names_to = "item", values_to = "rating")
 kable(head(ratings_long))
 ```
-
-
 
 ### Question 4 {-}
 
@@ -116,7 +114,7 @@ combined_data <- NULL
 ```
 
 ```{r Q6S, echo=FALSE}
-combined_data <- inner_join (ratings_long, words_small, by = "item")
+combined_data <- inner_join(ratings_long, words_small, by = join_by("item"))
 ```
 
 
@@ -129,7 +127,7 @@ combined_recog <- NULL
 ```
 
 ```{r Q7S, echo=FALSE}
-combined_recog <- filter(combined_data, rating!=0)
+combined_recog <- filter(combined_data, rating != 0)
 ```
 
 
@@ -144,17 +142,18 @@ preprocessed_data <- NULL
 ```
 
 ```{r Q8S, echo=FALSE}
-# Solution 1 - renaming the column in `combined_recog`
-combined_data <- combined_recog %>% rename("Participant" = participant)
-preprocessed_data <- inner_join(combined_data, groups, by = "Participant")
+# Solution 1 - using inner_join to match two headers that don't match
+preprocessed_data <- inner_join(combined_recog, groups, by = join_by("participant" == "Participant"))
 
-# Solution 1 as a pipe
+# Solution 2 - renaming the column in `combined_recog`
+combined_data <- combined_recog %>% rename("Participant" = participant)
+preprocessed_data <- inner_join(combined_data, groups, by = join_by("Participant"))
+
+# Solution 2 as a pipe
 preprocessed_data <- combined_recog %>% 
   rename("Participant" = participant) %>% 
-  inner_join(groups, by = "Participant")
+  inner_join(groups, by = join_by("Participant"))
 
-# Solution 2 - using inner_join to match two headers that don't match
-preprocessed_data <- inner_join(combined_recog, groups, c("participant" = "Participant"))
 ```
 
 
@@ -172,11 +171,14 @@ rating_summary <- NULL
 ```
 
 ```{r Q9S, echo=FALSE}
-rating_summary <- group_by(preprocessed_data, condition, Group) %>% 
-  summarise (mean = mean(rating), sd = sd(rating))
+rating_summary <- preprocessed_data %>%
+    group_by(condition, Group) %>% 
+    summarise(
+        mean = mean(rating),
+        sd = sd(rating),
+        .groups = "drop"
+    )
 ```
-
-
 
 Now let's visualise the data! We will use `preprocessed_data` for all the visualisations.
 
@@ -191,10 +193,11 @@ NULL
 
 
 ```{r Q10S, echo=FALSE}
-ggplot(preprocessed_data, aes(condition, rating, fill=condition)) + 
-  geom_boxplot() + 
-  scale_y_continuous(breaks = c(1:9)) + 
-  facet_wrap(~Group)
+preprocessed_data %>%
+    ggplot(aes(condition, rating, fill = condition)) + 
+    geom_boxplot() + 
+    scale_y_continuous(breaks = c(1:9)) + 
+    facet_grid(cols = vars(Group))
 ```
 
 
@@ -209,18 +212,17 @@ NULL
 ```
 
 ```{r Q11S, echo=FALSE}
-ggplot(preprocessed_data, aes(x=AROUSAL, y=VALENCE, colour=condition)) + 
-  geom_point()
+preprocessed_data %>%
+    ggplot(aes(x = AROUSAL, y = VALENCE, colour = condition)) + 
+    geom_point()
 ```
 
-
-<span style="font-size: 22px; font-weight: bold; color: hsl(24, 100%, 50%);">Finished</span>
+[Finished]{.goodluck}
 
 Well done, this is the end of the in-class exercise! We have three extra questions for those who are up for a challenge and would like to play around with the data a bit more.
 
-
-
-<H2> Bonus Questions </H2>
+<br>
+[Bonus Questions]{.question}
 
 We want to know which word people think is the most exciting and which one is the most boring. Let's find out!
 
@@ -280,16 +282,16 @@ library(tidyverse)
 
 `r hide("Question 2")`
 ```{r, message=FALSE, warning=FALSE}
-words <- read_csv("item_info.csv")
-ratings <- read_csv("ratings.csv")
-groups <- read_csv("groups.csv")
+words <- read_csv("data/item_info.csv")
+ratings <- read_csv("data/ratings.csv")
+groups <- read_csv("data/groups.csv")
 ```
 `r unhide()`
 
 
 `r hide("Question 3")`
 ```{r, message=FALSE, warning=FALSE}
-ratings_long <- gather(ratings, "item", "rating", `1`:`240`)
+ratings_long <- pivot_longer(ratings, `1`:`240`, names_to = "item", values_to = "rating")
 ```
 `r unhide()`
 
@@ -308,52 +310,60 @@ words_small <- separate(words_small, item, into = c("item", "condition"), sep = 
 
 `r hide("Question 6")`
 ```{r, message=FALSE, warning=FALSE}
-combined_data <- inner_join(ratings_long, words_small, by = "item")
+combined_data <- inner_join(ratings_long, words_small, by = join_by("item"))
 ```
 `r unhide()`
 
 `r hide("Question 7")`
 ```{r, message=FALSE, warning=FALSE}
-combined_recog <- filter(combined_data, rating!=0)
+combined_recog <- filter(combined_data, rating != 0)
 ```
 `r unhide()`
 
 `r hide("Question 8")`
 ```{r, message=FALSE, warning=FALSE}
-# Solution 1 - renaming the column in `combined_recog`
-combined_data <- combined_recog %>% rename("Participant" = participant)
-preprocessed_data <- inner_join(combined_data, groups, by = "Participant")
+# Solution 1 - using inner_join to match two headers that don't match
+preprocessed_data <- inner_join(combined_recog, groups, by = join_by("participant" == "Participant"))
 
-# Solution 1 as a pipe
+# Solution 2 - renaming the column in `combined_recog`
+combined_data <- combined_recog %>% rename("Participant" = participant)
+preprocessed_data <- inner_join(combined_data, groups, by = join_by("Participant"))
+
+# Solution 2 as a pipe
 preprocessed_data <- combined_recog %>% 
   rename("Participant" = participant) %>% 
-  inner_join(groups, by = "Participant")
+  inner_join(groups, by = join_by("Participant"))
 
-# Solution 2 - using inner_join to match two headers that don't match
-preprocessed_data <- inner_join(combined_recog, groups, c("participant" = "Participant"))
 ```
 `r unhide()`
 
 `r hide("Question 9")`
 ```{r, message=FALSE, warning=FALSE}
-rating_summary <- group_by(preprocessed_data, condition, Group) %>% 
-  summarise(mean = mean(rating), sd = sd(rating))
+rating_summary <- preprocessed_data %>%
+    group_by(condition, Group) %>% 
+    summarise(
+        mean = mean(rating),
+        sd = sd(rating),
+        .groups = "drop"
+    )
 ```
 `r unhide()`
 
 `r hide("Question 10")`
 ```{r}
-ggplot(preprocessed_data, aes(condition, rating, fill=condition)) + 
-  geom_boxplot() + 
-  scale_y_continuous(breaks = c(1:9)) + 
-  facet_wrap(~Group)
+preprocessed_data %>%
+    ggplot(aes(condition, rating, fill = condition)) + 
+    geom_boxplot() + 
+    scale_y_continuous(breaks = c(1:9)) + 
+    facet_grid(cols = vars(Group))
 ```
 `r unhide()`
 
 `r hide("Question 11")`
 ```{r}
-ggplot(preprocessed_data, aes(x=AROUSAL, y=VALENCE, colour=condition)) + 
-  geom_point()
+preprocessed_data %>%
+    ggplot(aes(x = AROUSAL, y = VALENCE, colour = condition)) + 
+    geom_point()
 ```
 `r unhide()`
 
