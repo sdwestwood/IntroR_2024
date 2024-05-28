@@ -28,6 +28,12 @@ pre code {
   clear: right;
 }
 
+.goodluck {
+    font-size: 22px;
+    font-weight: bold;
+    color: orangered;
+}
+
 /* set styles for alert boxes */
 
 .danger, .funfact, .solved, .info, .warning, .question, .task {

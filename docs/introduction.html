@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 1 Introduction | Introduction to R</title>
   <meta name="description" content="This is the course handbook for the Glasgow University Open Studies course Introduction to R, academic session 2023/2024." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 1 Introduction | Introduction to R" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Gaby Mahrholz, Greta Todorova, Wilhelmiina Toivo, and Jaimie Torrance, updated by Johanna Werner in 2022 and Sean Westwood in 2023" />
 
 
-<meta name="date" content="2024-03-31" />
+<meta name="date" content="2024-05-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -56,7 +56,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,7 +66,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -120,14 +120,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
-  
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-</style>
-<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -343,6 +340,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#bringing-in-new-data"><i class="fa fa-check"></i><b>6.2.1</b> Bringing in new data</a></li>
 <li class="chapter" data-level="6.2.2" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#mutating-join-summary"><i class="fa fa-check"></i><b>6.2.2</b> Mutating Join Summary</a></li>
+<li class="chapter" data-level="6.2.3" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#binding-join-verbs"><i class="fa fa-check"></i><b>6.2.3</b> Binding Join Verbs</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="tidy-data-3-joins.html"><a href="tidy-data-3-joins.html#additional-information-1"><i class="fa fa-check"></i><b>6.3</b> Additional information</a></li>
 </ul></li>
@@ -392,6 +390,61 @@ div.csl-indent {
 <li class="chapter" data-level="8.10" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#saving-plots"><i class="fa fa-check"></i><b>8.10</b> Saving plots</a></li>
 <li class="chapter" data-level="8.11" data-path="data-visualisation-2-combining-and-customising.html"><a href="data-visualisation-2-combining-and-customising.html#summative-homework"><i class="fa fa-check"></i><b>8.11</b> Summative Homework</a></li>
 </ul></li>
+<li class="chapter" data-level="9" data-path="errors.html"><a href="errors.html"><i class="fa fa-check"></i><b>9</b> Errors</a>
+<ul>
+<li class="chapter" data-level="" data-path="errors.html"><a href="errors.html#intended-learning-outcomes-9"><i class="fa fa-check"></i>Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="9.1" data-path="errors.html"><a href="errors.html#errors-how-to-avoid-some-and-live-through-the-rest"><i class="fa fa-check"></i><b>9.1</b> Errors: How to avoid some and live through the rest</a></li>
+<li class="chapter" data-level="9.2" data-path="errors.html"><a href="errors.html#debugging"><i class="fa fa-check"></i><b>9.2</b> Debugging</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="errors.html"><a href="errors.html#messages"><i class="fa fa-check"></i><b>9.2.1</b> Messages</a></li>
+<li class="chapter" data-level="9.2.2" data-path="errors.html"><a href="errors.html#warnings"><i class="fa fa-check"></i><b>9.2.2</b> Warnings</a></li>
+<li class="chapter" data-level="9.2.3" data-path="errors.html"><a href="errors.html#errors-1"><i class="fa fa-check"></i><b>9.2.3</b> Errors</a></li>
+<li class="chapter" data-level="9.2.4" data-path="errors.html"><a href="errors.html#multiple-errors"><i class="fa fa-check"></i><b>9.2.4</b> Multiple Errors</a></li>
+<li class="chapter" data-level="9.2.5" data-path="errors.html"><a href="errors.html#finding-errors-in-longer-code-segments"><i class="fa fa-check"></i><b>9.2.5</b> Finding errors in longer code segments</a></li>
+<li class="chapter" data-level="9.2.6" data-path="errors.html"><a href="errors.html#warning-messages"><i class="fa fa-check"></i><b>9.2.6</b> Warning Messages</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="errors.html"><a href="errors.html#searching-for-help"><i class="fa fa-check"></i><b>9.3</b> Searching for Help</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="errors.html"><a href="errors.html#rtfm"><i class="fa fa-check"></i><b>9.3.1</b> RTFM</a></li>
+<li class="chapter" data-level="9.3.2" data-path="errors.html"><a href="errors.html#stack-overflow"><i class="fa fa-check"></i><b>9.3.2</b> Stack Overflow</a></li>
+<li class="chapter" data-level="9.3.3" data-path="errors.html"><a href="errors.html#googling-it"><i class="fa fa-check"></i><b>9.3.3</b> Googling It</a></li>
+<li class="chapter" data-level="9.3.4" data-path="errors.html"><a href="errors.html#youtube"><i class="fa fa-check"></i><b>9.3.4</b> YouTube</a></li>
+<li class="chapter" data-level="9.3.5" data-path="errors.html"><a href="errors.html#ai-bots"><i class="fa fa-check"></i><b>9.3.5</b> AI bots</a></li>
+<li class="chapter" data-level="9.3.6" data-path="errors.html"><a href="errors.html#further-reading"><i class="fa fa-check"></i><b>9.3.6</b> Further Reading</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html"><i class="fa fa-check"></i><b>10</b> Recap: Putting it all together</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#bringing-your-skills-together"><i class="fa fa-check"></i><b>10.1</b> Bringing your skills together</a>
+<ul>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-1-1"><i class="fa fa-check"></i>Question 1</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-2-1"><i class="fa fa-check"></i>Question 2</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-3-1"><i class="fa fa-check"></i>Question 3</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-4-1"><i class="fa fa-check"></i>Question 4</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-5-1"><i class="fa fa-check"></i>Question 5</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-6"><i class="fa fa-check"></i>Question 6</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-7"><i class="fa fa-check"></i>Question 7</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-8"><i class="fa fa-check"></i>Question 8</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-9"><i class="fa fa-check"></i>Question 9</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-10"><i class="fa fa-check"></i>Question 10</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-11"><i class="fa fa-check"></i>Question 11</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-12-bonus"><i class="fa fa-check"></i>Question 12 (Bonus)</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-13-bonus"><i class="fa fa-check"></i>Question 13 (Bonus)</a></li>
+<li class="chapter" data-level="" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#question-14-bonus"><i class="fa fa-check"></i>Question 14 (Bonus)</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="recap-putting-it-all-together.html"><a href="recap-putting-it-all-together.html#solutions"><i class="fa fa-check"></i><b>10.2</b> Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html"><i class="fa fa-check"></i>Appendices</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#changing-the-appearance-of-rmarkdown"><i class="fa fa-check"></i>Changing the Appearance of RMarkdown</a></li>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#source-materials"><i class="fa fa-check"></i>Source Materials</a></li>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#further-reading-1"><i class="fa fa-check"></i>Further Reading</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#statistics"><i class="fa fa-check"></i>Statistics</a></li>
+<li class="chapter" data-level="" data-path="appendices.html"><a href="appendices.html#more-advanced-use-of-r"><i class="fa fa-check"></i>More Advanced Use of R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>11</b> References</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
     target="blank"><img alt="Creative Commons License" 
@@ -438,7 +491,7 @@ div.csl-indent {
 <p>Are they different? Yes! Is this important? Yes!</p>
 <div id="r" class="section level3 hasAnchor" number="1.2.1">
 <h3><span class="header-section-number">1.2.1</span> R<a href="introduction.html#r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="images/rlogo.png" height="50" width="50" alt="R Commander Logo" align="right" style="margin:10px 10px"></p>
+<p><img src="images/Rlogo.png" height="50" width="50" alt="R Commander Logo" align="right" style="margin:10px 10px"></p>
 <p>R is a programming language and completely free software, and it is widely used for data analysis. It is a stand-alone program and can be run on it’s own without R Studio, but it’s not particularly user friendly.</p>
 <center>
 <img src="images/commander.png" alt="R Commander" style="margin:10px 10px">
@@ -799,8 +852,8 @@ required.
 </div>
 </div>
 </div>
-<h3>References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
+<h3> References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-l1book" class="csl-entry">
 Nordmann, Emily, and Heather Cleland Woods. 2019. <span>“Level 1 Data Skills.”</span> 2019. <a href="https://psyteachr.github.io/ug1-practical/index.html">https://psyteachr.github.io/ug1-practical/index.html</a>.
 </div>
