@@ -14,7 +14,7 @@ Unfortunately this is not as simple as installing software normally is on your c
 
 #### First: Install R
 
-Follow <a href="https://www.stats.bris.ac.uk/R/">this link</a> and click on the part that says Download R R-4.2.3-win for Windows (or Mac). You will get the following pop-up dialogue (please note that as you are installing a newer version of R your download will be called R-4.2.3-win.exe instead of R-3.6.2 in the picture):
+Follow <a href="https://www.stats.bris.ac.uk/R/">this link</a> and click on the part that says Download R R-4.4.3-win for Windows (or Mac). You will get the following pop-up dialogue (please note that as you are installing a newer version of R your download will be called R-4.4.3-win.exe instead of R-3.6.2 in the picture):
 
 <center><img src="images/download_prompt_R.png"></center>
 
