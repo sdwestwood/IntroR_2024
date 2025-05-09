@@ -18,9 +18,9 @@ library(knitr)
 ```
 
 
-## Conditional statements
+## Recoding Values 
 
-Conditional statements are used when you want to create an output value that is conditioned on an evaluation. Here, we are showing you how to use them in combination with `mutate()` by either modifying the values within one column, or by adding a new column.
+Sometimes we may want to alter certain values within a column or vector. Conditional statements are used when you want to create an output value that is conditioned on a logical expression being `TRUE`. This is similar to the function `filter()`, which retains columns based on a logical expression evaluating to `TRUE`. Here, we are showing you how to use them in combination with `mutate()` by either modifying the values within one column, or by adding a new column.
 
 Example scenario: Imagine that we have data in which a column `Sex` holds values of `1` and `2` that stand for `Male`, and `Female` participants respectively. Conditional statements make an evaluation: *if `Sex` is `1`, then put the value of `Male` in a new column called `Sex_char`; if `Sex` is `2` put `Female` in column `Sex_char`.*
 
@@ -206,42 +206,77 @@ glimpse(fake_data)
 
 ### case_when()
 
-`case_when()` vectorises multiple `ifelse()` statements, and might potentially be a touch easier to digest visually than `ifelse()`.
+`case_when()` vectorises multiple `ifelse()` statements, and might potentially be a touch easier to digest visually than `ifelse()`
 
 There are few guidelines to follow when using `case_when()`:
 
 * A sequence of two-sided formulas is needed. 
-* The left hand side (LHS) determines which values match this case. The right hand side (RHS) provides the replacement value.
-* The LHS must evaluate to a logical vector. The RHS does not need to be logical, but all RHSs must evaluate to the same type of vector.
+* The left hand side determines the logical expression that is being applied 
+* The right hand side provides the replacement value when the logical expression is `TRUE`
+* The `.default` argument sets the value for all remaining rows
 
-
+```{r, eval=FALSE}
+mutate(data, new_column_name = case_when(test ~ new_value))
+```
 
 Let's apply this to recoding the values in the column `Institution`. Combining `case_when()` with `mutate()`, we will add another column called `Institution_case_when` to `fake_data`.
 
 ```{r}
-fake_data <- mutate(fake_data, Institution_case_when = case_when(
-  Institution == 1 ~ "UoG",
-  Institution == 3 ~ "GCU",
-  Institution == 4 ~ "UWS",
-  TRUE ~ "Strathclyde"
-  )
-)
-glimpse(fake_data)
+fake_data <- mutate(fake_data, 
+                    Institution_case_when = case_when(
+                      Institution == 1 ~ "UoG",
+                      Institution == 3 ~ "GCU",
+                      Institution == 4 ~ "UWS",
+                      .default = "Strathclyde"
+                      )
+                    )
+head(fake_data)
 ```
-
-The `TRUE` statement at the end is similar to the the "else" in the `ifelse()` function. A further similarity between the two is that arguments are evaluated in order, so you must proceed from the most specific to the most general.
-
 
 Allison Horst made a really cute artwork about `case_when()` which might help. In her example, she is using the `mutate()` function to add a new column called `danger` to the data `df`, and wants the danger value to be listed as extreme! if the animal is of `type` kraken. In all other cases, the danger levels should be "just" high.
 
 ![Artwork by `@allison_horst`, Source: https://github.com/allisonhorst/stats-illustrations](images/dplyr_case_when.png)
 
+### case_match()
+
+`case_match()` functions works essentially as a particular use case of `case_when` that automatically applies the match operator `%in%` for the logical expression (rather than >, ==, <= etc).  
+
+The use of `case_match()` is slightly different to `case_when()`:
+
+* The first argument is the column that the match operator is being applied to
+* Each subsequent argument also takes the form of a formula
+* The left hand side determines which values match this case 
+* The right hand side provides the replacement value
+* The `.default` argument sets the value for all remaining rows
+
+
+```{r, eval=FALSE}
+mutate(data, new_column_name = case_match(column, old_value ~ new_value))
+```
+
+Let's repeat the previous example with `case_match` instead of `case_when`:
+
+```{r}
+fake_data <- mutate(fake_data, 
+                    Institution_case_match = case_match(
+                      Institution,
+                      1 ~ "UoG",
+                      3 ~ "GCU",
+                      4 ~ "UWS",
+                      .default = "Strathclyde"
+                      )
+                    )
+
+head(fake_data)
+```
 
 
 ```{block, type="task"}
 **Your turn**
 
-Add a column `Grade_case_when` into `fake_data` using a combination of `mutate()` and `case_when()`, that recodes grade points to primary bands. Quick reminder:
+Add a column `grade_new` into `fake_data` using a combination of `mutate()` and either `case_when()` or `case_match()`, that recodes grade points to primary bands. It is up to you to choose the function that you think makes the most sense here. If you have extra time, try both ways!
+
+Quick reminder:
 
 * grade points 18 - 22 = A,
 * 15 to 17 = B, 
@@ -251,23 +286,36 @@ Add a column `Grade_case_when` into `fake_data` using a combination of `mutate()
 * 3 to 5 = F, 
 * 1 and 2 = G, and 
 * 0 = H.
+
 ```
 
 
 `r hide("Solution")`
 ```{r}
-fake_data <- mutate(fake_data, Grade_case_when = case_when(
-  Grade_points %in% 18:22 ~ "A",
-  Grade_points %in% 15:17 ~ "B",
-  Grade_points %in% 12:14 ~ "C",
-  Grade_points %in% 9:11 ~ "D",
-  Grade_points %in% 6:8 ~ "E",
-  Grade_points %in% 3:5 ~ "F",
-  Grade_points %in% 1:2 ~ "G",
-  TRUE ~ "H"
-  )
-)
-glimpse(fake_data)
+# using case_match
+fake_data <- mutate(fake_data, 
+                    grade_new = case_match(Grade_points, 
+                                           18:22 ~ 'A',
+                                           15:17 ~ 'B',
+                                           12:14 ~ 'C',
+                                           9:11  ~ 'D',
+                                           6:8   ~ 'E',
+                                           3:5   ~ 'F',
+                                           1:2   ~ 'G',
+                                           0     ~ 'H'))
+
+# using case_when
+fake_data <- mutate(fake_data, 
+                    grade_new2 = case_when(Grade_points %in% 18:22 ~ 'A',
+                                           Grade_points %in% 15:17 ~ 'B', 
+                                           Grade_points %in% 12:14 ~ 'C',
+                                           Grade_points %in% 9:11  ~ 'D',
+                                           Grade_points %in% 6:8   ~ 'E',
+                                           Grade_points %in% 3:5   ~ 'F',
+                                           Grade_points %in% 1:2   ~ 'G',
+                                           Grade_points == 0 ~ 'H'))
+
+# we could also use .default = 0 at the end, but bear in mind this will change any value not yet covered by the previous conditional statements to "H" - this might not always be correct!
 ```
 `r unhide()`
 
@@ -458,8 +506,3 @@ fake_data_sex
 ```
 
 `r unhide()`
-
-
-
-
-
