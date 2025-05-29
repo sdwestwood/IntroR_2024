@@ -639,9 +639,7 @@ Using the data for this class follow the instructions. Remember, you can use `Vi
 ```{r}
 # Example answer 
 
-traffic_scot <- read_csv("data/free_movement_uk.csv") 
-
-my_data <- traffic_scot %>% 
+my_data <- migration_scot %>% 
   filter(Age %in% c('21 years', '65 years'),
          Sex == 'All',
          DateCode %in% c('2002', '2018'), 

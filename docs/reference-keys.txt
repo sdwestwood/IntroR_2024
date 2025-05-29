@@ -196,3 +196,6 @@ solutions
 references
 recoding-values
 case_match
+factors
+levels
+labels
