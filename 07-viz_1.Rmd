@@ -506,7 +506,6 @@ Scatter and dot plots are excellent representations of the data as they show us 
 ```
 
 
-
 ## Other plots
 
 Let's make some more plots. 
@@ -539,6 +538,86 @@ These plots show us the distribution of females entering and leaving Scotland. W
 ```
 
 
+## Factors
+
+When we use character variables for categorical axes in our plots, R typically has no problem with assigning each distinct character string to its own category. We can see this in the previous example with two separate categories created for `MigrationType`. 
+
+However, if we have a **numeric** data type that we want to treat as a category, R can get confused...
+
+Let's say we want to compare net migration with the UK and overseas between the year 2017 and 2018:
+
+```{r}
+# start with migration_scot data
+factor_data <- migration_scot %>%
+  # filter the data for:
+  # - all ages and sexes
+  # - only Net Migration
+  # - only the years 2017 and 2018
+  filter(Age == 'All',
+         Sex == 'All',
+         MigrationType == "Net",
+         DateCode %in% 2017:2018) 
+
+# plot the values for 2017 versus 2018
+ggplot(factor_data, aes(MigrationSource, Value, fill = DateCode)) +
+geom_col(position = 'dodge')
+```
+
+Something is off here - R seems to think that the variable `DateCode` is a continuous spectrum, when it should actually be a discrete variable. 
+
+To fix this, we need to change the type of data of `DateCode`. We could simply make it a character vector with `as.character`, however there is a better option available. 
+
+The **Factor** data type is specifically designed to create categorical variables. Factors come with a few useful features: 
+
+1. It makes every unique value a discrete category
+2. It can be used to reorder the categories 
+3. It can be used to assign specific labels to different categories
+
+The `factor()` function is the most straightforward way to implement this data type. Let's see what happens when we use this function with no additional arguments:
+
+```{r}
+# convert DateCode to factor
+factor_data <- mutate(factor_data, 
+                      DateCode = factor(DateCode))
+
+ggplot(factor_data, aes(MigrationSource, Value, fill = DateCode)) +
+  geom_col(position = 'dodge')
+```
+
+### Levels
+
+This has nicely converted `DateCode` to a categorical variable. However, maybe we want to display the year 2018 first before 2017. We can do this with the `levels` argument:
+
+```{r}
+# convert DateCode to factor
+factor_data <- mutate(factor_data, 
+                      DateCode = factor(DateCode,
+                                        levels = c(2018,2017)))
+
+ggplot(factor_data, aes(MigrationSource, Value, fill = DateCode)) +
+  geom_col(position = 'dodge')
+```
+
+### Labels
+
+Finally, if we wanted to assign different labels to our categories without actually having to recode the data, we can use the `labels` argument:
+
+```{r}
+# convert DateCode to factor
+factor_data <- mutate(factor_data, 
+                      DateCode = factor(DateCode,
+                                        levels = c(2018,2017),
+                                        labels = c('\'18','\'17')))
+# remember if we want to include a ' or " in a character string we have to put \ beforehand!
+
+ggplot(factor_data, aes(MigrationSource, Value, fill = DateCode)) +
+  geom_col(position = 'dodge')
+```
+
+We can see with the factor data type that we have full control over our categorical variable, making it ideal for plotting!
+
+
+
 ```{block, type = 'task'}
 **Your turn**
 
@@ -550,7 +629,7 @@ Using the data for this class follow the instructions. Remember, you can use `Vi
 4. Select migration In and Out of Scotland.
 5. Pick whether you are going to look at `To-from Rest of UK` or `To-from Overseas`.
 6. Plot the overall people, regardless of age and year, that have moved into and left Scotland using `geom_col()`. Save the plot in the variable q6 into your `Global Environment`.
-7. Create a new plot using `geom_col()` that shows the differences between the two years you have selected, regardless of age. Save the plot in the variable q7 into your `Global Environment`.
+7. Create a new plot using `geom_col()` that shows the differences between the two years you have selected, regardless of age. Save the plot in the variable q7 into your `Global Environment` (you may need to think about factors!).
 8. Plot the differences between the two ages, regardless of year. 
 
 ```
@@ -562,22 +641,18 @@ Using the data for this class follow the instructions. Remember, you can use `Vi
 
 traffic_scot <- read_csv("data/free_movement_uk.csv") 
 
-
 my_data <- traffic_scot %>% 
-  filter(Age %in% c('21 years', '41 years')) %>% 
-  select(DateCode, Value, Age, Sex, 
-         MigrationSource=`Migration Source`, MigrationType=`Migration Type`) %>% 
-  filter(DateCode %in% c('2013', '2018'), 
+  filter(Age %in% c('21 years', '65 years'),
+         Sex == 'All',
+         DateCode %in% c('2002', '2018'), 
          MigrationType != 'Net', 
-         MigrationSource == 'To-from Overseas', 
-         Sex == 'All')
-
+         MigrationSource == 'To-from Overseas') 
 
 q6 <- ggplot(my_data, aes(MigrationType, Value)) + 
   geom_col()
 q6
 
-q7 <- ggplot(my_data, aes(MigrationType, Value, fill = as.character(DateCode))) + 
+q7 <- ggplot(my_data, aes(MigrationType, Value, fill = factor(DateCode))) + 
   geom_col(position = 'dodge')
 q7 
 
