@@ -841,7 +841,7 @@ Q2 <- MMA_Data %>%
 `r unhide()`
 
 
-What is the `BMI` of the top entry in `Q2`? `r fitb("27.042")`
+What is the `BMI` of the top entry in `Q2`? `r fitb(Q2$BMI[1])`
 
 
 ### filter()
@@ -891,7 +891,7 @@ Q4 <- MMA_Data %>% filter(WeightClass == "Welterweight", Height > 72)
 `r unhide()`
 
 
-How many athletes (observations) are left in `Q4`? `r fitb("18")`
+How many athletes (observations) are left in `Q4`? `r fitb(nrow(Q4))`
 
 ```{block, type="task"}
 **Your turn**
@@ -1027,9 +1027,25 @@ Q6 <- MMA_Data %>%
 `r unhide()`
 
 
-Which Stance/HeightClass combo has the highest median success rate? (enter your answers in the format Stance/HeightClass) `r fitb("Swithc/Tall")` <br>
-What is the minimum success rate of tall athletes with an orthodox stance? `r fitb("0.415")` <br>
-What is the standard deviation in success rate for short athletes with a southpaw stance? (write your answer to 3 decimal places) `r fitb("0.062")` <br>
+```{r echo=FALSE}
+tall_orth_min <- Q6 %>%
+  filter(Stance == "Orthodox",
+         HeightClass == "Tall") %>%
+  select(MinSuccess) %>%
+  pull()
+
+short_south_sd <- Q6 %>%
+  filter(Stance == "Southpaw",
+         HeightClass == "Short") %>%
+  select(SDSuccess) %>%
+  pull() %>%
+  round(3)
+```
+
+
+Which Stance/HeightClass combo has the highest median success rate? (enter your answers in the format Stance/HeightClass) `r fitb("Switch/Tall")` <br>
+What is the minimum success rate of tall athletes with an orthodox stance? `r fitb(tall_orth_min)` <br>
+What is the standard deviation in success rate for short athletes with a southpaw stance? (write your answer to 3 decimal places) `r fitb(short_south_sd)` <br>
 
 
 ### Bringing it all together 
